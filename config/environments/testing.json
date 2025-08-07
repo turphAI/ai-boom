@@ -1,0 +1,33 @@
+{
+  "database": {
+    "provider": "dynamodb",
+    "region": "us-east-1",
+    "table_name": "boom_bust_metrics_test",
+    "ttl_days": 1
+  },
+  "alert_thresholds": {
+    "bond_issuance": 100000000,
+    "bdc_discount": 0.01,
+    "credit_fund": 0.02,
+    "bank_provision": 0.05
+  },
+  "notifications": {
+    "enabled_channels": ["mock"],
+    "max_retries": 1,
+    "retry_delay": 0.1
+  },
+  "monitoring": {
+    "provider": "mock",
+    "metrics_enabled": false,
+    "health_check_interval": 60
+  },
+  "scraping": {
+    "max_retries": 1,
+    "timeout_seconds": 5,
+    "rate_limit_delay": 0.1,
+    "bdc_symbols": ["ARCC"],
+    "tech_company_ciks": {
+      "MSFT": "0000789019"
+    }
+  }
+}

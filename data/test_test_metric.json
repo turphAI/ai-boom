@@ -1,0 +1,12 @@
+[
+  {
+    "data_source": "test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-06T23:42:30.411953",
+    "data": {
+      "value": 100,
+      "confidence": 1.0,
+      "timestamp": "2025-08-06T23:42:30.411953"
+    }
+  }
+]

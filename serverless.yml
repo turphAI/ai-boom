@@ -1,0 +1,397 @@
+# Serverless Framework configuration for Boom-Bust Sentinel
+# This configuration deploys all scraper Lambda functions with proper scheduling and monitoring
+
+service: boom-bust-sentinel
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  region: ${opt:region, 'us-east-1'}
+  stage: ${opt:stage, 'dev'}
+  memorySize: 1024
+  timeout: 900  # 15 minutes
+  
+  # Environment variables
+  environment:
+    STAGE: ${self:provider.stage}
+    REGION: ${self:provider.region}
+    DYNAMODB_TABLE: ${self:service}-${self:provider.stage}-state
+    SNS_TOPIC_ARN: !Ref AlertsTopic
+    CRITICAL_ALERTS_SNS_TOPIC: !Ref CriticalAlertsTopic
+    SECRETS_MANAGER_PREFIX: ${self:service}/${self:provider.stage}
+    
+  # IAM permissions
+  iam:
+    role:
+      statements:
+        # DynamoDB permissions for state storage
+        - Effect: Allow
+          Action:
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+            - dynamodb:Query
+            - dynamodb:Scan
+          Resource:
+            - !GetAtt StateTable.Arn
+            - !Sub "${StateTable.Arn}/index/*"
+        
+        # SNS permissions for alerts
+        - Effect: Allow
+          Action:
+            - sns:Publish
+          Resource:
+            - !Ref AlertsTopic
+            - !Ref CriticalAlertsTopic
+        
+        # Secrets Manager permissions
+        - Effect: Allow
+          Action:
+            - secretsmanager:GetSecretValue
+            - secretsmanager:DescribeSecret
+          Resource:
+            - !Sub "arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${self:service}/${self:provider.stage}/*"
+        
+        # CloudWatch permissions for metrics and logs
+        - Effect: Allow
+          Action:
+            - cloudwatch:PutMetricData
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+          Resource: "*"
+        
+        # Lambda permissions for chunked execution
+        - Effect: Allow
+          Action:
+            - lambda:InvokeFunction
+          Resource:
+            - !Sub "arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${self:service}-${self:provider.stage}-*"
+
+# Package configuration
+package:
+  patterns:
+    - '!.git/**'
+    - '!.pytest_cache/**'
+    - '!__pycache__/**'
+    - '!*.pyc'
+    - '!tests/**'
+    - '!.env*'
+    - '!README.md'
+    - '!.vscode/**'
+    - '!venv/**'
+    - '!.venv/**'
+
+# Lambda functions
+functions:
+  # Bond Issuance Scraper
+  bondIssuanceScraper:
+    handler: handlers.bond_issuance_handler.lambda_handler
+    name: ${self:service}-${self:provider.stage}-bond-issuance
+    description: "Monitors weekly investment-grade tech bond issuance"
+    events:
+      # Weekly schedule: Monday 8 AM UTC
+      - schedule:
+          rate: cron(0 8 ? * MON *)
+          enabled: true
+          input:
+            source: "aws.events"
+            detail-type: "Scheduled Event"
+            detail:
+              scraper_name: "bond-issuance"
+    environment:
+      SCRAPER_NAME: bond-issuance
+    tags:
+      Scraper: bond-issuance
+      Schedule: weekly
+  
+  # Bond Issuance Chunked Handler
+  bondIssuanceChunked:
+    handler: handlers.bond_issuance_handler.chunked_execution_handler
+    name: ${self:service}-${self:provider.stage}-bond-issuance-chunked
+    description: "Chunked processing for bond issuance scraper"
+    timeout: 300  # 5 minutes per chunk
+    environment:
+      SCRAPER_NAME: bond-issuance-chunked
+    tags:
+      Scraper: bond-issuance
+      Type: chunked
+
+  # BDC Discount Scraper
+  bdcDiscountScraper:
+    handler: handlers.bdc_discount_handler.lambda_handler
+    name: ${self:service}-${self:provider.stage}-bdc-discount
+    description: "Monitors BDC discount-to-NAV ratios"
+    events:
+      # Daily schedule: 6 AM UTC
+      - schedule:
+          rate: cron(0 6 * * ? *)
+          enabled: true
+          input:
+            source: "aws.events"
+            detail-type: "Scheduled Event"
+            detail:
+              scraper_name: "bdc-discount"
+    environment:
+      SCRAPER_NAME: bdc-discount
+    tags:
+      Scraper: bdc-discount
+      Schedule: daily
+
+  # BDC Discount Chunked Handler
+  bdcDiscountChunked:
+    handler: handlers.bdc_discount_handler.chunked_execution_handler
+    name: ${self:service}-${self:provider.stage}-bdc-discount-chunked
+    description: "Chunked processing for BDC discount scraper"
+    timeout: 300
+    environment:
+      SCRAPER_NAME: bdc-discount-chunked
+    tags:
+      Scraper: bdc-discount
+      Type: chunked
+
+  # Credit Fund Scraper
+  creditFundScraper:
+    handler: handlers.credit_fund_handler.lambda_handler
+    name: ${self:service}-${self:provider.stage}-credit-fund
+    description: "Monitors private credit fund asset marks"
+    events:
+      # Monthly schedule: First day of month, 7 AM UTC
+      - schedule:
+          rate: cron(0 7 1 * ? *)
+          enabled: true
+          input:
+            source: "aws.events"
+            detail-type: "Scheduled Event"
+            detail:
+              scraper_name: "credit-fund"
+    environment:
+      SCRAPER_NAME: credit-fund
+    tags:
+      Scraper: credit-fund
+      Schedule: monthly
+
+  # Credit Fund Chunked Handler
+  creditFundChunked:
+    handler: handlers.credit_fund_handler.chunked_execution_handler
+    name: ${self:service}-${self:provider.stage}-credit-fund-chunked
+    description: "Chunked processing for credit fund scraper"
+    timeout: 600  # 10 minutes per chunk (Form PF files can be large)
+    environment:
+      SCRAPER_NAME: credit-fund-chunked
+    tags:
+      Scraper: credit-fund
+      Type: chunked
+
+  # Bank Provision Scraper
+  bankProvisionScraper:
+    handler: handlers.bank_provision_handler.lambda_handler
+    name: ${self:service}-${self:provider.stage}-bank-provision
+    description: "Monitors bank provisioning for non-bank financial exposures"
+    events:
+      # Quarterly schedule: First day of Q1,Q2,Q3,Q4, 9 AM UTC
+      - schedule:
+          rate: cron(0 9 1 1,4,7,10 ? *)
+          enabled: true
+          input:
+            source: "aws.events"
+            detail-type: "Scheduled Event"
+            detail:
+              scraper_name: "bank-provision"
+    environment:
+      SCRAPER_NAME: bank-provision
+    tags:
+      Scraper: bank-provision
+      Schedule: quarterly
+
+  # Bank Provision Chunked Handler
+  bankProvisionChunked:
+    handler: handlers.bank_provision_handler.chunked_execution_handler
+    name: ${self:service}-${self:provider.stage}-bank-provision-chunked
+    description: "Chunked processing for bank provision scraper"
+    timeout: 600  # 10 minutes per chunk (XBRL processing can be slow)
+    environment:
+      SCRAPER_NAME: bank-provision-chunked
+    tags:
+      Scraper: bank-provision
+      Type: chunked
+
+# CloudFormation resources
+resources:
+  Resources:
+    # DynamoDB table for state storage
+    StateTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:service}-${self:provider.stage}-state
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: pk
+            AttributeType: S
+          - AttributeName: sk
+            AttributeType: S
+          - AttributeName: data_source
+            AttributeType: S
+          - AttributeName: timestamp
+            AttributeType: S
+        KeySchema:
+          - AttributeName: pk
+            KeyType: HASH
+          - AttributeName: sk
+            KeyType: RANGE
+        GlobalSecondaryIndexes:
+          - IndexName: DataSourceIndex
+            KeySchema:
+              - AttributeName: data_source
+                KeyType: HASH
+              - AttributeName: timestamp
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+        TimeToLiveSpecification:
+          AttributeName: ttl
+          Enabled: true
+        Tags:
+          - Key: Service
+            Value: ${self:service}
+          - Key: Stage
+            Value: ${self:provider.stage}
+
+    # SNS topic for alerts
+    AlertsTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: ${self:service}-${self:provider.stage}-alerts
+        DisplayName: "Boom-Bust Sentinel Alerts"
+        Tags:
+          - Key: Service
+            Value: ${self:service}
+          - Key: Stage
+            Value: ${self:provider.stage}
+
+    # SNS topic for critical alerts
+    CriticalAlertsTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: ${self:service}-${self:provider.stage}-critical-alerts
+        DisplayName: "Boom-Bust Sentinel Critical Alerts"
+        Tags:
+          - Key: Service
+            Value: ${self:service}
+          - Key: Stage
+            Value: ${self:provider.stage}
+
+    # CloudWatch Log Groups with retention
+    BondIssuanceLogGroup:
+      Type: AWS::Logs::LogGroup
+      Properties:
+        LogGroupName: /aws/lambda/${self:service}-${self:provider.stage}-bond-issuance
+        RetentionInDays: 30
+
+    BdcDiscountLogGroup:
+      Type: AWS::Logs::LogGroup
+      Properties:
+        LogGroupName: /aws/lambda/${self:service}-${self:provider.stage}-bdc-discount
+        RetentionInDays: 30
+
+    CreditFundLogGroup:
+      Type: AWS::Logs::LogGroup
+      Properties:
+        LogGroupName: /aws/lambda/${self:service}-${self:provider.stage}-credit-fund
+        RetentionInDays: 30
+
+    BankProvisionLogGroup:
+      Type: AWS::Logs::LogGroup
+      Properties:
+        LogGroupName: /aws/lambda/${self:service}-${self:provider.stage}-bank-provision
+        RetentionInDays: 30
+
+    # CloudWatch Dashboard
+    MonitoringDashboard:
+      Type: AWS::CloudWatch::Dashboard
+      Properties:
+        DashboardName: ${self:service}-${self:provider.stage}-monitoring
+        DashboardBody: !Sub |
+          {
+            "widgets": [
+              {
+                "type": "metric",
+                "x": 0,
+                "y": 0,
+                "width": 12,
+                "height": 6,
+                "properties": {
+                  "metrics": [
+                    [ "AWS/Lambda", "Duration", "FunctionName", "${self:service}-${self:provider.stage}-bond-issuance" ],
+                    [ ".", ".", ".", "${self:service}-${self:provider.stage}-bdc-discount" ],
+                    [ ".", ".", ".", "${self:service}-${self:provider.stage}-credit-fund" ],
+                    [ ".", ".", ".", "${self:service}-${self:provider.stage}-bank-provision" ]
+                  ],
+                  "period": 300,
+                  "stat": "Average",
+                  "region": "${AWS::Region}",
+                  "title": "Lambda Execution Duration"
+                }
+              },
+              {
+                "type": "metric",
+                "x": 12,
+                "y": 0,
+                "width": 12,
+                "height": 6,
+                "properties": {
+                  "metrics": [
+                    [ "AWS/Lambda", "Errors", "FunctionName", "${self:service}-${self:provider.stage}-bond-issuance" ],
+                    [ ".", ".", ".", "${self:service}-${self:provider.stage}-bdc-discount" ],
+                    [ ".", ".", ".", "${self:service}-${self:provider.stage}-credit-fund" ],
+                    [ ".", ".", ".", "${self:service}-${self:provider.stage}-bank-provision" ]
+                  ],
+                  "period": 300,
+                  "stat": "Sum",
+                  "region": "${AWS::Region}",
+                  "title": "Lambda Errors"
+                }
+              }
+            ]
+          }
+
+  # Stack outputs
+  Outputs:
+    StateTableName:
+      Description: "DynamoDB table name for state storage"
+      Value: !Ref StateTable
+      Export:
+        Name: ${self:service}-${self:provider.stage}-state-table
+
+    AlertsTopicArn:
+      Description: "SNS topic ARN for alerts"
+      Value: !Ref AlertsTopic
+      Export:
+        Name: ${self:service}-${self:provider.stage}-alerts-topic
+
+    CriticalAlertsTopicArn:
+      Description: "SNS topic ARN for critical alerts"
+      Value: !Ref CriticalAlertsTopic
+      Export:
+        Name: ${self:service}-${self:provider.stage}-critical-alerts-topic
+
+    DashboardUrl:
+      Description: "CloudWatch Dashboard URL"
+      Value: !Sub "https://${AWS::Region}.console.aws.amazon.com/cloudwatch/home?region=${AWS::Region}#dashboards:name=${self:service}-${self:provider.stage}-monitoring"
+
+# Plugins
+plugins:
+  - serverless-python-requirements
+
+# Custom configuration
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    slim: true
+    strip: false
+    noDeps:
+      - boto3
+      - botocore

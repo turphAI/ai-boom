@@ -1,0 +1,36 @@
+{
+  "database": {
+    "provider": "dynamodb",
+    "region": "us-east-1",
+    "table_name": "boom_bust_metrics_prod",
+    "ttl_days": 730
+  },
+  "alert_thresholds": {
+    "bond_issuance": 5000000000,
+    "bdc_discount": 0.05,
+    "credit_fund": 0.10,
+    "bank_provision": 0.20
+  },
+  "notifications": {
+    "enabled_channels": ["sns", "telegram", "slack"],
+    "max_retries": 3,
+    "retry_delay": 1.0
+  },
+  "monitoring": {
+    "provider": "grafana",
+    "metrics_enabled": true,
+    "health_check_interval": 300
+  },
+  "scraping": {
+    "max_retries": 3,
+    "timeout_seconds": 30,
+    "rate_limit_delay": 1.0,
+    "bdc_symbols": ["ARCC", "OCSL", "MAIN", "PSEC", "BXSL", "TCPC"],
+    "tech_company_ciks": {
+      "MSFT": "0000789019",
+      "META": "0001326801",
+      "AMZN": "0001018724",
+      "GOOGL": "0001652044"
+    }
+  }
+}

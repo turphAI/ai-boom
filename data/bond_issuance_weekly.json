@@ -1,0 +1,23 @@
+[
+  {
+    "data_source": "bond_issuance",
+    "metric_name": "weekly",
+    "timestamp": "2025-08-06 22:41:00.840627+00:00",
+    "data": {
+      "value": 0,
+      "timestamp": "2025-08-06 22:41:00.840627+00:00",
+      "confidence": 0.0,
+      "metadata": {
+        "companies": [],
+        "avg_coupon": 0,
+        "bond_count": 0,
+        "bond_details": [],
+        "source": "sec_edgar",
+        "date_range": {
+          "start": "2025-07-30",
+          "end": "2025-08-06"
+        }
+      }
+    }
+  }
+]

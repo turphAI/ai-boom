@@ -1,0 +1,94 @@
+name: Infrastructure Monitoring
+
+on:
+  schedule:
+    # Run every 15 minutes
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    name: System Health Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install requests boto3 python-dotenv
+        
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+        aws-region: ${{ secrets.AWS_REGION }}
+        
+    - name: Run health checks
+      run: |
+        python scripts/health_check.py
+      env:
+        DASHBOARD_URL: https://dashboard.boom-bust-sentinel.com
+        GRAFANA_API_URL: ${{ secrets.GRAFANA_API_URL }}
+        GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }}
+        
+    - name: Check Lambda function health
+      run: |
+        python scripts/lambda_health_check.py
+      env:
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        
+    - name: Notify on failure
+      if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: failure
+        text: '🚨 System health check failed! Please investigate.'
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  cost-monitoring:
+    name: AWS Cost Monitoring
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install boto3 python-dotenv
+        
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+        aws-region: ${{ secrets.AWS_REGION }}
+        
+    - name: Check AWS costs
+      run: |
+        python scripts/cost_monitor.py
+      env:
+        COST_THRESHOLD: 100  # Alert if monthly cost exceeds $100
+        
+    - name: Notify on high costs
+      if: failure()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: failure
+        text: '💰 AWS costs are higher than expected! Please review usage.'
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

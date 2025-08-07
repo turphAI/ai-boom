@@ -1,0 +1,353 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Boom-Bust Sentinel Monitoring",
+    "tags": ["boom-bust-sentinel", "financial-monitoring"],
+    "timezone": "UTC",
+    "refresh": "30s",
+    "time": {
+      "from": "now-24h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "System Health Overview",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "boom_bust_sentinel.database_status",
+            "legendFormat": "Database",
+            "refId": "A"
+          },
+          {
+            "expr": "boom_bust_sentinel.scraper_status",
+            "legendFormat": "Scrapers",
+            "refId": "B"
+          },
+          {
+            "expr": "boom_bust_sentinel.alert_service_status",
+            "legendFormat": "Alerts",
+            "refId": "C"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "steps": [
+                {
+                  "color": "red",
+                  "value": 0
+                },
+                {
+                  "color": "green",
+                  "value": 1
+                }
+              ]
+            },
+            "mappings": [
+              {
+                "options": {
+                  "0": {
+                    "text": "Failed"
+                  },
+                  "1": {
+                    "text": "Healthy"
+                  }
+                },
+                "type": "value"
+              }
+            ]
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "Scraper Execution Times",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "boom_bust_sentinel.bond_issuance_weekly_execution_time",
+            "legendFormat": "Bond Issuance",
+            "refId": "A"
+          },
+          {
+            "expr": "boom_bust_sentinel.bdc_discount_avg_discount_execution_time",
+            "legendFormat": "BDC Discount",
+            "refId": "B"
+          },
+          {
+            "expr": "boom_bust_sentinel.credit_fund_asset_value_execution_time",
+            "legendFormat": "Credit Fund",
+            "refId": "C"
+          },
+          {
+            "expr": "boom_bust_sentinel.bank_provision_non_bank_provision_execution_time",
+            "legendFormat": "Bank Provision",
+            "refId": "D"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "unit": "s",
+            "min": 0
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Bond Issuance Weekly Total",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "boom_bust_sentinel.weekly_total",
+            "legendFormat": "Weekly Bond Issuance ($)",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "continuous-GrYlRd"
+            },
+            "unit": "currencyUSD",
+            "min": 0
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        }
+      },
+      {
+        "id": 4,
+        "title": "BDC Average Discount to NAV",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "boom_bust_sentinel.avg_discount",
+            "legendFormat": "Average Discount (%)",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "continuous-RdYlGr"
+            },
+            "unit": "percent",
+            "max": 0
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        }
+      },
+      {
+        "id": 5,
+        "title": "Credit Fund Asset Values",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "boom_bust_sentinel.asset_value",
+            "legendFormat": "Gross Asset Value ($)",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "continuous-BlPu"
+            },
+            "unit": "currencyUSD",
+            "min": 0
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 16
+        }
+      },
+      {
+        "id": 6,
+        "title": "Bank Provisions for Non-Bank Financials",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "boom_bust_sentinel.non_bank_provision",
+            "legendFormat": "Provision Amount ($)",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "continuous-YlOrRd"
+            },
+            "unit": "currencyUSD",
+            "min": 0
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 16
+        }
+      },
+      {
+        "id": 7,
+        "title": "Scraper Success Rate",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "avg_over_time(boom_bust_sentinel.bond_issuance_weekly_success[1h])",
+            "legendFormat": "Bond Issuance",
+            "refId": "A"
+          },
+          {
+            "expr": "avg_over_time(boom_bust_sentinel.bdc_discount_avg_discount_success[1h])",
+            "legendFormat": "BDC Discount",
+            "refId": "B"
+          },
+          {
+            "expr": "avg_over_time(boom_bust_sentinel.credit_fund_asset_value_success[1h])",
+            "legendFormat": "Credit Fund",
+            "refId": "C"
+          },
+          {
+            "expr": "avg_over_time(boom_bust_sentinel.bank_provision_non_bank_provision_success[1h])",
+            "legendFormat": "Bank Provision",
+            "refId": "D"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "unit": "percentunit",
+            "min": 0,
+            "max": 1,
+            "thresholds": {
+              "steps": [
+                {
+                  "color": "red",
+                  "value": 0
+                },
+                {
+                  "color": "yellow",
+                  "value": 0.8
+                },
+                {
+                  "color": "green",
+                  "value": 0.95
+                }
+              ]
+            }
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 24
+        }
+      },
+      {
+        "id": 8,
+        "title": "Response Times",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "boom_bust_sentinel.database_response_time",
+            "legendFormat": "Database (ms)",
+            "refId": "A"
+          },
+          {
+            "expr": "boom_bust_sentinel.alert_service_response_time",
+            "legendFormat": "Alert Service (ms)",
+            "refId": "B"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "unit": "ms",
+            "min": 0
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 24
+        }
+      },
+      {
+        "id": 9,
+        "title": "Error Counts",
+        "type": "timeseries",
+        "targets": [
+          {
+            "expr": "increase(boom_bust_sentinel.database_error_count[5m])",
+            "legendFormat": "Database Errors",
+            "refId": "A"
+          },
+          {
+            "expr": "increase(boom_bust_sentinel.scraper_error_count[5m])",
+            "legendFormat": "Scraper Errors",
+            "refId": "B"
+          },
+          {
+            "expr": "increase(boom_bust_sentinel.alert_service_error_count[5m])",
+            "legendFormat": "Alert Service Errors",
+            "refId": "C"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "unit": "short",
+            "min": 0
+          }
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 32
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "data_source": "health_check",
+    "metric_name": "database_test",
+    "timestamp": "2025-08-06T23:42:38.236594+00:00",
+    "data": {
+      "test_key": "health_check",
+      "timestamp": "2025-08-06T23:42:38.236594+00:00",
+      "value": 1
+    }
+  },
+  {
+    "data_source": "health_check",
+    "metric_name": "database_test",
+    "timestamp": "2025-08-06T23:42:30.528976+00:00",
+    "data": {
+      "test_key": "health_check",
+      "timestamp": "2025-08-06T23:42:30.528976+00:00",
+      "value": 1
+    }
+  },
+  {
+    "data_source": "health_check",
+    "metric_name": "database_test",
+    "timestamp": "2025-08-06T23:39:37.558685+00:00",
+    "data": {
+      "test_key": "health_check",
+      "timestamp": "2025-08-06T23:39:37.558685+00:00",
+      "value": 1
+    }
+  },
+  {
+    "data_source": "health_check",
+    "metric_name": "database_test",
+    "timestamp": "2025-08-06T23:38:38.298065+00:00",
+    "data": {
+      "test_key": "health_check",
+      "timestamp": "2025-08-06T23:38:38.298065+00:00",
+      "value": 1
+    }
+  },
+  {
+    "data_source": "health_check",
+    "metric_name": "database_test",
+    "timestamp": "2025-08-06T23:37:52.736490+00:00",
+    "data": {
+      "test_key": "health_check",
+      "timestamp": "2025-08-06T23:37:52.736490+00:00",
+      "value": 1
+    }
+  },
+  {
+    "data_source": "health_check",
+    "metric_name": "database_test",
+    "timestamp": "2025-08-06T23:37:52.673740+00:00",
+    "data": {
+      "test_key": "health_check",
+      "timestamp": "2025-08-06T23:37:52.673740+00:00",
+      "value": 1
+    }
+  },
+  {
+    "data_source": "health_check",
+    "metric_name": "database_test",
+    "timestamp": "2025-08-06T23:37:51.562947+00:00",
+    "data": {
+      "test_key": "health_check",
+      "timestamp": "2025-08-06T23:37:51.562947+00:00",
+      "value": 1
+    }
+  }
+]

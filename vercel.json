@@ -1,0 +1,46 @@
+{
+  "buildCommand": "cd dashboard && npm run build",
+  "devCommand": "cd dashboard && npm run dev",
+  "installCommand": "cd dashboard && npm install",
+  "outputDirectory": "dashboard/.next",
+  "env": {
+    "NEXTAUTH_URL": "@nextauth_url",
+    "NEXTAUTH_SECRET": "@nextauth_secret",
+    "DATABASE_URL": "@database_url",
+    "GRAFANA_API_URL": "@grafana_api_url",
+    "GRAFANA_API_KEY": "@grafana_api_key",
+    "AWS_REGION": "@aws_region",
+    "DYNAMODB_TABLE": "@dynamodb_table",
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "dashboard/src/pages/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/health",
+      "destination": "/api/system/health"
+    }
+  ]
+}

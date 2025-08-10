@@ -130,9 +130,9 @@ class Settings:
     
     # Monitoring
     @property
-    def GRAFANA_API_KEY(self) -> str:
-        """Get Grafana API key."""
-        return self._monitoring_config.grafana_api_key or ''
+    def GRAFANA_TOKEN(self) -> str:
+        """Get Grafana API token."""
+        return self._monitoring_config.grafana_token or ''
     
     @property
     def GRAFANA_URL(self) -> str:

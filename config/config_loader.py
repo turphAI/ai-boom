@@ -71,7 +71,7 @@ class MonitoringConfig:
     """Monitoring and observability configuration."""
     provider: str = 'grafana'  # 'grafana' or 'datadog'
     grafana_url: Optional[str] = None
-    grafana_api_key: Optional[str] = None
+    grafana_token: Optional[str] = None
     datadog_api_key: Optional[str] = None
     metrics_enabled: bool = True
     health_check_interval: int = 300  # 5 minutes

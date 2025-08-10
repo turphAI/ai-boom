@@ -8,7 +8,7 @@
     "NEXTAUTH_SECRET": "@nextauth_secret_staging",
     "DATABASE_URL": "@database_url_staging",
     "GRAFANA_API_URL": "@grafana_api_url_staging",
-    "GRAFANA_API_KEY": "@grafana_api_key_staging",
+    "GRAFANA_TOKEN": "@grafana_token_staging",
     "AWS_REGION": "@aws_region",
     "DYNAMODB_TABLE": "@dynamodb_table_staging",
     "NODE_ENV": "staging"

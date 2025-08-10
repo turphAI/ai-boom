@@ -66,7 +66,7 @@ class GrafanaCloudBackend(MetricsBackend):
     
     def __init__(self):
         self.logger = logging.getLogger(__name__)
-        self.api_key = settings.GRAFANA_API_KEY
+        self.api_key = settings.GRAFANA_TOKEN
         self.grafana_url = settings.GRAFANA_URL
         
         # Grafana Cloud free tier endpoint
@@ -264,7 +264,7 @@ class MetricsService:
     def _initialize_backends(self) -> None:
         """Initialize all configured metrics backends."""
         # Add Grafana Cloud if configured
-        if settings.GRAFANA_API_KEY and settings.GRAFANA_URL:
+        if settings.GRAFANA_TOKEN and settings.GRAFANA_URL:
             self.backends.append(GrafanaCloudBackend())
         
         # Add Datadog if configured

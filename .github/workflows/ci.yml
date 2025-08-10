@@ -88,25 +88,18 @@ jobs:
         npm install --save-dev @types/node @types/react @types/react-dom
       
     - name: Run linting
-      run: |
-        cd dashboard
-        npm run lint
+      run: npm run lint
       
     - name: Run type checking
       run: |
-        cd dashboard
         npx tsc --build --clean
         npx tsc --noEmit
       
     - name: Run tests
-      run: |
-        cd dashboard
-        npm run test || echo "Frontend tests completed"
+      run: npm run test || echo "Frontend tests completed"
       
     - name: Build application
-      run: |
-        cd dashboard
-        npm run build
+      run: npm run build
       
   # Security Scanning
   security-scan:

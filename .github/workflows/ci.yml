@@ -197,7 +197,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_STAGING }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STAGING }}
-        aws-region: ${{ secrets.AWS_REGION }}
+        aws-region: us-east-1
         
     - name: Deploy backend infrastructure
       run: |
@@ -205,7 +205,7 @@ jobs:
         serverless --version
         npm install -g serverless-python-requirements
         pip install -r requirements.txt
-        serverless deploy --stage staging --region ${{ secrets.AWS_REGION }}
+        serverless deploy --stage staging --region us-east-1
         
     - name: Deploy frontend to Vercel
       uses: amondnet/vercel-action@v25
@@ -254,7 +254,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
-        aws-region: ${{ secrets.AWS_REGION }}
+        aws-region: us-east-1
         
     - name: Deploy backend infrastructure
       run: |
@@ -262,7 +262,7 @@ jobs:
         serverless --version
         npm install -g serverless-python-requirements
         pip install -r requirements.txt
-        serverless deploy --stage prod --region ${{ secrets.AWS_REGION }}
+        serverless deploy --stage prod --region us-east-1
         
     - name: Deploy frontend to Vercel
       uses: amondnet/vercel-action@v25

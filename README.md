@@ -1,6 +1,8 @@
-# Boom-Bust Sentinel Dashboard
+# Boom Bust Sentinel - Financial Market Monitoring System
 
-Web dashboard backend API for the Boom-Bust Sentinel financial monitoring system.
+> **Last Updated:** $(date) - Force Vercel deployment update
+
+A comprehensive financial market monitoring system that tracks various market indicators and provides real-time alerts for potential market crashes or booms.
 
 ## Features
 

@@ -1,5 +1,6 @@
 {
-  "outputDirectory": "dashboard/.next",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
   "framework": "nextjs",
   "env": {
     "NEXTAUTH_URL": "@nextauth_url",

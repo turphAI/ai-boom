@@ -1,6 +1,13 @@
 {
   "framework": "nextjs",
   "env": {
+    "NEXTAUTH_URL": "@nextauth_url",
+    "NEXTAUTH_SECRET": "@nextauth_secret",
+    "DATABASE_URL": "@database_url",
+    "GRAFANA_API_URL": "@grafana_api_url",
+    "GRAFANA_TOKEN": "@grafana_token",
+    "AWS_REGION": "@aws_region",
+    "DYNAMODB_TABLE": "@dynamodb_table",
     "NODE_ENV": "production"
   },
   "functions": {

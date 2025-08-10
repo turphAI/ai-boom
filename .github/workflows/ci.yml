@@ -147,7 +147,8 @@ jobs:
       
     - name: Validate Serverless Configuration
       run: |
-        npm install -g serverless
+        npm install -g serverless@3.38.0
+        serverless --version
         serverless config validate
         
   # Deploy to Staging
@@ -187,7 +188,8 @@ jobs:
         
     - name: Deploy backend infrastructure
       run: |
-        npm install -g serverless
+        npm install -g serverless@3.38.0
+        serverless --version
         pip install -r requirements.txt
         serverless deploy --stage staging --region ${{ secrets.AWS_REGION }}
         
@@ -242,7 +244,8 @@ jobs:
         
     - name: Deploy backend infrastructure
       run: |
-        npm install -g serverless
+        npm install -g serverless@3.38.0
+        serverless --version
         pip install -r requirements.txt
         serverless deploy --stage prod --region ${{ secrets.AWS_REGION }}
         

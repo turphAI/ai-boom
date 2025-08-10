@@ -10,7 +10,7 @@ import time
 import pytest
 import requests
 import boto3
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Any, Optional
 
 class DeploymentVerifier:
@@ -188,7 +188,7 @@ class TestFunctionality:
                     'detail-type': 'Deployment Verification',
                     'detail': {
                         'test': True,
-                        'timestamp': datetime.utcnow().isoformat()
+                        'timestamp': datetime.now(timezone.utc).isoformat()
                     }
                 }
                 
@@ -219,10 +219,10 @@ class TestFunctionality:
             'pk': {'S': 'test-deployment'},
             'sk': {'S': f'verification-{int(time.time())}'},
             'data_source': {'S': 'deployment-test'},
-            'timestamp': {'S': datetime.utcnow().isoformat()},
+            'timestamp': {'S': datetime.now(timezone.utc).isoformat()},
             'value': {'N': '123.45'},
             'metadata': {'S': json.dumps({'test': True})},
-            'ttl': {'N': str(int((datetime.utcnow() + timedelta(hours=1)).timestamp()))}
+            'ttl': {'N': str(int((datetime.now(timezone.utc) + timedelta(hours=1)).timestamp()))}
         }
         
         try:
@@ -274,7 +274,7 @@ class TestFunctionality:
             test_message = {
                 'alert_type': 'deployment_test',
                 'message': 'Deployment verification test message',
-                'timestamp': datetime.utcnow().isoformat(),
+                'timestamp': datetime.now(timezone.utc).isoformat(),
                 'environment': verifier.environment
             }
             
@@ -353,7 +353,7 @@ class TestMonitoring:
     def test_cloudwatch_metrics(self, verifier):
         """Test that CloudWatch metrics are being generated."""
         # Check for Lambda metrics
-        end_time = datetime.utcnow()
+        end_time = datetime.now(timezone.utc)
         start_time = end_time - timedelta(hours=24)
         
         function_name = f"boom-bust-sentinel-{verifier.environment}-bond-issuance"

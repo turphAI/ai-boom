@@ -4,7 +4,7 @@ Integration tests for alert service with scrapers.
 
 import tempfile
 import shutil
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, Optional
 
 from scrapers.base import BaseScraper
@@ -26,6 +26,7 @@ class AlertTestScraper(BaseScraper):
         return {
             'value': self.current_value,
             'confidence': 0.95,
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'metadata': {'test_mode': True}
         }
     
@@ -55,7 +56,7 @@ class AlertTestScraper(BaseScraper):
             'previous_value': historical_value,
             'threshold': self.threshold,
             'change_percent': round(change_percent, 2),
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'message': f'Value changed from {historical_value} to {current_value}',
             'context': {
                 'test_mode': True,

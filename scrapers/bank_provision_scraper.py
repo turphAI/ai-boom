@@ -79,7 +79,7 @@ class BankProvisionScraper(BaseScraper):
                         'provisions': provisions,
                         'cik': cik,
                         'filing_url': filing_url,
-                        'timestamp': datetime.utcnow().isoformat(),
+                        'timestamp': datetime.now(timezone.utc).isoformat(),
                         'data_source': data_source
                     }
                     
@@ -99,6 +99,7 @@ class BankProvisionScraper(BaseScraper):
         
         return {
             'value': total_provisions,
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'bank_count': len(provision_data),
             'individual_banks': provision_data,
             'metadata': {
@@ -381,7 +382,7 @@ class BankProvisionScraper(BaseScraper):
     
     def _get_current_quarter(self) -> str:
         """Get current quarter string (e.g., 'Q1 2024')."""
-        now = datetime.utcnow()
+        now = datetime.now(timezone.utc)
         quarter = (now.month - 1) // 3 + 1
         return f"Q{quarter} {now.year}"
     
@@ -489,7 +490,7 @@ class BankProvisionScraper(BaseScraper):
             'change': change,
             'change_percentage': change_percentage,
             'message': message,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'context': {
                 'bank_count': current_data.get('bank_count', 0),
                 'quarter': quarter,

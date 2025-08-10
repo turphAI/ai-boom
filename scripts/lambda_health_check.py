@@ -8,7 +8,7 @@ import os
 import sys
 import json
 import boto3
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Any
 
 class LambdaHealthChecker:
@@ -58,7 +58,7 @@ class LambdaHealthChecker:
     
     def get_function_metrics(self, function_name: str, hours: int = 24) -> Dict[str, Any]:
         """Get CloudWatch metrics for a Lambda function."""
-        end_time = datetime.utcnow()
+        end_time = datetime.now(timezone.utc)
         start_time = end_time - timedelta(hours=hours)
         
         metrics_to_check = [
@@ -116,8 +116,8 @@ class LambdaHealthChecker:
         log_group_name = f"/aws/lambda/{function_name}"
         
         try:
-            end_time = int(datetime.utcnow().timestamp() * 1000)
-            start_time = int((datetime.utcnow() - timedelta(hours=hours)).timestamp() * 1000)
+            end_time = int(datetime.now(timezone.utc).timestamp() * 1000)
+            start_time = int((datetime.now(timezone.utc) - timedelta(hours=hours)).timestamp() * 1000)
             
             # Get recent log events
             response = self.logs_client.filter_log_events(
@@ -178,7 +178,7 @@ class LambdaHealthChecker:
                 'detail-type': 'Health Check',
                 'detail': {
                     'test': True,
-                    'timestamp': datetime.utcnow().isoformat()
+                    'timestamp': datetime.now(timezone.utc).isoformat()
                 }
             }
             
@@ -310,12 +310,12 @@ class LambdaHealthChecker:
         """Run comprehensive Lambda health check."""
         print(f"🔧 Running Lambda health check for environment: {self.environment}")
         print(f"   Region: {self.aws_region}")
-        print(f"   Timestamp: {datetime.utcnow().isoformat()}Z")
+        print(f"   Timestamp: {datetime.now(timezone.utc).isoformat()}Z")
         print()
         
         function_names = self.get_function_names()
         results = {
-            'timestamp': datetime.utcnow().isoformat() + 'Z',
+            'timestamp': datetime.now(timezone.utc).isoformat() + 'Z',
             'environment': self.environment,
             'region': self.aws_region,
             'functions': {}
@@ -374,7 +374,7 @@ def main():
         # Check single function
         result = checker.analyze_function_health(args.function)
         results = {
-            'timestamp': datetime.utcnow().isoformat() + 'Z',
+            'timestamp': datetime.now(timezone.utc).isoformat() + 'Z',
             'environment': args.environment,
             'region': checker.aws_region,
             'functions': {args.function: result}

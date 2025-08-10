@@ -1,0 +1,113 @@
+{
+  "timestamp": "2025-08-10T17:44:03.991659+00:00",
+  "results": {
+    "aws_identity": {
+      "UserId": "AIDA6QC2U5HTMIHTHPWPJ",
+      "Account": "996622526950",
+      "Arn": "arn:aws:iam::996622526950:user/aiProjects",
+      "ResponseMetadata": {
+        "RequestId": "2efe24e4-1b29-40c8-a080-fcf75dc36130",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+          "x-amzn-requestid": "2efe24e4-1b29-40c8-a080-fcf75dc36130",
+          "x-amz-sts-extended-request-id": "MTp1cy1lYXN0LTE6MTc1NDg0NzgzODQ0NTpSOmQ1Rk1kaVFv",
+          "content-type": "text/xml",
+          "content-length": "407",
+          "date": "Sun, 10 Aug 2025 17:43:58 GMT"
+        },
+        "RetryAttempts": 0
+      }
+    },
+    "aws_permissions": {
+      "dynamodb": {
+        "list_tables": true,
+        "create_table": "skipped",
+        "describe_table": "skipped"
+      },
+      "lambda": {
+        "list_functions": true,
+        "create_function": "skipped"
+      },
+      "iam": {
+        "list_roles": true,
+        "create_role": "skipped"
+      },
+      "sns": {
+        "list_topics": true,
+        "create_topic": "skipped"
+      },
+      "cloudformation": {
+        "describe_stacks": true,
+        "create_stack": "skipped"
+      },
+      "secretsmanager": {
+        "list_secrets": true,
+        "create_secret": "skipped"
+      }
+    },
+    "deployment_tools": {
+      "serverless": {
+        "available": true,
+        "version": "Framework Core: 3.40.0"
+      },
+      "terraform": {
+        "available": false,
+        "error": "[Errno 2] No such file or directory: 'terraform'"
+      },
+      "aws-cli": {
+        "available": true,
+        "version": "aws-cli/2.28.4 Python/3.13.5 Darwin/24.6.0 source/arm64"
+      },
+      "node": {
+        "available": true,
+        "version": "v24.4.1"
+      },
+      "npm": {
+        "available": true,
+        "version": "11.5.2"
+      }
+    },
+    "environment_config": {
+      "required": {
+        "AWS_ACCESS_KEY_ID": "set",
+        "AWS_SECRET_ACCESS_KEY": "set",
+        "AWS_REGION": "set",
+        "ENVIRONMENT": "set"
+      },
+      "optional": {
+        "GRAFANA_URL": "set",
+        "GRAFANA_API_KEY": "set",
+        "DATABASE_PROVIDER": "set",
+        "NOTIFICATION_PROVIDER": "set"
+      }
+    },
+    "local_system": {
+      "scrapers": {
+        "working": true,
+        "success": true,
+        "execution_time": 2.773625135421753
+      },
+      "data_storage": {
+        "working": true,
+        "files": 4
+      },
+      "dashboard": {
+        "working": true
+      }
+    }
+  },
+  "plan": {
+    "readiness_score": 79,
+    "blockers": [
+      "Limited AWS permissions"
+    ],
+    "recommendations": [
+      "\u26a0\ufe0f  System mostly ready, address blockers first"
+    ],
+    "next_steps": [
+      "Fix AWS permissions",
+      "Test deployment in dev environment",
+      "Verify all services work"
+    ]
+  }
+}

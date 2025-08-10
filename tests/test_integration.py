@@ -4,7 +4,7 @@ Integration tests for the state store and scraper interaction.
 
 import tempfile
 import shutil
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, Optional
 
 from scrapers.base import BaseScraper

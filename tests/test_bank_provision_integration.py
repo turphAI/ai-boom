@@ -322,6 +322,7 @@ class TestBankProvisionScraperIntegration:
         # Mock successful data fetch
         mock_fetch_data.return_value = {
             'value': 1200000000,
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'bank_count': 4,
             'individual_banks': {
                 'JPM': {'provisions': 315000000, 'data_source': 'xbrl'},
@@ -381,6 +382,9 @@ class TestBankProvisionScraperIntegration:
              patch.object(scraper, 'alert_service') as mock_alert_service, \
              patch.object(scraper, 'metrics_service') as mock_metrics_service:
             
+            # Mock no fallback data available
+            mock_state_store.get_latest_value.return_value = None
+            
             # Execute scraper
             result = scraper.execute()
             
@@ -414,7 +418,7 @@ class TestBankProvisionScraperIntegration:
         
         for test_date, expected_quarter in test_cases:
             with patch('scrapers.bank_provision_scraper.datetime') as mock_datetime:
-                mock_datetime.utcnow.return_value = test_date
+                mock_datetime.now.return_value = test_date.replace(tzinfo=timezone.utc)
                 
                 result = scraper._get_current_quarter()
                 assert result == expected_quarter, f"Failed for {test_date}"

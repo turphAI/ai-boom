@@ -7,7 +7,7 @@ for scheduled execution of the Boom-Bust Sentinel scrapers.
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional
 
 import boto3
@@ -66,7 +66,7 @@ class CloudWatchScheduler:
                             'detail-type': 'Scheduled Event',
                             'detail': {
                                 'scraper_name': scraper_name,
-                                'scheduled_time': datetime.utcnow().isoformat()
+                                'scheduled_time': datetime.now(timezone.utc).isoformat()
                             }
                         })
                     }

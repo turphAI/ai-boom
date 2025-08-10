@@ -1,0 +1,154 @@
+[
+  {
+    "data_source": "comprehensive_test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:28.004509+00:00",
+    "data": {
+      "value": 1050000,
+      "timestamp": "2025-08-10T20:16:28.004509+00:00",
+      "confidence": 1.0,
+      "metadata": {
+        "source": "test_api",
+        "call_number": 5,
+        "data_points": 100
+      },
+      "validation_checksum": "e5093e4cbe4eae958c658371d50193b6d463f548d6c83190bb8d44dcd15c1c8c",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "comprehensive_test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:28.004174+00:00",
+    "data": {
+      "value": 1040000,
+      "timestamp": "2025-08-10T20:16:28.004174+00:00",
+      "confidence": 1.0,
+      "metadata": {
+        "source": "test_api",
+        "call_number": 4,
+        "data_points": 100
+      },
+      "validation_checksum": "298eb4f6d2cbb3b97a7898e92a0840a32dd49c942685e36ab1ccb1af33c5bff6",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "comprehensive_test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:28.003864+00:00",
+    "data": {
+      "value": 1030000,
+      "timestamp": "2025-08-10T20:16:28.003864+00:00",
+      "confidence": 1.0,
+      "metadata": {
+        "source": "test_api",
+        "call_number": 3,
+        "data_points": 100
+      },
+      "validation_checksum": "d8ff6e6e34439842587bc703f2667421197051926c4a2a4b72b990e0f1c66727",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "comprehensive_test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:28.003563+00:00",
+    "data": {
+      "value": 1020000,
+      "timestamp": "2025-08-10T20:16:28.003563+00:00",
+      "confidence": 1.0,
+      "metadata": {
+        "source": "test_api",
+        "call_number": 2,
+        "data_points": 100
+      },
+      "validation_checksum": "a05e179d43f21163949180492a1ee92b490ae50dbae7fb7f9d60bf83a2050359",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "comprehensive_test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:28.003174+00:00",
+    "data": {
+      "value": 1010000,
+      "timestamp": "2025-08-10T20:16:28.003174+00:00",
+      "confidence": 1.0,
+      "metadata": {
+        "source": "test_api",
+        "call_number": 1,
+        "data_points": 100
+      },
+      "validation_checksum": "7e2cd7524489c5a888cfc4091cc13fb0398687f36e6992f59a68ec8ac8e8bbbf",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "comprehensive_test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:27.993878+00:00",
+    "data": {
+      "value": 1010000,
+      "timestamp": "2025-08-10T20:16:27.993878+00:00",
+      "confidence": 0.5,
+      "metadata": {
+        "source": "test_api",
+        "call_number": 1,
+        "data_points": 100
+      },
+      "validation_checksum": "03ae3c7c32e7f43229a87e7fb59aa70ec665b8bf97aaee0f6826e40fb8fcef8f",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "comprehensive_test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:27.989954+00:00",
+    "data": {
+      "value": 5000000,
+      "timestamp": "2025-08-10T20:16:27.989954+00:00",
+      "confidence": 0.5,
+      "metadata": {
+        "source": "test_api",
+        "call_number": 1,
+        "data_points": 100
+      },
+      "validation_checksum": "8ffb74f386107ee5288faf85a1e7fd6d15b202c8ba11a43a0ef73102c05372b8",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "comprehensive_test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:27.985696+00:00",
+    "data": {
+      "value": 800000,
+      "timestamp": "2025-08-10T20:16:27.985696+00:00",
+      "confidence": 0.5,
+      "metadata": {
+        "source": "cached"
+      },
+      "_fallback": true,
+      "validation_checksum": "eb7bcd9f6672d927620eb2b288c5bb5e9f888ba463afc9a2fbfb80a815819ae5",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "comprehensive_test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:27.955854+00:00",
+    "data": {
+      "value": 1010000,
+      "timestamp": "2025-08-10T20:16:27.955854+00:00",
+      "confidence": 1.0,
+      "metadata": {
+        "source": "test_api",
+        "call_number": 1,
+        "data_points": 100
+      },
+      "validation_checksum": "75a46de0a26388b7850f790838a4af2633c2070d5d8c446fa9bb70fbac3b7fa4",
+      "anomaly_score": null
+    }
+  }
+]

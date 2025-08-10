@@ -3,7 +3,7 @@ Utility script to test alert notifications manually.
 """
 
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from services.alert_service import AlertService
 
 
@@ -17,7 +17,7 @@ def create_test_alert(alert_type: str = "test") -> dict:
         'previous_value': 8000000000,   # $8B
         'threshold': 5000000000,        # $5B
         'change_percent': 87.5,
-        'timestamp': datetime.utcnow().isoformat(),
+        'timestamp': datetime.now(timezone.utc).isoformat(),
         'message': f'Test alert of type: {alert_type}',
         'context': {
             'companies_involved': ['MSFT', 'META'],

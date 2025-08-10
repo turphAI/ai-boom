@@ -10,7 +10,7 @@ import json
 import time
 import argparse
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List, Any
 
 class DeploymentTester:
@@ -246,7 +246,7 @@ class DeploymentTester:
     def run_all_tests(self) -> Dict[str, Any]:
         """Run all deployment tests."""
         print(f"🧪 Running deployment tests for {self.stage} in {self.region}")
-        print(f"   Timestamp: {datetime.utcnow().isoformat()}Z")
+        print(f"   Timestamp: {datetime.now(timezone.utc).isoformat()}Z")
         print()
         
         start_time = time.time()
@@ -273,7 +273,7 @@ class DeploymentTester:
         overall_success = all(result['success'] for result in all_results)
         
         results = {
-            'timestamp': datetime.utcnow().isoformat() + 'Z',
+            'timestamp': datetime.now(timezone.utc).isoformat() + 'Z',
             'stage': self.stage,
             'region': self.region,
             'duration_seconds': duration,
@@ -388,7 +388,7 @@ def main():
         
         # Add metadata
         results.update({
-            'timestamp': datetime.utcnow().isoformat() + 'Z',
+            'timestamp': datetime.now(timezone.utc).isoformat() + 'Z',
             'stage': args.stage,
             'region': args.region,
             'overall_success': results['test_suites'][args.suite]['success']

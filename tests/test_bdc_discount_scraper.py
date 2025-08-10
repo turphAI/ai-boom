@@ -4,7 +4,7 @@ Unit tests for BDC discount-to-NAV scraper.
 
 import pytest
 from unittest.mock import Mock, patch, MagicMock
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 import xml.etree.ElementTree as ET
 import pandas as pd
 
@@ -137,7 +137,7 @@ class TestBDCDiscountScraper:
     def test_fetch_nav_from_rss_success(self, mock_datetime, mock_get, scraper, mock_rss_response):
         """Test successful NAV fetching from RSS."""
         # Mock current time to be after the test date
-        from datetime import datetime, timedelta
+        from datetime import datetime, timezone, timedelta
         mock_now = datetime(2025, 2, 1, 12, 0, 0)  # Feb 1, 2025
         mock_datetime.utcnow.return_value = mock_now
         mock_datetime.strptime.side_effect = datetime.strptime

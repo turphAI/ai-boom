@@ -12,7 +12,7 @@ This test suite demonstrates all error handling features working together:
 import pytest
 import time
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from unittest.mock import Mock, patch, MagicMock
 from typing import Dict, Any, List
 
@@ -52,7 +52,7 @@ class ComprehensiveTestScraper(BaseScraper):
         # Return test data
         return {
             'value': 1000000 + (self.api_call_count * 10000),  # Slightly different each time
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'confidence': 0.95,
             'metadata': {
                 'source': 'test_api',
@@ -98,13 +98,13 @@ class ComprehensiveTestScraper(BaseScraper):
                 'value': base_value + 5000,  # 0.5% difference
                 'source': 'secondary_api_1',
                 'confidence': 0.9,
-                'timestamp': datetime.utcnow().isoformat()
+                'timestamp': datetime.now(timezone.utc).isoformat()
             },
             {
                 'value': base_value - 3000,  # 0.3% difference
                 'source': 'secondary_api_2',
                 'confidence': 0.85,
-                'timestamp': datetime.utcnow().isoformat()
+                'timestamp': datetime.now(timezone.utc).isoformat()
             }
         ]
     
@@ -203,7 +203,7 @@ class TestComprehensiveErrorHandling:
         cache_key = f"{self.scraper.data_source}_{self.scraper.metric_name}"
         cached_data = {
             'value': 800000,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'confidence': 0.7,
             'metadata': {'source': 'cached'}
         }
@@ -232,7 +232,7 @@ class TestComprehensiveErrorHandling:
         for i in range(30):
             historical_data.append({
                 'value': 1000000 + (i * 1000),  # Gradual increase
-                'timestamp': (datetime.utcnow() - timedelta(days=30-i)).isoformat()
+                'timestamp': (datetime.now(timezone.utc) - timedelta(days=30-i)).isoformat()
             })
         
         mock_store = Mock()
@@ -384,7 +384,7 @@ class TestRealWorldScenarios:
         mock_store.get_historical_data.return_value = []
         mock_store.get_latest_value.return_value = {
             'value': 2500000000,
-            'timestamp': (datetime.utcnow() - timedelta(hours=6)).isoformat(),
+            'timestamp': (datetime.now(timezone.utc) - timedelta(hours=6)).isoformat(),
             'confidence': 0.9
         }
         mock_state_store.return_value = mock_store
@@ -400,7 +400,7 @@ class TestRealWorldScenarios:
         cache_key = f"{scraper.data_source}_{scraper.metric_name}"
         cached_data = {
             'value': 2800000000,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'confidence': 0.85,
             'metadata': {
                 'companies': ['MSFT', 'GOOGL'],

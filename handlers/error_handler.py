@@ -8,7 +8,7 @@ for all Boom-Bust Sentinel Lambda functions.
 import json
 import logging
 import traceback
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, Optional, Callable
 from functools import wraps
 
@@ -58,7 +58,7 @@ class LambdaErrorHandler:
             'event_detail_type': event.get('detail-type', 'unknown'),
             'remaining_time_ms': getattr(context, 'get_remaining_time_in_millis', lambda: 0)(),
             'memory_limit_mb': getattr(context, 'memory_limit_in_mb', 0),
-            'timestamp': datetime.utcnow().isoformat()
+            'timestamp': datetime.now(timezone.utc).isoformat()
         }
         
         self.logger.info(f"Lambda execution started: {json.dumps(log_data)}")
@@ -72,7 +72,7 @@ class LambdaErrorHandler:
             'function_name': self.function_name,
             'success': success,
             'execution_time_seconds': execution_time,
-            'timestamp': datetime.utcnow().isoformat()
+            'timestamp': datetime.now(timezone.utc).isoformat()
         }
         
         if result_summary:
@@ -105,7 +105,7 @@ class LambdaErrorHandler:
             'error_type': error_type,
             'error_message': error_message,
             'stack_trace': stack_trace,
-            'timestamp': datetime.utcnow().isoformat()
+            'timestamp': datetime.now(timezone.utc).isoformat()
         }
         
         if context:
@@ -127,7 +127,7 @@ class LambdaErrorHandler:
                 'error': error_message,
                 'error_type': error_type,
                 'execution_id': execution_id,
-                'timestamp': datetime.utcnow().isoformat()
+                'timestamp': datetime.now(timezone.utc).isoformat()
             }
         }
     
@@ -151,7 +151,7 @@ class LambdaErrorHandler:
                         ],
                         'Value': 1,
                         'Unit': 'Count',
-                        'Timestamp': datetime.utcnow()
+                        'Timestamp': datetime.now(timezone.utc)
                     }
                 ]
             )
@@ -191,7 +191,7 @@ class LambdaErrorHandler:
                 'execution_id': execution_id,
                 'error_type': type(error).__name__,
                 'error_message': str(error),
-                'timestamp': datetime.utcnow().isoformat(),
+                'timestamp': datetime.now(timezone.utc).isoformat(),
                 'severity': 'CRITICAL'
             }
             
@@ -222,14 +222,14 @@ def lambda_error_handler(function_name: str):
         def wrapper(event: Dict[str, Any], context) -> Dict[str, Any]:
             error_handler = LambdaErrorHandler(function_name)
             execution_id = error_handler.log_execution_start(event, context)
-            start_time = datetime.utcnow()
+            start_time = datetime.now(timezone.utc)
             
             try:
                 # Execute the original function
                 result = func(event, context)
                 
                 # Log successful completion
-                execution_time = (datetime.utcnow() - start_time).total_seconds()
+                execution_time = (datetime.now(timezone.utc) - start_time).total_seconds()
                 result_summary = result.get('body', {}) if isinstance(result, dict) else {}
                 error_handler.log_execution_end(
                     execution_id, True, execution_time, result_summary
@@ -239,7 +239,7 @@ def lambda_error_handler(function_name: str):
                 
             except Exception as error:
                 # Handle and log the error
-                execution_time = (datetime.utcnow() - start_time).total_seconds()
+                execution_time = (datetime.now(timezone.utc) - start_time).total_seconds()
                 error_handler.log_execution_end(execution_id, False, execution_time)
                 
                 # Send critical alert for certain error types
@@ -273,7 +273,7 @@ class MetricsCollector:
                     'Dimensions': [{'Name': 'FunctionName', 'Value': function_name}],
                     'Value': execution_time,
                     'Unit': 'Seconds',
-                    'Timestamp': datetime.utcnow()
+                    'Timestamp': datetime.now(timezone.utc)
                 },
                 {
                     'MetricName': 'Executions',
@@ -283,7 +283,7 @@ class MetricsCollector:
                     ],
                     'Value': 1,
                     'Unit': 'Count',
-                    'Timestamp': datetime.utcnow()
+                    'Timestamp': datetime.now(timezone.utc)
                 }
             ]
             
@@ -293,7 +293,7 @@ class MetricsCollector:
                     'Dimensions': [{'Name': 'FunctionName', 'Value': function_name}],
                     'Value': data_points,
                     'Unit': 'Count',
-                    'Timestamp': datetime.utcnow()
+                    'Timestamp': datetime.now(timezone.utc)
                 })
             
             self.cloudwatch.put_metric_data(
@@ -315,7 +315,7 @@ class MetricsCollector:
                     'Dimensions': [{'Name': 'FunctionName', 'Value': function_name}],
                     'Value': value,
                     'Unit': 'None',
-                    'Timestamp': datetime.utcnow()
+                    'Timestamp': datetime.now(timezone.utc)
                 })
             
             if metric_data:

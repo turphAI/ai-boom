@@ -2,6 +2,16 @@
   {
     "data_source": "health_check",
     "metric_name": "database_test",
+    "timestamp": "2025-08-10T20:16:45.597464+00:00",
+    "data": {
+      "test_key": "health_check",
+      "timestamp": "2025-08-10T20:16:45.597464+00:00",
+      "value": 1
+    }
+  },
+  {
+    "data_source": "health_check",
+    "metric_name": "database_test",
     "timestamp": "2025-08-06T23:42:38.236594+00:00",
     "data": {
       "test_key": "health_check",

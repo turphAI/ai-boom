@@ -8,7 +8,7 @@ including timeout handling, error scenarios, and chunked processing.
 import json
 import pytest
 from unittest.mock import Mock, patch, MagicMock
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Import handlers
 from handlers.bond_issuance_handler import lambda_handler as bond_handler
@@ -63,7 +63,7 @@ class TestBondIssuanceHandler:
         mock_result.success = True
         mock_result.data_source = "bond_issuance"
         mock_result.metric_name = "weekly"
-        mock_result.timestamp = datetime.utcnow()
+        mock_result.timestamp = datetime.now(timezone.utc)
         mock_result.data = {
             'value': 5000000000,
             'metadata': {
@@ -101,7 +101,7 @@ class TestBondIssuanceHandler:
         mock_result.error = "Failed to fetch SEC data"
         mock_result.data_source = "bond_issuance"
         mock_result.metric_name = "weekly"
-        mock_result.timestamp = datetime.utcnow()
+        mock_result.timestamp = datetime.now(timezone.utc)
         
         mock_scraper.execute.return_value = mock_result
         mock_scraper_class.return_value = mock_scraper
@@ -192,7 +192,7 @@ class TestBDCDiscountHandler:
         mock_result.success = True
         mock_result.data_source = "bdc_discount"
         mock_result.metric_name = "discount_to_nav"
-        mock_result.timestamp = datetime.utcnow()
+        mock_result.timestamp = datetime.now(timezone.utc)
         mock_result.data = {
             'value': -0.15,
             'average_discount_percentage': -15.0,
@@ -250,7 +250,7 @@ class TestCreditFundHandler:
         mock_result.success = True
         mock_result.data_source = "credit_fund"
         mock_result.metric_name = "gross_asset_value"
-        mock_result.timestamp = datetime.utcnow()
+        mock_result.timestamp = datetime.now(timezone.utc)
         mock_result.data = {
             'value': 45000000000,
             'total_gross_assets': 180000000000,
@@ -285,7 +285,7 @@ class TestBankProvisionHandler:
         mock_result.success = True
         mock_result.data_source = "bank_provision"
         mock_result.metric_name = "non_bank_financial_provisions"
-        mock_result.timestamp = datetime.utcnow()
+        mock_result.timestamp = datetime.now(timezone.utc)
         mock_result.data = {
             'value': 1500000000,
             'bank_count': 6,

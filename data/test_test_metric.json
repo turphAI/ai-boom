@@ -2,6 +2,66 @@
   {
     "data_source": "test",
     "metric_name": "test_metric",
+    "timestamp": "2025-08-07T16:52:51.345855+00:00",
+    "data": {
+      "value": 100,
+      "confidence": 1.0,
+      "timestamp": "2025-08-07T16:52:51.345855+00:00",
+      "validation_checksum": "df3acb83f0e8f7f4b35486b5b5bd928cd75b052e40d5f86c43a2b644ce32ea8d",
+      "anomaly_score": null
+    }
+  },
+  {
+    "data_source": "test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-07T16:52:33.329437+00:00",
+    "data": {
+      "value": 100,
+      "confidence": 1.0,
+      "timestamp": "2025-08-07T16:52:33.329437+00:00",
+      "validation_checksum": "c84dea951b64feb648e7c052a6736c11a56b693824c6255f288df41bc1185f20",
+      "anomaly_score": null
+    }
+  },
+  {
+    "data_source": "test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-07T16:51:30.763609+00:00",
+    "data": {
+      "value": 100,
+      "confidence": 1.0,
+      "timestamp": "2025-08-07T16:51:30.763609+00:00",
+      "validation_checksum": "ba846541f33b64f13d9842add30d67526532bbc0c8a329987496a1eecb265190",
+      "anomaly_score": null
+    }
+  },
+  {
+    "data_source": "test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-07T16:51:24.437269+00:00",
+    "data": {
+      "value": 100,
+      "confidence": 1.0,
+      "timestamp": "2025-08-07T16:51:24.437269+00:00",
+      "validation_checksum": "bb089fa0528978b69b7789a814f378a52855128dce86c5b89559ed6c5b45f203",
+      "anomaly_score": null
+    }
+  },
+  {
+    "data_source": "test",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-07T16:50:54.435011+00:00",
+    "data": {
+      "value": 100,
+      "confidence": 0.9,
+      "timestamp": "2025-08-07T16:50:54.435011+00:00",
+      "validation_checksum": "047542cd130e550e0ec12a0305161f709c1ca650f87c62f7dc31755a42e25c80",
+      "anomaly_score": null
+    }
+  },
+  {
+    "data_source": "test",
+    "metric_name": "test_metric",
     "timestamp": "2025-08-06T23:42:30.411953",
     "data": {
       "value": 100,

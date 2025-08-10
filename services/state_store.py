@@ -100,13 +100,62 @@ class FileStateStore(BaseStateStore):
         
         existing_data.append(data_point)
         
-        # Sort by timestamp (newest first)
-        existing_data.sort(key=lambda x: x['timestamp'], reverse=True)
+        # Sort by timestamp (newest first) - handle both string and datetime objects
+        def get_timestamp_for_sort(item):
+            timestamp = item['timestamp']
+            if isinstance(timestamp, str):
+                try:
+                    return datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+                except:
+                    return datetime.min.replace(tzinfo=timezone.utc)
+            elif isinstance(timestamp, datetime):
+                # Ensure timezone-aware datetime
+                if timestamp.tzinfo is None:
+                    return timestamp.replace(tzinfo=timezone.utc)
+                return timestamp
+            else:
+                return datetime.min.replace(tzinfo=timezone.utc)
+        
+        existing_data.sort(key=get_timestamp_for_sort, reverse=True)
         
         # Save back to file
         self._save_data_to_file(file_path, existing_data)
         
         self.logger.info(f"Saved data for {data_source}.{metric_name}")
+    
+    def get_recent_data(self, data_source: str, metric_name: str, limit: int = 10) -> List[Dict[str, Any]]:
+        """Get recent data points for a data source and metric."""
+        file_path = self._get_file_path(data_source, metric_name)
+        
+        if not os.path.exists(file_path):
+            return []
+        
+        try:
+            existing_data = self._load_data_from_file(file_path)
+            
+            # Sort by timestamp (newest first)
+            def get_timestamp_for_sort(item):
+                timestamp = item['timestamp']
+                if isinstance(timestamp, str):
+                    try:
+                        return datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+                    except:
+                        return datetime.min.replace(tzinfo=timezone.utc)
+                elif isinstance(timestamp, datetime):
+                    # Ensure timezone-aware datetime
+                    if timestamp.tzinfo is None:
+                        return timestamp.replace(tzinfo=timezone.utc)
+                    return timestamp
+                else:
+                    return datetime.min.replace(tzinfo=timezone.utc)
+            
+            existing_data.sort(key=get_timestamp_for_sort, reverse=True)
+            
+            return existing_data[:limit]
+            
+        except Exception as e:
+            self.logger.error(f"Error loading recent data for {data_source}.{metric_name}: {e}")
+            return []
     
     def get_historical_data(self, data_source: str, metric: str, days: int = 7) -> List[Dict]:
         """Get historical data for the specified number of days."""

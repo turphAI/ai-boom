@@ -1,0 +1,754 @@
+-----BEGIN PRIVACY-ENHANCED MESSAGE-----
+Proc-Type: 2001,MIC-CLEAR
+Originator-Name: webmaster@www.sec.gov
+Originator-Key-Asymmetric:
+ MFgwCgYEVQgBAQICAf8DSgAwRwJAW2sNKK9AVtBzYZmr6aGjlWyK3XmZv3dTINen
+ TWSM7vrzLADbmYQaionwg5sDW3P6oaM5D3tdezXMm7z1T+B+twIDAQAB
+MIC-Info: RSA-MD5,RSA,
+ SIzzJ+Wlb7Ysy+uhPgxUxETO8No5J7ZW2j4wWbyZNnbZxe6zZh6QHSrZb7wRKLA/
+ BFO3xnMP2R3XaOszKHX6Hw==
+
+<SEC-DOCUMENT>0000891020-03-002074.txt : 20030808
+<SEC-HEADER>0000891020-03-002074.hdr.sgml : 20030808
+<ACCEPTANCE-DATETIME>20030808171640
+ACCESSION NUMBER:		0000891020-03-002074
+CONFORMED SUBMISSION TYPE:	424B2
+PUBLIC DOCUMENT COUNT:		2
+FILED AS OF DATE:		20030808
+
+FILER:
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			AMAZON COM INC
+		CENTRAL INDEX KEY:			0001018724
+		STANDARD INDUSTRIAL CLASSIFICATION:	RETAIL-CATALOG & MAIL-ORDER HOUSES [5961]
+		IRS NUMBER:				911646860
+		STATE OF INCORPORATION:			DE
+		FISCAL YEAR END:			1231
+
+	FILING VALUES:
+		FORM TYPE:		424B2
+		SEC ACT:		1933 Act
+		SEC FILE NUMBER:	333-78797
+		FILM NUMBER:		03832600
+
+	BUSINESS ADDRESS:	
+		STREET 1:		1200 12TH AVENUE S SUITE 1200
+		CITY:			SEATTLE
+		STATE:			WA
+		ZIP:			98144
+		BUSINESS PHONE:		2062661000
+
+	MAIL ADDRESS:	
+		STREET 1:		1200 12TH AVENUE S SUITE 1200
+		CITY:			SEATTLE
+		STATE:			WA
+		ZIP:			98144
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>424B2
+<SEQUENCE>1
+<FILENAME>v92056b2e424b2.htm
+<DESCRIPTION>424B2
+<TEXT>
+<HTML>
+<HEAD>
+<TITLE>e424b2</TITLE>
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+<!-- PAGEBREAK -->
+<H5 align="left" style="page-break-before:always"><A HREF="#toc">Table of Contents</A></H5><P>
+
+
+<P align="center"><FONT size="2"><B>FILED PURSUANT TO RULE 424(b)(2)</B>
+</FONT>
+
+<CENTER>
+<TABLE cellspacing="0" border="0" cellpadding="0" width="100%">
+<TR valign="bottom">
+    <TD width="56%">&nbsp;</TD>
+    <TD width="5%">&nbsp;</TD>
+    <TD width="39%">&nbsp;</TD>
+</TR>
+<TR valign="bottom">
+    <TD valign="top"><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right" valign="top"><FONT size="2">
+<B>REGISTRATION NO. 333-78797</B></FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD valign="top"><FONT size="2"><B>PROSPECTUS SUPPLEMENT</B></FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="left" valign="top"><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD valign="top"><FONT size="2"><B>(To Prospectus dated June&nbsp;11, 1999)</B></FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="left" valign="top"><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<P align="center"><FONT size="5"><B>18,481 Shares</B>
+</FONT>
+
+
+<P align="center"><FONT size="2"><IMG src="v92056b2v9205600.gif" alt="(AMAZON.COM LOGO)">
+</FONT>
+
+
+<P align="center"><FONT size="4"><B>Common Stock</B>
+</FONT>
+
+
+<Div align="center"><HR align="center" size="1" width="8%" noshade></div>
+
+<Div align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our common stock is quoted on the Nasdaq National Market under the symbol
+&#147;AMZN.&#148; On August&nbsp;5, 2003, the reported closing price of our common stock on
+the Nasdaq National Market was $38.670 per share. Our principal office is
+located at 1200 12th Avenue South, Seattle, Washington, 98144 and our telephone
+number is (206)&nbsp;266-1000.
+</FONT></div>
+<p>
+<Div align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<I>Investing in our common stock involves risks that are described under
+&#147;Business-Additional Factors That May Affect Future Results&#148; beginning on page
+36 of our Quarterly Report on Form&nbsp;10-Q for the Quarter Ended June&nbsp;30, 2003,
+filed July&nbsp;24, 2003, which is incorporated by reference into this prospectus
+supplement.</I>
+</FONT></div>
+
+<Div align="left"><FONT size="1"><HR align="center" size="1" width="8%" noshade>
+</FONT></div>
+
+<Div align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Neither the Securities and Exchange Commission nor any other regulatory
+body has approved or disapproved of these securities or passed upon the
+accuracy or adequacy of this prospectus supplement or the accompanying
+prospectus. Any representation to the contrary is a criminal offense.</B>
+</FONT></div>
+
+<Div align="left"><FONT size="2"><HR align="center" size="1" width="8%" noshade>
+</FONT></div>
+
+<CENTER>
+<TABLE cellspacing="0" border="0" cellpadding="0" width="100%">
+<TR valign="bottom">
+    <TD></TD>
+    <TD width="5%"><FONT size="1"></FONT></TD>
+    <TD width="1%"><FONT size="1"></FONT></TD>
+    <TD width="10%"><FONT size="1"></FONT></TD>
+    <TD width="1%"><FONT size="1"></FONT></TD>
+    <TD width="1%"><FONT size="1"></FONT></TD>
+    <TD width="1%"><FONT size="1"></FONT></TD>
+    <TD width="10%"><FONT size="1"></FONT></TD>
+    <TD width="1%"><FONT size="1"></FONT></TD>
+</TR>
+<TR valign="bottom">
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD nowrap align="center" colspan="3"><FONT size="2"><B>Per</B></FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+</TR>
+<TR valign="bottom">
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD nowrap align="center" colspan="3"><FONT size="2"><B>Share</B></FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD nowrap align="center" colspan="3"><FONT size="2"><B>Total</B></FONT></TD>
+</TR>
+<TR valign="bottom">
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD colspan="3"><HR size="1" noshade></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD colspan="3"><HR size="1" noshade></TD>
+</TR>
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Initial price to public</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">$</FONT></TD>
+    <TD align="right"><FONT size="2">39.35</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">$</FONT></TD>
+    <TD align="right"><FONT size="2">727,227.35</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Underwriting discount (1)</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">$</FONT></TD>
+    <TD align="right"><FONT size="2">0.17</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">$</FONT></TD>
+    <TD align="right"><FONT size="2">3,141.77</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Proceeds, before expenses, to Amazon.com</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">$</FONT></TD>
+    <TD align="right"><FONT size="2">39.18</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">$</FONT></TD>
+    <TD align="right"><FONT size="2">724,085.58</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+<P align="left"><HR align="left" size="1" width="10%" noshade>
+
+<div align="left"><FONT size="2">(1)&nbsp; In addition, Goldman, Sachs &#038; Co. may receive from purchasers of the
+shares normal brokerage commissions in amounts agreed with such purchasers.
+</FONT></div>
+
+
+<div align="center"><HR align="center" size="1" width="8%" noshade></div>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Goldman, Sachs &#038; Co. expects to deliver the shares against payment in New
+York, New York on August 11, 2003.
+</FONT>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The proceeds from the sale of the 18,481 shares offered pursuant to this
+prospectus supplement will help cover certain federal and state employment
+taxes we are obligated to pay pursuant to the distribution under our 2001
+Stakeholder Trust Plan (see &#147;Use of Proceeds&#148;).
+</FONT>
+
+
+<P align="center"><FONT size="4"><B>Goldman, Sachs &#038; Co.</B>
+</FONT>
+
+
+<DIV align="center"><HR align="center" size="1" width="8%" noshade></DIV>
+
+
+<P align="center"><FONT size="2">Prospectus Supplement dated August&nbsp;6, 2003.
+</FONT>
+
+<P align="center"><FONT size="2">&nbsp;</FONT>
+
+<!-- PAGEBREAK -->
+<P><HR noshade><P>
+<!-- TOC -->
+<A name="toc"><DIV align="CENTER" style="page-break-before:always"><U><B>TABLE OF CONTENTS</B></U></DIV></A>
+
+<P><CENTER>
+<TABLE border="0" width="90%" cellpadding="0" cellspacing="0">
+<TR>
+	<TD width="3%"></TD>
+	<TD width="3%"></TD>
+	<TD width="3%"></TD>
+	<TD width="3%"></TD>
+	<TD width="3%"></TD>
+	<TD width="3%"></TD>
+	<TD width="3%"></TD>
+	<TD width="3%"></TD>
+	<TD width="76%"></TD>
+</TR>
+<TR><TD colspan="9"><A HREF="#000">ABOUT THIS PROSPECTUS SUPPLEMENT</A></TD></TR>
+<TR><TD colspan="9"><A HREF="#001">USE OF PROCEEDS</A></TD></TR>
+<TR><TD colspan="9"><A HREF="#002">THE OFFERING</A></TD></TR>
+<TR><TD colspan="9"><A HREF="#003">PLAN OF DISTRIBUTION</A></TD></TR>
+</TABLE>
+</CENTER>
+<!-- /TOC -->
+<P><HR noshade><P>
+<H5 align="left" style="page-break-before:always"><A HREF="#toc">Table of Contents</A></H5><P>
+
+<CENTER>
+<TABLE cellspacing="0" border="0" cellpadding="2" width="100%">
+<TR valign="bottom">
+    <TD>&nbsp;</TD>
+    <TD width="5%">&nbsp;</TD>
+    <TD width="4%">&nbsp;</TD>
+    <TD width="1%">&nbsp;</TD>
+    <TD width="4%">&nbsp;</TD>
+</TR>
+<TR valign="bottom">
+    <TD nowrap align="left"><FONT size="2"><B>Prospectus Supplement</B></FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD nowrap align="center" colspan="3"><FONT size="2"><B>Page</B></FONT></TD>
+</TR>
+<TR valign="bottom">
+    <TD nowrap align="left"><HR size="1" width="20%" noshade></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD colspan="3"><HR size="1" noshade></TD>
+</TR>
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">About this Prospectus Supplement</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD nowrap align="right"><FONT size="2">S-2</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Use of Proceeds</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD nowrap align="right"><FONT size="2">S-2</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">The Offering</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD nowrap align="right"><FONT size="2">S-2</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Plan of Distribution</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD nowrap align="right"><FONT size="2">S-3</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+<CENTER>
+<TABLE cellspacing="0" border="0" cellpadding="2" width="100%">
+<TR valign="bottom">
+    <TD>&nbsp;</TD>
+    <TD width="5%">&nbsp;</TD>
+    <TD width="4%">&nbsp;</TD>
+    <TD width="1%">&nbsp;</TD>
+    <TD width="4%">&nbsp;</TD>
+</TR>
+<TR valign="bottom">
+    <TD nowrap align="left"><FONT size="2"><B>Prospectus</B></FONT></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD nowrap align="center" colspan="3"><FONT size="2"><B>Page</B></FONT></TD>
+</TR>
+<TR valign="bottom">
+    <TD nowrap align="left"><HR size="1" width="10%" noshade></TD>
+    <TD><FONT size="1">&nbsp;</FONT></TD>
+    <TD colspan="3"><HR size="1" noshade></TD>
+</TR>
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Summary</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">1</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Forward Looking Information</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">3</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">How to Obtain More Information</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">3</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Amazon.com</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">4</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Ratio of Earnings to Fixed Charges</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">5</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Use of Proceeds</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">5</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">General Description of Securities</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">5</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Common Stock</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">5</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Preferred Stock</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">6</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Depository Shares</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">7</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Debt Securities</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">9</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Warrants to Purchase Common or Preferred Stock</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">16</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Stock Purchase Units and Stock Purchase Contracts</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">17</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Third-Party Warrants</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">18</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Warrants to Purchase Debt Securities</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">19</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Foreign Currency Exchange Warrants</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">20</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Stock Index Warrants</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">23</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Description of the Other Warrants</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">26</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Plan of Distribution</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">28</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">ERISA Considerations</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">29</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Legal Matters</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">30</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD><DIV style="margin-left:10px; text-indent:-10px"><FONT size="2">Experts</FONT></DIV></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="right"><FONT size="2">30</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+<P align="center"><FONT size="2">S-1</FONT>
+
+<!-- PAGEBREAK -->
+<P><HR noshade><P>
+<H5 align="left" style="page-break-before:always"><A HREF="#toc">Table of Contents</A></H5><P>
+<!-- link1 "ABOUT THIS PROSPECTUS SUPPLEMENT" -->
+<DIV align="left"><A NAME="000"></A></DIV>
+<P align="center"><FONT size="2"><B>ABOUT THIS PROSPECTUS SUPPLEMENT</B>
+</FONT>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should read this prospectus supplement along with the accompanying
+prospectus. These documents contain information you should consider when making
+your investment decision. You should rely only on the information contained or
+incorporated by reference in this prospectus supplement and the accompanying
+prospectus. We have not authorized anyone else to provide you with different or
+additional information.
+</FONT>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This prospectus supplement and the accompanying prospectus do not
+constitute an offer to sell or a solicitation of an offer to buy any securities
+other than the common stock being purchased in this offering. This prospectus
+supplement and the accompanying prospectus do not constitute an offer to sell
+or a solicitation of an offer to buy the common stock being purchased in this
+offering in any circumstances in which an offer or solicitation is unlawful.
+</FONT>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Information in this prospectus supplement and the accompanying prospectus
+may change after the date on the front of the applicable document. You should
+not interpret the delivery of this prospectus supplement or the accompanying
+prospectus or the sale of the common stock as an indication that there has been
+no change in our affairs since that date.
+</FONT>
+
+<!-- link1 "USE OF PROCEEDS" -->
+<DIV align="left"><A NAME="001"></A></DIV>
+<P align="center"><FONT size="2"><B>USE OF PROCEEDS</B>
+</FONT>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All of the proceeds from the sale of the 18,481 shares offered pursuant to
+this prospectus supplement will help cover certain federal and state employment
+taxes we are obligated to pay in connection with the distribution of benefits
+under our 2001 Stakeholder Trust Plan. Our 2001 Stakeholder Trust Plan is a
+defined contribution welfare benefit plan for certain U.S. employees whose
+employment was involuntarily terminated without cause between January&nbsp;30, 2001
+and June&nbsp;30, 2001 due to our operational restructuring announced in January
+2001. Harris Trust Company is the trustee for the corresponding 2001
+Stakeholder Trust.
+</FONT>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We contributed over 130,000 shares of our common stock with a fair value
+of $18.938 per share (or a total of $2,500,000) on January&nbsp;30, 2001 into the
+2001 Stakeholder Trust Plan. Additionally, we funded a sub-account with the
+18,481 shares offered pursuant to this prospectus supplement. Proceeds from
+the sale of the sub-account shares will be used to help fund federal and state
+taxes that we are obligated to pay when benefits under the 2001 Stakeholder
+Trust Plan are distributed.
+</FONT>
+
+<P align="center"><FONT size="2">S-2</FONT>
+
+<!-- PAGEBREAK -->
+<P><HR noshade><P>
+<H5 align="left" style="page-break-before:always"><A HREF="#toc">Table of Contents</A></H5><P>
+<!-- link1 "THE OFFERING" -->
+<DIV align="left"><A NAME="002"></A></DIV>
+<P align="center"><FONT size="2"><B>THE OFFERING</B>
+</FONT>
+
+<CENTER>
+<TABLE cellspacing="0" border="0" cellpadding="4" width="100%">
+<TR valign="bottom">
+    <TD width="20%">&nbsp;</TD>
+    <TD width="5%">&nbsp;</TD>
+    <TD>&nbsp;</TD>
+</TR>
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD valign="top"><FONT size="2">Shares of common stock offered</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="left" valign="bottom"><FONT size="2">
+18,481 shares</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD valign="top"><FONT size="2">
+Shares of common stock outstanding
+after this offering (1)</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="left" valign="bottom"><FONT size="2">
+
+398,878,994
+shares</FONT></TD>
+</TR>
+
+<TR valign="bottom" bgcolor="#eeeeee">
+    <TD valign="top"><FONT size="2">
+Use of Proceeds</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="left" valign="top"><FONT size="2">
+
+The proceeds will help cover certain
+federal and state employment taxes
+we are obligated to pay pursuant to
+the distribution under our 2001
+Stakeholder Trust Plan (see &#147;Use of
+Proceeds&#148;).</FONT></TD>
+</TR>
+
+<TR valign="bottom">
+    <TD valign="top"><FONT size="2">
+Nasdaq Stock Symbol</FONT></TD>
+    <TD><FONT size="2">&nbsp;</FONT></TD>
+    <TD align="left" valign="top"><FONT size="2">
+
+AMZN</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculation of the number of shares of common stock outstanding after
+this offering is based on the number of shares outstanding on August&nbsp;4, 2003.
+</FONT>
+
+
+<P align="left"><HR align="left" size="1" width="10%" noshade>
+
+<Div align="left"><FONT size="2">(1)&nbsp; Does not include the shares of common stock reserved for issuance under our
+various stock option plans or shares of common stock reserved for issuance upon
+the conversion of our 4 3/4% Convertible Subordinated Notes due 2009 and our
+6.875% Convertible Subordinated Notes due 2010 (PEACs).
+</FONT></div>
+
+<!-- link1 "PLAN OF DISTRIBUTION" -->
+<DIV align="left"><A NAME="003"></A></DIV>
+<P align="center"><FONT size="2"><B>PLAN OF DISTRIBUTION</B>
+</FONT>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Goldman, Sachs &#038; Co. has agreed to purchase all of the 18,481 shares
+offered hereby. Goldman, Sachs &#038; Co. is committed to take and pay for all of
+the shares being offered. Shares sold by Goldman, Sachs &#038; Co. to the public
+initially will be offered at the initial price to public set forth on the cover
+of this prospectus supplement. In addition, Goldman, Sachs &#038; Co. may receive
+from purchasers of the shares normal brokerage commissions in amounts agreed
+with such purchasers. If all the shares are not sold at the initial price to
+public, Goldman, Sachs &#038; Co. may change the offering price and other selling
+terms.
+</FONT>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We estimate that our share of the total expenses of the offering,
+excluding the underwriting discount and commissions, will be approximately
+$4,500, which will be paid by Amazon.com, Inc.
+</FONT>
+
+<P align="left"><FONT size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Goldman, Sachs &#038; Co. and its affiliates have provided from time to time,
+and expect to provide in the future, investment and commercial banking and
+financial advisory services to us and our affiliates in the ordinary course of
+business, for which they have received and may continue to receive customary
+fees and commissions.
+</FONT>
+
+
+
+<P align="center"><FONT size="2">S-3</FONT>
+
+
+
+</BODY>
+</HTML>
+
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>GRAPHIC
+<SEQUENCE>3
+<FILENAME>v92056b2v9205600.gif
+<DESCRIPTION>GRAPHIC
+<TEXT>
+begin 644 v92056b2v9205600.gif
+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
+=F#!WAB"!>/+8QTBN[M.$?!D'$-G(28[R0`("`#L_
+`
+end
+
+</TEXT>
+</DOCUMENT>
+</SEC-DOCUMENT>
+-----END PRIVACY-ENHANCED MESSAGE-----

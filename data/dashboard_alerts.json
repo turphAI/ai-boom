@@ -21,5 +21,125 @@
       "message": "test alert",
       "timestamp": "2025-08-06T23:42:30.354846"
     }
+  },
+  {
+    "id": "demo_1754585749",
+    "timestamp": "2025-08-07T16:55:49.984580+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "alert_type": "demo_alert",
+      "severity": "medium",
+      "data_source": "demo",
+      "metric": "test_metric",
+      "current_value": 1000000000,
+      "threshold": 500000000,
+      "message": "\ud83d\udea8 Demo Alert: Bond issuance exceeded threshold!\n\nCurrent: $1.0B\nThreshold: $500M\nIncrease: +100%",
+      "timestamp": "2025-08-07T16:55:49.984580+00:00"
+    }
+  },
+  {
+    "id": "demo_1754585798",
+    "timestamp": "2025-08-07T16:56:38.813144+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "alert_type": "demo_alert",
+      "severity": "medium",
+      "data_source": "demo",
+      "metric": "test_metric",
+      "current_value": 1000000000,
+      "threshold": 500000000,
+      "message": "\ud83d\udea8 Demo Alert: Bond issuance exceeded threshold!\n\nCurrent: $1.0B\nThreshold: $500M\nIncrease: +100%",
+      "timestamp": "2025-08-07T16:56:38.813144+00:00"
+    }
+  },
+  {
+    "id": "test_1754856168",
+    "timestamp": "2025-08-10T20:02:48.747341+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "data_source": "test",
+      "message": "test alert",
+      "timestamp": "2025-08-10T20:02:48.747341+00:00"
+    }
+  },
+  {
+    "id": "test_1754856223",
+    "timestamp": "2025-08-10T20:03:43.854411+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "data_source": "test",
+      "message": "test alert",
+      "timestamp": "2025-08-10T20:03:43.854411+00:00"
+    }
+  },
+  {
+    "id": "test_1754856253",
+    "timestamp": "2025-08-10T20:04:13.532127+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "data_source": "test",
+      "message": "test alert",
+      "timestamp": "2025-08-10T20:04:13.532127+00:00"
+    }
+  },
+  {
+    "id": "test_1754856286",
+    "timestamp": "2025-08-10T20:04:46.447013+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "data_source": "test",
+      "message": "test alert",
+      "timestamp": "2025-08-10T20:04:46.447013+00:00"
+    }
+  },
+  {
+    "id": "test_1754856323",
+    "timestamp": "2025-08-10T20:05:23.603141+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "data_source": "test",
+      "message": "test alert",
+      "timestamp": "2025-08-10T20:05:23.603141+00:00"
+    }
+  },
+  {
+    "id": "test_1754856408",
+    "timestamp": "2025-08-10T20:06:48.395138+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "data_source": "test",
+      "message": "test alert",
+      "timestamp": "2025-08-10T20:06:48.395138+00:00"
+    }
+  },
+  {
+    "id": "test_1754856702",
+    "timestamp": "2025-08-10T20:11:42.154623+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "data_source": "test",
+      "message": "test alert",
+      "timestamp": "2025-08-10T20:11:42.154623+00:00"
+    }
+  },
+  {
+    "id": "test_1754856884",
+    "timestamp": "2025-08-10T20:14:44.646335+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "data_source": "test",
+      "message": "test alert",
+      "timestamp": "2025-08-10T20:14:44.646335+00:00"
+    }
+  },
+  {
+    "id": "test_1754856987",
+    "timestamp": "2025-08-10T20:16:27.807743+00:00",
+    "acknowledged": false,
+    "alert_data": {
+      "data_source": "test",
+      "message": "test alert",
+      "timestamp": "2025-08-10T20:16:27.807743+00:00"
+    }
   }
 ]

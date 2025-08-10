@@ -6,7 +6,7 @@ import json
 import os
 import tempfile
 import shutil
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from unittest.mock import Mock, patch
 import pytest
 
@@ -51,7 +51,7 @@ class TestFileStateStore:
         for i in range(5):
             test_data = {
                 'value': i * 10,
-                'timestamp': (datetime.utcnow() - timedelta(days=i)).isoformat()
+                'timestamp': (datetime.now(timezone.utc) - timedelta(days=i)).isoformat()
             }
             self.store.save_data('test_source', 'test_metric', test_data)
         
@@ -78,11 +78,11 @@ class TestFileStateStore:
         # Save data points with different ages
         old_data = {
             'value': 1,
-            'timestamp': (datetime.utcnow() - timedelta(days=800)).isoformat()
+            'timestamp': (datetime.now(timezone.utc) - timedelta(days=800)).isoformat()
         }
         recent_data = {
             'value': 2,
-            'timestamp': (datetime.utcnow() - timedelta(days=100)).isoformat()
+            'timestamp': (datetime.now(timezone.utc) - timedelta(days=100)).isoformat()
         }
         
         self.store.save_data('test_source', 'test_metric', old_data)

@@ -261,7 +261,7 @@ class TestBankProvisionScraper:
     def test_get_current_quarter(self, scraper):
         """Test current quarter calculation."""
         with patch('scrapers.bank_provision_scraper.datetime') as mock_datetime:
-            mock_datetime.utcnow.return_value = datetime(2024, 4, 15)  # Q2 2024
+            mock_datetime.now.return_value = datetime(2024, 4, 15, tzinfo=timezone.utc)  # Q2 2024
             
             result = scraper._get_current_quarter()
             

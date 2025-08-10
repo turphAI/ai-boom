@@ -8,7 +8,7 @@ import os
 import sys
 import json
 import boto3
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Any
 
 class CostMonitor:
@@ -23,7 +23,7 @@ class CostMonitor:
     def get_current_month_costs(self) -> Dict[str, Any]:
         """Get current month's costs."""
         # Get current month date range
-        now = datetime.utcnow()
+        now = datetime.now(timezone.utc)
         start_of_month = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
         
         try:
@@ -76,7 +76,7 @@ class CostMonitor:
     
     def get_last_month_costs(self) -> Dict[str, Any]:
         """Get last month's costs for comparison."""
-        now = datetime.utcnow()
+        now = datetime.now(timezone.utc)
         
         # Calculate last month's date range
         first_day_current_month = now.replace(day=1)
@@ -133,7 +133,7 @@ class CostMonitor:
     
     def get_daily_costs(self, days: int = 7) -> Dict[str, Any]:
         """Get daily costs for the last N days."""
-        end_date = datetime.utcnow()
+        end_date = datetime.now(timezone.utc)
         start_date = end_date - timedelta(days=days)
         
         try:
@@ -171,7 +171,7 @@ class CostMonitor:
     
     def get_boom_bust_sentinel_costs(self) -> Dict[str, Any]:
         """Get costs specifically for Boom-Bust Sentinel resources."""
-        now = datetime.utcnow()
+        now = datetime.now(timezone.utc)
         start_of_month = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
         
         try:
@@ -292,7 +292,7 @@ class CostMonitor:
                         'MetricName': 'TotalMonthlyCost',
                         'Value': cost_data['total_cost'],
                         'Unit': 'None',
-                        'Timestamp': datetime.utcnow()
+                        'Timestamp': datetime.now(timezone.utc)
                     }
                 ]
             )
@@ -309,7 +309,7 @@ class CostMonitor:
                             'MetricName': f'{metric_name}Cost',
                             'Value': cost,
                             'Unit': 'None',
-                            'Timestamp': datetime.utcnow()
+                            'Timestamp': datetime.now(timezone.utc)
                         }
                     ]
                 )
@@ -321,7 +321,7 @@ class CostMonitor:
         """Run comprehensive cost monitoring."""
         print(f"💰 Running cost monitoring")
         print(f"   Threshold: ${self.cost_threshold}")
-        print(f"   Timestamp: {datetime.utcnow().isoformat()}Z")
+        print(f"   Timestamp: {datetime.now(timezone.utc).isoformat()}Z")
         print()
         
         # Get cost data
@@ -331,7 +331,7 @@ class CostMonitor:
         project_costs = self.get_boom_bust_sentinel_costs()
         
         # Calculate projections
-        days_in_month = datetime.utcnow().day
+        days_in_month = datetime.now(timezone.utc).day
         days_remaining = 31 - days_in_month  # Rough estimate
         
         if daily_costs['average_daily_cost'] > 0:
@@ -346,7 +346,7 @@ class CostMonitor:
             mom_change = 0
         
         results = {
-            'timestamp': datetime.utcnow().isoformat() + 'Z',
+            'timestamp': datetime.now(timezone.utc).isoformat() + 'Z',
             'threshold': self.cost_threshold,
             'current_month': current_month,
             'last_month': last_month,

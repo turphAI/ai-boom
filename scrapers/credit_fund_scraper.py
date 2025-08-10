@@ -8,7 +8,7 @@ and detect early signs of credit stress through sequential quarter comparisons.
 import logging
 import re
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Dict, Any, List, Optional, Tuple
 from urllib.parse import urljoin
 
@@ -100,7 +100,7 @@ class CreditFundScraper(BaseScraper):
             'total_gross_assets': total_gross_assets,
             'funds_processed': funds_processed,
             'individual_funds': fund_data,
-            'timestamp': datetime.utcnow(),
+            'timestamp': datetime.now(timezone.utc),
             'metadata': {
                 'ciks_processed': list(fund_data.keys()),
                 'data_quality': 'high' if funds_processed >= 3 else 'medium',
@@ -434,7 +434,7 @@ class CreditFundScraper(BaseScraper):
             'decline_percentage': decline_percentage,
             'threshold_breached': decline > self.ALERT_THRESHOLD,
             'message': message,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'context': {
                 'funds_processed': current_data.get('funds_processed', 0),
                 'total_gross_assets': current_data.get('total_gross_assets', 0),

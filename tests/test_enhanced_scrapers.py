@@ -3,7 +3,7 @@ Tests for enhanced scraper error handling and data validation.
 """
 
 import pytest
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from unittest.mock import Mock, patch, MagicMock
 from typing import Dict, Any, List
 
@@ -31,7 +31,7 @@ class MockScraper(BaseScraper):
         
         return {
             'value': 1000000,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'confidence': 0.95,
             'metadata': {'source': 'mock'}
         }
@@ -101,7 +101,7 @@ class TestBaseScraper:
         mock_store.get_historical_data.return_value = []
         mock_store.get_latest_value.return_value = {
             'value': 500000,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'confidence': 0.8
         }
         mock_state_store.return_value = mock_store
@@ -114,7 +114,7 @@ class TestBaseScraper:
         cache_key = f"{self.scraper.data_source}_{self.scraper.metric_name}"
         fallback_data = {
             'value': 750000,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'confidence': 0.9
         }
         self.scraper.cache_manager.cache_data(cache_key, fallback_data)
@@ -354,7 +354,7 @@ class TestErrorHandlingIntegration:
         mock_store.get_historical_data.return_value = []
         mock_store.get_latest_value.return_value = {
             'value': 800000,
-            'timestamp': (datetime.utcnow() - timedelta(days=2)).isoformat(),  # 2 days old
+            'timestamp': (datetime.now(timezone.utc) - timedelta(days=2)).isoformat(),  # 2 days old
             'confidence': 0.7
         }
         mock_state_store.return_value = mock_store

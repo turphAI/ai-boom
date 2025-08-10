@@ -1,0 +1,567 @@
+-----BEGIN PRIVACY-ENHANCED MESSAGE-----
+Proc-Type: 2001,MIC-CLEAR
+Originator-Name: webmaster@www.sec.gov
+Originator-Key-Asymmetric:
+ MFgwCgYEVQgBAQICAf8DSgAwRwJAW2sNKK9AVtBzYZmr6aGjlWyK3XmZv3dTINen
+ TWSM7vrzLADbmYQaionwg5sDW3P6oaM5D3tdezXMm7z1T+B+twIDAQAB
+MIC-Info: RSA-MD5,RSA,
+ S7D7Tak+jzKSa9kHyv/Qr9EcwfmSu11CXDKT2HfQwYVXqEZ81LG4NU7adJNSf3/V
+ T6w0JxVtpw9eqNFqVQ22tw==
+
+<SEC-DOCUMENT>0001032210-01-500867.txt : 20010724
+<SEC-HEADER>0001032210-01-500867.hdr.sgml : 20010724
+ACCESSION NUMBER:		0001032210-01-500867
+CONFORMED SUBMISSION TYPE:	424B2
+PUBLIC DOCUMENT COUNT:		2
+FILED AS OF DATE:		20010723
+
+FILER:
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			AMAZON COM INC
+		CENTRAL INDEX KEY:			0001018724
+		STANDARD INDUSTRIAL CLASSIFICATION:	RETAIL-CATALOG & MAIL-ORDER HOUSES [5961]
+		IRS NUMBER:				911646860
+		STATE OF INCORPORATION:			DE
+		FISCAL YEAR END:			1231
+
+	FILING VALUES:
+		FORM TYPE:		424B2
+		SEC ACT:		
+		SEC FILE NUMBER:	333-78797
+		FILM NUMBER:		1686401
+
+	BUSINESS ADDRESS:	
+		STREET 1:		1200 12TH AVENUE S SUITE 1200
+		CITY:			SEATTLE
+		STATE:			WA
+		ZIP:			98144
+		BUSINESS PHONE:		2062661000
+
+	MAIL ADDRESS:	
+		STREET 1:		1200 12TH AVENUE S SUITE 1200
+		CITY:			SEATTLE
+		STATE:			WA
+		ZIP:			98144
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>424B2
+<SEQUENCE>1
+<FILENAME>d424b2.htm
+<DESCRIPTION>PROSPECTUS SUPPLEMENT DATED 07/23/2001
+<TEXT>
+
+<HTML>
+<HEAD>
+ <TITLE>Prospectus Supplement Dated 07/23/2001</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<DIV><FONT SIZE="1">&nbsp;</FONT></DIV>
+<DIV ALIGN="left">
+<P ALIGN="right">FILED PURSUANT TO RULE 424(b)(2)
+<BR>
+REGISTRATION NO. 333-78797 </P>
+
+<P><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">  <B>PROSPECTUS SUPPLEMENT
+<BR>
+(To Prospectus dated June 11, 1999) </B></FONT></P>
+</DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times"></FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="center">
+<P><FONT SIZE="5" COLOR="#000000" FACE="'Times New Roman', Times"><B>6,543,646 Shares
+<BR>
+</B></FONT><FONT SIZE="5" COLOR="#000000" FACE="'Times New Roman', Times"><B> </B></FONT></P>
+</DIV>
+<DIV ALIGN="center"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times"><B>
+<IMG SRC="g43785prot61lan01.jpg" WIDTH="241" HEIGHT="47"></B></FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><FONT SIZE="4" COLOR="#000000" FACE="'Times New Roman', Times"><B>Common Stock</B></FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><HR WIDTH="21%" SIZE="1" NOSHADE></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We are offering 6,543,646 shares, plus any additional shares required to be delivered as set forth below, of
+our common stock with this prospectus supplement. Our common stock is quoted on the Nasdaq National Market under the symbol &#147;AMZN.&#148; On July 20, 2001, the reported last bid price of our common stock on the Nasdaq National Market was $16.98
+per share.</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The purchaser will purchase all the shares of common stock from us at an aggregate purchase price of
+$100,000,000, resulting in aggregate proceeds to Amazon.com of $100,000,000.</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the average of the last sale price of our common stock on the Nasdaq National Market System, as reported
+on nasdaq.com, for the five full trading days following the announcement of the Company&#146;s financial results of operations for the period ended June 30, 2001, which we will refer to in this prospectus supplement as the &#147;Five Day
+Average&#148;, is less than $15.282, then on the second business day following the end of such five-day period, we will deliver to the purchaser, for no additional consideration, a number of shares of our common stock equal to the difference between
+(i) the number of shares of our common stock determined by dividing $100,000,000 by the Five Day Average and (ii) 6,543,646.</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><HR WIDTH="21%" SIZE="1" NOSHADE></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Investing in our common stock involves risks that are described under &#147;Business&#151;Additional
+Factors That May Affect Future Results&#148; beginning on page 30 of our Quarterly Report on Form 10-Q filed July 23, 2001.</B></FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><HR WIDTH="21%" SIZE="1" NOSHADE></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Neither the Securities and Exchange Commission nor any state securities commission has approved or
+disapproved of these securities or passed upon the accuracy or adequacy of this prospectus supplement or the accompanying prospectus. Any representation to the contrary is a criminal offense.</B></FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><HR WIDTH="21%" SIZE="1" NOSHADE></DIV>
+<DIV><FONT SIZE="1">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times"><B>Prospectus Supplement dated July 23, 2001</B></FONT></DIV>
+<DIV><FONT SIZE="1">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times"><B>TABLE OF CONTENTS</B></FONT></DIV>
+<DIV><FONT SIZE="1">&nbsp;</FONT></DIV>
+<DIV><FONT SIZE="6">&nbsp;</FONT></DIV>
+
+<TABLE ALIGN="center" WIDTH="100%" CELLSPACING=0 CELLPADDING=0>
+<TR>
+<TH VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="1" COLOR="#000000" FACE="'Times New Roman', Times"><B>Prospectus Supplement</B></FONT><FONT SIZE="1"><HR ALIGN="left" WIDTH="100%" SIZE="1" NOSHADE></FONT></TH>
+<TH><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TH>
+<TH VALIGN="bottom" NOWRAP ALIGN="center"><FONT SIZE="1" COLOR="#000000" FACE="'Times New Roman', Times"><B>Page</B></FONT><FONT SIZE="1"><HR ALIGN="center" WIDTH="100%" SIZE="1" NOSHADE></FONT></TH>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">
+<A HREF="#a785sup">About this Prospectus Supplement</A>
+</FONT></TD>
+<TD><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">S-1</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">
+<A HREF="#b785sup">Use of Proceeds</A>
+</FONT></TD>
+<TD><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">S-2</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">
+<A HREF="#c785sup">Dilution</A>
+</FONT></TD>
+<TD><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">S-3</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">
+<A HREF="#d785sup">Plan of Distribution</A>
+</FONT></TD>
+<TD><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">S-4</FONT></TD>
+</TR>
+</TABLE>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+
+<TABLE ALIGN="center" WIDTH="100%" CELLSPACING=0 CELLPADDING=0>
+<TR>
+<TH VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%" HEIGHT="49"><FONT SIZE="1" COLOR="#000000" FACE="'Times New Roman', Times"><B>Prospectus</B></FONT><FONT SIZE="1"> <HR ALIGN="left" WIDTH="100%" SIZE="1" NOSHADE></FONT></TH>
+<TH WIDTH="3%" HEIGHT="49"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TH>
+<TH VALIGN="bottom" NOWRAP ALIGN="center" WIDTH="9%" HEIGHT="49"><FONT SIZE="1" COLOR="#000000" FACE="'Times New Roman', Times"><B>Page</B></FONT><FONT SIZE="1"> <HR ALIGN="center" WIDTH="100%" SIZE="1" NOSHADE></FONT></TH>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Summary</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">1</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Forward Looking Information</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">3</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">How to Obtain More Information</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">3</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Amazon.com</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">4</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Ratio of Earnings to Fixed Charges</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">4</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Use of Proceeds</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">5</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">General Description of Securities</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">5</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Common Stock</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">5</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Preferred stock</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">6</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Depositary Shares</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">6</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Debt Securities</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">8</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Warrants to Purchase
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Common or Preferred stock</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">14</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Stock Purchase Units and
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stock Purchase Contracts</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">15</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Third-Party Warrants</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">15</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Warrants to Purchase Debt
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Securities</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">16</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Foreign Currency
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exchange Warrants</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">17</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the Stock Index Warrants</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">20</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Description of the other Warrants</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">22</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Plan of Distribution</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">24</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">ERISA Considerations</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">25</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Legal Matters</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">25</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left" WIDTH="88%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Experts</FONT></TD>
+<TD WIDTH="3%"><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right" WIDTH="9%"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">26</FONT></TD>
+</TR>
+</TABLE>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><HR WIDTH="21%" SIZE="1" NOSHADE></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times"><B>
+<A NAME="a785sup"></A>
+ABOUT THIS PROSPECTUS SUPPLEMENT</B></FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should read this prospectus supplement along with the accompanying prospectus. These documents contain
+information you should consider when making your investment decision. You should rely only on the information contained or incorporated by reference in this prospectus supplement and the accompanying prospectus. We have not authorized anyone else to
+provide you with different or additional information.</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This prospectus supplement and the accompanying prospectus do not constitute an offer to sell or a
+solicitation of an offer to buy any securities other than the common stock being purchased in this offering. This prospectus supplement and the accompanying prospectus do not constitute an offer to sell or a solicitation of an offer to buy the
+common stock being purchased in this offering in any circumstances in which an offer or solicitation is unlawful.</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Information in this prospectus supplement and the accompanying prospectus may change after the date on the
+front of the applicable document. You should not interpret the delivery of this prospectus supplement or the accompanying prospectus or the sale of the common stock as an indication that there has been no change in our affairs since that
+date.</FONT></DIV>
+<DIV><FONT SIZE="1">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times"> <B>
+<A NAME="b785sup"></A>
+USE OF PROCEEDS</B></FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The net proceeds from the offering, after deducting expenses, will be approximately $99,900,000. We expect
+to use the net proceeds for general corporate purposes, including, without limitation, to fund our ongoing operations, to expand our core businesses, to invest in new businesses, products and technologies, for capital expenditures, to repurchase
+outstanding debt and generally to strengthen the Company&#146;s financial position.</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pending the foregoing uses, we will invest the net proceeds from the offering in short-term,
+interest-bearing investment-grade securities.</FONT></DIV>
+<DIV><FONT SIZE="1">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times"> <B>
+<A NAME="c785sup"></A>
+DILUTION</B></FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our net tangible book value as of June 30, 2001 was $(1,582,826), or $(4.37) per share of common stock. Net
+tangible book value per share is determined by dividing our net tangible book value (total tangible assets less total liabilities) by the number of outstanding shares of common stock at that date. After giving effect to the sale of the 6,543,646
+shares of our common stock offered hereby at a price of $15.282 per share and after deducting estimated offering expenses, our net tangible book value at June 30, 2001 would have been $(1,482,926), or $(4.02) per share. The effect of the offering
+represents an immediate increase in net tangible book value to existing stockholders of $0.35 per share and an immediate dilution to purchasers of common stock in this offering of $19.30 per share. The following table illustrates the per share
+dilution:</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+
+<TABLE ALIGN="center" WIDTH="560" CELLSPACING=0 CELLPADDING=0>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Price per share</FONT></TD>
+<TD><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">$&nbsp;&nbsp;15.282</FONT></TD>
+<TD><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Net tangible book value per share as of June 30, 2001</FONT></TD>
+<TD><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">$&nbsp;&nbsp; (4.37</FONT></TD>
+<TD VALIGN="bottom" ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">)</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Increase per share attributable to the new investor</FONT></TD>
+<TD><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">$&nbsp;&nbsp;&nbsp;&nbsp; 0.35</FONT></TD>
+<TD><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Net tangible book value per share after this offering</FONT></TD>
+<TD><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">$&nbsp;&nbsp; (4.02</FONT></TD>
+<TD VALIGN="bottom" ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">)</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="bottom" NOWRAP ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">Net tangible book value dilution per share to the new investor</FONT></TD>
+<TD><FONT SIZE="1">&nbsp;&nbsp;&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="right"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">$ (19.30</FONT></TD>
+<TD VALIGN="bottom" ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">)</FONT></TD>
+</TR>
+</TABLE>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The above discussion and table assume no exercise of stock options or warrants outstanding as of June 30,
+2001. As of June 30, 2001, there were options outstanding to purchase a total of 42,297,491 shares of common stock at a weighted average exercise price of $12.4308 per share under our Amended and Restated 1994 Stock Option Plan, our 1997 Stock
+Incentive Plan, our 1999 Non-Officer Employee Stock Option Plan, and the option plans of acquired companies and a maximum of 88,150,826 additional shares were reserved for the future grant of options under such plans. To the extent that any of these
+options are exercised, there will be further dilution to the new investor.</FONT></DIV>
+<DIV><FONT SIZE="1">&nbsp;</FONT></DIV>
+<DIV ALIGN="center"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times"> <B>
+<A NAME="d785sup"></A>
+PLAN OF DISTRIBUTION</B></FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Under the terms and subject to the conditions contained in a common stock purchase agreement dated July 23,
+2001, we have agreed to sell 6,543,646 shares of our common stock to America Online, Inc. plus any additional shares required to be delivered pursuant to the next paragraph.</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the Five Day Average is less than $15.282, then on the second business day following the end of such
+five-day period, we will deliver to the purchaser, for no additional consideration, a number of shares of our common stock equal to the difference between (i) the number of shares of our common stock determined by dividing $100,000,000 by the Five
+Day Average and (ii) 6,543,646.</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pursuant to the common stock purchase agreement, America Online, Inc. has agreed, for two years from the
+date hereof, not to sell, transfer or otherwise dispose of the shares of our common stock sold hereby or any interest therein, provided that hedging transactions and certain other transfers are excepted from such agreement. These restrictions on
+transfer will terminate if we undergo a change of control or if certain commercial agreements between America Online, Inc. and us are terminated as a result of our material breach or become terminable pursuant to certain other provisions. After the
+expiration of the two year period, America Online, Inc. may freely transfer the shares of our common stock sold hereby, provided that, subject to certain exceptions, such sales will be subject to volume limitations unless structured as block sales
+meeting certain price and size requirements.</FONT></DIV>
+<DIV><FONT SIZE="2">&nbsp;</FONT></DIV>
+<DIV ALIGN="left"><FONT SIZE="2" COLOR="#000000" FACE="'Times New Roman', Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;America Online, Inc. has agreed, until the second anniversary of the date hereof, that neither it nor its
+affiliates will acquire beneficial ownership of shares of our capital stock, or securities convertible or exchangeable for shares of our capital stock if, after giving effect to such acquisition, America Online, Inc. and its affiliates would own in
+excess of 5% of such class of our capital stock and that neither it nor its affiliates will otherwise publicly seek to commence a merger, asset sale or other change of control transaction affecting us. These restrictions will terminate if we enter
+into an agreement with respect to a change of control transaction affecting us, if a third party makes an unsolicited public offer with respect to a change of control transaction affecting us, if we undergo a change of control, or if certain
+commercial agreements between America Online, Inc. and us are terminated as a result of our material breach or become terminable pursuant to certain other provisions. These restrictions will be suspended during any period in which (i) we have
+engaged an investment banker for the purpose of seeking a change of control transaction and have solicited three or more offers, (ii) we have publicly announced that we are exploring a change of control transaction or similar strategic alternatives,
+(iii) a third party offer with respect to change of control transaction affecting us has become publicly known and we have not rejected it, or (iv) a third party has launched and not terminated a tender offer with respect to shares of our common
+stock.</FONT></DIV>
+ </BODY>
+</HTML>
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>GRAPHIC
+<SEQUENCE>2
+<FILENAME>g43785prot61lan01.jpg
+<DESCRIPTION>GRAPHIC
+<TEXT>
+
+begin 644 g43785prot61lan01.jpg
+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
+M^JDE\JI)*?JI)?*J22G_V0``````````````````````````````````````
+M````````````````````````````````````````````````````````````
+M````````````````````````````````````````````````````````````
+M````````````````````````````````````````````````````````````
+M````````````````````````````````````````````````````````````
+M````````````````````````````````````````````````````````````
+M````````````````````````````````````````````````````````````
+>````````````````````````````````````````
+`
+end
+</TEXT>
+</DOCUMENT>
+</SEC-DOCUMENT>
+-----END PRIVACY-ENHANCED MESSAGE-----

@@ -5,7 +5,7 @@ Alert service for sending notifications through multiple channels.
 import json
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional
 from abc import ABC, abstractmethod
 
@@ -88,7 +88,7 @@ class SNSNotificationChannel(NotificationChannel):
             f"Change: {alert.get('change_percent', 'N/A')}%",
             f"Threshold: {alert.get('threshold', 'N/A')}",
             "",
-            f"Time: {alert.get('timestamp', datetime.utcnow().isoformat())}",
+            f"Time: {alert.get('timestamp', datetime.now(timezone.utc).isoformat())}",
             "",
             f"Message: {alert.get('message', 'No additional details')}"
         ]
@@ -157,7 +157,7 @@ class TelegramNotificationChannel(NotificationChannel):
             f"*Change:* `{alert.get('change_percent', 'N/A')}%`",
             f"*Threshold:* `{alert.get('threshold', 'N/A')}`",
             "",
-            f"*Time:* {alert.get('timestamp', datetime.utcnow().isoformat())}",
+            f"*Time:* {alert.get('timestamp', datetime.now(timezone.utc).isoformat())}",
             "",
             f"*Details:* {alert.get('message', 'No additional details')}"
         ]
@@ -196,7 +196,7 @@ class DashboardNotificationChannel(NotificationChannel):
             # Add new alert with unique ID
             alert_record = {
                 'id': f"{alert.get('data_source', 'unknown')}_{int(time.time())}",
-                'timestamp': alert.get('timestamp', datetime.utcnow().isoformat()),
+                'timestamp': alert.get('timestamp', datetime.now(timezone.utc).isoformat()),
                 'acknowledged': False,
                 'alert_data': alert
             }
@@ -232,7 +232,9 @@ class DashboardNotificationChannel(NotificationChannel):
     def get_recent_alerts(self, limit: int = 50) -> List[Dict[str, Any]]:
         """Get recent alerts for dashboard display."""
         alerts = self._load_alerts()
-        return alerts[-limit:]
+        # Sort by timestamp in reverse chronological order (newest first)
+        alerts.sort(key=lambda x: x.get('timestamp', ''), reverse=True)
+        return alerts[:limit]
     
     def acknowledge_alert(self, alert_id: str) -> bool:
         """Mark an alert as acknowledged."""
@@ -242,7 +244,7 @@ class DashboardNotificationChannel(NotificationChannel):
             for alert in alerts:
                 if alert['id'] == alert_id:
                     alert['acknowledged'] = True
-                    alert['acknowledged_at'] = datetime.utcnow().isoformat()
+                    alert['acknowledged_at'] = datetime.now(timezone.utc).isoformat()
                     break
             
             self._save_alerts(alerts)
@@ -286,7 +288,7 @@ class AlertService:
         
         # Add timestamp if not present
         if 'timestamp' not in alert_data:
-            alert_data['timestamp'] = datetime.utcnow().isoformat()
+            alert_data['timestamp'] = datetime.now(timezone.utc).isoformat()
         
         results = {}
         successful_channels = []

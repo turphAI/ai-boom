@@ -5,7 +5,7 @@ Comprehensive tests for error handling and data validation functionality.
 import json
 import pytest
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from unittest.mock import Mock, patch, MagicMock
 from typing import Dict, Any, List
 
@@ -118,7 +118,7 @@ class TestDataValidator:
         self.validator = DataValidator()
         self.valid_data = {
             'value': 1000000,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'confidence': 0.95,
             'metadata': {'source': 'test'}
         }
@@ -188,16 +188,16 @@ class TestDataValidator:
         for i in range(10):
             historical_data.append({
                 'value': 1000000 + (i * 10000),  # Values around 1M
-                'timestamp': (datetime.utcnow() - timedelta(days=i)).isoformat()
+                'timestamp': (datetime.now(timezone.utc) - timedelta(days=i)).isoformat()
             })
         
         # Test normal value (should have low anomaly score)
-        normal_data = {'value': 1050000, 'timestamp': datetime.utcnow().isoformat()}
+        normal_data = {'value': 1050000, 'timestamp': datetime.now(timezone.utc).isoformat()}
         result = self.validator.validate_data(normal_data, self.schema, historical_data)
         assert result.anomaly_score < 0.3
         
         # Test anomalous value (should have high anomaly score)
-        anomalous_data = {'value': 5000000, 'timestamp': datetime.utcnow().isoformat()}
+        anomalous_data = {'value': 5000000, 'timestamp': datetime.now(timezone.utc).isoformat()}
         result = self.validator.validate_data(anomalous_data, self.schema, historical_data)
         assert result.anomaly_score > 0.5
     
@@ -226,7 +226,7 @@ class TestCachedDataManager:
     def setup_method(self):
         """Set up test fixtures."""
         self.cache_manager = CachedDataManager(cache_ttl_hours=1)
-        self.test_data = {'value': 123, 'timestamp': datetime.utcnow().isoformat()}
+        self.test_data = {'value': 123, 'timestamp': datetime.now(timezone.utc).isoformat()}
     
     def test_cache_and_retrieve(self):
         """Test caching and retrieving data."""
@@ -427,7 +427,7 @@ class TestIntegrationScenarios:
             
             return {
                 'value': 1000000,
-                'timestamp': datetime.utcnow().isoformat(),
+                'timestamp': datetime.now(timezone.utc).isoformat(),
                 'confidence': 0.95,
                 'source': 'api'
             }
@@ -452,7 +452,7 @@ class TestIntegrationScenarios:
         """Test data integrity checking with cross-validation."""
         primary_data = {
             'value': 1000000,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'source': 'primary'
         }
         

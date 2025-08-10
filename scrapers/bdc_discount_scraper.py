@@ -11,7 +11,7 @@ This scraper monitors BDC discount-to-NAV ratios by:
 import logging
 import re
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Dict, Any, List, Optional, Tuple
 from urllib.parse import urljoin
 
@@ -81,7 +81,7 @@ class BDCDiscountScraper(BaseScraper):
                         'discount_to_nav': discount,
                         'discount_percentage': discount * 100,
                         'name': config['name'],
-                        'timestamp': datetime.utcnow().isoformat()
+                        'timestamp': datetime.now(timezone.utc).isoformat()
                     }
                     
                     self.logger.info(
@@ -104,6 +104,7 @@ class BDCDiscountScraper(BaseScraper):
         
         return {
             'value': avg_discount,
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'average_discount_percentage': avg_discount * 100,
             'bdc_count': len(bdc_data),
             'individual_bdcs': bdc_data,
@@ -141,7 +142,7 @@ class BDCDiscountScraper(BaseScraper):
             root = ET.fromstring(response.content)
             
             # Look for recent NAV announcements (within last 90 days)
-            cutoff_date = datetime.utcnow() - timedelta(days=90)
+            cutoff_date = datetime.now(timezone.utc) - timedelta(days=90)
             
             for item in root.findall('.//item'):
                 try:
@@ -281,7 +282,7 @@ class BDCDiscountScraper(BaseScraper):
             'change': change,
             'change_percentage': change_percentage,
             'message': message,
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'context': {
                 'bdc_count': current_data['bdc_count'],
                 'symbols': list(current_data['individual_bdcs'].keys()),

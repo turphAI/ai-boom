@@ -3,7 +3,7 @@ Base scraper interface for all data scrapers in the Boom-Bust Sentinel system.
 """
 
 from abc import ABC, abstractmethod
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, Optional, List
 import logging
 import time
@@ -46,7 +46,7 @@ class BaseScraper(ABC):
     def execute(self) -> ScraperResult:
         """Main execution flow for the scraper with comprehensive error handling."""
         start_time = time.time()
-        timestamp = datetime.utcnow()
+        timestamp = datetime.now(timezone.utc)
         
         try:
             self.logger.info(f"Starting {self.data_source} scraper execution")
@@ -276,7 +276,7 @@ class BaseScraper(ABC):
         try:
             metric_value = MetricValue(
                 value=data.get('value', 0),
-                timestamp=datetime.utcnow(),
+                timestamp=datetime.now(timezone.utc),
                 confidence=data.get('confidence', 1.0),
                 source=self.data_source,
                 metadata=data.get('metadata', {})
@@ -294,7 +294,7 @@ class BaseScraper(ABC):
         try:
             error_metric = MetricValue(
                 value=1,
-                timestamp=datetime.utcnow(),
+                timestamp=datetime.now(timezone.utc),
                 confidence=1.0,
                 source=self.data_source,
                 metadata={'error': str(error), 'error_type': type(error).__name__}

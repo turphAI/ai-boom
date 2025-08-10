@@ -1,0 +1,45 @@
+[
+  {
+    "data_source": "test_source",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:42.836050+00:00",
+    "data": {
+      "value": 1000000,
+      "timestamp": "2025-08-10T20:16:42.836050+00:00",
+      "confidence": 0.9,
+      "metadata": {
+        "source": "mock"
+      },
+      "validation_checksum": "90f1943c693242b413610f9b4be570e89270ebad50a6090e501173716459f9b4",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "test_source",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:42.832369+00:00",
+    "data": {
+      "value": 750000,
+      "timestamp": "2025-08-10T20:16:42.832369+00:00",
+      "confidence": 1.0,
+      "_fallback": true,
+      "validation_checksum": "78c7c64385d1f18fe1dbfc9f6f7e8b609a1321c1e63f4efa50ee3ad82db5f203",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "test_source",
+    "metric_name": "test_metric",
+    "timestamp": "2025-08-10T20:16:42.827669+00:00",
+    "data": {
+      "value": 1000000,
+      "timestamp": "2025-08-10T20:16:42.827669+00:00",
+      "confidence": 0.9,
+      "metadata": {
+        "source": "mock"
+      },
+      "validation_checksum": "7b77938411ca4aa50eefe6fa13e118e38dfc9daae6099baef527ef3e17fdb47b",
+      "anomaly_score": null
+    }
+  }
+]

@@ -3,7 +3,7 @@ Data management utilities for the Boom-Bust Sentinel system.
 """
 
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Optional
 
 from services.state_store import create_state_store
@@ -62,7 +62,7 @@ class DataManager:
         """Create a backup of all data."""
         summary = self.get_data_summary()
         backup_data = {
-            'backup_timestamp': datetime.utcnow().isoformat(),
+            'backup_timestamp': datetime.now(timezone.utc).isoformat(),
             'summary': summary,
             'data': {}
         }

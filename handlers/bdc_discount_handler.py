@@ -10,7 +10,7 @@ import logging
 import os
 import signal
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, Optional
 
 # Configure logging
@@ -55,7 +55,7 @@ def lambda_handler(event: Dict[str, Any], context) -> Dict[str, Any]:
     signal.alarm(max(1, timeout_seconds))
     
     execution_id = context.aws_request_id if hasattr(context, 'aws_request_id') else 'local'
-    start_time = datetime.utcnow()
+    start_time = datetime.now(timezone.utc)
     
     logger.info(f"Starting BDC discount scraper execution (ID: {execution_id})")
     logger.info(f"Event: {json.dumps(event, default=str)}")
@@ -71,7 +71,7 @@ def lambda_handler(event: Dict[str, Any], context) -> Dict[str, Any]:
         # Cancel timeout alarm
         signal.alarm(0)
         
-        execution_time = (datetime.utcnow() - start_time).total_seconds()
+        execution_time = (datetime.now(timezone.utc) - start_time).total_seconds()
         
         response = {
             'statusCode': 200,

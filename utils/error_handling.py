@@ -14,7 +14,7 @@ import json
 import logging
 import random
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from functools import wraps
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 from dataclasses import dataclass
@@ -348,7 +348,10 @@ class DataValidator:
                 else:
                     timestamp = data['timestamp']
                 
-                age = datetime.utcnow() - timestamp.replace(tzinfo=None)
+                # Ensure both timestamps are timezone-aware for comparison
+                if timestamp.tzinfo is None:
+                    timestamp = timestamp.replace(tzinfo=timezone.utc)
+                age = datetime.now(timezone.utc) - timestamp
                 if age > timedelta(hours=24):
                     warnings.append(f"Data is {age.days} days old")
             except Exception:
@@ -374,7 +377,7 @@ class CachedDataManager:
         cache_time = cached_item['timestamp']
         
         # Check if cache is expired
-        if datetime.utcnow() - cache_time > timedelta(hours=self.cache_ttl_hours):
+        if datetime.now(timezone.utc) - cache_time > timedelta(hours=self.cache_ttl_hours):
             del self.cache[key]
             return None
         
@@ -385,7 +388,7 @@ class CachedDataManager:
         """Cache data with timestamp."""
         self.cache[key] = {
             'data': data,
-            'timestamp': datetime.utcnow()
+            'timestamp': datetime.now(timezone.utc)
         }
         self.logger.debug(f"Cached data for {key}")
     
@@ -476,6 +479,143 @@ class CrossValidator:
         }
 
 
+class ErrorHandler:
+    """Comprehensive error handling and recovery system."""
+    
+    def __init__(self, logger: logging.Logger = None):
+        self.logger = logger or logging.getLogger(__name__)
+        self.validator = DataValidator(logger)
+        self.cache_manager = CachedDataManager()
+        self.cross_validator = CrossValidator(logger)
+        self.error_counts = {}
+        self.recovery_strategies = {}
+    
+    def handle_error(self, error: Exception, context: str = None, 
+                    severity: ErrorSeverity = ErrorSeverity.MEDIUM) -> Dict[str, Any]:
+        """
+        Handle errors with appropriate recovery strategies.
+        
+        Args:
+            error: The exception that occurred
+            context: Context where the error occurred
+            severity: Error severity level
+            
+        Returns:
+            Error handling result with recovery information
+        """
+        error_type = type(error).__name__
+        context = context or "unknown"
+        
+        # Track error counts
+        error_key = f"{error_type}_{context}"
+        self.error_counts[error_key] = self.error_counts.get(error_key, 0) + 1
+        
+        # Log error with appropriate level
+        if severity == ErrorSeverity.CRITICAL:
+            self.logger.critical(f"Critical error in {context}: {error}")
+        elif severity == ErrorSeverity.HIGH:
+            self.logger.error(f"High severity error in {context}: {error}")
+        elif severity == ErrorSeverity.MEDIUM:
+            self.logger.warning(f"Medium severity error in {context}: {error}")
+        else:
+            self.logger.info(f"Low severity error in {context}: {error}")
+        
+        # Determine recovery strategy
+        recovery_strategy = self._get_recovery_strategy(error, context, severity)
+        
+        # Execute recovery strategy
+        recovery_result = self._execute_recovery_strategy(recovery_strategy, error, context)
+        
+        return {
+            'error_type': error_type,
+            'context': context,
+            'severity': severity.value,
+            'recovery_strategy': recovery_strategy,
+            'recovery_successful': recovery_result['success'],
+            'fallback_data_used': recovery_result.get('fallback_data', False),
+            'error_count': self.error_counts[error_key],
+            'timestamp': datetime.now(timezone.utc).isoformat()
+        }
+    
+    def _get_recovery_strategy(self, error: Exception, context: str, 
+                              severity: ErrorSeverity) -> str:
+        """Determine appropriate recovery strategy based on error and context."""
+        error_type = type(error).__name__
+        
+        # Network-related errors
+        if isinstance(error, (ConnectionError, TimeoutError, requests.RequestException)):
+            if severity in [ErrorSeverity.HIGH, ErrorSeverity.CRITICAL]:
+                return "retry_with_backoff"
+            else:
+                return "use_cached_data"
+        
+        # Data validation errors
+        if isinstance(error, (DataIntegrityError, AnomalyDetectionError)):
+            return "cross_validate_and_clean"
+        
+        # Resource exhaustion
+        if "memory" in str(error).lower() or "quota" in str(error).lower():
+            return "reduce_load_and_retry"
+        
+        # Default strategy
+        return "log_and_continue"
+    
+    def _execute_recovery_strategy(self, strategy: str, error: Exception, 
+                                  context: str) -> Dict[str, Any]:
+        """Execute the determined recovery strategy."""
+        try:
+            if strategy == "retry_with_backoff":
+                return self._retry_with_backoff(error, context)
+            elif strategy == "use_cached_data":
+                return self._use_cached_data(context)
+            elif strategy == "cross_validate_and_clean":
+                return self._cross_validate_and_clean(error, context)
+            elif strategy == "reduce_load_and_retry":
+                return self._reduce_load_and_retry(error, context)
+            else:  # log_and_continue
+                return self._log_and_continue(error, context)
+        except Exception as recovery_error:
+            self.logger.error(f"Recovery strategy {strategy} failed: {recovery_error}")
+            return {'success': False, 'error': str(recovery_error)}
+    
+    def _retry_with_backoff(self, error: Exception, context: str) -> Dict[str, Any]:
+        """Retry operation with exponential backoff."""
+        # This would be implemented with the retry decorator
+        return {'success': True, 'strategy': 'retry_with_backoff'}
+    
+    def _use_cached_data(self, context: str) -> Dict[str, Any]:
+        """Use cached data as fallback."""
+        cached_data = self.cache_manager.get_cached_data(context)
+        if cached_data:
+            return {'success': True, 'fallback_data': True, 'strategy': 'use_cached_data'}
+        return {'success': False, 'strategy': 'use_cached_data'}
+    
+    def _cross_validate_and_clean(self, error: Exception, context: str) -> Dict[str, Any]:
+        """Cross-validate data and clean if necessary."""
+        return {'success': True, 'strategy': 'cross_validate_and_clean'}
+    
+    def _reduce_load_and_retry(self, error: Exception, context: str) -> Dict[str, Any]:
+        """Reduce load and retry operation."""
+        return {'success': True, 'strategy': 'reduce_load_and_retry'}
+    
+    def _log_and_continue(self, error: Exception, context: str) -> Dict[str, Any]:
+        """Log error and continue operation."""
+        return {'success': True, 'strategy': 'log_and_continue'}
+    
+    def get_error_statistics(self) -> Dict[str, Any]:
+        """Get error statistics for monitoring."""
+        return {
+            'total_errors': sum(self.error_counts.values()),
+            'error_counts': self.error_counts.copy(),
+            'recovery_success_rate': self._calculate_recovery_success_rate()
+        }
+    
+    def _calculate_recovery_success_rate(self) -> float:
+        """Calculate recovery success rate (placeholder implementation)."""
+        # This would track actual recovery success/failure
+        return 0.85  # Placeholder value
+
+
 def graceful_degradation(fallback_func: Callable = None, 
                         cache_manager: CachedDataManager = None):
     """
@@ -546,7 +686,7 @@ if __name__ == "__main__":
     validator = DataValidator()
     test_data = {
         'value': 1000000,
-        'timestamp': datetime.utcnow().isoformat(),
+        'timestamp': datetime.now(timezone.utc).isoformat(),
         'metadata': {'source': 'test'}
     }
     

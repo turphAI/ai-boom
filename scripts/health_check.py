@@ -10,7 +10,7 @@ import json
 import time
 import requests
 import boto3
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Any, Optional
 
 class HealthChecker:
@@ -52,7 +52,7 @@ class HealthChecker:
                 last_modified = response['Configuration']['LastModified']
                 
                 # Get recent invocation metrics
-                end_time = datetime.utcnow()
+                end_time = datetime.now(timezone.utc)
                 start_time = end_time - timedelta(hours=24)
                 
                 metrics = self.cloudwatch_client.get_metric_statistics(
@@ -120,7 +120,7 @@ class HealthChecker:
             table_size = response['Table']['TableSizeBytes']
             
             # Check recent read/write activity
-            end_time = datetime.utcnow()
+            end_time = datetime.now(timezone.utc)
             start_time = end_time - timedelta(hours=1)
             
             read_metrics = self.cloudwatch_client.get_metric_statistics(
@@ -356,11 +356,11 @@ class HealthChecker:
         """Run complete health check."""
         print(f"🏥 Running health check for environment: {self.environment}")
         print(f"   Region: {self.aws_region}")
-        print(f"   Timestamp: {datetime.utcnow().isoformat()}Z")
+        print(f"   Timestamp: {datetime.now(timezone.utc).isoformat()}Z")
         print()
         
         results = {
-            'timestamp': datetime.utcnow().isoformat() + 'Z',
+            'timestamp': datetime.now(timezone.utc).isoformat() + 'Z',
             'environment': self.environment,
             'region': self.aws_region,
             'checks': {}

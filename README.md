@@ -222,7 +222,7 @@ python scripts/cost_monitor.py --threshold 100
 
 ## 🧪 Testing
 
-### Run Tests Locally
+### Unit and Integration Tests
 ```bash
 # All tests
 pytest tests/ -v
@@ -236,6 +236,18 @@ pytest tests/test_deployment_verification.py -v  # Deployment tests
 pytest tests/ --cov=. --cov-report=html
 ```
 
+### Complete System Validation
+```bash
+# Run complete end-to-end validation (35-55 minutes)
+python scripts/run_complete_validation.py
+
+# Individual validation phases
+python tests/test_end_to_end_integration.py     # E2E integration tests
+python scripts/system_integration.py            # System integration
+python scripts/load_testing.py                  # Performance testing
+python scripts/final_system_validation.py       # Final validation
+```
+
 ### Deployment Verification
 ```bash
 # Test staging deployment
@@ -244,6 +256,14 @@ python scripts/test_deployment.py --stage staging
 # Test production deployment
 python scripts/test_deployment.py --stage prod
 ```
+
+**Validation Success Criteria**:
+- Overall Success Rate: ≥ 80%
+- Performance Score: ≥ 70/100
+- System Integration: ≥ 80% success rate
+- Production Readiness: ≥ 80/100
+
+For detailed testing documentation, see [Integration Testing Guide](docs/integration_testing.md).
 
 ## 🚀 Deployment
 

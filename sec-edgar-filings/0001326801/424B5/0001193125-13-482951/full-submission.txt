@@ -1,0 +1,1706 @@
+<SEC-DOCUMENT>0001193125-13-482951.txt : 20131223
+<SEC-HEADER>0001193125-13-482951.hdr.sgml : 20131223
+<ACCEPTANCE-DATETIME>20131223161702
+ACCESSION NUMBER:		0001193125-13-482951
+CONFORMED SUBMISSION TYPE:	424B5
+PUBLIC DOCUMENT COUNT:		2
+FILED AS OF DATE:		20131223
+DATE AS OF CHANGE:		20131223
+
+FILER:
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			Facebook Inc
+		CENTRAL INDEX KEY:			0001326801
+		STANDARD INDUSTRIAL CLASSIFICATION:	SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC. [7370]
+		IRS NUMBER:				201665019
+
+	FILING VALUES:
+		FORM TYPE:		424B5
+		SEC ACT:		1933 Act
+		SEC FILE NUMBER:	333-192944
+		FILM NUMBER:		131294993
+
+	BUSINESS ADDRESS:	
+		STREET 1:		1601 WILLOW ROAD
+		CITY:			MENLO PARK
+		STATE:			CA
+		ZIP:			94025
+		BUSINESS PHONE:		650-618-7714
+
+	MAIL ADDRESS:	
+		STREET 1:		1601 WILLOW ROAD
+		CITY:			MENLO PARK
+		STATE:			CA
+		ZIP:			94025
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>424B5
+<SEQUENCE>1
+<FILENAME>d646653d424b5.htm
+<DESCRIPTION>424B5
+<TEXT>
+<HTML><HEAD>
+<TITLE>424b5</TITLE>
+</HEAD>
+ <BODY BGCOLOR="WHITE">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="right"><B>Filed pursuant to Rule 424(b)(5) <BR> Registration No. 333-192944<BR><BR> </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B>CALCULATION OF REGISTRATION FEE </B></P> <P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="44%"></TD>
+<TD VALIGN="bottom" WIDTH="1%"></TD>
+<TD WIDTH="13%"></TD>
+<TD VALIGN="bottom" WIDTH="1%"></TD>
+<TD WIDTH="13%"></TD>
+<TD VALIGN="bottom" WIDTH="1%"></TD>
+<TD WIDTH="13%"></TD>
+<TD VALIGN="bottom" WIDTH="1%"></TD>
+<TD WIDTH="13%"></TD></TR>
+
+
+<TR STYLE="font-size:1px; ">
+<TD COLSPAN="9" VALIGN="bottom"> <P STYLE="border-top:1.00px solid #000000">&nbsp;</P></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="bottom" ALIGN="center" STYLE="BORDER-TOP:1px solid #000000"> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>Title of Each Class of</B></P>
+<P STYLE="margin-top:0pt; margin-bottom:1pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>Securities to be Registered</B></P></TD>
+<TD VALIGN="bottom" STYLE="BORDER-LEFT:1px solid #000000; BORDER-TOP:1px solid #000000">&nbsp;</TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="center" STYLE="BORDER-TOP:1px solid #000000"><B>Amount to be<BR>Registered</B></TD>
+<TD VALIGN="bottom" STYLE="BORDER-LEFT:1px solid #000000; BORDER-TOP:1px solid #000000">&nbsp;</TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="center" STYLE="BORDER-TOP:1px solid #000000"> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>Maximum</B></P>
+<P STYLE="margin-top:0pt; margin-bottom:1pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>Offering Price<BR>Per Share</B></P></TD>
+<TD VALIGN="bottom" STYLE="BORDER-LEFT:1px solid #000000; BORDER-TOP:1px solid #000000">&nbsp;</TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="center" STYLE="BORDER-TOP:1px solid #000000"><B>Maximum<BR>Aggregate<BR>Offering Price</B></TD>
+<TD VALIGN="bottom" STYLE="BORDER-LEFT:1px solid #000000; BORDER-TOP:1px solid #000000">&nbsp;</TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="center" STYLE="BORDER-TOP:1px solid #000000"><B>Amount of<BR>Registration&nbsp;Fee<SUP STYLE="font-size:85%; vertical-align:top">(1)</SUP></B></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top" STYLE="BORDER-TOP:1px solid #000000"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Class A Common Stock, $0.000006 par value</P></TD>
+<TD VALIGN="bottom" STYLE="BORDER-LEFT:1px solid #000000; BORDER-TOP:1px solid #000000">&nbsp;</TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="center" STYLE="BORDER-TOP:1px solid #000000">70,000,000</TD>
+<TD VALIGN="bottom" STYLE="BORDER-LEFT:1px solid #000000; BORDER-TOP:1px solid #000000">&nbsp;</TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="center" STYLE="BORDER-TOP:1px solid #000000">$55.05</TD>
+<TD VALIGN="bottom" STYLE="BORDER-LEFT:1px solid #000000; BORDER-TOP:1px solid #000000">&nbsp;</TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="center" STYLE="BORDER-TOP:1px solid #000000">$3,853,500,000</TD>
+<TD VALIGN="bottom" STYLE="BORDER-LEFT:1px solid #000000; BORDER-TOP:1px solid #000000">&nbsp;</TD>
+<TD VALIGN="bottom" NOWRAP ALIGN="center" STYLE="BORDER-TOP:1px solid #000000">$496,331</TD></TR>
+<TR STYLE="font-size:1px; ">
+<TD COLSPAN="9" VALIGN="bottom"> <P STYLE="border-top:1.00px solid #000000">&nbsp;</P></TD></TR>
+<TR STYLE="font-size:1px; ">
+<TD COLSPAN="9" VALIGN="bottom"> <P STYLE="border-top:1.00px solid #000000">&nbsp;</P></TD></TR>
+</TABLE>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="4%" VALIGN="top" ALIGN="left">(1)</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">Calculated in accordance with Rule 457(r) under the Securities Act of 1933, as amended. </P></TD></TR></TABLE>
+<P STYLE="font-size:10pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P> <P STYLE="line-height:1.0pt;margin-top:0pt;margin-bottom:0pt;border-bottom:1px solid #000000">&nbsp;</P>
+<P STYLE="line-height:3.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1px solid #000000">&nbsp;</P>
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman"><B>PROSPECTUS </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; font-size:18pt; font-family:Times New Roman" ALIGN="center"><B>70,000,000 Shares </B></P> <P STYLE="font-size:4pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<P STYLE="font-size:4pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P> <P STYLE="margin-top:0pt;margin-bottom:0pt" ALIGN="center">
+
+
+<IMG SRC="g646653g89z87.jpg" ALT="LOGO">
+ </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; font-size:14pt; font-family:Times New Roman" ALIGN="center"><B>Class&nbsp;A Common Stock </B></P>
+<P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P><center> <P STYLE="line-height:6.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1.00pt solid #000000;width:21%">&nbsp;</P></center>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="justify"><B>Facebook, Inc. is offering 27,004,761 shares of its Class&nbsp;A common stock and the selling stockholders are offering 42,995,239 shares of
+Class&nbsp;A common stock. We will not receive any proceeds from the sale of shares by the selling stockholders. </B></P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P><center>
+<P STYLE="line-height:6.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1.00pt solid #000000;width:21%">&nbsp;</P></center> <P STYLE="margin-top:6pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="justify"><B>We have two
+classes of common stock, Class&nbsp;A common stock and Class B common stock. The rights of the holders of Class&nbsp;A common stock and Class B common stock are identical, except voting and conversion rights. Each share of Class&nbsp;A common stock
+is entitled to one vote. Each share of Class B common stock is entitled to ten votes and is convertible at any time into one share of Class&nbsp;A common stock. The holders of our outstanding shares of Class B common stock will hold approximately
+75.4% of the voting power of our outstanding capital stock following this offering, and our Chairman and CEO, Mark Zuckerberg, will hold or have the ability to control approximately 62.8% of the voting power of our outstanding capital stock
+following this offering. </B></P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P><center> <P STYLE="line-height:6.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1.00pt solid #000000;width:21%">&nbsp;</P></center>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="justify"><B>Our Class&nbsp;A common stock is listed on the NASDAQ Global Select Market under the symbol &#147;FB.&#148; On December&nbsp;20, 2013, the
+reported closing sale price of our Class&nbsp;A common stock on the NASDAQ Global Select Market was $55.10 per share. </B></P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P><center>
+<P STYLE="line-height:6.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1.00pt solid #000000;width:21%">&nbsp;</P></center> <P STYLE="margin-top:6pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="justify"><B>Investing in
+our Class&nbsp;A common stock involves risks. See &#147;<A HREF="#cov646653_1">Risk Factors</A>&#148; beginning on page 4. </B></P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P><center>
+<P STYLE="line-height:6.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1.00pt solid #000000;width:21%">&nbsp;</P></center> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="50%"></TD>
+<TD VALIGN="bottom" WIDTH="1%"></TD>
+<TD WIDTH="48%"></TD></TR>
+
+
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top" COLSPAN="3" ALIGN="center"><B>PRICE $55.05 A SHARE</B></TD></TR>
+</TABLE> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P><center> <P STYLE="line-height:6.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1.00pt solid #000000;width:21%">&nbsp;</P></center>
+<P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="92%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt">
+
+
+<TR>
+<TD WIDTH="46%"></TD>
+<TD VALIGN="bottom" WIDTH="3%"></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="3%"></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="3%"></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="3%"></TD>
+<TD></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center"> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>Price&nbsp;to</B></P>
+<P STYLE="margin-top:0pt; margin-bottom:1pt; border-bottom:1.00pt solid #000000; width:25.75pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>&nbsp;&nbsp;Public</B></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Underwriting<BR>Discounts&nbsp;and<BR>Commissions&nbsp;<SUP STYLE="font-size:85%; vertical-align:top">(1)</SUP></B></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center"> <P STYLE="border-bottom:1.00pt solid #000000; width:36.90pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>Proceeds&nbsp;to<BR>&nbsp;&nbsp;Facebook</B></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center"> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>Proceeds to</B></P>
+<P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>Selling</B></P>
+<P STYLE="margin-top:0pt; margin-bottom:1pt; border-bottom:1.00pt solid #000000; width:44.40pt; font-size:8pt; font-family:Times New Roman" ALIGN="center"><B>Stockholders</B></P></TD></TR>
+
+
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Per share</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center">$55.05</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center">$0.2752</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center">$54.7748</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center">$54.7748</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Total</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center">$3,853,500,000</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center">$19,264,000</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center">$1,479,180,383</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="center">$2,355,055,617</TD></TR>
+</TABLE> <P STYLE="font-size:4pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P> <P STYLE="line-height:8.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1px solid #000000;width:10%">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="3%" VALIGN="top" ALIGN="left">(1)</TD>
+<TD ALIGN="left" VALIGN="top">See &#147;Underwriting.&#148; </TD></TR></TABLE> <P STYLE="margin-top:6pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The Securities and Exchange Commission and state regulators have
+not approved or disapproved of these securities, or determined if this prospectus is truthful or complete. Any representation to the contrary is a criminal offense. </P>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The underwriters expect to deliver the shares of Class&nbsp;A common stock to purchasers on December 26, 2013. </P>
+<P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P><center> <P STYLE="line-height:6.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1.00pt solid #000000;width:21%">&nbsp;</P></center>
+<P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:15pt" ALIGN="center">
+
+
+<TR>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD></TR>
+
+
+<TR STYLE="font-family:Times New Roman; font-size:15pt">
+<TD VALIGN="middle" ALIGN="center"><B>J.P.&nbsp;MORGAN</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="middle" ALIGN="center"><B>BofA&nbsp;MERRILL&nbsp;LYNCH</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="middle" ALIGN="center"><B>MORGAN&nbsp;STANLEY</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="middle" ALIGN="center"><B>BARCLAYS</B></TD></TR>
+</TABLE> <P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="95%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:13pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="33%"></TD>
+<TD VALIGN="bottom" WIDTH="1%"></TD>
+<TD WIDTH="33%"></TD>
+<TD VALIGN="bottom" WIDTH="1%"></TD>
+<TD WIDTH="32%"></TD></TR>
+
+
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"><FONT STYLE="font-size:13pt">BNP&nbsp;PARIBAS</FONT></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="top" ALIGN="center"><FONT STYLE="font-size:13pt">CITIGROUP</FONT></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="top"> <P STYLE="margin-top:0pt; margin-bottom:1pt; font-size:13pt; font-family:Times New Roman" ALIGN="right">RBC&nbsp;CAPITAL&nbsp;MARKETS</P></TD></TR>
+</TABLE> <P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="60%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:13pt" ALIGN="center">
+
+
+<TR>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="72%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD></TR>
+
+
+<TR STYLE="font-family:Times New Roman; font-size:13pt">
+<TD VALIGN="top">CREDIT&nbsp;SUISSE</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="top">&nbsp;</TD>
+<TD VALIGN="top" ALIGN="right">HSBC</TD>
+<TD NOWRAP VALIGN="top">&nbsp;&nbsp;</TD></TR></TABLE> <P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="95%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:13pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="33%"></TD>
+<TD VALIGN="bottom" WIDTH="1%"></TD>
+<TD WIDTH="33%"></TD>
+<TD VALIGN="bottom" WIDTH="1%"></TD>
+<TD WIDTH="32%"></TD></TR>
+
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"><FONT STYLE="font-size:13pt">RBS</FONT></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="top" ALIGN="center"> <P STYLE="margin-top:0pt; margin-bottom:1pt; font-size:13pt; font-family:Times New Roman" ALIGN="center">STANDARD&nbsp;CHARTERED</P></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="top" ALIGN="right"><FONT STYLE="font-size:13pt">PIPER&nbsp;JAFFRAY</FONT></TD></TR></TABLE>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; font-size:13pt; font-family:Times New Roman" ALIGN="center">ALLEN&nbsp;&amp;&nbsp;COMPANY&nbsp;LLC </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman">December
+20, 2013 </P>
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B>TABLE OF CONTENTS </B></P>
+<P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;
+</P><DIV STYLE="position:relative;float:left; margin-right:1%; width:48%;padding-right:9pt;padding-bottom:8pt;overflow:hidden;padding-top:3pt">
+
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="90%"></TD>
+<TD VALIGN="bottom" WIDTH="9%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Page</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD></TR>
+
+
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_1">Prospectus Summary</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">1</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_2">Risk Factors</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">4</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_3">Special Note Regarding Forward-Looking Statements</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">4</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_3a">Recent Legal Development </A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">4</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_4">Use of Proceeds</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">5</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_5">Dividend Policy</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">5</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR></TABLE>
+</DIV><DIV STYLE="position:relative;float:right; width:48%;padding-right:9pt;padding-bottom:8pt;overflow:hidden;padding-top:3pt">
+
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="90%"></TD>
+<TD VALIGN="bottom" WIDTH="7%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD></TR>
+
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Page</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD></TR>
+
+
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_6">Selling Stockholders</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">6</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_7">Underwriting</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">8</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_8">Legal Matters</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">13</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_9">Experts</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">13</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_10">Information Incorporated by Reference</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">13</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman"><A HREF="#toc646653_11">Where You Can Find Additional Information</A></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">14</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+</TABLE> </DIV><div style="clear:both; height:0pt; font-size:0pt">&nbsp;</div>
+ <P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">You should
+rely only on the information contained or incorporated by reference in this prospectus. Neither we, nor the selling stockholders, nor the underwriters have authorized anyone to provide you with any information other than the information contained or
+incorporated by reference in this prospectus. Neither we, nor the selling stockholders, nor the underwriters are making an offer to sell securities in any jurisdiction where the offer or sale is not permitted. The information contained or
+incorporated by reference in this prospectus is accurate only as of the date thereof, regardless of the time of delivery of this prospectus or of any sale of our shares of Class&nbsp;A common stock. Our business, financial condition and results of
+operations may have changed since those dates. It is important for you to read and consider all the information contained in this prospectus, including the documents incorporated by reference herein, in making your investment decision. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">For investors outside the United States: Neither we, nor the selling stockholders, nor the underwriters have done anything
+that would permit this offering or possession or distribution of this prospectus in any jurisdiction where action for that purpose is required, other than in the United States. Persons outside the United States who come into possession of this
+prospectus must inform themselves about, and observe any restrictions relating to, the offering of the shares of our Class&nbsp;A common stock and the distribution of this prospectus outside of the United States. </P>
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+
+<div style ="BORDER-BOTTOM:1.00pt solid #000000;BORDER-LEFT:1.00pt solid #000000;BORDER-RIGHT:1.00pt solid #000000;BORDER-TOP:1.00pt solid #000000;MARGIN-LEFT:0px;MARGIN-RIGHT:0px;WIDTH:100%"><div style="width:97%; margin-top:1.5%; margin-left:1.5%; margin-right:-1.25%">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_1"></A>PROSPECTUS SUMMARY </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify"><I>This summary highlights information contained elsewhere in this prospectus and the documents incorporated herein by
+reference and does not contain all of the information you should consider in making your investment decision. You should read this summary together with the more detailed information included elsewhere in, or incorporated by reference into, this
+prospectus, including our consolidated financial statements and the related notes. You should carefully consider, among other things, the matters discussed in &#147;Risk Factors,&#148; which we describe in our Quarterly Report on Form 10-Q for the
+quarter ended September&nbsp;30, 2013 and in other documents that we subsequently file with the Securities and Exchange Commission that are incorporated by reference in this prospectus. </I></P>
+<P STYLE="margin-top:24pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B>FACEBOOK, INC. </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Our mission is to give people the power to share and make the world more open and connected. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We build products that support our mission by creating utility for users, developers, and marketers: </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify"><I>Users</I>. We enable people who use Facebook to stay connected with their friends and family, to discover what is going on
+in the world around them, and to share and express what matters to them to the people they care about. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify"><I>Developers</I>.
+We enable developers to use the Facebook Platform to build applications and websites that integrate with Facebook to reach our global network of users and to build products that are more personalized, social, and engaging. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify"><I>Marketers</I>. We enable marketers to engage with more than one billion monthly active users on Facebook or subsets of our
+users based on information they have chosen to share with us such as their age, location, gender, or interests. We offer marketers a unique combination of reach, relevance, social context, and engagement to enhance the value of their ads. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We generate substantially all of our revenue from advertising and from fees associated with our Payments infrastructure that
+enables users to purchase virtual and digital goods from our Platform developers. In the third quarter of 2013, we recorded revenue of $2,016 million, income from operations of $736 million and net income of $425 million. In the first nine months of
+2013, we recorded revenue of $5,286 million, income from operations of $1,672 million and net income of $977 million. </P> <P STYLE="margin-top:18pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman"><B>Corporate Information </B></P>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We were incorporated in Delaware in July 2004. Unless expressly indicated or the context requires otherwise, the terms
+&#147;Facebook,&#148; &#147;company,&#148; &#147;we,&#148; &#147;us,&#148; and &#147;our&#148; in this prospectus or the documents incorporated by reference refer to Facebook, Inc., a Delaware corporation, and, where appropriate, its wholly-owned
+subsidiaries. The term &#147;Facebook&#148; may also refer to our products, regardless of the manner in which they are accessed. Our principal executive offices are located at 1601 Willow Road, Menlo Park, California 94025, and our telephone number
+is (650)&nbsp;543-4800. Our website address is www.facebook.com. The information on or that can be accessed through our website is not part of this prospectus. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Facebook, the Facebook logo, FB, the Like button, Instagram and our other registered or common law trademarks, service marks,
+or trade names appearing in this prospectus are the property of Facebook, Inc. Other trademarks, service marks, or trade names appearing in this prospectus or the documents incorporated by reference are the property of their respective owners. </P>
+ <P STYLE="margin-top:0pt;margin-bottom:0pt; font-size:8pt">&nbsp;</P></div></div>
+
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">1 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+
+<div style ="BORDER-BOTTOM:1.00pt solid #000000;BORDER-LEFT:1.00pt solid #000000;BORDER-RIGHT:1.00pt solid #000000;BORDER-TOP:1.00pt solid #000000;MARGIN-LEFT:0px;MARGIN-RIGHT:0px;WIDTH:100%"><div style="width:97%; margin-top:1.5%; margin-left:1.5%; margin-right:-1.25%">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B>THE OFFERING </B></P>
+<P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="68%"></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD WIDTH="30%"></TD></TR>
+
+
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman">Class A common stock offered</P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<P STYLE="margin-top:0pt; margin-bottom:0pt; text-indent:2.00em; font-size:10pt; font-family:Times New Roman">By us</P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<P STYLE="margin-top:0pt; margin-bottom:0pt; text-indent:2.00em; font-size:10pt; font-family:Times New Roman">By the selling stockholders</P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<P STYLE="margin-top:0pt; margin-bottom:1pt; text-indent:4.00em; font-size:10pt; font-family:Times New Roman">Total</P></TD>
+<TD VALIGN="bottom"><FONT STYLE="font-size:8pt">&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom"> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman">27,004,761 shares</P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman">42,995,239 shares</P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<P STYLE="margin-top:0pt; margin-bottom:1pt; font-size:10pt; font-family:Times New Roman">70,000,000 shares</P></TD></TR>
+<TR>
+<TD HEIGHT="8"></TD>
+<TD HEIGHT="8" COLSPAN="2"></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top">Class&nbsp;A common stock to be outstanding after this offering</TD>
+<TD VALIGN="bottom"><FONT STYLE="font-size:8pt">&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom">1,937,626,545 shares</TD></TR>
+<TR>
+<TD HEIGHT="8"></TD>
+<TD HEIGHT="8" COLSPAN="2"></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top">Class B common stock to be outstanding after this offering</TD>
+<TD VALIGN="bottom"><FONT STYLE="font-size:8pt">&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom">602,586,433 shares</TD></TR>
+<TR>
+<TD HEIGHT="8"></TD>
+<TD HEIGHT="8" COLSPAN="2"></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top">Total Class&nbsp;A and Class B common stock to be outstanding after this offering</TD>
+<TD VALIGN="bottom"><FONT STYLE="font-size:8pt">&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="top">2,540,212,978 shares</TD></TR>
+<TR>
+<TD HEIGHT="8"></TD>
+<TD HEIGHT="8" COLSPAN="2"></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top">Use of Proceeds</TD>
+<TD VALIGN="bottom"><FONT STYLE="font-size:8pt">&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom"> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We intend to use the net proceeds to us from this offering for working capital and other general corporate purposes;
+however, we do not currently have any specific uses of the net proceeds planned. Additionally, we may use a portion of the proceeds to us for acquisitions of complementary businesses, technologies, or other assets. </P>
+<P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt" align="left">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:1pt; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We will not receive any proceeds from the sale of shares of
+Class&nbsp;A common stock by the selling stockholders. In connection with this offering, Mark Zuckerberg, our Chairman and CEO, has exercised, in full, an outstanding stock option to purchase 60,000,000 shares of Class&nbsp;B common stock and will
+offer 41,350,000 of those shares as Class&nbsp;A common stock in this offering. We expect that the majority of the net proceeds Mr.&nbsp;Zuckerberg will receive upon such sale will be used to satisfy taxes that he incurred in connection with the
+option exercise. See &#147;Use of Proceeds.&#148;</P></TD></TR>
+<TR>
+<TD HEIGHT="8"></TD>
+<TD HEIGHT="8" COLSPAN="2"></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top">NASDAQ Global Select Market symbol</TD>
+<TD VALIGN="bottom"><FONT STYLE="font-size:8pt">&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom">&#147;FB&#148;</TD></TR></TABLE>
+ <P STYLE="margin-top:0pt;margin-bottom:0pt; font-size:8pt">&nbsp;</P></div></div>
+
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">2 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+
+<div style ="BORDER-BOTTOM:1.00pt solid #000000;BORDER-LEFT:1.00pt solid #000000;BORDER-RIGHT:1.00pt solid #000000;BORDER-TOP:1.00pt solid #000000;MARGIN-LEFT:0px;MARGIN-RIGHT:0px;WIDTH:100%"><div style="width:97%; margin-top:1.5%; margin-left:1.5%; margin-right:-1.25%">
+
+
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="68%"></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD WIDTH="30%"></TD></TR>
+
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top">Inclusion in the S&amp;P 500 Index</TD>
+<TD VALIGN="bottom"><FONT STYLE="font-size:8pt">&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">Standard &amp; Poor&#146;s, a division of McGraw-Hill Financial Inc. (S&amp;P), has, effective as of the close of trading on December&nbsp;20, 2013, included
+our Class A common stock in the S&amp;P 500 Index, which is comprised of 500 common stocks that S&amp;P selects. Shares of our Class A common stock offered by this prospectus will be offered primarily to index funds whose portfolios are primarily
+based on stocks included in the S&amp;P 500 Index. These index funds may be required to purchase shares of our Class A common stock as a result of the inclusion of our Class A common stock in the S&amp;P 500 Index.</P></TD></TR>
+</TABLE> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The number of shares of Class&nbsp;A and Class&nbsp;B common stock to be outstanding after
+this offering is based on (i)&nbsp;1,869,271,784 shares of our Class&nbsp;A common stock and 583,936,433 shares of our Class B common stock outstanding as of September&nbsp;30, 2013; and (ii)&nbsp;assumes the issuance of 60,000,000 shares of our
+Class B common stock upon the exercise, in full, by Mr.&nbsp;Zuckerberg of an outstanding stock option to purchase 60,000,000 shares of our Class B common stock and the automatic conversion of 41,350,000 of those shares into an equivalent number of
+shares of Class&nbsp;A common stock upon their sale in this offering, and excludes: </P> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="5%">&nbsp;</TD>
+<TD WIDTH="2%" VALIGN="top" ALIGN="left">&#149;</TD>
+<TD WIDTH="1%" VALIGN="top">&nbsp;</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">24,336,671 shares of Class&nbsp;B common stock issuable upon the exercise of options outstanding as of September&nbsp;30, 2013 under our 2005 Stock
+Plan, with a weighted-average exercise price of $3.30 per share; </P></TD></TR></TABLE> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="5%">&nbsp;</TD>
+<TD WIDTH="2%" VALIGN="top" ALIGN="left">&#149;</TD>
+<TD WIDTH="1%" VALIGN="top">&nbsp;</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">54,735,331 shares of Class B common stock subject to restricted stock units (RSUs) outstanding as of September 30, 2013 under our 2005 Stock Plan;
+</P></TD></TR></TABLE> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="5%">&nbsp;</TD>
+<TD WIDTH="2%" VALIGN="top" ALIGN="left">&#149;</TD>
+<TD WIDTH="1%" VALIGN="top">&nbsp;</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">56,492,545 shares of Class A common stock subject to RSUs outstanding as of September 30, 2013 under our 2012 Equity Incentive Plan;
+</P></TD></TR></TABLE> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="5%">&nbsp;</TD>
+<TD WIDTH="2%" VALIGN="top" ALIGN="left">&#149;</TD>
+<TD WIDTH="1%" VALIGN="top">&nbsp;</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">4,297,942 shares of Class A common stock subject to RSUs granted under our 2012 Equity Incentive Plan between September 30, 2013 and December 18,
+2013; and </P></TD></TR></TABLE> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="5%">&nbsp;</TD>
+<TD WIDTH="2%" VALIGN="top" ALIGN="left">&#149;</TD>
+<TD WIDTH="1%" VALIGN="top">&nbsp;</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">158,152,604 shares of Class A common stock reserved for issuance under our 2012 Equity Incentive Plan as of September&nbsp;30, 2013.
+</P></TD></TR></TABLE>
+ <P STYLE="margin-top:0pt;margin-bottom:0pt; font-size:8pt">&nbsp;</P></div></div>
+
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">3 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_2"></A><A NAME="cov646653_1"></A>RISK FACTORS </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Investing in our Class&nbsp;A common stock involves a high degree of risk. Before making a decision to invest in our
+Class&nbsp;A common stock, in addition to the other information contained in this prospectus or incorporated into this prospectus by reference, you should carefully consider the risks described under &#147;Risk Factors&#148; in our Quarterly Report
+on Form 10-Q for the quarter ended September&nbsp;30, 2013, and in other documents that we subsequently file with the SEC that are incorporated by reference in this prospectus. See &#147;Where You Can Find Additional Information.&#148; </P>
+<P STYLE="margin-top:24pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_3"></A>SPECIAL NOTE REGARDING FORWARD-LOOKING STATEMENTS </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">This prospectus, including the documents incorporated into this prospectus by reference, contains forward-looking statements.
+All statements contained in or incorporated by reference in this prospectus other than statements of historical fact, including statements regarding our future results of operations and financial position, our business strategy and plans, and our
+objectives for future operations, are forward-looking statements. The words &#147;believe,&#148; &#147;may,&#148; &#147;will,&#148; &#147;estimate,&#148; &#147;continue,&#148; &#147;anticipate,&#148; &#147;intend,&#148; &#147;expect,&#148; and
+similar expressions are intended to identify forward-looking statements. We have based these forward-looking statements largely on our current expectations and projections about future events and trends that we believe may affect our financial
+condition, results of operations, business strategy, short-term and long-term business operations and objectives, and financial needs. These forward-looking statements are subject to a number of risks, uncertainties, and assumptions, including those
+described in the &#147;Risk Factors&#148; section. Moreover, we operate in a very competitive and rapidly changing environment. New risks emerge from time to time. It is not possible for our management to predict all risks, nor can we assess the
+impact of all factors on our business or the extent to which any factor, or combination of factors, may cause actual results to differ materially from those contained in any forward-looking statements we may make. In light of these risks,
+uncertainties, and assumptions, the future events and trends discussed in this prospectus may not occur and actual results could differ materially and adversely from those anticipated or implied in the forward-looking statements. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">You should not rely upon forward-looking statements as predictions of future events. The events and circumstances reflected in
+the forward-looking statements may not be achieved or occur. Although we believe that the expectations reflected in the forward-looking statements are reasonable, we cannot guarantee future results, levels of activity, performance, or achievements.
+Although we undertake no obligation to revise or update any forward-looking statements, whether as a result of new information, future events or otherwise, you are advised to review any additional disclosures we make in the documents we subsequently
+file with the SEC that are incorporated by reference in this prospectus. See &#147;Where You Can Find Additional Information.&#148; </P> <P STYLE="margin-top:24pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_3a">
+</A>RECENT LEGAL DEVELOPMENT </B></P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Beginning on May 22, 2012, multiple putative class actions, derivative actions, and
+individual actions were filed in state and federal courts in the United States and in other jurisdictions against us, our directors, and/or certain of our officers alleging violation of securities laws or breach of fiduciary duties in connection
+with our initial public offering (IPO) and seeking unspecified damages. We believe these lawsuits are without merit, and we intend to continue to vigorously defend them. On October 4, 2012, on our motion, the vast majority of the cases in the United
+States, along with multiple cases filed against The NASDAQ OMX Group, Inc. and The Nasdaq Stock Market LLC (collectively referred to herein as NASDAQ) alleging technical and other trading-related errors by NASDAQ in connection with our IPO, were
+ordered centralized for coordinated or consolidated pre-trial proceedings in the United States District Court for the Southern District of New York. On February 13, 2013, the court granted our motion to dismiss four derivative actions against our
+directors and certain of our officers with leave to amend. On October 8, 2013, the court heard argument on our motion to dismiss the consolidated securities class action, as well as our motion to dismiss, and the plaintiffs&#146; motion to remand to
+state court, certain other derivative actions. On December 18, 2013, the court denied our motion to dismiss the consolidated securities class action. In addition, the events surrounding our IPO have become the subject of various government
+inquiries, and we are cooperating with those inquiries. Such lawsuits or inquiries could subject us to substantial costs, divert resources and the attention of management from our business, and adversely affect our business. </P>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">4 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_4"></A>USE OF PROCEEDS </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We estimate that our net proceeds from the sale of the Class&nbsp;A common stock that we are offering will be
+$1.48&nbsp;billion, based on the offering price of $55.05 per share and after deducting underwriting discounts and commissions and estimated offering expenses payable by us. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Our principal purpose for selling shares in this offering is to obtain additional capital. We intend to use the net proceeds
+to us from this offering for working capital and other general corporate purposes; however, we do not currently have any specific uses of the net proceeds planned. Additionally, we may use a portion of the proceeds to us for acquisitions of
+complementary businesses, technologies, or other assets. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Pending other uses, we intend to invest the proceeds to us in
+investment-grade, interest-bearing securities such as money market funds, certificates of deposit, or direct or guaranteed obligations of the U.S. government, or hold as cash. We cannot predict whether the proceeds invested will yield a favorable
+return. Our management will have broad discretion in the application of the net proceeds we receive from this offering, and investors will be relying on the judgment of our management regarding the application of the net proceeds. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We will not receive any proceeds from the sale of shares of Class&nbsp;A common stock by the selling stockholders. Mark
+Zuckerberg, our Chairman and CEO, will offer and sell 41,350,000 shares in this offering. We expect that the majority of the net proceeds Mr.&nbsp;Zuckerberg will receive upon such sale will be used to satisfy taxes that he incurred in connection
+with the exercise, in full, of an outstanding stock option to purchase 60,000,000 shares of Class B common stock. </P> <P STYLE="margin-top:24pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_5">
+</A>DIVIDEND POLICY </B></P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We have never declared or paid any cash dividend on our capital stock. We currently intend to
+retain any future earnings and do not expect to pay any dividends in the foreseeable future. Any further determination to pay dividends on our capital stock will be at the discretion of our board of directors, subject to applicable laws, and will
+depend on our financial condition, results of operations, capital requirements, general business conditions, and other factors that our board of directors considers relevant. In addition, the terms of our credit facility contain restrictions on our
+ability to pay dividends. </P>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">5 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_6"></A>SELLING STOCKHOLDERS </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The following table sets forth certain information with respect to the selling stockholders&#146; beneficial ownership of our
+common stock as of November&nbsp;30, 2013. The table does not reflect a gift of 18,000,000 shares of Class B common stock that Mark Zuckerberg, our chairman and CEO, made on December 20, 2013. These shares will be converted to Class&nbsp;A common
+stock in connection with Mr.&nbsp;Zuckerberg&#146;s donation.</P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We have determined beneficial ownership in accordance with
+the rules of the SEC. Except as indicated by the footnotes below, we believe, based on the information furnished to us, that the selling stockholders have sole voting and investment power with respect to all shares of Class&nbsp;A common stock or
+Class B common stock that they beneficially own, subject to applicable community property laws. Based on the information provided to us by the selling stockholders, no selling stockholder is a broker-dealer or an affiliate of a broker-dealer. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Applicable percentage ownership is based on 1,880,086,898 shares of Class&nbsp;A common stock and 577,964,131 shares of Class
+B common stock outstanding as of November&nbsp;30, 2013. For purposes of computing percentage ownership after this offering, we have also assumed that 27,004,761 shares of Class&nbsp;A common stock will be issued by us in this offering, and that
+60,000,000 shares of Class B common stock will be issued by us in connection with the exercise, in full, of an outstanding stock option by Mr.&nbsp;Zuckerberg, our Chairman and CEO, 41,350,000 shares of which will be converted into an equivalent
+number of shares of Class&nbsp;A common stock upon their sale in this offering. In computing the number of shares of common stock beneficially owned by the selling stockholders and the percentage ownership of the selling stockholders, we deemed to
+be outstanding all shares of common stock subject to options or other convertible securities held by the selling stockholders that are currently exercisable or releasable or that will become exercisable or releasable within 60 days of
+November&nbsp;30, 2013. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Unless otherwise indicated in the footnotes below, the address of the selling stockholders is c/o
+Facebook, Inc., 1601 Willow Road, Menlo Park, California 94025. </P>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">6 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="36%"></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="2%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="14" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Shares Beneficially Owned</B><br><B>Prior to this Offering</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ROWSPAN="3" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>%&nbsp;of&nbsp;Total<BR>Voting<BR>Power<BR>Before&nbsp;This<BR>Offering<SUP STYLE="font-size:85%; vertical-align:top">(2)</SUP></B></TD>
+<TD VALIGN="bottom" ROWSPAN="3">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ROWSPAN="3" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Number<BR>of<BR>Shares<BR>Being<BR>Offered</B></TD>
+<TD VALIGN="bottom" ROWSPAN="3">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="14" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Shares Beneficially</B><br><B>Owned After this Offering</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ROWSPAN="3" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>%&nbsp;of&nbsp;Total<BR>Voting<BR>Power&nbsp;After<BR>This<BR>Offering<SUP STYLE="font-size:85%; vertical-align:top">(2)</SUP></B></TD>
+<TD VALIGN="bottom" ROWSPAN="3">&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="6" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Class A</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="6" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Class B</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="6" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Class A</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="6" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Class B</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="bottom" NOWRAP> <P STYLE="border-bottom:1.00pt solid #000000; width:89.90pt; font-size:8pt; font-family:Times New Roman"><B>Name&nbsp;of&nbsp;Beneficial&nbsp;Owner</B></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Shares<SUP STYLE="font-size:85%; vertical-align:top">(1)</SUP></B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>%</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Shares<SUP STYLE="font-size:85%; vertical-align:top">(1)</SUP></B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>%</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Shares</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>%</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Shares</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>%</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+
+
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:8pt; font-family:Times New Roman">Mark Zuckerberg<SUP STYLE="font-size:85%; vertical-align:top">(3)</SUP></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">217</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">*</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">485,601,850</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">76.1</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">58.8</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom"><SUP STYLE="font-size:85%; vertical-align:top"></SUP>&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">41,350,000<SUP STYLE="font-size:85%; vertical-align:top"></SUP></TD>
+<TD NOWRAP VALIGN="bottom"><SUP STYLE="font-size:85%; vertical-align:top">(4)</SUP>&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">217</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">*</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">444,251,850</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">74.5</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">56.1</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="top" NOWRAP> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:8pt; font-family:Times New Roman">Shares subject to voting proxy<SUP STYLE="font-size:85%; vertical-align:top">(5)</SUP></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">&#151;&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">&#151;&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">52,662,398</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">9.1</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">6.9</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">&#151;&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">&#151;&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">&#151;&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">52,662,398</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">8.8</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom" ALIGN="right">6.7</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="top"> <P STYLE="margin-left:3.00em; text-indent:-1.00em; font-size:8pt; font-family:Times New Roman">Total</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">217</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">*</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">538,264,248</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">84.4</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">65.2</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">41,350,000</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">217</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">*</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">496,914,248</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">83.3</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">62.8</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:8pt; font-family:Times New Roman">Marc&nbsp;L. Andreessen<SUP STYLE="font-size:85%; vertical-align:top">(6)</SUP></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">4,565,112</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">*</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">&#151;&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">&#151;&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">*</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom"><SUP STYLE="font-size:85%; vertical-align:top"></SUP>&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">1,645,239<SUP STYLE="font-size:85%; vertical-align:top"></SUP></TD>
+<TD NOWRAP VALIGN="bottom"><SUP STYLE="font-size:85%; vertical-align:top">(7)</SUP>&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">2,919,873</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">*</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">&#151;&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">&#151;&nbsp;&nbsp;</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">*</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+</TABLE> <P STYLE="line-height:8.0pt;margin-top:0pt;margin-bottom:2pt;border-bottom:1px solid #000000;width:10%">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="3%" VALIGN="top" ALIGN="left">*</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:8pt">Less than 1%. </P></TD></TR></TABLE>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="3%" VALIGN="top" ALIGN="left">(1)</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:8pt">Mr. Andreessen, a member of our board of directors, holds 7,742 restricted stock units (RSUs), none of which will become releasable within 60 days
+of November&nbsp;30, 2013. Mr.&nbsp;Zuckerberg, our Chairman and CEO, does not hold any RSUs. Each RSU represents a contingent right to receive one share of our Class A common stock upon settlement. </P></TD></TR></TABLE>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="3%" VALIGN="top" ALIGN="left">(2)</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:8pt">Percentage of total voting power represents voting power with respect to all shares of our Class&nbsp;A and Class B common stock, as a single class.
+The holders of our Class B common stock are entitled to ten votes per share, and holders of our Class&nbsp;A common stock are entitled to one vote per share. </P></TD></TR></TABLE>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="3%" VALIGN="top" ALIGN="left">(3)</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:8pt">Consists of (i)&nbsp;30,432,762 shares of Class B common stock held of record by Mr.&nbsp;Zuckerberg; (ii)&nbsp;3,325,965 shares of Class B common
+stock held of record by Mark Zuckerberg, Trustee of The Mark Zuckerberg 2008 Annuity Trust dated March&nbsp;13, 2008; (iii)&nbsp;217 shares of Class&nbsp;A common stock and 391,843,120 shares of Class B common stock held of record by Mark
+Zuckerberg, Trustee of The Mark Zuckerberg Trust dated July&nbsp;7, 2006; (iv)&nbsp;3 shares of Class B common stock held of record by Mark Zuckerberg, Trustee of the Openness Trust, dated April&nbsp;2, 2012; and (v)&nbsp;60,000,000 shares of Class
+B common stock issuable upon exercise of an option that is exercisable within 60 days of November&nbsp;30, 2013, which will be exercised in full by Mr.&nbsp;Zuckerberg as described in footnote (4)&nbsp;below. </P></TD></TR></TABLE>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="3%" VALIGN="top" ALIGN="left">(4)</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:8pt">Mr.&nbsp;Zuckerberg will offer and sell 41,350,000 shares in this offering. The majority of the net proceeds Mr.&nbsp;Zuckerberg will receive upon
+such sale will be used to satisfy taxes that he will incur upon the receipt of 60,000,000 shares of our Class B common stock as a result of the full exercise of an outstanding stock option to purchase 60,000,000 shares of our Class B common stock.
+</P></TD></TR></TABLE>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="3%" VALIGN="top" ALIGN="left">(5)</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:8pt">Consists of shares of our Class&nbsp;A and Class B common stock held by other stockholders over which, except under limited circumstances,
+Mr.&nbsp;Zuckerberg holds an irrevocable proxy with respect to certain matters, pursuant to voting agreements between Mr.&nbsp;Zuckerberg, us and such stockholders, including certain of the holders of more than 5% of our capital stock. We do not
+believe that the parties to these voting agreements constitute a &#147;group&#148; under Section&nbsp;13 of the Securities Exchange Act of 1934, as amended. </P></TD></TR></TABLE>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="3%" VALIGN="top" ALIGN="left">(6)</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:8pt">Consists of (i)&nbsp;1,274,869 shares of Class&nbsp;A common stock held of record by Andreessen Horowitz Fund II, L.P. as nominee (AH Fund II);
+(ii)&nbsp;3,256,159 shares of Class&nbsp;A common stock held of record by The Andreessen 1996 Living Trust (Andreessen Living Trust); and (iii)&nbsp;34,084 shares of Class&nbsp;A common stock held of record by The Andreessen 1996 Charitable
+Remainder Unitrust (Andreessen Charitable Trust). AH Equity Partners II, L.L.C. (AHEP II) is the general partner of AH Fund II. Mr.&nbsp;Andreessen is one of the managing members of AHEP II and, therefore, may be deemed to share voting and
+investment power over the securities held by AH Fund II. Mr.&nbsp;Andreessen and JPMorgan Chase Bank, N.A. (successor-in-interest to J.P.&nbsp;Morgan Trust Company, N.A.) are the trustees of the Andreessen Living Trust and the Andreessen Charitable
+Trust, and may be deemed to share voting and investment power over the securities held by the Andreessen Living Trust. The address of all the entities and trusts is 2865 Sand Hill Road, Suite 101, Menlo Park, California 94025. </P></TD></TR></TABLE>
+
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:8pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="3%" VALIGN="top" ALIGN="left">(7)</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:8pt">Consists of 1,645,239 shares to be sold by the Andreessen Living Trust. </P></TD></TR></TABLE>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">7 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_7"></A>UNDERWRITING </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We and the selling stockholders are offering the shares of Class&nbsp;A common stock described in this prospectus through a
+number of underwriters. J.P. Morgan Securities LLC is acting as representative of the underwriters. We and the selling stockholders have entered into an underwriting agreement with the representative on behalf of the underwriters. Subject to the
+terms and conditions of the underwriting agreement, we and the selling stockholders have agreed to sell to the underwriters, and each underwriter has severally agreed to purchase, at the public offering price less the underwriting discounts and
+commissions set forth on the cover page of this prospectus, the number of shares of Class&nbsp;A common stock listed next to its name in the following table: </P> <P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="68%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="80%"></TD>
+<TD VALIGN="bottom" WIDTH="9%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="bottom" NOWRAP> <P STYLE="border-bottom:1.00pt solid #000000; width:20.00pt; font-size:8pt; font-family:Times New Roman"><B>Name</B></P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Number&nbsp;of&nbsp;Shares</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD></TR>
+
+
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">J.P. Morgan Securities LLC</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">9,951,366</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-top:0pt; margin-bottom:0pt; margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Merrill Lynch, Pierce, Fenner&nbsp;&amp; Smith</P>
+<P STYLE="margin-top:0pt; margin-bottom:1pt; margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;Incorporated</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">9,951,366</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Morgan Stanley&nbsp;&amp; Co. LLC</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">8,814,067</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Barclays Capital Inc.</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">8,814,067</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">BNP Paribas Securities Corp.</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">5,402,170</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Citigroup Global Markets Inc.</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">4,833,520</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">RBC Capital Markets, LLC</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">4,833,520</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Credit Suisse Securities (USA) LLC</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">3,980,546</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">HSBC Securities (USA) Inc.</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">3,980,546</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">RBS Securities Inc.</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">2,843,247</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Standard Chartered Securities (Hong Kong) Limited</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">2,843,247</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Piper Jaffray &amp; Co.</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">2,843,247</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Allen &amp; Company LLC</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">909,091</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-size:1px; ">
+<TD VALIGN="bottom"></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom"> <P STYLE="border-top:1.00px solid #000000">&nbsp;</P></TD>
+<TD VALIGN="bottom"> <P STYLE="border-top:1.00px solid #000000">&nbsp;</P></TD>
+<TD>&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:3.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Total</P></TD>
+<TD VALIGN="bottom"><FONT STYLE="font-size:8pt">&nbsp;&nbsp;</FONT></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom" ALIGN="right">70,000,000</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-size:1px; ">
+<TD VALIGN="bottom"></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom"> <P STYLE="border-top:3.00px double #000000">&nbsp;</P></TD>
+<TD VALIGN="bottom"> <P STYLE="border-top:3.00px double #000000">&nbsp;</P></TD>
+<TD>&nbsp;</TD></TR>
+</TABLE> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Standard&nbsp;&amp; Poor&#146;s, a division of McGraw-Hill Financial Inc. (S&amp;P), has,
+effective as of the close of trading on December&nbsp;20, 2013, included our Class&nbsp;A common stock in the S&amp;P 500 Index, which is comprised of 500 common stocks that S&amp;P selects. Shares of our Class&nbsp;A common stock offered by this
+prospectus will be offered primarily to index funds whose portfolios are primarily based on stocks included in the S&amp;P 500 Index. These index funds may be required to purchase shares of our Class&nbsp;A common stock as a result of the inclusion
+of our Class&nbsp;A common stock in the S&amp;P 500 Index. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The underwriters initially propose to offer part of the shares
+of Class&nbsp;A common stock directly to the public at the offering price listed on the cover page of this prospectus. After the initial offering of the shares of the Class&nbsp;A common stock, the offering price and other selling terms may from
+time to time be varied by the representative. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The underwriters are offering the shares of Class&nbsp;A common stock
+subject to their acceptance of the shares from us and subject to prior sale. The underwriting agreement provides that the obligations of the several underwriters to pay for and accept delivery of the shares of Class&nbsp;A common stock offered by
+this prospectus are subject to the approval of certain legal matters by their counsel and to certain other conditions. The underwriters are obligated to take and pay for all of the shares of Class&nbsp;A common stock offered by this prospectus if
+any such shares are taken. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The following table shows the per share underwriting discounts and commissions and proceeds
+before expenses to us and the selling stockholders. </P> <P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE CELLSPACING="0" CELLPADDING="0" WIDTH="76%" BORDER="0" STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" ALIGN="center">
+
+
+<TR>
+<TD WIDTH="63%"></TD>
+<TD VALIGN="bottom" WIDTH="5%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD VALIGN="bottom" WIDTH="5%"></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:8pt">
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Per Share</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom" COLSPAN="2" ALIGN="center" STYLE="border-bottom:1.00pt solid #000000"><B>Total</B></TD>
+<TD VALIGN="bottom">&nbsp;</TD></TR>
+
+
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Public offering price</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">55.05</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">3,853,500,000</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Underwriting discounts and commissions to be paid by:</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom"></TD>
+<TD VALIGN="bottom"></TD>
+<TD VALIGN="bottom"></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom"></TD>
+<TD VALIGN="bottom"></TD>
+<TD VALIGN="bottom"></TD></TR>
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:3.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Us</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">0.2752</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">7,431,710</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:3.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">The selling stockholders</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">0.2752</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">11,832,290</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR BGCOLOR="#cceeff" STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Proceeds, before expenses, to us</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">54.7748</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">1,479,180,383</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+<TR STYLE="font-family:Times New Roman; font-size:10pt">
+<TD VALIGN="top"> <P STYLE="margin-left:1.00em; text-indent:-1.00em; font-size:10pt; font-family:Times New Roman">Proceeds, before expenses, to the selling stockholders</P></TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;54.7748</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">&nbsp;&nbsp;</TD>
+<TD VALIGN="bottom">$</TD>
+<TD VALIGN="bottom" ALIGN="right">2,355,055,617</TD>
+<TD NOWRAP VALIGN="bottom">&nbsp;&nbsp;</TD></TR>
+</TABLE>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">8 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Neither we, nor our stockholders, including the selling stockholders, have
+entered into contractual lock-up agreements with the underwriters in connection with this offering. As of the date of this offering, all of our executive officers, except Mark Zuckerberg, have adopted written plans, known as Rule 10b5-1 plans, in
+which they have contracted with a broker to sell shares of our Class&nbsp;A common stock on a periodic basis. Under a Rule 10b5-1 plan, a broker executes trades pursuant to parameters established by the director or executive officer when entering
+into the plan, without further direction from them. The executive officer may amend or terminate the plan in specified circumstances. Except for the shares of Class&nbsp;A common stock to be offered and sold in this offering and shares sold to
+satisfy tax withholding obligations, our executive officers are required to conduct all purchase or sale transactions under a Rule 10b5-1 plan. Our non-employee directors may also conduct purchase or sale transactions outside of a Rule 10b5-1 plan
+when they are not in possession of material, nonpublic information during our open trading windows. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Our Class&nbsp;A
+common stock is listed on the NASDAQ Global Select Market under the symbol &#147;FB.&#148; </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">In connection with this
+offering, the underwriters may purchase and sell shares of Class&nbsp;A common stock in the open market. These transactions may include short sales, stabilizing transactions and purchases to cover positions created by short sales. Specifically,
+&#147;naked&#148; short sales involve the sale by the underwriters of a greater number of shares than they are required to purchase in this offering. The underwriters must close out any naked short position by purchasing shares in the open market. A
+naked short position is more likely to be created if the underwriters are concerned that there may be downward pressure on the price of the Class&nbsp;A common stock in the open market after pricing that could adversely affect investors who purchase
+in the offering. Stabilizing transactions consist of various bids for or purchases of Class&nbsp;A common stock made by the underwriters in the open market prior to the completion of this offering. The underwriters may also impose a penalty bid.
+This occurs when a particular underwriter repays to the underwriters a portion of the underwriting discount received by it because the representative has repurchased shares sold by or for the account of such underwriter in stabilizing or short
+covering transactions. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Purchases to cover a short position and stabilizing transactions, as well as other purchases by
+the underwriters for their respective accounts, may have the effect of preventing or retarding a decline in the market price of our Class&nbsp;A common stock, and may stabilize, maintain or otherwise affect the market price of our Class&nbsp;A
+common stock. As a result, the price of our Class&nbsp;A common stock may be higher than the price that otherwise might exist in the open market. If these activities are commenced, they may be discontinued at any time. These transactions may be
+effected on the NASDAQ Global Select Market, in the over-the-counter market or otherwise. The underwriters are not required to engage in these activities and may end any of these activities at any time. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We estimate that our share of the total expenses of this offering will be approximately $1.2 million. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We, the selling stockholders, and the several underwriters have agreed to indemnify each other against certain liabilities,
+including liabilities under the Securities Act of 1933, as amended. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">A prospectus in electronic format may be made
+available on websites maintained by one or more underwriters, or selling group members, if any, participating in this offering. The representative may agree to allocate a number of shares of Class&nbsp;A common stock to underwriters for sale to
+their online brokerage account holders. Internet distributions will be allocated by the representative to underwriters that may make Internet distributions on the same basis as other allocations. </P>
+<P STYLE="margin-top:18pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman"><B>Other Relationships </B></P> <P STYLE="margin-top:6pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The
+underwriters and their respective affiliates are full service financial institutions engaged in various activities, which may include sales and trading, commercial and investment banking, advisory, investment management, investment research,
+principal investment, hedging, market making, brokerage and other financial and non-financial activities and services. The underwriters and their respective affiliates have provided, and may in the future provide, a variety of these services to us
+and to persons and entities with relationships with us, for which they received or will receive customary fees and expenses. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">In August 2013, we entered into a five-year senior unsecured revolving credit facility with certain lenders, including
+affiliates of all of the underwriters participating in this offering except Piper Jaffray &amp; Co. and Allen &amp; Company LLC. The credit facility replaced our existing credit facilities and allows us to borrow up to $6,500 million to fund working
+capital and general corporate purposes. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Erskine Bowles, a member of our board of directors, serves as a member of the
+board of directors of Morgan Stanley. Mr.&nbsp;Bowles&#146; spouse, Crandall Bowles, is a member of the board of directors of JP Morgan Chase&nbsp;&amp; Co. </P>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">9 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">In the ordinary course of their various business activities, the underwriters and
+their respective affiliates, officers, directors and employees may purchase, sell or hold a broad array of investments, and actively trade securities, derivatives, loans, commodities, currencies, credit default swaps, and other financial instruments
+for their own account and for the accounts of their customers, and such investment and trading activities may involve or relate to our assets, securities, and instruments (directly, as collateral securing other obligations or otherwise) and/or
+persons and entities with relationships with us. The underwriters and their respective affiliates may also communicate independent investment recommendations, market color or trading ideas and/or publish or express independent research views in
+respect of such assets, securities or instruments and may at any time hold, or recommend to clients that they should acquire, long and/or short positions in such assets, securities, and instruments. </P>
+<P STYLE="margin-top:18pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman"><B>Selling Restrictions </B></P> <P STYLE="margin-top:6pt; margin-bottom:0pt; margin-left:4%; font-size:10pt; font-family:Times New Roman"><B><I>European
+Economic Area </I></B></P> <P STYLE="margin-top:6pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">In relation to each Member State of the European Economic Area which has implemented the Prospectus
+Directive, with effect from and including the date on which the Prospectus Directive is implemented in that Member State, an offer of securities may not be made to the public in that Member State, other than: </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">(a) to any legal entity that is a qualified investor as defined in the Prospectus Directive; </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">(b) to fewer than 100 or, if that Member State has implemented the relevant provision of the 2010 PD Amending Directive, 150
+natural or legal persons (other than &#147;qualified investors&#148; as defined in the Prospectus Directive) subject to obtaining the prior consent of the representative; or </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">(c) in any other circumstances that do not require the publication of a prospectus pursuant to Article 3 of the Prospectus
+Directive; </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="justify">provided that no such offer of securities shall require us or any underwriter to publish a prospectus pursuant to Article 3 of
+the Prospectus Directive. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">For the purposes of the above, the expression an &#147;offer of securities to the public&#148;
+in relation to any securities in any Member State means the communication in any form and by any means of sufficient information on the terms of the offer and the securities to be offered so as to enable an investor to decide to purchase or
+subscribe for the securities, as the same may be varied in that Member State by any measure implementing the Prospectus Directive in that Member State (and amendments thereto, including the 2010 PD Amending Directive, to the extent implemented in
+that Member State), and the expression &#147;Prospectus Directive&#148; means Directive 2003/71/EC and includes any relevant implementing measure in that Member State, and the expression &#147;2010 PD Amending Directive&#148; means Directive
+2010/73/EU. </P> <P STYLE="margin-top:18pt; margin-bottom:0pt; margin-left:4%; font-size:10pt; font-family:Times New Roman"><B><I>United Kingdom </I></B></P>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">This prospectus and any other material in relation to the shares described herein is only being distributed to, and is only
+directed at, persons in the United Kingdom that are qualified investors within the meaning of Article 2(1)(e) of the Prospective Directive (&#147;qualified investors&#148;) that also (i)&nbsp;have professional experience in matters relating to
+investments falling within Article 19(5) of the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended, or the Order, (ii)&nbsp;who fall within Article 49(2)(a) to (d)&nbsp;of the Order or (iii)&nbsp;to whom it may
+otherwise lawfully be communicated (all such persons together being referred to as &#147;relevant persons&#148;). The shares are only available to, and any invitation, offer or agreement to purchase or otherwise acquire such shares will be engaged
+in only with, relevant persons. This prospectus and its contents are confidential and should not be distributed, published or reproduced (in whole or in part) or disclosed by recipients to any other person in the United Kingdom. Any person in the
+United Kingdom that is not a relevant person should not act or rely on this prospectus or any of its contents. </P>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">10 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; margin-left:4%; font-size:10pt; font-family:Times New Roman"><B><I>Hong Kong </I></B></P>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The shares of our Class&nbsp;A common stock may not be offered or sold by means of any document other than (i)&nbsp;in
+circumstances which do not constitute an offer to the public within the meaning of the Companies Ordinance (Cap.32, Laws of Hong Kong), or (ii)&nbsp;to &#147;professional investors&#148; within the meaning of the Securities and Futures Ordinance
+(Cap.571, Laws of Hong Kong) and any rules made thereunder, or (iii)&nbsp;in other circumstances which do not result in the document being a &#147;prospectus&#148; within the meaning of the Companies Ordinance (Cap.32, Laws of Hong Kong), and no
+advertisement, invitation or document relating to the shares may be issued or may be in the possession of any person for the purpose of issue (in each case whether in Hong Kong or elsewhere), which is directed at, or the contents of which are likely
+to be accessed or read by, the public in Hong Kong (except if permitted to do so under the laws of Hong Kong) other than with respect to shares which are or are intended to be disposed of only to persons outside Hong Kong or only to
+&#147;professional investors&#148; within the meaning of the Securities and Futures Ordinance (Cap.571 Laws of Hong Kong) and any rules made thereunder. </P>
+<P STYLE="margin-top:18pt; margin-bottom:0pt; margin-left:4%; font-size:10pt; font-family:Times New Roman"><B><I>Singapore </I></B></P>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">This prospectus has not been registered as a prospectus with the Monetary Authority of Singapore. Accordingly, this prospectus
+and any other document or material in connection with the offer or sale, or invitation for subscription or purchase, of the shares of our Class&nbsp;A common stock may not be circulated or distributed, nor may the shares be offered or sold, or be
+made the subject of an invitation for subscription or purchase, whether directly or indirectly, to persons in Singapore other than (i)&nbsp;to an institutional investor under Section&nbsp;274 of the Securities and Futures Act, Chapter 289 of
+Singapore (SFA), (ii)&nbsp;to a relevant person, or any person pursuant to Section&nbsp;275(1A), and in accordance with the conditions, specified in Section&nbsp;275 of the SFA, or (iii)&nbsp;otherwise pursuant to, and in accordance with the
+conditions of, any other applicable provision of the SFA. </P> <P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Where the shares of our Class&nbsp;A common stock are
+subscribed or purchased under Section&nbsp;275 by a relevant person which is: (a)&nbsp;a corporation (which is not an accredited investor) the sole business of which is to hold investments and the entire share capital of which is owned by one or
+more individuals, each of whom is an accredited investor; or (b)&nbsp;a trust (where the trustee is not an accredited investor) whose sole purpose is to hold investments and each beneficiary is an accredited investor, shares, debentures and units of
+shares and debentures of that corporation or the beneficiaries&#146; rights and interest in that trust shall not be transferable for six months after that corporation or that trust has acquired the shares under Section&nbsp;275 except: (1)&nbsp;to
+an institutional investor under Section&nbsp;274 of the SFA or to a relevant person, or any person pursuant to Section&nbsp;275(1A), and in accordance with the conditions, specified in Section&nbsp;275 of the SFA; (2)&nbsp;where no consideration is
+given for the transfer; or (3)&nbsp;by operation of law. </P> <P STYLE="margin-top:18pt; margin-bottom:0pt; margin-left:4%; font-size:10pt; font-family:Times New Roman"><B><I>Japan </I></B></P>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The shares of our Class&nbsp;A common stock have not been and will not be registered under the Financial Instruments and
+Exchange Law of Japan (the Financial Instruments and Exchange Law) and may not be offered or sold, directly or indirectly, in Japan or to, or for the benefit of, any resident of Japan (which term as used herein means any person resident in Japan,
+including any corporation or other entity organized under the laws of Japan), or to others for re-offering or resale, directly or indirectly, in Japan or to a resident of Japan, except pursuant to an exemption from the registration requirements of,
+and otherwise in compliance with, the Financial Instruments and Exchange Law and any other applicable laws, regulations and ministerial guidelines of Japan. </P>
+<P STYLE="margin-top:18pt; margin-bottom:0pt; margin-left:4%; font-size:10pt; font-family:Times New Roman"><B><I>Notice to Prospective Investors in Switzerland </I></B></P>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The shares of our Class&nbsp;A common stock may not be publicly offered in Switzerland and will not be listed on the SIX Swiss
+Exchange (SIX) or on any other stock exchange or regulated trading facility in Switzerland. This document has been prepared without regard to the disclosure standards for issuance prospectuses under art. 652a or art. 1156 of the Swiss Code of
+Obligations or the disclosure standards for listing prospectuses under art. 27 ff. of the SIX Listing Rules or the listing rules of any other stock exchange or regulated trading facility in Switzerland. Neither this document nor any other offering
+or marketing material relating to the shares of our Class&nbsp;A common stock or the offering may be publicly distributed or otherwise made publicly available in Switzerland. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Neither this document nor any other offering or marketing material relating to the offering, us, or the shares of our
+Class&nbsp;A common stock have been or will be filed with or approved by any Swiss regulatory authority. In particular, this document will not be filed with, and the offer of shares will not be supervised by, the Swiss Financial Market Supervisory
+Authority FINMA (FINMA), and the offer of shares has not been and will not be authorized under the Swiss Federal Act on Collective Investment Schemes (CISA). The investor protection afforded to acquirers of interests in collective investment schemes
+under the CISA does not extend to acquirers of the shares. </P>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">11 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; margin-left:4%; font-size:10pt; font-family:Times New Roman"><B><I>Notice to Prospective Investors in the Dubai International Financial Centre </I></B></P>
+<P STYLE="margin-top:6pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">This prospectus relates to an Exempt Offer in accordance with the Offered Securities Rules of the Dubai Financial Services
+Authority (DFSA). This prospectus is intended for distribution only to persons of a type specified in the Offered Securities Rules of the DFSA. It must not be delivered to, or relied on by, any other person. The DFSA has no responsibility for
+reviewing or verifying any documents in connection with Exempt Offers. The DFSA has not approved this prospectus nor taken steps to verify the information set forth herein and has no responsibility for the prospectus. The shares of our Class&nbsp;A
+common stock to which this prospectus relates may be illiquid and/or subject to restrictions on their resale. Prospective purchasers of the shares offered should conduct their own due diligence on the shares. If you do not understand the contents of
+this prospectus you should consult an authorized financial advisor. </P>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">12 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_8"></A>LEGAL MATTERS </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The validity of the shares of Class&nbsp;A common stock offered hereby will be passed upon for us by Fenwick&nbsp;&amp; West
+LLP, Mountain View, California. Simpson Thacher&nbsp;&amp; Bartlett LLP, Palo Alto, California is acting as counsel to the underwriters. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">As of the date of this prospectus, attorneys of Fenwick&nbsp;&amp; West LLP beneficially own an aggregate of approximately
+17,200 shares of our capital stock. </P> <P STYLE="margin-top:24pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_9"></A>EXPERTS </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Ernst&nbsp;&amp; Young LLP, independent registered public accounting firm, has audited our consolidated financial statements
+included in our Annual Report on Form 10-K for the year ended December&nbsp;31, 2012 as set forth in their report, which is incorporated by reference in this prospectus and elsewhere in the registration statement. Our consolidated financial
+statements are incorporated by reference on reliance on Ernst&nbsp;&amp; Young LLP&#146;s report, given their authority as experts in accounting and auditing. </P>
+<P STYLE="margin-top:24pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_10"></A>INFORMATION INCORPORATED BY REFERENCE </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">The following documents filed with the SEC are hereby incorporated by reference in this prospectus: </P>
+<P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="5%">&nbsp;</TD>
+<TD WIDTH="2%" VALIGN="top" ALIGN="left">&#149;</TD>
+<TD WIDTH="1%" VALIGN="top">&nbsp;</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">our Annual Report on Form 10-K for the year ended December&nbsp;31, 2012, filed with the SEC on February&nbsp;1, 2013, including portions of our
+proxy statement from our 2013 Annual Meeting of Stockholders held on June&nbsp;11, 2013 to the extent incorporated by reference into our Annual Report on Form&nbsp;10-K; </P></TD></TR></TABLE>
+<P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="5%">&nbsp;</TD>
+<TD WIDTH="2%" VALIGN="top" ALIGN="left">&#149;</TD>
+<TD WIDTH="1%" VALIGN="top">&nbsp;</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">our Quarterly Reports on Form 10-Q for the quarters ended March&nbsp;31, 2013,&nbsp;June&nbsp;30, 2013 and September&nbsp;30, 2013, filed with the
+SEC on May&nbsp;2, 2013,&nbsp;July&nbsp;25, 2013, and November&nbsp;1, 2013, respectively; </P></TD></TR></TABLE> <P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="5%">&nbsp;</TD>
+<TD WIDTH="2%" VALIGN="top" ALIGN="left">&#149;</TD>
+<TD WIDTH="1%" VALIGN="top">&nbsp;</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">our Current Reports on Form 8-K and Form 8-K/A filed with the SEC on March&nbsp;6, 2013,&nbsp;April&nbsp;3, 2013,&nbsp;April&nbsp;26,
+2013,&nbsp;May&nbsp;1, 2013 (but only the portion disclosed pursuant to Item&nbsp;5.02),&nbsp;June&nbsp;13, 2013,&nbsp;August&nbsp;15, 2013, and October&nbsp;16, 2013; and </P></TD></TR></TABLE>
+<P STYLE="font-size:6pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<TABLE STYLE="BORDER-COLLAPSE:COLLAPSE; font-family:Times New Roman; font-size:10pt" BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+<TR>
+<TD WIDTH="5%">&nbsp;</TD>
+<TD WIDTH="2%" VALIGN="top" ALIGN="left">&#149;</TD>
+<TD WIDTH="1%" VALIGN="top">&nbsp;</TD>
+<TD ALIGN="left" VALIGN="top"> <P ALIGN="justify" STYLE="font-family:Times New Roman; font-size:10pt">the description of our Class A common stock as set forth in our registration statement on Form 8-A, filed with the SEC on May&nbsp;14, 2012,
+pursuant to Section 12(b) of the Securities Exchange Act of 1934, as amended (Exchange Act), including any subsequent amendments or reports filed for the purpose of updating such description. </P></TD></TR></TABLE>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">All reports and other documents subsequently filed by us pursuant to Sections 13(a), 13(c), 14 and 15(d) of the Exchange Act
+after the date of this prospectus and prior to the termination of this offering shall be deemed to be incorporated by reference in this prospectus and to be part hereof from the date of filing of such reports and other documents. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Notwithstanding the statements in the preceding paragraphs, no document, report or exhibit (or portion of any of the
+foregoing) or any other information that we have &#147;furnished&#148; or may in the future &#147;furnish&#148; to the SEC pursuant to the Exchange Act shall be incorporated by reference into this prospectus. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We hereby undertake to provide without charge to each person, including any beneficial owner, to whom a copy of this
+prospectus is delivered, upon written or oral request of any such person, a copy of any and all of the information that has been or may be incorporated by reference in this prospectus, other than exhibits to such documents, unless such exhibits have
+been specifically incorporated by reference thereto. Requests for such copies should be directed to our Investor Relations department, at the following address: </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">Facebook, Inc. </P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">Investor Relations
+</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">1601 Willow Road </P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">Menlo Park,
+California 94025 </P>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">13 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center"><B><A NAME="toc646653_11"></A>WHERE YOU CAN FIND ADDITIONAL INFORMATION </B></P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">We file annual, quarterly and special reports and other information with the SEC. You may read and copy any documents we file
+at the SEC&#146;s Public Reference Room at 100 F Street, N.E., Room 1580, Washington, D.C. 20549. Please call the SEC at 1-800-SEC-0330 for further information about the public reference room. The SEC also maintains an Internet web site that
+contains reports, proxy and information statements and other information regarding registrants like us that file electronically with the SEC. The address of the site is www.sec.gov. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">Our Internet address is www.facebook.com and our investor relations website is located at http://investor.fb.com. We make
+available free of charge, on or through our investor relations website, annual reports on Form 10-K, quarterly reports on Form 10-Q, current reports on Form 8-K and amendments to those reports filed or furnished pursuant to Section&nbsp;13(a) or
+15(d) of the Exchange Act as soon as reasonably practicable after we electronically file such material with, or furnish it to, the SEC. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">You should rely only on the information contained or incorporated by reference in this prospectus. We have not authorized
+anyone to provide you with information different from that contained in this prospectus. The shares of Class&nbsp;A common stock offered under this prospectus are offered only in jurisdictions where offers and sales are permitted. The information
+contained in this prospectus is accurate only as of the date of this prospectus, regardless of the time of delivery of this prospectus or any sale of the Class&nbsp;A common stock. </P>
+<P STYLE="margin-top:12pt; margin-bottom:0pt; text-indent:4%; font-size:10pt; font-family:Times New Roman" ALIGN="justify">This prospectus constitutes a part of a registration statement we filed with the SEC under the Securities Act of 1933, as
+amended. This prospectus does not contain all of the information set forth in the registration statement, certain parts of which are omitted in accordance with the rules and regulations of the SEC. For further information with respect to us and the
+shares of our Class&nbsp;A common stock, reference is hereby made to the registration statement. The registration statement may be inspected at the public reference facilities maintained by the SEC at the addresses set forth above. Statements
+contained herein concerning any document filed as an exhibit are not necessarily complete, and, in each instance, reference is made to the copy of such document filed as an exhibit to the registration statement. Each such statement is qualified in
+its entirety by such reference. </P>
+ <p STYLE="margin-top:0pt;margin-bottom:0pt ; font-size:8pt">&nbsp;</P> <P STYLE="margin-top:0pt; margin-bottom:0pt; font-size:10pt; font-family:Times New Roman" ALIGN="center">14 </P>
+
+
+<p Style='page-break-before:always'>
+<HR  SIZE="3" style="COLOR:#999999" WIDTH="100%" ALIGN="CENTER">
+
+ <P STYLE="font-size:12pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P> <P STYLE="font-size:36pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<P STYLE="font-size:36pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P> <P STYLE="font-size:36pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P> <P STYLE="font-size:36pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P>
+<P STYLE="font-size:36pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P> <P STYLE="font-size:36pt;margin-top:0pt;margin-bottom:0pt">&nbsp;</P> <P STYLE="margin-top:0pt;margin-bottom:0pt" ALIGN="center">
+
+
+<IMG SRC="g646653g89z87.jpg" ALT="LOGO">
+ </P>
+</BODY></HTML>
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>GRAPHIC
+<SEQUENCE>2
+<FILENAME>g646653g89z87.jpg
+<DESCRIPTION>GRAPHIC
+<TEXT>
+begin 644 g646653g89z87.jpg
+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
+"_]D_
+`
+end
+</TEXT>
+</DOCUMENT>
+</SEC-DOCUMENT>

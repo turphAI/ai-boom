@@ -1,0 +1,227 @@
+<DOCUMENT>
+<TYPE>424B2
+<SEQUENCE>1
+<FILENAME>d424b2.txt
+<DESCRIPTION>PROSPECTUS SUPPLEMENT DATED 7/31/2001
+<TEXT>
+<PAGE>
+
+                                                FILED PURSUANT TO RULE 424(b)(2)
+                                                      REGISTRATION NO. 333-78797
+
+PROSPECTUS SUPPLEMENT
+(To Prospectus dated June 11, 1999)
+
+                               1,693,586 Shares
+
+                             [LOGO OF AMAZON.COM]
+
+                                 Common Stock
+
+                               ----------------
+
+     We are offering 1,693,586 shares of our common stock with this prospectus
+supplement. Our common stock is quoted on the Nasdaq National Market under the
+symbol "AMZN." On July 30, 2001, the reported last sale price of our common
+stock on the Nasdaq National Market was $12.55 per share.
+
+     On July 23, 2001, we issued 6,543,646 shares of our common stock to the
+purchaser of the shares offered hereby. Because the last sale price of our
+common stock on the Nasdaq National Market System, as reported on nasdaq.com,
+for the five full trading days following the announcement of our financial
+results of operations for the period ended June 30, 2001 was less than $15.282,
+we will deliver to the purchaser the 1,693,586 shares of our common stock
+offered hereby. The purchaser purchased all 8,237,232 shares of common stock
+from us at an aggregate purchase price of $100,000,000, or $12.14 per share,
+resulting in aggregate proceeds to Amazon.com of $100,000,000.
+
+                               ----------------
+
+     Investing in our common stock involves risks that are described under
+"Business--Additional Factors That May Affect Future Results" beginning on page
+30 of our Quarterly Report on Form 10-Q filed July 23, 2001.
+
+                               ----------------
+
+     Neither the Securities and Exchange Commission nor any state securities
+commission has approved or disapproved of these securities or passed upon the
+accuracy or adequacy of this prospectus supplement or the accompanying
+prospectus. Any representation to the contrary is a criminal offense.
+
+                               ----------------
+
+                   Prospectus Supplement dated July 31, 2001
+<PAGE>
+
+                               TABLE OF CONTENTS
+
+Prospectus Supplement                                  Page
+---------------------                                  ----
+About this Prospectus Supplement...................      1
+Use of Proceeds....................................      2
+Dilution...........................................      3
+Plan of Distribution...............................      4
+
+
+Prospectus                                             Page
+----------                                             ----
+Summary............................................      1
+Forward Looking Information........................      3
+How to Obtain More Information.....................      3
+Amazon.com.........................................      4
+Ratio of Earnings to Fixed Charges.................      5
+Use of Proceeds....................................      5
+General Description of Securities..................      5
+Description of the Common Stock....................      5
+Description of the Preferred Stock.................      6
+Description of the Depositary Shares...............      7
+Description of the Debt Securities.................      9
+Description of the Warrants to Purchase Common or
+Preferred Stock....................................     16
+Description of the Stock Purchase Units and Stock
+Purchase Contracts.................................     17
+Description of the Third-Party Warrants............     18
+Description of the Warrants to Purchase Debt
+Securities.........................................     19
+Description of the Foreign Currency Exchange
+Warrants...........................................     20
+Description of the Stock Index Warrants............     23
+Description of the other Warrants..................     26
+Plan of Distribution...............................     28
+ERISA Considerations...............................     29
+Legal Matters......................................     30
+Experts............................................     30
+
+
+                               ----------------
+
+                       ABOUT THIS PROSPECTUS SUPPLEMENT
+
+     You should read this prospectus supplement along with the accompanying
+prospectus. These documents contain information you should consider when making
+your investment decision. You should rely only on the information contained or
+incorporated by reference in this prospectus supplement and the accompanying
+prospectus. We have not authorized anyone else to provide you with different or
+additional information.
+
+     This prospectus supplement and the accompanying prospectus do not
+constitute an offer to sell or a solicitation of an offer to buy any securities
+other than the common stock being purchased in this offering. This prospectus
+supplement and the accompanying prospectus do not constitute an offer to sell or
+a solicitation of an offer to buy the common stock being purchased in this
+offering in any circumstances in which an offer or solicitation is unlawful.
+
+     Information in this prospectus supplement and the accompanying prospectus
+may change after the date on the front of the applicable document. You should
+not interpret the delivery of this prospectus supplement or the accompanying
+prospectus or the sale of the common stock as an indication that there has been
+no change in our affairs since that date.
+
+                                       1
+<PAGE>
+
+                                USE OF PROCEEDS
+
+     The net proceeds from the offering, after deducting our expenses, will be
+approximately $99,900,000. We expect to use the net proceeds for general
+corporate purposes, including, without limitation, to fund our ongoing
+operations, to expand our core businesses, to invest in new businesses, products
+and technologies, for capital expenditures, to repurchase outstanding debt and
+generally to strengthen the Company's financial position.
+
+     Pending the foregoing uses, we will invest the net proceeds from the
+offering in short-term, interest-bearing investment-grade securities.
+
+                                       2
+<PAGE>
+
+                                   DILUTION
+
+     Our net tangible book value as of June 30, 2001 was $(1,582,826), or
+$(4.37) per share of common stock. Net tangible book value per share is
+determined by dividing our net tangible book value (total tangible assets less
+total liabilities) by the number of outstanding shares of common stock at that
+date. After giving effect to the sale of the 8,237,232 shares of our common
+stock offered hereby at a price of $12.14 per share and after deducting
+estimated offering expenses, our net tangible book value at June 30, 2001 would
+have been $(1,482,826), or $(4.00) per share. The effect of the offering
+represents an immediate increase in net tangible book value to existing
+stockholders of $0.37 per share and an immediate dilution to purchasers of
+common stock in this offering of $16.14 per share. The following table
+illustrates the per share dilution:
+
+
+     Price per share.................................................. $ 12.14
+          Net tangible book value per share as of June 30, 2001....... $ (4.37)
+          Increase per share attributable to the new investor......... $  0.37
+     Net tangible book value per share after this offering............ $ (4.00)
+     Net tangible book value dilution per share to the new investor... $(16.14)
+
+
+     The above discussion and table assume no exercise of stock options or
+warrants outstanding as of June 30, 2001. As of June 30, 2001, there were
+options outstanding to purchase a total of 42,297,491 shares of common stock at
+a weighted average exercise price of $12.4308 per share under our Amended and
+Restated 1994 Stock Option Plan, our 1997 Stock Option Plan, our 1999 Non-
+Officer Employee Stock Option Plan, and the option plans of acquired companies
+and a maximum of 88,150,826 additional shares were reserved for grant of future
+options under such plans. To the extent that any of these options are exercised,
+there will be further dilution to the new investor.
+
+                                       3
+<PAGE>
+
+                             PLAN OF DISTRIBUTION
+
+     Under the terms and subject to the conditions contained in a common stock
+purchase agreement dated July 23, 2001, we agreed to sell an aggregate of
+8,237,232 shares of our common stock to America Online, Inc.
+
+     On July 23, 2001, we issued 6,543,646 shares of our common stock to America
+Online, Inc. Pursuant to the common stock purchase agreement, because the last
+sale price of our common stock on the Nasdaq National Market System, as reported
+on nasdaq.com, for the five full trading days following the announcement of our
+financial results of operations for the period ended June 30, 2001 was less than
+$15.282, we will deliver to America Online, Inc. the 1,693,586 shares of our
+common stock offered hereby. America Online, Inc. purchased all 8,237,232 shares
+of common stock from us at an aggregate purchase price of $100,000,000.
+
+     Pursuant to the common stock purchase agreement, America Online, Inc. has
+agreed, for two years from the date hereof, not to sell, transfer or otherwise
+dispose of the shares of our common stock sold hereby or any interest therein,
+provided that hedging transactions and certain other transfers are excepted from
+such agreement. These restrictions on transfer will terminate if we undergo a
+change of control or if certain commercial agreements between America Online,
+Inc. and us are terminated as a result of our material breach or become
+terminable pursuant to certain other provisions. After the expiration of the two
+year period, America Online, Inc. may freely transfer the shares of our common
+stock sold hereby, provided that, subject to certain exceptions, such sales will
+be subject to volume limitations unless structured as block sales meeting
+certain price and size requirements.
+
+     America Online, Inc. has agreed, until the second anniversary of the date
+hereof, that neither it nor its affiliates will acquire beneficial ownership of
+shares of our capital stock, or securities convertible or exchangeable for
+shares of our capital stock if, after giving effect to such acquisition, America
+Online, Inc. and its affiliates would own in excess of 5% of such class of our
+capital stock and that neither it nor its affiliates will otherwise publicly
+seek to commence a merger, asset sale or other change of control transaction
+affecting us. These restrictions will terminate if we enter into an agreement
+with respect to a change of control transaction affecting us, if a third party
+makes an unsolicited public offer with respect to a change of control
+transaction affecting us, if we undergo a change of control, or if certain
+commercial agreements between America Online, Inc. and us are terminated as a
+result of our material breach or become terminable pursuant to certain other
+provisions. These restrictions will be suspended during any period in which (i)
+we have engaged an investment banker for the purpose of seeking a change of
+control transaction and have solicited three or more offers, (ii) we have
+publicly announced that we are exploring a change of control transaction or
+similar strategic alternatives, (iii) a third party offer with respect to change
+of control transaction affecting us has become publicly known and we have not
+rejected it, or (iv) a third party has launched and not terminated a tender
+offer with respect to shares of our common stock.
+
+                                       4
+
+</TEXT>
+</DOCUMENT>

@@ -3,6 +3,7 @@
   "devCommand": "cd dashboard && npm run dev",
   "installCommand": "cd dashboard && npm install",
   "outputDirectory": "dashboard/.next",
+  "framework": "nextjs",
   "env": {
     "NEXTAUTH_URL": "@nextauth_url",
     "NEXTAUTH_SECRET": "@nextauth_secret",

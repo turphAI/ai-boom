@@ -154,7 +154,7 @@ jobs:
         npm install -g serverless@3.38.0
         serverless --version
         npm install -g serverless-python-requirements
-        serverless config validate
+        serverless print
         
   # Deploy to Staging
   deploy-staging:

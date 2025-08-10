@@ -187,7 +187,7 @@ class SecretManager:
         return {
             'boom-bust-sentinel/api-keys': {
                 'telegram_bot_token': 'mock_telegram_token',
-                'grafana_api_key': 'mock_grafana_key',
+                'grafana_token': 'mock_grafana_token',
                 'symbl_api_key': 'mock_symbl_key',
                 'finra_api_key': 'mock_finra_key'
             },

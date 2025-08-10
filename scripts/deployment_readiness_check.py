@@ -163,7 +163,7 @@ class DeploymentChecker:
         
         optional_vars = [
             'GRAFANA_URL',
-            'GRAFANA_API_KEY',
+            'GRAFANA_TOKEN',
             'DATABASE_PROVIDER',
             'NOTIFICATION_PROVIDER'
         ]

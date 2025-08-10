@@ -19,7 +19,7 @@ class HealthChecker:
         self.aws_region = os.getenv("AWS_REGION", "us-east-1")
         self.dashboard_url = os.getenv("DASHBOARD_URL", "")
         self.grafana_api_url = os.getenv("GRAFANA_API_URL", "")
-        self.grafana_api_key = os.getenv("GRAFANA_API_KEY", "")
+        self.grafana_token = os.getenv("GRAFANA_TOKEN", "")
         
         # AWS clients
         self.lambda_client = boto3.client('lambda', region_name=self.aws_region)
@@ -244,7 +244,7 @@ class HealthChecker:
         """Check Grafana Cloud integration."""
         print("🔍 Checking Grafana integration...")
         
-        if not self.grafana_api_url or not self.grafana_api_key:
+        if not self.grafana_api_url or not self.grafana_token:
             return {
                 'status': 'skipped',
                 'reason': 'Grafana credentials not configured'
@@ -252,7 +252,7 @@ class HealthChecker:
         
         try:
             headers = {
-                'Authorization': f'Bearer {self.grafana_api_key}',
+                'Authorization': f'Bearer {self.grafana_token}',
                 'Content-Type': 'application/json'
             }
             

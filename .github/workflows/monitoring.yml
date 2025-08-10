@@ -41,7 +41,7 @@ jobs:
       env:
         DASHBOARD_URL: https://dashboard.boom-bust-sentinel.com
         GRAFANA_API_URL: ${{ secrets.GRAFANA_API_URL }}
-        GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }}
+        GRAFANA_TOKEN: ${{ secrets.GRAFANA_TOKEN }}
         
     - name: Check Lambda function health
       run: |

@@ -218,7 +218,7 @@ class ConfigLoader:
                     'slack_webhook_url': notification_config.get('slack_webhook_url')
                 },
                 'monitoring': {
-                    'grafana_api_key': api_credentials.get('grafana_api_key'),
+                    'grafana_token': api_credentials.get('grafana_token'),
                     'datadog_api_key': api_credentials.get('datadog_api_key')
                 }
             }
@@ -292,7 +292,7 @@ class ConfigLoader:
         return MonitoringConfig(
             provider=monitor_config.get('provider', 'grafana'),
             grafana_url=monitor_config.get('grafana_url'),
-            grafana_api_key=monitor_config.get('grafana_api_key'),
+            grafana_token=monitor_config.get('grafana_token'),
             datadog_api_key=monitor_config.get('datadog_api_key'),
             metrics_enabled=monitor_config.get('metrics_enabled', True),
             health_check_interval=monitor_config.get('health_check_interval', 300)

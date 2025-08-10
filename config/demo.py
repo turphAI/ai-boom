@@ -99,8 +99,8 @@ def demo_settings_integration():
     print(f"\nAll thresholds: {all_thresholds}")
     
     # Test API credential retrieval
-    grafana_key = settings.get_api_credential('grafana_api_key')
-    print(f"Grafana API key: {'***' if grafana_key else 'Not set'}")
+    grafana_token = settings.get_api_credential('grafana_token')
+    print(f"Grafana API token: {'***' if grafana_token else 'Not set'}")
     
     print()
 

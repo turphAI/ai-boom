@@ -76,7 +76,7 @@
       },
       "optional": {
         "GRAFANA_URL": "set",
-        "GRAFANA_API_KEY": "set",
+        "GRAFANA_TOKEN": "set",
         "DATABASE_PROVIDER": "set",
         "NOTIFICATION_PROVIDER": "set"
       }

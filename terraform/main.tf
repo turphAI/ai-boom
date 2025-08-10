@@ -41,7 +41,7 @@ locals {
     Environment = var.environment
     ManagedBy   = "terraform"
   }
-  
+
   function_names = {
     bond_issuance  = "${var.project_name}-${var.environment}-bond-issuance"
     bdc_discount   = "${var.project_name}-${var.environment}-bdc-discount"
@@ -58,7 +58,7 @@ data "aws_region" "current" {}
 data "archive_file" "lambda_zip" {
   type        = "zip"
   output_path = "${path.module}/lambda_deployment.zip"
-  
+
   source_dir = "${path.module}/.."
   excludes = [
     ".git",
@@ -174,10 +174,10 @@ resource "aws_iam_role_policy" "lambda_policy" {
 
 # DynamoDB table for state storage
 resource "aws_dynamodb_table" "state_table" {
-  name           = "${var.project_name}-${var.environment}-state"
-  billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "pk"
-  range_key      = "sk"
+  name         = "${var.project_name}-${var.environment}-state"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "pk"
+  range_key    = "sk"
 
   attribute {
     name = "pk"
@@ -200,9 +200,9 @@ resource "aws_dynamodb_table" "state_table" {
   }
 
   global_secondary_index {
-    name     = "DataSourceIndex"
-    hash_key = "data_source"
-    range_key = "timestamp"
+    name            = "DataSourceIndex"
+    hash_key        = "data_source"
+    range_key       = "timestamp"
     projection_type = "ALL"
   }
 
@@ -231,22 +231,22 @@ resource "aws_sns_topic" "critical_alerts" {
 resource "aws_lambda_function" "bond_issuance" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = local.function_names.bond_issuance
-  role            = aws_iam_role.lambda_role.arn
-  handler         = "handlers.bond_issuance_handler.lambda_handler"
-  runtime         = "python3.9"
-  timeout         = 900
-  memory_size     = 1024
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "handlers.bond_issuance_handler.lambda_handler"
+  runtime          = "python3.9"
+  timeout          = 900
+  memory_size      = 1024
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
   environment {
     variables = {
       STAGE                     = var.environment
       REGION                    = var.region
-      DYNAMODB_TABLE           = aws_dynamodb_table.state_table.name
-      SNS_TOPIC_ARN            = aws_sns_topic.alerts.arn
+      DYNAMODB_TABLE            = aws_dynamodb_table.state_table.name
+      SNS_TOPIC_ARN             = aws_sns_topic.alerts.arn
       CRITICAL_ALERTS_SNS_TOPIC = aws_sns_topic.critical_alerts.arn
       SECRETS_MANAGER_PREFIX    = "${var.project_name}/${var.environment}"
-      SCRAPER_NAME             = "bond-issuance"
+      SCRAPER_NAME              = "bond-issuance"
     }
   }
 
@@ -259,22 +259,22 @@ resource "aws_lambda_function" "bond_issuance" {
 resource "aws_lambda_function" "bond_issuance_chunked" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = "${local.function_names.bond_issuance}-chunked"
-  role            = aws_iam_role.lambda_role.arn
-  handler         = "handlers.bond_issuance_handler.chunked_execution_handler"
-  runtime         = "python3.9"
-  timeout         = 300
-  memory_size     = 1024
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "handlers.bond_issuance_handler.chunked_execution_handler"
+  runtime          = "python3.9"
+  timeout          = 300
+  memory_size      = 1024
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
   environment {
     variables = {
       STAGE                     = var.environment
       REGION                    = var.region
-      DYNAMODB_TABLE           = aws_dynamodb_table.state_table.name
-      SNS_TOPIC_ARN            = aws_sns_topic.alerts.arn
+      DYNAMODB_TABLE            = aws_dynamodb_table.state_table.name
+      SNS_TOPIC_ARN             = aws_sns_topic.alerts.arn
       CRITICAL_ALERTS_SNS_TOPIC = aws_sns_topic.critical_alerts.arn
       SECRETS_MANAGER_PREFIX    = "${var.project_name}/${var.environment}"
-      SCRAPER_NAME             = "bond-issuance-chunked"
+      SCRAPER_NAME              = "bond-issuance-chunked"
     }
   }
 
@@ -287,22 +287,22 @@ resource "aws_lambda_function" "bond_issuance_chunked" {
 resource "aws_lambda_function" "bdc_discount" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = local.function_names.bdc_discount
-  role            = aws_iam_role.lambda_role.arn
-  handler         = "handlers.bdc_discount_handler.lambda_handler"
-  runtime         = "python3.9"
-  timeout         = 900
-  memory_size     = 1024
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "handlers.bdc_discount_handler.lambda_handler"
+  runtime          = "python3.9"
+  timeout          = 900
+  memory_size      = 1024
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
   environment {
     variables = {
       STAGE                     = var.environment
       REGION                    = var.region
-      DYNAMODB_TABLE           = aws_dynamodb_table.state_table.name
-      SNS_TOPIC_ARN            = aws_sns_topic.alerts.arn
+      DYNAMODB_TABLE            = aws_dynamodb_table.state_table.name
+      SNS_TOPIC_ARN             = aws_sns_topic.alerts.arn
       CRITICAL_ALERTS_SNS_TOPIC = aws_sns_topic.critical_alerts.arn
       SECRETS_MANAGER_PREFIX    = "${var.project_name}/${var.environment}"
-      SCRAPER_NAME             = "bdc-discount"
+      SCRAPER_NAME              = "bdc-discount"
     }
   }
 
@@ -315,22 +315,22 @@ resource "aws_lambda_function" "bdc_discount" {
 resource "aws_lambda_function" "bdc_discount_chunked" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = "${local.function_names.bdc_discount}-chunked"
-  role            = aws_iam_role.lambda_role.arn
-  handler         = "handlers.bdc_discount_handler.chunked_execution_handler"
-  runtime         = "python3.9"
-  timeout         = 300
-  memory_size     = 1024
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "handlers.bdc_discount_handler.chunked_execution_handler"
+  runtime          = "python3.9"
+  timeout          = 300
+  memory_size      = 1024
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
   environment {
     variables = {
       STAGE                     = var.environment
       REGION                    = var.region
-      DYNAMODB_TABLE           = aws_dynamodb_table.state_table.name
-      SNS_TOPIC_ARN            = aws_sns_topic.alerts.arn
+      DYNAMODB_TABLE            = aws_dynamodb_table.state_table.name
+      SNS_TOPIC_ARN             = aws_sns_topic.alerts.arn
       CRITICAL_ALERTS_SNS_TOPIC = aws_sns_topic.critical_alerts.arn
       SECRETS_MANAGER_PREFIX    = "${var.project_name}/${var.environment}"
-      SCRAPER_NAME             = "bdc-discount-chunked"
+      SCRAPER_NAME              = "bdc-discount-chunked"
     }
   }
 
@@ -343,22 +343,22 @@ resource "aws_lambda_function" "bdc_discount_chunked" {
 resource "aws_lambda_function" "credit_fund" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = local.function_names.credit_fund
-  role            = aws_iam_role.lambda_role.arn
-  handler         = "handlers.credit_fund_handler.lambda_handler"
-  runtime         = "python3.9"
-  timeout         = 900
-  memory_size     = 1024
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "handlers.credit_fund_handler.lambda_handler"
+  runtime          = "python3.9"
+  timeout          = 900
+  memory_size      = 1024
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
   environment {
     variables = {
       STAGE                     = var.environment
       REGION                    = var.region
-      DYNAMODB_TABLE           = aws_dynamodb_table.state_table.name
-      SNS_TOPIC_ARN            = aws_sns_topic.alerts.arn
+      DYNAMODB_TABLE            = aws_dynamodb_table.state_table.name
+      SNS_TOPIC_ARN             = aws_sns_topic.alerts.arn
       CRITICAL_ALERTS_SNS_TOPIC = aws_sns_topic.critical_alerts.arn
       SECRETS_MANAGER_PREFIX    = "${var.project_name}/${var.environment}"
-      SCRAPER_NAME             = "credit-fund"
+      SCRAPER_NAME              = "credit-fund"
     }
   }
 
@@ -371,22 +371,22 @@ resource "aws_lambda_function" "credit_fund" {
 resource "aws_lambda_function" "credit_fund_chunked" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = "${local.function_names.credit_fund}-chunked"
-  role            = aws_iam_role.lambda_role.arn
-  handler         = "handlers.credit_fund_handler.chunked_execution_handler"
-  runtime         = "python3.9"
-  timeout         = 600
-  memory_size     = 1024
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "handlers.credit_fund_handler.chunked_execution_handler"
+  runtime          = "python3.9"
+  timeout          = 600
+  memory_size      = 1024
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
   environment {
     variables = {
       STAGE                     = var.environment
       REGION                    = var.region
-      DYNAMODB_TABLE           = aws_dynamodb_table.state_table.name
-      SNS_TOPIC_ARN            = aws_sns_topic.alerts.arn
+      DYNAMODB_TABLE            = aws_dynamodb_table.state_table.name
+      SNS_TOPIC_ARN             = aws_sns_topic.alerts.arn
       CRITICAL_ALERTS_SNS_TOPIC = aws_sns_topic.critical_alerts.arn
       SECRETS_MANAGER_PREFIX    = "${var.project_name}/${var.environment}"
-      SCRAPER_NAME             = "credit-fund-chunked"
+      SCRAPER_NAME              = "credit-fund-chunked"
     }
   }
 
@@ -399,22 +399,22 @@ resource "aws_lambda_function" "credit_fund_chunked" {
 resource "aws_lambda_function" "bank_provision" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = local.function_names.bank_provision
-  role            = aws_iam_role.lambda_role.arn
-  handler         = "handlers.bank_provision_handler.lambda_handler"
-  runtime         = "python3.9"
-  timeout         = 900
-  memory_size     = 1024
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "handlers.bank_provision_handler.lambda_handler"
+  runtime          = "python3.9"
+  timeout          = 900
+  memory_size      = 1024
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
   environment {
     variables = {
       STAGE                     = var.environment
       REGION                    = var.region
-      DYNAMODB_TABLE           = aws_dynamodb_table.state_table.name
-      SNS_TOPIC_ARN            = aws_sns_topic.alerts.arn
+      DYNAMODB_TABLE            = aws_dynamodb_table.state_table.name
+      SNS_TOPIC_ARN             = aws_sns_topic.alerts.arn
       CRITICAL_ALERTS_SNS_TOPIC = aws_sns_topic.critical_alerts.arn
       SECRETS_MANAGER_PREFIX    = "${var.project_name}/${var.environment}"
-      SCRAPER_NAME             = "bank-provision"
+      SCRAPER_NAME              = "bank-provision"
     }
   }
 
@@ -427,22 +427,22 @@ resource "aws_lambda_function" "bank_provision" {
 resource "aws_lambda_function" "bank_provision_chunked" {
   filename         = data.archive_file.lambda_zip.output_path
   function_name    = "${local.function_names.bank_provision}-chunked"
-  role            = aws_iam_role.lambda_role.arn
-  handler         = "handlers.bank_provision_handler.chunked_execution_handler"
-  runtime         = "python3.9"
-  timeout         = 600
-  memory_size     = 1024
+  role             = aws_iam_role.lambda_role.arn
+  handler          = "handlers.bank_provision_handler.chunked_execution_handler"
+  runtime          = "python3.9"
+  timeout          = 600
+  memory_size      = 1024
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
   environment {
     variables = {
       STAGE                     = var.environment
       REGION                    = var.region
-      DYNAMODB_TABLE           = aws_dynamodb_table.state_table.name
-      SNS_TOPIC_ARN            = aws_sns_topic.alerts.arn
+      DYNAMODB_TABLE            = aws_dynamodb_table.state_table.name
+      SNS_TOPIC_ARN             = aws_sns_topic.alerts.arn
       CRITICAL_ALERTS_SNS_TOPIC = aws_sns_topic.critical_alerts.arn
       SECRETS_MANAGER_PREFIX    = "${var.project_name}/${var.environment}"
-      SCRAPER_NAME             = "bank-provision-chunked"
+      SCRAPER_NAME              = "bank-provision-chunked"
     }
   }
 
@@ -456,7 +456,7 @@ resource "aws_lambda_function" "bank_provision_chunked" {
 resource "aws_cloudwatch_event_rule" "bond_issuance_schedule" {
   name                = "${var.project_name}-${var.environment}-bond-issuance-schedule"
   description         = "Weekly bond issuance monitoring"
-  schedule_expression = "cron(0 8 ? * MON *)"  # Monday 8 AM UTC
+  schedule_expression = "cron(0 8 ? * MON *)" # Monday 8 AM UTC
   tags                = local.common_tags
 }
 
@@ -466,8 +466,8 @@ resource "aws_cloudwatch_event_target" "bond_issuance_target" {
   arn       = aws_lambda_function.bond_issuance.arn
 
   input = jsonencode({
-    source        = "aws.events"
-    detail-type   = "Scheduled Event"
+    source      = "aws.events"
+    detail-type = "Scheduled Event"
     detail = {
       scraper_name = "bond-issuance"
     }
@@ -485,7 +485,7 @@ resource "aws_lambda_permission" "bond_issuance_cloudwatch" {
 resource "aws_cloudwatch_event_rule" "bdc_discount_schedule" {
   name                = "${var.project_name}-${var.environment}-bdc-discount-schedule"
   description         = "Daily BDC discount-to-NAV monitoring"
-  schedule_expression = "cron(0 6 * * ? *)"  # Daily 6 AM UTC
+  schedule_expression = "cron(0 6 * * ? *)" # Daily 6 AM UTC
   tags                = local.common_tags
 }
 
@@ -495,8 +495,8 @@ resource "aws_cloudwatch_event_target" "bdc_discount_target" {
   arn       = aws_lambda_function.bdc_discount.arn
 
   input = jsonencode({
-    source        = "aws.events"
-    detail-type   = "Scheduled Event"
+    source      = "aws.events"
+    detail-type = "Scheduled Event"
     detail = {
       scraper_name = "bdc-discount"
     }
@@ -514,7 +514,7 @@ resource "aws_lambda_permission" "bdc_discount_cloudwatch" {
 resource "aws_cloudwatch_event_rule" "credit_fund_schedule" {
   name                = "${var.project_name}-${var.environment}-credit-fund-schedule"
   description         = "Monthly private credit fund monitoring"
-  schedule_expression = "cron(0 7 1 * ? *)"  # First day of month, 7 AM UTC
+  schedule_expression = "cron(0 7 1 * ? *)" # First day of month, 7 AM UTC
   tags                = local.common_tags
 }
 
@@ -524,8 +524,8 @@ resource "aws_cloudwatch_event_target" "credit_fund_target" {
   arn       = aws_lambda_function.credit_fund.arn
 
   input = jsonencode({
-    source        = "aws.events"
-    detail-type   = "Scheduled Event"
+    source      = "aws.events"
+    detail-type = "Scheduled Event"
     detail = {
       scraper_name = "credit-fund"
     }
@@ -543,7 +543,7 @@ resource "aws_lambda_permission" "credit_fund_cloudwatch" {
 resource "aws_cloudwatch_event_rule" "bank_provision_schedule" {
   name                = "${var.project_name}-${var.environment}-bank-provision-schedule"
   description         = "Quarterly bank provision monitoring"
-  schedule_expression = "cron(0 9 1 1,4,7,10 ? *)"  # Quarterly, 9 AM UTC
+  schedule_expression = "cron(0 9 1 1,4,7,10 ? *)" # Quarterly, 9 AM UTC
   tags                = local.common_tags
 }
 
@@ -553,8 +553,8 @@ resource "aws_cloudwatch_event_target" "bank_provision_target" {
   arn       = aws_lambda_function.bank_provision.arn
 
   input = jsonencode({
-    source        = "aws.events"
-    detail-type   = "Scheduled Event"
+    source      = "aws.events"
+    detail-type = "Scheduled Event"
     detail = {
       scraper_name = "bank-provision"
     }

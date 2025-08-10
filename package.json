@@ -1,0 +1,9 @@
+{
+  "name": "boom-bust-sentinel",
+  "version": "1.0.0",
+  "description": "Boom Bust Sentinel - Financial Market Monitoring System",
+  "scripts": {
+    "vercel-build": "cd dashboard && npm install && npm run build"
+  },
+  "private": true
+}

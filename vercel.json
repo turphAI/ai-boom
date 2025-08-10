@@ -1,6 +1,4 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
   "framework": "nextjs",
   "env": {
     "NEXTAUTH_URL": "@nextauth_url",
@@ -13,7 +11,7 @@
     "NODE_ENV": "production"
   },
   "functions": {
-    "dashboard/src/pages/api/**/*.ts": {
+    "src/pages/api/**/*.ts": {
       "maxDuration": 30
     }
   },

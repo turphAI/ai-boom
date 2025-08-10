@@ -149,6 +149,7 @@ jobs:
       run: |
         npm install -g serverless@3.38.0
         serverless --version
+        npm install -g serverless-python-requirements
         serverless config validate
         
   # Deploy to Staging
@@ -190,6 +191,7 @@ jobs:
       run: |
         npm install -g serverless@3.38.0
         serverless --version
+        npm install -g serverless-python-requirements
         pip install -r requirements.txt
         serverless deploy --stage staging --region ${{ secrets.AWS_REGION }}
         
@@ -246,6 +248,7 @@ jobs:
       run: |
         npm install -g serverless@3.38.0
         serverless --version
+        npm install -g serverless-python-requirements
         pip install -r requirements.txt
         serverless deploy --stage prod --region ${{ secrets.AWS_REGION }}
         

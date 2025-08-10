@@ -83,13 +83,17 @@ jobs:
         cache-dependency-path: dashboard/package-lock.json
         
     - name: Install dependencies
-      run: npm ci
+      run: |
+        npm ci
+        npm install --save-dev @types/node @types/react @types/react-dom
       
     - name: Run linting
       run: npm run lint
       
     - name: Run type checking
-      run: npx tsc --noEmit
+      run: |
+        npx tsc --build --clean
+        npx tsc --noEmit
       
     - name: Run tests
       run: npm run test || echo "Frontend tests completed"

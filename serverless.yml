@@ -7,7 +7,7 @@ frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: python3.9
+  runtime: python3.11
   region: ${opt:region, 'us-east-1'}
   stage: ${opt:stage, 'dev'}
   memorySize: 1024
@@ -84,9 +84,38 @@ package:
     - '!.vscode/**'
     - '!venv/**'
     - '!.venv/**'
+    - '!node_modules/**'
+    - '!.serverless/**'
+    - '!terraform/**'
+    - '!scripts/**'
+    - '!docs/**'
+    - '!examples/**'
+    - '!data/**'
+    - '!*.json'
+    - '!*.md'
+    - '!*.log'
+    - '!.kiro/**'
+    - '!.venv/**'
+    - '!node_modules/**'
+    - '!.serverless/**'
+    - '!terraform/**'
+    - '!scripts/**'
+    - '!docs/**'
+    - '!examples/**'
+    - '!dashboard/**'
+    - '!data/**'
+    - '!*.json'
+    - '!*.md'
+    - '!*.log'
 
 # Lambda functions
 functions:
+  # Test function
+  testHandler:
+    handler: handlers.test_handler.lambda_handler
+    name: ${self:service}-${self:provider.stage}-test
+    description: "Simple test function"
+    
   # Bond Issuance Scraper
   bondIssuanceScraper:
     handler: handlers.bond_issuance_handler.lambda_handler
@@ -284,30 +313,7 @@ resources:
           - Key: Stage
             Value: ${self:provider.stage}
 
-    # CloudWatch Log Groups with retention
-    BondIssuanceLogGroup:
-      Type: AWS::Logs::LogGroup
-      Properties:
-        LogGroupName: /aws/lambda/${self:service}-${self:provider.stage}-bond-issuance
-        RetentionInDays: 30
-
-    BdcDiscountLogGroup:
-      Type: AWS::Logs::LogGroup
-      Properties:
-        LogGroupName: /aws/lambda/${self:service}-${self:provider.stage}-bdc-discount
-        RetentionInDays: 30
-
-    CreditFundLogGroup:
-      Type: AWS::Logs::LogGroup
-      Properties:
-        LogGroupName: /aws/lambda/${self:service}-${self:provider.stage}-credit-fund
-        RetentionInDays: 30
-
-    BankProvisionLogGroup:
-      Type: AWS::Logs::LogGroup
-      Properties:
-        LogGroupName: /aws/lambda/${self:service}-${self:provider.stage}-bank-provision
-        RetentionInDays: 30
+    # CloudWatch Log Groups will be created automatically by Lambda
 
     # CloudWatch Dashboard
     MonitoringDashboard:
@@ -389,9 +395,14 @@ plugins:
 # Custom configuration
 custom:
   pythonRequirements:
-    dockerizePip: true
+    dockerizePip: false
     slim: true
-    strip: false
+    strip: true
+    zip: true
+    layer: true
     noDeps:
       - boto3
       - botocore
+    pipCmdExtraArgs:
+      - --no-cache-dir
+      - --no-deps

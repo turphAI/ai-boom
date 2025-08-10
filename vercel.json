@@ -1,6 +1,8 @@
 {
   "framework": "nextjs",
   "env": {
+    "NEXTAUTH_URL": "https://ai-boom-2abacb8b2-tom-murphys-projects-dc287d40.vercel.app",
+    "NEXTAUTH_SECRET": "5qK8eNopKX20llyw6OvtWYxavyuucp9m+pAIu5fCtro=",
     "NODE_ENV": "production"
   },
   "functions": {

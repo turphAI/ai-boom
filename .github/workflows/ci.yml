@@ -87,12 +87,21 @@ jobs:
       run: |
         npm ci
         npm install --save-dev @types/node @types/react @types/react-dom
+        npm list typescript
+        ls -la node_modules/@types/
       
     - name: Run linting
       run: npm run lint
       
     - name: Run type checking
-      run: ./check-types.sh
+      run: |
+        echo "Current directory: $(pwd)"
+        echo "TypeScript version: $(npx tsc --version)"
+        echo "Checking tsconfig.json:"
+        cat tsconfig.json
+        echo "Checking if lib directory exists:"
+        ls -la src/lib/
+        ./check-types.sh
       
     - name: Run tests
       run: npm run test || echo "Frontend tests completed"

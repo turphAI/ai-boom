@@ -32,7 +32,8 @@ class SystemIntegrator:
     
     def __init__(self, environment: str = "integration"):
         self.environment = environment
-        self.logger = setup_logging(f"system_integration_{environment}")
+        setup_logging("INFO")  # Set up logging with proper log level
+        self.logger = logging.getLogger(f"system_integration_{environment}")
         
         # Initialize components
         self.state_store = StateStore()
@@ -61,13 +62,8 @@ class SystemIntegrator:
         os.environ['ENVIRONMENT'] = self.environment
         os.environ['LOG_LEVEL'] = 'INFO'
         
-        # Initialize state store
-        try:
-            self.state_store.initialize()
-            self.logger.info("State store initialized successfully")
-        except Exception as e:
-            self.logger.error(f"Failed to initialize state store: {e}")
-            raise
+        # State store is already initialized in constructor
+        self.logger.info("State store ready")
         
         # Initialize metrics service
         try:
@@ -95,25 +91,26 @@ class SystemIntegrator:
             start_time = time.time()
             try:
                 # Execute scraper
-                results = scraper.scrape()
+                result = scraper.execute()
                 execution_time = time.time() - start_time
                 
                 # Validate results
-                if results is not None and len(results) > 0:
+                if result.success and result.data is not None:
                     scraper_results[scraper_name] = {
                         'status': 'success',
                         'execution_time': execution_time,
-                        'data_points': len(results),
-                        'sample_data': results[0] if results else None
+                        'data_points': 1,
+                        'sample_data': result.data
                     }
                     self.logger.info(f"{scraper_name} scraper completed successfully in {execution_time:.2f}s")
                 else:
                     scraper_results[scraper_name] = {
                         'status': 'no_data',
                         'execution_time': execution_time,
-                        'data_points': 0
+                        'data_points': 0,
+                        'error': result.error if result.error else 'No data returned'
                     }
-                    self.logger.warning(f"{scraper_name} scraper returned no data")
+                    self.logger.warning(f"{scraper_name} scraper returned no data: {result.error}")
                 
             except Exception as e:
                 execution_time = time.time() - start_time
@@ -143,7 +140,8 @@ class SystemIntegrator:
             try:
                 # 1. Scrape data
                 start_time = time.time()
-                scraped_data = scraper.scrape()
+                result = scraper.execute()
+                scraped_data = result.data if result.success else None
                 scrape_time = time.time() - start_time
                 
                 if not scraped_data:
@@ -571,8 +569,8 @@ class SystemIntegrator:
         def simulate_load():
             scraper = self.scrapers['bond_issuance']
             try:
-                results = scraper.scrape()
-                return {'status': 'success', 'data_points': len(results) if results else 0}
+                result = scraper.execute()
+                return {'status': 'success', 'data_points': 1 if result.success and result.data else 0}
             except Exception as e:
                 return {'status': 'error', 'error': str(e)}
         

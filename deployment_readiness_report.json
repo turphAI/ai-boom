@@ -1,19 +1,19 @@
 {
-  "timestamp": "2025-08-10T17:44:03.991659+00:00",
+  "timestamp": "2025-08-15T21:39:03.417109+00:00",
   "results": {
     "aws_identity": {
       "UserId": "AIDA6QC2U5HTMIHTHPWPJ",
       "Account": "996622526950",
       "Arn": "arn:aws:iam::996622526950:user/aiProjects",
       "ResponseMetadata": {
-        "RequestId": "2efe24e4-1b29-40c8-a080-fcf75dc36130",
+        "RequestId": "f070f5e7-5571-444f-ad7a-b88ba0205b4e",
         "HTTPStatusCode": 200,
         "HTTPHeaders": {
-          "x-amzn-requestid": "2efe24e4-1b29-40c8-a080-fcf75dc36130",
-          "x-amz-sts-extended-request-id": "MTp1cy1lYXN0LTE6MTc1NDg0NzgzODQ0NTpSOmQ1Rk1kaVFv",
+          "x-amzn-requestid": "f070f5e7-5571-444f-ad7a-b88ba0205b4e",
+          "x-amz-sts-extended-request-id": "MTp1cy1lYXN0LTE6MTc1NTI5MzkzMzI4MzpSOm1UcFpyMm9U",
           "content-type": "text/xml",
           "content-length": "407",
-          "date": "Sun, 10 Aug 2025 17:43:58 GMT"
+          "date": "Fri, 15 Aug 2025 21:38:53 GMT"
         },
         "RetryAttempts": 0
       }
@@ -51,8 +51,8 @@
         "version": "Framework Core: 3.40.0"
       },
       "terraform": {
-        "available": false,
-        "error": "[Errno 2] No such file or directory: 'terraform'"
+        "available": true,
+        "version": "Terraform v1.5.7"
       },
       "aws-cli": {
         "available": true,
@@ -85,11 +85,11 @@
       "scrapers": {
         "working": true,
         "success": true,
-        "execution_time": 2.773625135421753
+        "execution_time": 4.683415651321411
       },
       "data_storage": {
         "working": true,
-        "files": 4
+        "files": 7
       },
       "dashboard": {
         "working": true
@@ -97,17 +97,17 @@
     }
   },
   "plan": {
-    "readiness_score": 79,
+    "readiness_score": 84,
     "blockers": [
       "Limited AWS permissions"
     ],
     "recommendations": [
-      "\u26a0\ufe0f  System mostly ready, address blockers first"
+      "\u2705 System ready for deployment!"
     ],
     "next_steps": [
-      "Fix AWS permissions",
-      "Test deployment in dev environment",
-      "Verify all services work"
+      "Deploy with: serverless deploy --stage dev",
+      "Test deployed functions",
+      "Set up monitoring"
     ]
   }
 }

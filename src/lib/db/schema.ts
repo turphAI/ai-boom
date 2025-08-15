@@ -1,42 +1,34 @@
-import { mysqlTable, varchar, text, timestamp, decimal, boolean, json, int } from 'drizzle-orm/mysql-core';
+import { sqliteTable, text, integer, real } from 'drizzle-orm/sqlite-core';
 
-export const users = mysqlTable('users', {
-  id: varchar('id', { length: 255 }).primaryKey(),
-  email: varchar('email', { length: 255 }).notNull().unique(),
-  passwordHash: varchar('password_hash', { length: 255 }).notNull(),
-  name: varchar('name', { length: 255 }),
-  createdAt: timestamp('created_at').defaultNow(),
-  updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
+export const users = sqliteTable('users', {
+  id: text('id').primaryKey(),
+  email: text('email').notNull().unique(),
+  passwordHash: text('password_hash').notNull(),
+  name: text('name'),
+  createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
+  updatedAt: text('updated_at').default('CURRENT_TIMESTAMP'),
 });
 
-export const alertConfigurations = mysqlTable('alert_configurations', {
-  id: varchar('id', { length: 255 }).primaryKey(),
-  userId: varchar('user_id', { length: 255 }).notNull(),
-  dataSource: varchar('data_source', { length: 100 }).notNull(),
-  metricName: varchar('metric_name', { length: 100 }).notNull(),
-  thresholdType: varchar('threshold_type', { length: 50 }).notNull(),
-  thresholdValue: decimal('threshold_value', { precision: 15, scale: 2 }).notNull(),
-  comparisonPeriod: int('comparison_period').notNull(),
-  enabled: boolean('enabled').default(true),
-  notificationChannels: json('notification_channels').$type<string[]>(),
-  createdAt: timestamp('created_at').defaultNow(),
-  updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
+export const alertConfigurations = sqliteTable('alert_configurations', {
+  id: text('id').primaryKey(),
+  userId: text('user_id').notNull(),
+  dataSource: text('data_source').notNull(),
+  metricName: text('metric_name').notNull(),
+  thresholdType: text('threshold_type').notNull(),
+  thresholdValue: real('threshold_value').notNull(),
+  comparisonPeriod: integer('comparison_period').notNull(),
+  enabled: integer('enabled').default(1),
+  notificationChannels: text('notification_channels'),
+  createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
+  updatedAt: text('updated_at').default('CURRENT_TIMESTAMP'),
 });
 
-export const userPreferences = mysqlTable('user_preferences', {
-  id: varchar('id', { length: 255 }).primaryKey(),
-  userId: varchar('user_id', { length: 255 }).notNull(),
-  preferences: json('preferences').$type<{
-    theme?: 'light' | 'dark';
-    timezone?: string;
-    defaultChartPeriod?: number;
-    emailNotifications?: boolean;
-    slackWebhook?: string;
-    telegramBotToken?: string;
-    telegramChatId?: string;
-  }>(),
-  createdAt: timestamp('created_at').defaultNow(),
-  updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
+export const userPreferences = sqliteTable('user_preferences', {
+  id: text('id').primaryKey(),
+  userId: text('user_id').notNull(),
+  preferences: text('preferences'),
+  createdAt: text('created_at').default('CURRENT_TIMESTAMP'),
+  updatedAt: text('updated_at').default('CURRENT_TIMESTAMP'),
 });
 
 export type User = typeof users.$inferSelect;

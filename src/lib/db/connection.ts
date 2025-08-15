@@ -9,7 +9,7 @@ let db: any;
 
 if (process.env.NODE_ENV === 'development' || process.env.VERCEL) {
   // Local SQLite setup or Vercel deployment
-  const sqlite = new Database(':memory:'); // Use in-memory database for Vercel
+  const sqlite = new Database('./local.db'); // Use file-based database for local development
   db = drizzleSqlite(sqlite, { schema });
   
   // Initialize the database with tables and test data

@@ -68,7 +68,23 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse, userId: stri
       .from(alertConfigurations)
       .where(and(...conditions));
 
-    res.status(200).json({ configs });
+    // Transform the data to match the frontend expectations
+    const transformedConfigs = configs.map(config => {
+      let channels = ['email']; // default
+      if (config.notificationChannels) {
+        try {
+          channels = JSON.parse(config.notificationChannels);
+        } catch (error) {
+          console.warn('Failed to parse notificationChannels:', error);
+        }
+      }
+      return {
+        ...config,
+        channels,
+      };
+    });
+
+    res.status(200).json({ configs: transformedConfigs });
   } catch (error) {
     console.warn('Using mock alert configs for development:', error);
     // Mock data for development
@@ -127,7 +143,7 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse, userId: str
       thresholdValue: validatedData.thresholdValue.toString(),
       comparisonPeriod: validatedData.comparisonPeriod,
       enabled: validatedData.enabled,
-      notificationChannels: validatedData.notificationChannels,
+      notificationChannels: JSON.stringify(validatedData.notificationChannels),
     });
 
     const newConfig = await db
@@ -136,7 +152,21 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse, userId: str
       .where(eq(alertConfigurations.id, configId))
       .limit(1);
 
-    res.status(201).json({ config: newConfig[0] });
+    // Transform the response to include channels
+    let channels = ['email']; // default
+    if (newConfig[0].notificationChannels) {
+      try {
+        channels = JSON.parse(newConfig[0].notificationChannels);
+      } catch (error) {
+        console.warn('Failed to parse notificationChannels:', error);
+      }
+    }
+    const transformedConfig = {
+      ...newConfig[0],
+      channels,
+    };
+
+    res.status(201).json({ config: transformedConfig });
   } catch (error) {
     console.warn('Database not available, using mock response:', error);
     // Mock response for development
@@ -174,10 +204,13 @@ async function handlePut(req: NextApiRequest, res: NextApiResponse, userId: stri
       return res.status(404).json({ error: 'Alert configuration not found' });
     }
 
-    // Convert thresholdValue to string if present
+    // Convert thresholdValue to string if present and handle notificationChannels
     const updateData: any = { ...validatedData };
     if (updateData.thresholdValue !== undefined) {
       updateData.thresholdValue = updateData.thresholdValue.toString();
+    }
+    if (updateData.notificationChannels !== undefined) {
+      updateData.notificationChannels = JSON.stringify(updateData.notificationChannels);
     }
 
     await db
@@ -191,7 +224,21 @@ async function handlePut(req: NextApiRequest, res: NextApiResponse, userId: stri
       .where(eq(alertConfigurations.id, id))
       .limit(1);
 
-    res.status(200).json({ config: updatedConfig[0] });
+    // Transform the response to include channels
+    let channels = ['email']; // default
+    if (updatedConfig[0].notificationChannels) {
+      try {
+        channels = JSON.parse(updatedConfig[0].notificationChannels);
+      } catch (error) {
+        console.warn('Failed to parse notificationChannels:', error);
+      }
+    }
+    const transformedConfig = {
+      ...updatedConfig[0],
+      channels,
+    };
+
+    res.status(200).json({ config: transformedConfig });
   } catch (error) {
     console.warn('Database not available, using mock response:', error);
     // Mock response for development

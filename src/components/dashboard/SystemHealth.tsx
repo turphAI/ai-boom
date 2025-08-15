@@ -62,7 +62,7 @@ export function SystemHealth({ healthData }: SystemHealthProps) {
       <CardContent>
         <div className="space-y-4">
           {healthData.map((item) => (
-            <div key={item.dataSource} className="flex items-center justify-between p-3 rounded-lg border">
+            <div key={item.id || item.dataSource} className="flex items-center justify-between p-3 rounded-lg border">
               <div className="flex items-center space-x-3">
                 {getStatusIcon(item.status)}
                 <div>

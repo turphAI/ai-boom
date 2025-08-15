@@ -83,7 +83,7 @@ export function AlertConfig({ configs, onSave, onDelete, onUpdate }: AlertConfig
       thresholdValue: config.thresholdValue,
       comparisonPeriod: config.comparisonPeriod,
       enabled: config.enabled,
-      channels: config.channels,
+      channels: config.channels || ['email'],
     })
     setIsOpen(true)
   }
@@ -208,7 +208,7 @@ export function AlertConfig({ configs, onSave, onDelete, onUpdate }: AlertConfig
                   <div>Source: {config.dataSource}</div>
                   <div>Threshold: {config.thresholdValue} ({config.thresholdType})</div>
                   <div>Period: {config.comparisonPeriod} days</div>
-                  <div>Channels: {config.channels.join(', ')}</div>
+                  <div>Channels: {config.channels ? config.channels.join(', ') : 'None'}</div>
                 </div>
               </div>
               <div className="flex items-center space-x-2">

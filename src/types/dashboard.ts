@@ -28,6 +28,7 @@ export interface AlertConfig {
 }
 
 export interface SystemHealth {
+  id?: string
   dataSource: string
   status: 'healthy' | 'degraded' | 'failed'
   lastUpdate: string

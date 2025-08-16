@@ -69,7 +69,7 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse, userId: stri
       .where(and(...conditions));
 
     // Transform the data to match the frontend expectations
-    const transformedConfigs = configs.map(config => {
+    const transformedConfigs = configs.map((config: any) => {
       let channels = ['email']; // default
       if (config.notificationChannels) {
         try {

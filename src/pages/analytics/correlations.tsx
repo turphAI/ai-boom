@@ -3,7 +3,7 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { AlertTriangle, TrendingUp, TrendingDown, ArrowLeft, BarChart3, PieChart, Activity, Target, Zap } from 'lucide-react'
+import { AlertTriangle, TrendingUp, TrendingDown, ArrowLeft, BarChart3, PieChart, Activity, Target, Zap, Shield, DollarSign } from 'lucide-react'
 import Link from 'next/link'
 import { MetricData, HistoricalData } from '@/types/dashboard'
 import { AnalyticsChart } from '@/components/analytics/AnalyticsChart'
@@ -382,7 +382,7 @@ export default function CorrelationAnalytics() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* {analytics.leadingIndicators.map((indicator, index) => ( */}
+              {/* {analytics.leadingIndicators.map((indicator, index) => (
                 <div key={index} className="space-y-3 p-4 border rounded-lg">
                   <div className="flex items-center justify-between">
                     <h4 className="font-semibold text-gray-900 text-sm">{indicator.name}</h4>
@@ -398,7 +398,7 @@ export default function CorrelationAnalytics() {
                     Impact: {indicator.impact}
                   </div>
                 </div>
-              ))}
+              ))} */}
             </div>
           </CardContent>
         </Card>
@@ -414,7 +414,7 @@ export default function CorrelationAnalytics() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                {analytics.keyInsights.map((insight, index) => (
+                {analytics.insights.keyTrends.map((insight, index) => (
                   <div key={index} className="flex items-start space-x-3 p-3 bg-blue-50 rounded-lg">
                     <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                     <div className="text-sm text-blue-800">{insight}</div>
@@ -433,7 +433,7 @@ export default function CorrelationAnalytics() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                {analytics.opportunities.map((opportunity, index) => (
+                {analytics.insights.recommendations.map((opportunity, index) => (
                   <div key={index} className="flex items-start space-x-3 p-3 bg-green-50 rounded-lg">
                     <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
                     <div className="text-sm text-green-800">{opportunity}</div>
@@ -454,7 +454,7 @@ export default function CorrelationAnalytics() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {analytics.riskFactors.map((risk, index) => (
+              {analytics.insights.riskFactors.map((risk, index) => (
                 <div key={index} className="flex items-start space-x-3 p-3 bg-red-50 rounded-lg">
                   <AlertTriangle className="h-5 w-5 text-red-500 mt-0.5" />
                   <div>
@@ -470,7 +470,7 @@ export default function CorrelationAnalytics() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <AnalyticsChart
             title="Bond Issuance vs BDC Discount"
-            data={historicalData.filter(d => d.metricKey === 'bond_issuance' || d.metricKey === 'bdc_discount')}
+            data={analytics.historicalData.bond_issuance || []}
             dataKey="value"
             color="#3b82f6"
             unit=""
@@ -482,7 +482,7 @@ export default function CorrelationAnalytics() {
           />
           <AnalyticsChart
             title="Credit Funds vs Bank Provisions"
-            data={historicalData.filter(d => d.metricKey === 'credit_fund' || d.metricKey === 'bank_provision')}
+            data={analytics.historicalData.credit_fund || []}
             dataKey="value"
             color="#8b5cf6"
             unit=""

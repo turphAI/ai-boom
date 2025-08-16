@@ -3,7 +3,7 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { AlertTriangle, TrendingUp, TrendingDown, ArrowLeft, BarChart3, PieChart, Activity, Target } from 'lucide-react'
+import { AlertTriangle, TrendingUp, TrendingDown, ArrowLeft, BarChart3, PieChart, Activity, Target, Zap } from 'lucide-react'
 import Link from 'next/link'
 import { MetricData, HistoricalData } from '@/types/dashboard'
 import { AnalyticsChart } from '@/components/analytics/AnalyticsChart'
@@ -19,6 +19,9 @@ interface CorrelationAnalytics {
     phase: string
     confidence: number
     indicators: string[]
+    description: string
+    nextPhase: string
+    timeframe: string
   }
   insights: {
     keyTrends: string[]
@@ -152,14 +155,28 @@ export default function CorrelationAnalytics() {
     return correlations
   }
 
-  const determineCyclePhase = (metrics: MetricData[]): { phase: string; confidence: number; indicators: string[] } => {
-    const bondIssuance = metrics.find(m => m.key === 'bond_issuance')
-    const bdcDiscount = metrics.find(m => m.key === 'bdc_discount')
-    const creditFund = metrics.find(m => m.key === 'credit_fund')
-    const bankProvision = metrics.find(m => m.key === 'bank_provision')
+  const determineCyclePhase = (metrics: MetricData[]): { 
+    phase: string; 
+    confidence: number; 
+    indicators: string[];
+    description: string;
+    nextPhase: string;
+    timeframe: string;
+  } => {
+    const bondIssuance = metrics.find(m => m.id === 'bond_issuance')
+    const bdcDiscount = metrics.find(m => m.id === 'bdc_discount')
+    const creditFund = metrics.find(m => m.id === 'credit_fund')
+    const bankProvision = metrics.find(m => m.id === 'bank_provision')
 
     if (!bondIssuance || !bdcDiscount || !creditFund || !bankProvision) {
-      return { phase: 'unknown', confidence: 0, indicators: [] }
+      return { 
+        phase: 'unknown', 
+        confidence: 0, 
+        indicators: [],
+        description: 'Unable to determine cycle phase due to missing data',
+        nextPhase: 'unknown',
+        timeframe: 'unknown'
+      }
     }
 
     // Simple phase determination logic
@@ -167,25 +184,37 @@ export default function CorrelationAnalytics() {
       return { 
         phase: 'expansion', 
         confidence: 0.75, 
-        indicators: ['High bond issuance', 'Low BDC discounts'] 
+        indicators: ['High bond issuance', 'Low BDC discounts'],
+        description: 'Market is in expansion phase with growing investment activity',
+        nextPhase: 'peak',
+        timeframe: '3-6 months'
       }
     } else if (bondIssuance.changePercent > 30 && bdcDiscount.changePercent > 20) {
       return { 
         phase: 'peak', 
         confidence: 0.85, 
-        indicators: ['Very high bond issuance', 'High BDC discounts'] 
+        indicators: ['Very high bond issuance', 'High BDC discounts'],
+        description: 'Market has reached peak activity with high risk indicators',
+        nextPhase: 'contraction',
+        timeframe: '1-3 months'
       }
     } else if (bondIssuance.changePercent < -10 && creditFund.changePercent < -20) {
       return { 
         phase: 'contraction', 
         confidence: 0.80, 
-        indicators: ['Declining bond issuance', 'Declining credit funds'] 
+        indicators: ['Declining bond issuance', 'Declining credit funds'],
+        description: 'Market is contracting with declining investment activity',
+        nextPhase: 'trough',
+        timeframe: '6-12 months'
       }
     } else {
       return { 
         phase: 'stable', 
         confidence: 0.60, 
-        indicators: ['Mixed signals'] 
+        indicators: ['Mixed signals'],
+        description: 'Market shows mixed signals with no clear trend',
+        nextPhase: 'unknown',
+        timeframe: 'unknown'
       }
     }
   }
@@ -341,7 +370,7 @@ export default function CorrelationAnalytics() {
         </Card>
 
         {/* Correlation Matrix Chart */}
-        <CorrelationMatrixChart correlationMatrix={analytics.correlationMatrix} />
+        {/* <CorrelationMatrixChart correlationMatrix={analytics.correlationMatrix} /> */}
 
         {/* Leading Indicators */}
         <Card>
@@ -353,7 +382,7 @@ export default function CorrelationAnalytics() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {analytics.leadingIndicators.map((indicator, index) => (
+              {/* {analytics.leadingIndicators.map((indicator, index) => ( */}
                 <div key={index} className="space-y-3 p-4 border rounded-lg">
                   <div className="flex items-center justify-between">
                     <h4 className="font-semibold text-gray-900 text-sm">{indicator.name}</h4>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { DashboardLayout } from '@/components/layout/DashboardLayout'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -61,11 +61,7 @@ export default function CorrelationAnalytics() {
   const [selectedMetrics, setSelectedMetrics] = useState<string[]>([])
   const [filteredHistoricalData, setFilteredHistoricalData] = useState<Record<string, HistoricalData[]>>({})
 
-  useEffect(() => {
-    fetchAnalytics()
-  }, [])
-
-  const fetchAnalytics = async () => {
+  const fetchAnalytics = useCallback(async () => {
     try {
       setLoading(true)
       setError(null)
@@ -127,7 +123,11 @@ export default function CorrelationAnalytics() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
+
+  useEffect(() => {
+    fetchAnalytics()
+  }, [fetchAnalytics])
 
   const calculateCorrelations = (data: Record<string, any[]>): Record<string, number> => {
     const correlations: Record<string, number> = {}

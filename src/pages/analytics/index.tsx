@@ -66,7 +66,7 @@ export default function AnalyticsIndex() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div>
-                <h4 className="font-semibold mb-2">What You'll Find:</h4>
+                <h4 className="font-semibold mb-2">What You&apos;ll Find:</h4>
                 <ul className="text-gray-600 space-y-1">
                   <li>• Category breakdowns by player type</li>
                   <li>• Cross-metric correlation analysis</li>

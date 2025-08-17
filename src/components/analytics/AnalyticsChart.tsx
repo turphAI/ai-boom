@@ -1,29 +1,35 @@
 import React, { useState } from 'react'
-import {
-  LineChart,
-  Line,
-  AreaChart,
-  Area,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  ReferenceLine,
-  ReferenceArea,
-  Brush
-} from 'recharts'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, ReferenceLine, Brush } from 'recharts'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { TrendingUp, TrendingDown, Activity, ZoomIn, ZoomOut, RotateCcw, Download } from 'lucide-react'
+import { TrendingUp, TrendingDown, Activity, ZoomIn, RotateCcw, Download } from 'lucide-react'
+
+interface DataPoint {
+  timestamp: string
+  [key: string]: string | number
+}
+
+interface TooltipProps {
+  active?: boolean
+  payload?: Array<{
+    value: number
+    dataKey: string
+    payload: DataPoint
+  }>
+  label?: string
+}
+
+interface ZoomState {
+  left: string
+  right: string
+  refAreaLeft: string
+  refAreaRight: string
+}
 
 interface AnalyticsChartProps {
   title: string
-  data: any[]
+  data: DataPoint[]
   dataKey: string
   color?: string
   unit?: string
@@ -39,8 +45,8 @@ interface AnalyticsChartProps {
   enableZoom?: boolean
   enableBrush?: boolean
   enableDrillDown?: boolean
-  onDrillDown?: (data: any) => void
-  filteredData?: any[]
+  onDrillDown?: (data: DataPoint) => void
+  filteredData?: DataPoint[]
   showFilteredData?: boolean
 }
 
@@ -62,11 +68,11 @@ export function AnalyticsChart({
   enableZoom = false,
   enableBrush = false,
   enableDrillDown = false,
-  onDrillDown,
+  onDrillDown: _onDrillDown,
   filteredData,
   showFilteredData = false
 }: AnalyticsChartProps) {
-  const [zoomState, setZoomState] = useState({ left: 'dataMin', right: 'dataMax', refAreaLeft: '', refAreaRight: '' })
+  const [zoomState, setZoomState] = useState<ZoomState>({ left: 'dataMin', right: 'dataMax', refAreaLeft: '', refAreaRight: '' })
   const [isZoomed, setIsZoomed] = useState(false)
   if (!data || data.length === 0) {
     return (
@@ -84,11 +90,11 @@ export function AnalyticsChart({
   }
 
   // Format data for display
-  const formatData = (data: any[]) => {
+  const formatData = (data: DataPoint[]) => {
     return data.map(item => ({
       ...item,
       formattedDate: formatDate ? formatDate(item.timestamp) : new Date(item.timestamp).toLocaleDateString(),
-      formattedValue: formatValue ? formatValue(item[dataKey]) : `${item[dataKey].toLocaleString()}${unit}`
+      formattedValue: formatValue ? formatValue(Number(item[dataKey])) : `${Number(item[dataKey]).toLocaleString()}${unit}`
     }))
   }
 
@@ -100,8 +106,8 @@ export function AnalyticsChart({
   const calculateTrend = () => {
     if (displayData.length < 2) return { direction: 'stable', percentage: 0 }
     
-    const firstValue = displayData[0][dataKey]
-    const lastValue = displayData[displayData.length - 1][dataKey]
+    const firstValue = Number(displayData[0][dataKey])
+    const lastValue = Number(displayData[displayData.length - 1][dataKey])
     const percentage = ((lastValue - firstValue) / firstValue) * 100
     
     return {
@@ -113,12 +119,12 @@ export function AnalyticsChart({
   const trend = calculateTrend()
 
   // Custom tooltip
-  const CustomTooltip = ({ active, payload, label }: any) => {
+  const CustomTooltip = ({ active, payload, label }: TooltipProps) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-3 border border-gray-200 rounded-lg shadow-lg">
           <p className="font-semibold text-gray-900">{label}</p>
-          {payload.map((entry: any, index: number) => (
+          {payload.map((entry, index: number) => (
             <p key={index} className="text-sm" style={{ color: entry.color }}>
               {entry.name}: {entry.value.toLocaleString()}{unit}
             </p>
@@ -130,7 +136,7 @@ export function AnalyticsChart({
   }
 
   // Custom axis tick
-  const CustomAxisTick = ({ x, y, payload }: any) => {
+  const CustomAxisTick = ({ x, y, payload }: { x: number; y: number; payload: { value: string } }) => {
     return (
       <g transform={`translate(${x},${y})`}>
         <text x={0} y={0} dy={16} textAnchor="middle" fill="#666" fontSize={12}>
@@ -140,20 +146,14 @@ export function AnalyticsChart({
     )
   }
 
-  const handleZoom = (nextState: any) => {
+  const handleZoom = (nextState: { left: string; right: string }) => {
     const { left, right } = nextState
     setZoomState({ left, right, refAreaLeft: '', refAreaRight: '' })
     setIsZoomed(true)
   }
 
-  const handleBrushChange = (brushData: any) => {
-    if (brushData && brushData.startIndex !== brushData.endIndex) {
-      const startIndex = brushData.startIndex
-      const endIndex = brushData.endIndex
-      const zoomedData = formattedData.slice(startIndex, endIndex + 1)
-      setZoomState({ left: 'dataMin', right: 'dataMax', refAreaLeft: '', refAreaRight: '' })
-      setIsZoomed(true)
-    }
+  const handleBrushChange = (_brushData: { startIndex: number; endIndex: number } | null) => {
+    // Brush functionality can be implemented here if needed
   }
 
   const resetZoom = () => {

@@ -33,7 +33,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
-        aws-region: ${{ secrets.AWS_REGION }}
+        aws-region: us-east-1
         
     - name: Run health checks
       run: |
@@ -47,16 +47,17 @@ jobs:
       run: |
         python scripts/lambda_health_check.py
       env:
-        AWS_REGION: ${{ secrets.AWS_REGION }}
+        AWS_REGION: us-east-1
         
-    - name: Notify on failure
-      if: failure()
-      uses: 8398a7/action-slack@v3
-      with:
-        status: failure
-        text: '🚨 System health check failed! Please investigate.'
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    # Slack notification disabled - SLACK_WEBHOOK_URL secret not configured
+    # - name: Notify on failure
+    #   if: failure()
+    #   uses: 8398a7/action-slack@v3
+    #   with:
+    #     status: failure
+    #     text: '🚨 System health check failed! Please investigate.'
+    #   env:
+    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
   cost-monitoring:
     name: AWS Cost Monitoring
@@ -80,7 +81,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
-        aws-region: ${{ secrets.AWS_REGION }}
+        aws-region: us-east-1
         
     - name: Check AWS costs
       run: |
@@ -88,11 +89,12 @@ jobs:
       env:
         COST_THRESHOLD: 100  # Alert if monthly cost exceeds $100
         
-    - name: Notify on high costs
-      if: failure()
-      uses: 8398a7/action-slack@v3
-      with:
-        status: failure
-        text: '💰 AWS costs are higher than expected! Please review usage.'
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    # Slack notification disabled - SLACK_WEBHOOK_URL secret not configured
+    # - name: Notify on high costs
+    #   if: failure()
+    #   uses: 8398a7/action-slack@v3
+    #   with:
+    #     status: failure
+    #     text: '💰 AWS costs are higher than expected! Please review usage.'
+    #   env:
+    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

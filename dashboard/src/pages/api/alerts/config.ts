@@ -127,7 +127,7 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse, userId: str
       thresholdValue: validatedData.thresholdValue.toString(),
       comparisonPeriod: validatedData.comparisonPeriod,
       enabled: validatedData.enabled,
-      notificationChannels: validatedData.notificationChannels,
+      notificationChannels: JSON.stringify(validatedData.notificationChannels),
     });
 
     const newConfig = await db
@@ -174,10 +174,13 @@ async function handlePut(req: NextApiRequest, res: NextApiResponse, userId: stri
       return res.status(404).json({ error: 'Alert configuration not found' });
     }
 
-    // Convert thresholdValue to string if present
+    // Convert thresholdValue to string if present and handle notificationChannels
     const updateData: any = { ...validatedData };
     if (updateData.thresholdValue !== undefined) {
       updateData.thresholdValue = updateData.thresholdValue.toString();
+    }
+    if (updateData.notificationChannels !== undefined) {
+      updateData.notificationChannels = JSON.stringify(updateData.notificationChannels);
     }
 
     await db

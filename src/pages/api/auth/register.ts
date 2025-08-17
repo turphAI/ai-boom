@@ -8,7 +8,7 @@ import { eq } from 'drizzle-orm';
 const registerSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
-  name: z.string().optional(),
+  name: z.string().min(1),
 });
 
 export default async function handler(
@@ -37,9 +37,7 @@ export default async function handler(
     const passwordHash = await bcrypt.hash(password, 12);
 
     // Create user
-    const userId = crypto.randomUUID();
     await db.insert(users).values({
-      id: userId,
       email,
       passwordHash,
       name,

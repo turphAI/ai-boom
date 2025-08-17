@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { useSession, signOut } from 'next-auth/react'
 import { DashboardLayout } from '@/components/layout/DashboardLayout'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { LoginCard } from '@/components/auth/LoginCard'
 import { MetricCard } from '@/components/dashboard/MetricCard'
 import { MetricChart } from '@/components/dashboard/MetricChart'
 import { SystemHealth } from '@/components/dashboard/SystemHealth'
@@ -15,7 +15,7 @@ import {
   SystemHealth as SystemHealthType,
   Alert
 } from '@/types/dashboard'
-import { RefreshCw, Settings, Bell } from 'lucide-react'
+import { RefreshCw } from 'lucide-react'
 
 export default function Dashboard() {
   const { data: session, status } = useSession()
@@ -151,19 +151,7 @@ export default function Dashboard() {
   if (!session) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <Card className="w-[400px]">
-          <CardHeader>
-            <CardTitle className="text-center">Boom-Bust Sentinel</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-muted-foreground mb-4">
-              Sign in to access the financial monitoring dashboard
-            </p>
-            <Button onClick={() => signIn()} className="w-full">
-              Sign In
-            </Button>
-          </CardContent>
-        </Card>
+        <LoginCard />
       </div>
     )
   }

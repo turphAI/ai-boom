@@ -192,20 +192,21 @@ jobs:
         cache: 'npm'
         cache-dependency-path: dashboard/package-lock.json
         
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_STAGING }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STAGING }}
-        aws-region: us-east-1
+    # AWS deployment disabled - AWS credentials not configured
+    # - name: Configure AWS credentials
+    #   uses: aws-actions/configure-aws-credentials@v4
+    #   with:
+    #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_STAGING }}
+    #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_STAGING }}
+    #     aws-region: us-east-1
         
-    - name: Deploy backend infrastructure
-      run: |
-        npm install -g serverless@3.38.0
-        serverless --version
-        npm install -g serverless-python-requirements
-        pip install -r requirements.txt
-        serverless deploy --stage staging --region us-east-1
+    # - name: Deploy backend infrastructure
+    #   run: |
+    #     npm install -g serverless@3.38.0
+    #     serverless --version
+    #     npm install -g serverless-python-requirements
+    #     pip install -r requirements.txt
+    #     serverless deploy --stage staging --region us-east-1
         
     - name: Deploy frontend to Vercel
       uses: amondnet/vercel-action@v25
@@ -248,20 +249,21 @@ jobs:
         cache: 'npm'
         cache-dependency-path: dashboard/package-lock.json
         
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
-        aws-region: us-east-1
+    # AWS deployment disabled - AWS credentials not configured
+    # - name: Configure AWS credentials
+    #   uses: aws-actions/configure-aws-credentials@v4
+    #   with:
+    #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+    #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+    #     aws-region: us-east-1
         
-    - name: Deploy backend infrastructure
-      run: |
-        npm install -g serverless@3.38.0
-        serverless --version
-        npm install -g serverless-python-requirements
-        pip install -r requirements.txt
-        serverless deploy --stage prod --region us-east-1
+    # - name: Deploy backend infrastructure
+    #   run: |
+    #     npm install -g serverless@3.38.0
+    #     serverless --version
+    #     npm install -g serverless-python-requirements
+    #     pip install -r requirements.txt
+    #     serverless deploy --stage prod --region us-east-1
         
     - name: Deploy frontend to Vercel
       uses: amondnet/vercel-action@v25

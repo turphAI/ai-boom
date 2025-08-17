@@ -7,7 +7,8 @@ import { TrendingUp, TrendingDown, Activity, ZoomIn, RotateCcw, Download } from 
 
 interface DataPoint {
   timestamp: string
-  [key: string]: string | number
+  value?: number
+  [key: string]: string | number | undefined
 }
 
 interface TooltipProps {
@@ -16,6 +17,8 @@ interface TooltipProps {
     value: number
     dataKey: string
     payload: DataPoint
+    color?: string
+    name?: string
   }>
   label?: string
 }
@@ -29,7 +32,7 @@ interface ZoomState {
 
 interface AnalyticsChartProps {
   title: string
-  data: DataPoint[]
+  data: (DataPoint | { timestamp: string; value: number; [key: string]: any })[]
   dataKey: string
   color?: string
   unit?: string
@@ -46,7 +49,7 @@ interface AnalyticsChartProps {
   enableBrush?: boolean
   enableDrillDown?: boolean
   onDrillDown?: (data: DataPoint) => void
-  filteredData?: DataPoint[]
+  filteredData?: (DataPoint | { timestamp: string; value: number; [key: string]: any })[]
   showFilteredData?: boolean
 }
 
@@ -136,7 +139,8 @@ export function AnalyticsChart({
   }
 
   // Custom axis tick
-  const CustomAxisTick = ({ x, y, payload }: { x: number; y: number; payload: { value: string } }) => {
+  const CustomAxisTick = ({ x, y, payload }: { x?: number; y?: number; payload?: { value: string } }) => {
+    if (!x || !y || !payload) return null
     return (
       <g transform={`translate(${x},${y})`}>
         <text x={0} y={0} dy={16} textAnchor="middle" fill="#666" fontSize={12}>
@@ -390,11 +394,11 @@ export function AnalyticsChart({
                     </Button>
                   </>
                 )}
-                {enableDrillDown && onDrillDown && (
+                {enableDrillDown && _onDrillDown && (
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => onDrillDown(displayData)}
+                    onClick={() => _onDrillDown && displayData.length > 0 && _onDrillDown(displayData[0])}
                     title="Drill Down"
                   >
                     <ZoomIn className="h-4 w-4" />

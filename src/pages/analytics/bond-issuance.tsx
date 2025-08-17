@@ -508,7 +508,7 @@ export default function BondIssuanceAnalytics() {
           warningThreshold={5000000000}
           enableZoom={true}
           enableDrillDown={true}
-          onDrillDown={(data) => handleDrillDown(data, "Bond Issuance Historical Trend", "#3b82f6", "B", "line")}
+          onDrillDown={(data) => handleDrillDown(historicalData, "Bond Issuance Historical Trend", "#3b82f6", "B", "line")}
           formatValue={(value) => `$${(value / 1000000000).toFixed(1)}`}
           formatDate={(date) => new Date(date).toLocaleDateString()}
           filteredData={filteredHistoricalData}

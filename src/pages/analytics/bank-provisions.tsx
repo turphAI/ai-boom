@@ -438,7 +438,7 @@ export default function BankProvisionAnalytics() {
           warningThreshold={10}
           enableZoom={true}
           enableDrillDown={true}
-          onDrillDown={(data) => handleDrillDown(data, "Bank Provisions Historical Trend", "#ef4444", "%", "line")}
+          onDrillDown={(data) => handleDrillDown(historicalData, "Bank Provisions Historical Trend", "#ef4444", "%", "line")}
           formatValue={(value) => `${value.toFixed(1)}%`}
           formatDate={(date) => {
             const d = new Date(date)

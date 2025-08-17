@@ -516,7 +516,7 @@ export default function CreditFundAnalytics() {
           warningThreshold={100000000000}
           enableZoom={true}
           enableDrillDown={true}
-          onDrillDown={(data) => handleDrillDown(data, "Credit Fund Activity Historical Trend", "#8b5cf6", "B", "bar")}
+          onDrillDown={(data) => handleDrillDown(historicalData, "Credit Fund Activity Historical Trend", "#8b5cf6", "B", "bar")}
           formatValue={(value) => `$${(value / 1000000000).toFixed(1)}`}
           formatDate={(date) => {
             const d = new Date(date)

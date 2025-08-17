@@ -470,7 +470,7 @@ export default function BDCDiscountAnalytics() {
           warningThreshold={15}
           enableZoom={true}
           enableDrillDown={true}
-          onDrillDown={(data) => handleDrillDown(data, "BDC Discount Historical Trend", "#10b981", "%", "line")}
+          onDrillDown={(data) => handleDrillDown(historicalData, "BDC Discount Historical Trend", "#10b981", "%", "line")}
           formatValue={(value) => `${value.toFixed(1)}%`}
           formatDate={(date) => new Date(date).toLocaleDateString()}
           filteredData={filteredHistoricalData}

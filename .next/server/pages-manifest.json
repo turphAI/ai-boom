@@ -11,15 +11,15 @@
   "/api/alerts/config": "pages/api/alerts/config.js",
   "/api/alerts/history": "pages/api/alerts/history.js",
   "/api/alerts/trigger": "pages/api/alerts/trigger.js",
+  "/api/auth/register": "pages/api/auth/register.js",
   "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
   "/api/metrics/current": "pages/api/metrics/current.js",
   "/api/metrics/historical": "pages/api/metrics/historical.js",
-  "/api/auth/register": "pages/api/auth/register.js",
   "/api/system/health": "pages/api/system/health.js",
   "/api/user/preferences": "pages/api/user/preferences.js",
   "/": "pages/index.html",
-  "/system-health": "pages/system-health.html",
   "/players": "pages/players.html",
+  "/system-health": "pages/system-health.html",
   "/_document": "pages/_document.js",
   "/404": "pages/404.html"
 }

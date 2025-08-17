@@ -22,7 +22,7 @@ interface RealDataService {
 }
 
 class FileBasedRealDataService implements RealDataService {
-  private dataDir = path.join(process.cwd(), 'data')
+  private dataDir = '/Users/turphai/Projects/kiro_aiCrash/data'
 
   async getLatestMetrics(): Promise<any[]> {
     try {

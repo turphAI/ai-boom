@@ -194,4 +194,6 @@ build/
 .pscale/
 
 # Drizzle
-drizzle/
+drizzle/.next/
+node_modules/
+*.log

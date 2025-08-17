@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { useSession, signIn, signOut } from 'next-auth/react'
+import { DashboardLayout } from '@/components/layout/DashboardLayout'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { MetricCard } from '@/components/dashboard/MetricCard'
@@ -29,11 +30,15 @@ export default function Dashboard() {
   useEffect(() => {
     if (session) {
       fetchDashboardData()
-      // Set up auto-refresh every 30 seconds
-      const interval = setInterval(fetchDashboardData, 30000)
+      // Set up auto-refresh every 30 seconds, but only if there are no errors
+      const interval = setInterval(() => {
+        if (!loading) {
+          fetchDashboardData()
+        }
+      }, 30000)
       return () => clearInterval(interval)
     }
-  }, [session])
+  }, [session, loading])
 
   const fetchDashboardData = async () => {
     try {
@@ -41,27 +46,52 @@ export default function Dashboard() {
       
       // Fetch current metrics
       const metricsResponse = await fetch('/api/metrics/current')
-      const metricsData = await metricsResponse.json()
-      setMetrics(metricsData.metrics || [])
+      if (metricsResponse.ok) {
+        const metricsData = await metricsResponse.json()
+        setMetrics(metricsData.metrics || [])
+      } else {
+        console.warn('Failed to fetch metrics:', metricsResponse.status)
+        setMetrics([])
+      }
 
       // Fetch historical data for charts
       const historicalResponse = await fetch('/api/metrics/historical?days=30')
-      const historicalData = await historicalResponse.json()
-      setHistoricalData(historicalData.data || {})
+      if (historicalResponse.ok) {
+        const historicalData = await historicalResponse.json()
+        setHistoricalData(historicalData.data || {})
+      } else {
+        console.warn('Failed to fetch historical data:', historicalResponse.status)
+        setHistoricalData({})
+      }
 
       // Fetch alert configurations
       const alertConfigResponse = await fetch('/api/alerts/config')
-      const alertConfigData = await alertConfigResponse.json()
-      setAlertConfigs(alertConfigData.configs || [])
+      if (alertConfigResponse.ok) {
+        const alertConfigData = await alertConfigResponse.json()
+        setAlertConfigs(alertConfigData.configs || [])
+      } else {
+        console.warn('Failed to fetch alert configs:', alertConfigResponse.status)
+        setAlertConfigs([])
+      }
 
       // Fetch system health
       const healthResponse = await fetch('/api/system/health')
-      const healthData = await healthResponse.json()
-      setSystemHealth(healthData.health || [])
+      if (healthResponse.ok) {
+        const healthData = await healthResponse.json()
+        setSystemHealth(healthData.health || [])
+      } else {
+        console.warn('Failed to fetch system health:', healthResponse.status)
+        setSystemHealth([])
+      }
 
       setLastRefresh(new Date())
     } catch (error) {
       console.error('Failed to fetch dashboard data:', error)
+      // Set empty defaults to prevent infinite retries
+      setMetrics([])
+      setHistoricalData({})
+      setAlertConfigs([])
+      setSystemHealth([])
     } finally {
       setLoading(false)
     }
@@ -147,48 +177,44 @@ export default function Dashboard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="min-h-screen bg-background">
-        {/* Header */}
-        <header className="border-b">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-2xl font-bold">Boom-Bust Sentinel</h1>
-                <p className="text-muted-foreground">
-                  Last updated: {lastRefresh.toLocaleTimeString()}
-                </p>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={fetchDashboardData}
-                  disabled={loading}
-                >
-                  <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
-                  Refresh
-                </Button>
-                <Button variant="outline" size="sm" onClick={() => signOut()}>
-                  Sign Out
-                </Button>
-              </div>
+      <DashboardLayout>
+        <div className="space-y-6">
+          {/* Header */}
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
+              <p className="text-gray-600 mt-1">
+                Last updated: {lastRefresh.toLocaleTimeString()}
+              </p>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={fetchDashboardData}
+                disabled={loading}
+              >
+                <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+                Refresh
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => signOut()}>
+                Sign Out
+              </Button>
             </div>
           </div>
-        </header>
 
-        <main className="container mx-auto px-4 py-8">
           {/* Metrics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {metrics.map((metric) => (
-              <MetricCard key={metric.id} metric={metric} />
+              <MetricCard key={metric.key || metric.id || `metric-${metric.name}`} metric={metric} />
             ))}
           </div>
 
           {/* Charts Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {Object.entries(historicalData).map(([key, data]) => (
               <MetricChart
-                key={key}
+                key={`chart-${key}`}
                 title={key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
                 data={data}
                 dataKey="value"
@@ -209,8 +235,8 @@ export default function Dashboard() {
               onDelete={handleDeleteAlertConfig}
             />
           </div>
-        </main>
-      </div>
+        </div>
+      </DashboardLayout>
     </>
   )
 }

@@ -143,7 +143,7 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse, userId: str
       thresholdValue: validatedData.thresholdValue.toString(),
       comparisonPeriod: validatedData.comparisonPeriod,
       enabled: validatedData.enabled,
-      notificationChannels: JSON.stringify(validatedData.notificationChannels),
+      notificationChannels: validatedData.notificationChannels ? JSON.stringify(validatedData.notificationChannels) : null,
     });
 
     const newConfig = await db
@@ -210,7 +210,7 @@ async function handlePut(req: NextApiRequest, res: NextApiResponse, userId: stri
       updateData.thresholdValue = updateData.thresholdValue.toString();
     }
     if (updateData.notificationChannels !== undefined) {
-      updateData.notificationChannels = JSON.stringify(updateData.notificationChannels);
+      updateData.notificationChannels = updateData.notificationChannels ? JSON.stringify(updateData.notificationChannels) : null;
     }
 
     await db

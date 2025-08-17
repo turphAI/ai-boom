@@ -83,6 +83,19 @@ export function AnalyticsChart({
     )
   }
 
+  // Format data for display
+  const formatData = (data: any[]) => {
+    return data.map(item => ({
+      ...item,
+      formattedDate: formatDate ? formatDate(item.timestamp) : new Date(item.timestamp).toLocaleDateString(),
+      formattedValue: formatValue ? formatValue(item[dataKey]) : `${item[dataKey].toLocaleString()}${unit}`
+    }))
+  }
+
+  // Use filtered data if available and enabled, otherwise use original data
+  const displayData = showFilteredData && filteredData ? filteredData : data
+  const formattedData = formatData(displayData)
+
   // Calculate trend
   const calculateTrend = () => {
     if (displayData.length < 2) return { direction: 'stable', percentage: 0 }
@@ -98,19 +111,6 @@ export function AnalyticsChart({
   }
 
   const trend = calculateTrend()
-
-  // Format data for display
-  const formatData = (data: any[]) => {
-    return data.map(item => ({
-      ...item,
-      formattedDate: formatDate ? formatDate(item.timestamp) : new Date(item.timestamp).toLocaleDateString(),
-      formattedValue: formatValue ? formatValue(item[dataKey]) : `${item[dataKey].toLocaleString()}${unit}`
-    }))
-  }
-
-  // Use filtered data if available and enabled, otherwise use original data
-  const displayData = showFilteredData && filteredData ? filteredData : data
-  const formattedData = formatData(displayData)
 
   // Custom tooltip
   const CustomTooltip = ({ active, payload, label }: any) => {

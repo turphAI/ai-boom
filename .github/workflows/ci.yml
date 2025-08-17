@@ -208,14 +208,15 @@ jobs:
     #     pip install -r requirements.txt
     #     serverless deploy --stage staging --region us-east-1
         
-    - name: Deploy frontend to Vercel
-      uses: amondnet/vercel-action@v25
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-        vercel-args: '--prod --confirm'
-        alias-domains: staging-dashboard.boom-bust-sentinel.com
+    # Vercel deployment disabled - Vercel secrets not configured
+    # - name: Deploy frontend to Vercel
+    #   uses: amondnet/vercel-action@v25
+    #   with:
+    #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
+    #     vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+    #     vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+    #     vercel-args: '--prod --confirm'
+    #     alias-domains: staging-dashboard.boom-bust-sentinel.com
         
     - name: Run deployment verification tests
       run: |
@@ -265,14 +266,15 @@ jobs:
     #     pip install -r requirements.txt
     #     serverless deploy --stage prod --region us-east-1
         
-    - name: Deploy frontend to Vercel
-      uses: amondnet/vercel-action@v25
-      with:
-        vercel-token: ${{ secrets.VERCEL_TOKEN }}
-        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-        vercel-args: '--prod --confirm'
-        alias-domains: dashboard.boom-bust-sentinel.com
+    # Vercel deployment disabled - Vercel secrets not configured
+    # - name: Deploy frontend to Vercel
+    #   uses: amondnet/vercel-action@v25
+    #   with:
+    #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
+    #     vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+    #     vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+    #     vercel-args: '--prod --confirm'
+    #     alias-domains: dashboard.boom-bust-sentinel.com
         
     - name: Run deployment verification tests
       run: |

@@ -2,6 +2,53 @@
   {
     "data_source": "bond_issuance",
     "metric_name": "weekly",
+    "timestamp": "2025-08-18 13:41:10.747586+00:00",
+    "data": {
+      "value": 3500000000,
+      "timestamp": "2025-08-18 13:41:10.747586+00:00",
+      "confidence": 0.75,
+      "metadata": {
+        "companies": [
+          "MSFT",
+          "META"
+        ],
+        "failed_companies": [],
+        "avg_coupon": 4.35,
+        "bond_count": 2,
+        "bond_details": [
+          {
+            "company": "MSFT",
+            "cik": "0000789019",
+            "filing_date": "2025-08-12",
+            "notional_amount": 2000000000,
+            "coupon_rate": 4.5,
+            "form_type": "424B2",
+            "data_checksum": "1a6e2bb4"
+          },
+          {
+            "company": "META",
+            "cik": "0001326801",
+            "filing_date": "2025-08-14",
+            "notional_amount": 1500000000,
+            "coupon_rate": 4.2,
+            "form_type": "424B5",
+            "data_checksum": "fbfce784"
+          }
+        ],
+        "source": "sec_edgar",
+        "success_rate": 1.0,
+        "date_range": {
+          "start": "2025-08-11",
+          "end": "2025-08-18"
+        }
+      },
+      "validation_checksum": "7afb21d7e680d3f47ce2d9dd47f9f9cc005d74cbcfb24f3214e65f7f1db0ea09",
+      "anomaly_score": 0.0
+    }
+  },
+  {
+    "data_source": "bond_issuance",
+    "metric_name": "weekly",
     "timestamp": "2025-08-18 12:36:06.090022+00:00",
     "data": {
       "value": 3500000000,

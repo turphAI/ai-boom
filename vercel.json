@@ -4,9 +4,8 @@
   "devCommand": "cd dashboard && npm run dev",
   "installCommand": "cd dashboard && npm install",
   "outputDirectory": "dashboard/.next",
-  "rootDirectory": "dashboard",
   "functions": {
-    "dashboard/src/pages/api/**/*.ts": {
+    "src/pages/api/**/*.ts": {
       "maxDuration": 30
     }
   },

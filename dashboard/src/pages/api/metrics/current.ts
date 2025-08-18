@@ -50,6 +50,17 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       status: 'critical',
       lastUpdated: new Date().toISOString(),
       source: '10-Q Filings'
+    },
+    {
+      id: 'correlation',
+      name: 'Cross-Asset Correlation',
+      value: 0.65,
+      unit: 'correlation',
+      change: 0.08,
+      changePercent: 0.08,
+      status: 'warning',
+      lastUpdated: new Date().toISOString(),
+      source: 'Market Data'
     }
   ];
 

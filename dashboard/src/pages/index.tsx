@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { Button } from '@/components/ui/button'
+import { LoginCard } from '@/components/auth/LoginCard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { MetricCard } from '@/components/dashboard/MetricCard'
 import { MetricChart } from '@/components/dashboard/MetricChart'
 import { SystemHealth } from '@/components/dashboard/SystemHealth'
 import { AlertConfig } from '@/components/dashboard/AlertConfig'
+import { DashboardLayout } from '@/components/layout/DashboardLayout'
 import { 
   MetricData, 
   HistoricalData, 
@@ -121,19 +123,7 @@ export default function Dashboard() {
   if (!session) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <Card className="w-[400px]">
-          <CardHeader>
-            <CardTitle className="text-center">Boom-Bust Sentinel</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-muted-foreground mb-4">
-              Sign in to access the financial monitoring dashboard
-            </p>
-            <Button onClick={() => signIn()} className="w-full">
-              Sign In
-            </Button>
-          </CardContent>
-        </Card>
+        <LoginCard onSuccess={() => window.location.reload()} />
       </div>
     )
   }
@@ -144,73 +134,43 @@ export default function Dashboard() {
         <title>Boom-Bust Sentinel Dashboard</title>
         <meta name="description" content="Financial market monitoring dashboard" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
 
-      <div className="min-h-screen bg-background">
-        {/* Header */}
-        <header className="border-b">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-2xl font-bold">Boom-Bust Sentinel</h1>
-                <p className="text-muted-foreground">
-                  Last updated: {lastRefresh.toLocaleTimeString()}
-                </p>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={fetchDashboardData}
-                  disabled={loading}
-                >
-                  <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
-                  Refresh
-                </Button>
-                <Button variant="outline" size="sm" onClick={() => signOut()}>
-                  Sign Out
-                </Button>
-              </div>
-            </div>
-          </div>
-        </header>
+      <DashboardLayout>
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {metrics.map((metric) => (
+            <MetricCard key={metric.id} metric={metric} />
+          ))}
+        </div>
 
-        <main className="container mx-auto px-4 py-8">
-          {/* Metrics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {metrics.map((metric) => (
-              <MetricCard key={metric.id} metric={metric} />
-            ))}
-          </div>
-
-          {/* Charts Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-            {Object.entries(historicalData).map(([key, data]) => (
-              <MetricChart
-                key={key}
-                title={key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
-                data={data}
-                dataKey="value"
-                color="#3b82f6"
-                unit={metrics.find(m => m.name.toLowerCase().includes(key.split('_')[0]))?.unit}
-                type="area"
-              />
-            ))}
-          </div>
-
-          {/* System Health and Alert Config */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <SystemHealth healthData={systemHealth} />
-            <AlertConfig
-              configs={alertConfigs}
-              onSave={handleSaveAlertConfig}
-              onUpdate={handleUpdateAlertConfig}
-              onDelete={handleDeleteAlertConfig}
+        {/* Charts Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          {Object.entries(historicalData).map(([key, data]) => (
+            <MetricChart
+              key={key}
+              title={key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              data={data}
+              dataKey="value"
+              color="#3b82f6"
+              unit={metrics.find(m => m.name.toLowerCase().includes(key.split('_')[0]))?.unit}
+              type="area"
             />
-          </div>
-        </main>
-      </div>
+          ))}
+        </div>
+
+        {/* System Health and Alert Config */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <SystemHealth healthData={systemHealth} />
+          <AlertConfig
+            configs={alertConfigs}
+            onSave={handleSaveAlertConfig}
+            onUpdate={handleUpdateAlertConfig}
+            onDelete={handleDeleteAlertConfig}
+          />
+        </div>
+      </DashboardLayout>
     </>
   )
 }

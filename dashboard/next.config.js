@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    // Allow importing TS/JS from outside the Next.js app directory
+    externalDir: true,
+  },
   async headers() {
     return [
       {

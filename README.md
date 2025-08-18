@@ -35,10 +35,20 @@ A comprehensive financial market monitoring system that tracks various market in
 - `GET /api/user/preferences` - Get user preferences
 - `PUT /api/user/preferences` - Update user preferences
 
-## Setup
+## Repository Structure
+
+- `dashboard/`: Next.js application (canonical frontend)
+- `serverless.yml` and `handlers/`, `scrapers/`, `services/`: Python backend for AWS Lambda
+- `tests/`: Python tests for backend
+- `scripts/`: Ops and verification scripts
+
+Root-level Next.js files have been removed; only `dashboard/` is used for the app.
+
+## Dashboard Setup (in `dashboard/`)
 
 1. Install dependencies:
 ```bash
+cd dashboard
 npm install
 ```
 
@@ -50,7 +60,6 @@ cp .env.example .env.local
 
 3. Set up PlanetScale database:
 ```bash
-# Generate and push database schema
 npx drizzle-kit generate:mysql
 npx drizzle-kit push:mysql
 ```

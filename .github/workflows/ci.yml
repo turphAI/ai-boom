@@ -83,6 +83,11 @@ jobs:
         cache: 'npm'
         cache-dependency-path: dashboard/package-lock.json
         
+    - name: Install Python dependencies for verification tests
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
     - name: Install dependencies
       run: |
         npm ci
@@ -249,6 +254,11 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
         cache-dependency-path: dashboard/package-lock.json
+        
+    - name: Install Python dependencies for verification tests
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
         
     # AWS deployment disabled - AWS credentials not configured
     # - name: Configure AWS credentials

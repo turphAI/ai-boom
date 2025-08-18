@@ -11,15 +11,16 @@ vi.mock('next-auth', () => ({
 // Mock database
 vi.mock('@/lib/db/connection', () => ({
   db: {
-    select: vi.fn().mockReturnThis(),
-    from: vi.fn().mockReturnThis(),
-    where: vi.fn().mockReturnThis(),
-    limit: vi.fn(),
-    insert: vi.fn().mockReturnThis(),
-    values: vi.fn(),
-    update: vi.fn().mockReturnThis(),
-    set: vi.fn().mockReturnThis(),
-    delete: vi.fn().mockReturnThis(),
+    select: vi.fn(() => ({
+      from: vi.fn(() => ({
+        where: vi.fn(() => ({
+          limit: vi.fn(() => Promise.resolve([])),
+        })),
+      })),
+    })),
+    insert: vi.fn(() => ({
+      values: vi.fn(() => Promise.resolve({ insertId: 'config-1' })),
+    })),
   },
 }));
 
@@ -35,24 +36,21 @@ describe('/api/alerts/config', () => {
 
     const { db } = await import('@/lib/db/connection');
     
-    // Mock no existing config
-    vi.mocked(db.limit).mockResolvedValueOnce([]);
+    // Mock the query chain for select
+    const mockSelectChain = {
+      from: vi.fn(() => ({
+        where: vi.fn(() => ({
+          limit: vi.fn(() => Promise.resolve([])),
+        })),
+      })),
+    };
+    vi.mocked(db.select).mockReturnValue(mockSelectChain);
     
-    // Mock successful insert
-    vi.mocked(db.values).mockResolvedValueOnce(undefined);
-    
-    // Mock return of new config
-    vi.mocked(db.limit).mockResolvedValueOnce([{
-      id: 'config-1',
-      userId: 'user-1',
-      dataSource: 'bond_issuance',
-      metricName: 'weekly',
-      thresholdType: 'absolute',
-      thresholdValue: 5000000000,
-      comparisonPeriod: 7,
-      enabled: true,
-      notificationChannels: ['email']
-    }]);
+    // Mock the query chain for insert
+    const mockInsertChain = {
+      values: vi.fn(() => Promise.resolve({ insertId: 'config-1' })),
+    };
+    vi.mocked(db.insert).mockReturnValue(mockInsertChain);
 
     const { req, res } = createMocks({
       method: 'POST',
@@ -126,7 +124,14 @@ describe('/api/alerts/config', () => {
     ];
 
     const { db } = await import('@/lib/db/connection');
-    vi.mocked(db.where).mockResolvedValue(mockConfigs);
+    
+    // Mock the query chain for select with where
+    const mockSelectChain = {
+      from: vi.fn(() => ({
+        where: vi.fn(() => Promise.resolve(mockConfigs)),
+      })),
+    };
+    vi.mocked(db.select).mockReturnValue(mockSelectChain);
 
     const { req, res } = createMocks({
       method: 'GET',

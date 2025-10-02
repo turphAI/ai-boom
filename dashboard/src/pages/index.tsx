@@ -42,17 +42,38 @@ export default function Dashboard() {
       // Fetch current metrics
       const metricsResponse = await fetch('/api/metrics/current')
       const metricsData = await metricsResponse.json()
-      setMetrics(metricsData.metrics || [])
+      
+      // Handle API errors gracefully
+      if (!metricsData.success) {
+        console.warn('Metrics API error:', metricsData.error)
+        setMetrics([])
+      } else {
+        setMetrics(metricsData.metrics || [])
+      }
 
       // Fetch historical data for charts
       const historicalResponse = await fetch('/api/metrics/historical?days=30')
       const historicalData = await historicalResponse.json()
-      setHistoricalData(historicalData.data || {})
+      
+      // Handle API errors gracefully
+      if (!historicalData.success) {
+        console.warn('Historical data API error:', historicalData.error)
+        setHistoricalData({})
+      } else {
+        setHistoricalData(historicalData.data || {})
+      }
 
       // Fetch alert configurations
       const alertConfigResponse = await fetch('/api/alerts/config')
       const alertConfigData = await alertConfigResponse.json()
-      setAlertConfigs(alertConfigData.configs || [])
+      
+      // Handle authentication errors gracefully
+      if (alertConfigData.error) {
+        console.warn('Alert configs not available:', alertConfigData.error)
+        setAlertConfigs([])
+      } else {
+        setAlertConfigs(alertConfigData.configs || [])
+      }
 
       setLastRefresh(new Date())
     } catch (error) {

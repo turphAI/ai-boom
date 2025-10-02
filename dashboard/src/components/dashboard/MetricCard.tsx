@@ -110,7 +110,7 @@ export function MetricCard({ metric }: MetricCardProps) {
         maximumFractionDigits: 1
       }).format(value)
     }
-    if (unit === 'percentage') {
+    if (unit === 'percentage' || unit === 'percent') {
       return `${value.toFixed(2)}%`
     }
     return `${value.toLocaleString()} ${unit}`

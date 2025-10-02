@@ -1,0 +1,5 @@
+# Ignore everything except the dashboard directory
+*
+!dashboard/
+!dashboard/**
+!vercel.json

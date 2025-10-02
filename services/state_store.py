@@ -83,14 +83,11 @@ class FileStateStore(BaseStateStore):
         """Save data to the file-based store."""
         file_path = self._get_file_path(data_source, metric_name)
         
-        # Load existing data
-        existing_data = self._load_data(file_path)
-        
         # Add timestamp if not present
         if 'timestamp' not in data:
             data['timestamp'] = datetime.now(timezone.utc).isoformat()
         
-        # Add the new data point
+        # Create the new data point
         data_point = {
             'data_source': data_source,
             'metric_name': metric_name,
@@ -98,28 +95,12 @@ class FileStateStore(BaseStateStore):
             'data': data
         }
         
-        existing_data.append(data_point)
+        # For daily automation, we only keep the most recent data point
+        # This prevents duplicate cards in the dashboard
+        new_data = [data_point]
         
-        # Sort by timestamp (newest first) - handle both string and datetime objects
-        def get_timestamp_for_sort(item):
-            timestamp = item['timestamp']
-            if isinstance(timestamp, str):
-                try:
-                    return datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
-                except:
-                    return datetime.min.replace(tzinfo=timezone.utc)
-            elif isinstance(timestamp, datetime):
-                # Ensure timezone-aware datetime
-                if timestamp.tzinfo is None:
-                    return timestamp.replace(tzinfo=timezone.utc)
-                return timestamp
-            else:
-                return datetime.min.replace(tzinfo=timezone.utc)
-        
-        existing_data.sort(key=get_timestamp_for_sort, reverse=True)
-        
-        # Save back to file
-        self._save_data_to_file(file_path, existing_data)
+        # Save to file (replacing any existing data)
+        self._save_data_to_file(file_path, new_data)
         
         self.logger.info(f"Saved data for {data_source}.{metric_name}")
     

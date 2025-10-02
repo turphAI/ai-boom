@@ -13,7 +13,7 @@ function resolvePlanetScaleConfig(): { host: string; username: string; password:
   }
 
   const url = process.env.DATABASE_URL;
-  if (url) {
+  if (url && url.startsWith('mysql://')) {
     const parsed = new URL(url);
     return {
       host: parsed.hostname,

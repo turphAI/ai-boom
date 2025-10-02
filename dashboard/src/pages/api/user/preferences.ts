@@ -60,7 +60,7 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse, userId: stri
     return res.status(200).json({ preferences: defaultPrefs });
   }
 
-  const parsedPrefs = preferences[0].preferences ? JSON.parse(preferences[0].preferences) : {};
+  const parsedPrefs = preferences[0].preferences ? JSON.parse(preferences[0].preferences as string) : {};
   res.status(200).json({ preferences: parsedPrefs });
 }
 
@@ -84,7 +84,7 @@ async function handlePut(req: NextApiRequest, res: NextApiResponse, userId: stri
     });
   } else {
     // Update existing preferences
-    const currentPrefs = existing[0].preferences ? JSON.parse(existing[0].preferences) : {};
+    const currentPrefs = existing[0].preferences ? JSON.parse(existing[0].preferences as string) : {};
     const updatedPrefs = { ...currentPrefs, ...validatedPreferences };
     
     await db
@@ -100,6 +100,6 @@ async function handlePut(req: NextApiRequest, res: NextApiResponse, userId: stri
     .where(eq(userPreferences.userId, userId))
     .limit(1);
 
-  const parsedPrefs = updated[0].preferences ? JSON.parse(updated[0].preferences) : {};
+  const parsedPrefs = updated[0].preferences ? JSON.parse(updated[0].preferences as string) : {};
   res.status(200).json({ preferences: parsedPrefs });
 }

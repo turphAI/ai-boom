@@ -31,7 +31,7 @@ export const alertConfigurations = mysqlTable('alert_configurations', {
   dataSource: varchar('data_source', { length: 255 }).notNull(),
   metricName: varchar('metric_name', { length: 255 }).notNull(),
   thresholdType: varchar('threshold_type', { length: 50 }).notNull(),
-  thresholdValue: varchar('threshold_value', { length: 50 }).notNull(),
+  thresholdValue: decimal('threshold_value', { precision: 20, scale: 8 }).notNull(),
   comparisonPeriod: int('comparison_period').notNull(),
   enabled: boolean('enabled').default(true),
   notificationChannels: text('notification_channels'),
@@ -42,7 +42,45 @@ export const alertConfigurations = mysqlTable('alert_configurations', {
 export const userPreferences = mysqlTable('user_preferences', {
   id: varchar('id', { length: 255 }).primaryKey(),
   userId: varchar('user_id', { length: 255 }).notNull(),
-  preferences: text('preferences'),
+  preferences: json('preferences'),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
+});
+
+export const metrics = mysqlTable('metrics', {
+  id: varchar('id', { length: 255 }).primaryKey(),
+  dataSource: varchar('data_source', { length: 255 }).notNull(),
+  metricName: varchar('metric_name', { length: 255 }).notNull(),
+  value: decimal('value', { precision: 20, scale: 8 }).notNull(),
+  unit: varchar('unit', { length: 50 }),
+  status: mysqlEnum('status', ['healthy', 'warning', 'critical', 'stale']).default('healthy'),
+  confidence: decimal('confidence', { precision: 3, scale: 2 }).default('1.00'),
+  metadata: json('metadata'),
+  rawData: json('raw_data'),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
+});
+
+export const metricHistory = mysqlTable('metric_history', {
+  id: varchar('id', { length: 255 }).primaryKey(),
+  metricId: varchar('metric_id', { length: 255 }).notNull(),
+  value: decimal('value', { precision: 20, scale: 8 }).notNull(),
+  status: mysqlEnum('status', ['healthy', 'warning', 'critical', 'stale']).default('healthy'),
+  confidence: decimal('confidence', { precision: 3, scale: 2 }).default('1.00'),
+  metadata: json('metadata'),
+  rawData: json('raw_data'),
+  createdAt: timestamp('created_at').defaultNow(),
+});
+
+export const scraperHealth = mysqlTable('scraper_health', {
+  id: varchar('id', { length: 255 }).primaryKey(),
+  scraperName: varchar('scraper_name', { length: 255 }).notNull(),
+  status: mysqlEnum('status', ['healthy', 'degraded', 'failed']).notNull(),
+  lastRun: timestamp('last_run').defaultNow(),
+  nextRun: timestamp('next_run'),
+  errorMessage: text('error_message'),
+  executionTime: int('execution_time'), // in milliseconds
+  dataQuality: mysqlEnum('data_quality', ['high', 'medium', 'low']).default('medium'),
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').defaultNow().onUpdateNow(),
 });
@@ -53,3 +91,9 @@ export type AlertConfiguration = typeof alertConfigurations.$inferSelect;
 export type NewAlertConfiguration = typeof alertConfigurations.$inferInsert;
 export type UserPreferences = typeof userPreferences.$inferSelect;
 export type NewUserPreferences = typeof userPreferences.$inferInsert;
+export type Metric = typeof metrics.$inferSelect;
+export type NewMetric = typeof metrics.$inferInsert;
+export type MetricHistory = typeof metricHistory.$inferSelect;
+export type NewMetricHistory = typeof metricHistory.$inferInsert;
+export type ScraperHealth = typeof scraperHealth.$inferSelect;
+export type NewScraperHealth = typeof scraperHealth.$inferInsert;

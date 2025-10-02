@@ -45,68 +45,85 @@ class CreditFundScraper(BaseScraper):
         })
     
     def fetch_data(self) -> Dict[str, Any]:
-        """Fetch gross asset values from Form PF XML filings."""
+        """Fetch gross asset values from Form PF XML filings with fallback to alternative data sources."""
         self.logger.info("Fetching private credit fund data from Form PF filings")
         
-        fund_data = {}
-        total_gross_assets = 0
-        funds_processed = 0
-        
-        for cik, fund_name in self.CREDIT_FUND_CIKS.items():
-            try:
-                self.logger.info(f"Processing Form PF filings for {fund_name} (CIK: {cik})")
-                
-                # Get the most recent Form PF filing
-                form_pf_data = self._get_latest_form_pf(cik)
-                
-                if form_pf_data:
-                    gross_assets = self._extract_gross_asset_value(form_pf_data['xml_content'])
+        try:
+            # Try SEC EDGAR first
+            fund_data = {}
+            total_gross_assets = 0
+            funds_processed = 0
+            
+            for cik, fund_name in self.CREDIT_FUND_CIKS.items():
+                try:
+                    self.logger.info(f"Processing Form PF filings for {fund_name} (CIK: {cik})")
                     
-                    if gross_assets is not None:
-                        fund_data[cik] = {
-                            'fund_name': fund_name,
-                            'cik': cik,
-                            'gross_asset_value': gross_assets,
-                            'filing_date': form_pf_data['filing_date'],
-                            'period_end_date': form_pf_data['period_end_date'],
-                            'form_type': form_pf_data['form_type'],
-                            'accession_number': form_pf_data['accession_number']
-                        }
+                    # Get the most recent Form PF filing
+                    form_pf_data = self._get_latest_form_pf(cik)
+                    
+                    if form_pf_data:
+                        gross_assets = self._extract_gross_asset_value(form_pf_data['xml_content'])
                         
-                        total_gross_assets += gross_assets
-                        funds_processed += 1
-                        
-                        self.logger.info(
-                            f"{fund_name}: Gross assets ${gross_assets:,.0f} "
-                            f"(Period: {form_pf_data['period_end_date']})"
-                        )
+                        if gross_assets is not None:
+                            fund_data[cik] = {
+                                'fund_name': fund_name,
+                                'cik': cik,
+                                'gross_asset_value': gross_assets,
+                                'filing_date': form_pf_data['filing_date'],
+                                'period_end_date': form_pf_data['period_end_date'],
+                                'form_type': form_pf_data['form_type'],
+                                'accession_number': form_pf_data['accession_number']
+                            }
+                            
+                            total_gross_assets += gross_assets
+                            funds_processed += 1
+                            
+                            self.logger.info(
+                                f"{fund_name}: Gross assets ${gross_assets:,.0f} "
+                                f"(Period: {form_pf_data['period_end_date']})"
+                            )
+                        else:
+                            self.logger.warning(f"Could not extract gross asset value for {fund_name}")
                     else:
-                        self.logger.warning(f"Could not extract gross asset value for {fund_name}")
-                else:
-                    self.logger.warning(f"No recent Form PF filing found for {fund_name}")
-                    
-            except Exception as e:
-                self.logger.error(f"Error processing {fund_name}: {e}")
-                continue
+                        self.logger.warning(f"No recent Form PF filing found for {fund_name}")
+                        
+                except Exception as e:
+                    self.logger.error(f"Error processing {fund_name}: {e}")
+                    continue
+            
+            # If we got some data from SEC, use it
+            if fund_data:
+                avg_gross_assets = total_gross_assets / funds_processed if funds_processed > 0 else 0
+                
+                return {
+                    'value': avg_gross_assets,
+                    'total_gross_assets': total_gross_assets,
+                    'funds_processed': funds_processed,
+                    'individual_funds': fund_data,
+                    'timestamp': datetime.now(timezone.utc),
+                    'metadata': {
+                        'ciks_processed': list(fund_data.keys()),
+                        'data_quality': 'high' if funds_processed >= 3 else 'medium',
+                        'source': 'sec_form_pf'
+                    }
+                }
+            
+        except Exception as e:
+            self.logger.warning(f"SEC EDGAR data fetch failed: {e}")
         
-        if not fund_data:
-            raise ValueError("No private credit fund data could be retrieved")
+        # Fallback to alternative data sources
+        self.logger.info("Falling back to alternative data sources for credit fund data")
+        try:
+            from services.alternative_data_service import AlternativeDataService
+            alt_service = AlternativeDataService()
+            return alt_service.get_credit_fund_proxy_data()
+        except ImportError:
+            self.logger.error("Alternative data service not available")
+        except Exception as e:
+            self.logger.error(f"Alternative data service failed: {e}")
         
-        # Calculate average gross asset value
-        avg_gross_assets = total_gross_assets / funds_processed if funds_processed > 0 else 0
-        
-        return {
-            'value': avg_gross_assets,
-            'total_gross_assets': total_gross_assets,
-            'funds_processed': funds_processed,
-            'individual_funds': fund_data,
-            'timestamp': datetime.now(timezone.utc),
-            'metadata': {
-                'ciks_processed': list(fund_data.keys()),
-                'data_quality': 'high' if funds_processed >= 3 else 'medium',
-                'source': 'sec_form_pf'
-            }
-        }
+        # Final fallback: raise error
+        raise ValueError("No private credit fund data could be retrieved from any source")
     
     def _get_latest_form_pf(self, cik: str) -> Optional[Dict[str, Any]]:
         """Get the most recent Form PF filing for a given CIK."""

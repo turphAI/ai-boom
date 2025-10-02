@@ -47,71 +47,89 @@ class BankProvisionScraper(BaseScraper):
         })
         
     def fetch_data(self) -> Dict[str, Any]:
-        """Fetch bank provisioning data from 10-Q XBRL filings."""
+        """Fetch bank provisioning data from 10-Q XBRL filings with fallback to alternative data sources."""
         self.logger.info("Fetching bank provisioning data from SEC XBRL filings")
         
-        provision_data = {}
-        total_provisions = 0
-        banks_processed = []
-        
-        for cik, bank_symbol in self.BANK_CIKS.items():
-            try:
-                self.logger.info(f"Processing provisions for {bank_symbol} (CIK: {cik})")
-                
-                # Get latest 10-Q filing
-                filing_url = self._get_latest_10q_filing(cik)
-                if not filing_url:
-                    self.logger.warning(f"No recent 10-Q filing found for {bank_symbol}")
+        try:
+            # Try SEC EDGAR first
+            provision_data = {}
+            total_provisions = 0
+            banks_processed = []
+            
+            for cik, bank_symbol in self.BANK_CIKS.items():
+                try:
+                    self.logger.info(f"Processing provisions for {bank_symbol} (CIK: {cik})")
+                    
+                    # Get latest 10-Q filing
+                    filing_url = self._get_latest_10q_filing(cik)
+                    if not filing_url:
+                        self.logger.warning(f"No recent 10-Q filing found for {bank_symbol}")
+                        continue
+                    
+                    # Try XBRL parsing first
+                    provisions = self._parse_xbrl_provisions(filing_url, bank_symbol)
+                    data_source = 'xbrl'
+                    
+                    # If XBRL parsing fails, try transcript analysis
+                    if provisions is None:
+                        self.logger.info(f"XBRL parsing failed for {bank_symbol}, trying transcript analysis")
+                        provisions = self._analyze_earnings_transcript(bank_symbol)
+                        data_source = 'transcript'
+                    
+                    if provisions is not None:
+                        provision_data[bank_symbol] = {
+                            'provisions': provisions,
+                            'cik': cik,
+                            'filing_url': filing_url,
+                            'timestamp': datetime.now(timezone.utc).isoformat(),
+                            'data_source': data_source
+                        }
+                        
+                        total_provisions += provisions
+                        banks_processed.append(bank_symbol)
+                        
+                        self.logger.info(f"{bank_symbol}: Non-bank financial provisions = ${provisions:,.0f}")
+                    else:
+                        self.logger.warning(f"Failed to extract provision data for {bank_symbol}")
+                        
+                except Exception as e:
+                    self.logger.error(f"Error processing {bank_symbol}: {e}")
                     continue
-                
-                # Try XBRL parsing first
-                provisions = self._parse_xbrl_provisions(filing_url, bank_symbol)
-                data_source = 'xbrl'
-                
-                # If XBRL parsing fails, try transcript analysis
-                if provisions is None:
-                    self.logger.info(f"XBRL parsing failed for {bank_symbol}, trying transcript analysis")
-                    provisions = self._analyze_earnings_transcript(bank_symbol)
-                    data_source = 'transcript'
-                
-                if provisions is not None:
-                    provision_data[bank_symbol] = {
-                        'provisions': provisions,
-                        'cik': cik,
-                        'filing_url': filing_url,
-                        'timestamp': datetime.now(timezone.utc).isoformat(),
-                        'data_source': data_source
+            
+            # If we got some data from SEC, use it
+            if provision_data:
+                return {
+                    'value': total_provisions,
+                    'timestamp': datetime.now(timezone.utc).isoformat(),
+                    'bank_count': len(provision_data),
+                    'individual_banks': provision_data,
+                    'metadata': {
+                        'banks_processed': banks_processed,
+                        'data_quality': 'high' if len(provision_data) >= 4 else 'medium',
+                        'quarter': self._get_current_quarter(),
+                        'extraction_methods': {
+                            'xbrl': len([b for b in provision_data.values() if b['data_source'] == 'xbrl']),
+                            'transcript': len([b for b in provision_data.values() if b['data_source'] == 'transcript'])
+                        }
                     }
-                    
-                    total_provisions += provisions
-                    banks_processed.append(bank_symbol)
-                    
-                    self.logger.info(f"{bank_symbol}: Non-bank financial provisions = ${provisions:,.0f}")
-                else:
-                    self.logger.warning(f"Failed to extract provision data for {bank_symbol}")
-                    
-            except Exception as e:
-                self.logger.error(f"Error processing {bank_symbol}: {e}")
-                continue
-        
-        if not provision_data:
-            raise ValueError("No bank provision data could be retrieved")
-        
-        return {
-            'value': total_provisions,
-            'timestamp': datetime.now(timezone.utc).isoformat(),
-            'bank_count': len(provision_data),
-            'individual_banks': provision_data,
-            'metadata': {
-                'banks_processed': banks_processed,
-                'data_quality': 'high' if len(provision_data) >= 4 else 'medium',
-                'quarter': self._get_current_quarter(),
-                'extraction_methods': {
-                    'xbrl': len([b for b in provision_data.values() if b['data_source'] == 'xbrl']),
-                    'transcript': len([b for b in provision_data.values() if b['data_source'] == 'transcript'])
                 }
-            }
-        }
+        
+        except Exception as e:
+            self.logger.warning(f"SEC EDGAR data fetch failed: {e}")
+        
+        # Fallback to alternative data sources
+        self.logger.info("Falling back to alternative data sources for bank provision data")
+        try:
+            from services.alternative_data_service import AlternativeDataService
+            alt_service = AlternativeDataService()
+            return alt_service.get_bank_provision_proxy_data()
+        except ImportError:
+            self.logger.error("Alternative data service not available")
+        except Exception as e:
+            self.logger.error(f"Alternative data service failed: {e}")
+        
+        # Final fallback: raise error
+        raise ValueError("No bank provision data could be retrieved from any source")
     
     def _get_latest_10q_filing(self, cik: str) -> Optional[str]:
         """Get the URL of the most recent 10-Q filing for a bank."""

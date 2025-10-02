@@ -124,24 +124,60 @@ async function checkScraperStatuses() {
   const fiveMinutesAgo = now - (5 * 60 * 1000);
   const oneHourAgo = now - (60 * 60 * 1000);
 
-  const checkFile = (filename: string, threshold: number) => {
+  const checkFile = (filename: string, threshold: number, dataSource: string) => {
     try {
       const filePath = path.join(dataDir, filename);
       if (fs.existsSync(filePath)) {
         const stats = fs.statSync(filePath);
         const isRecent = stats.mtime.getTime() > threshold;
+        
+        // Read file to get data source information
+        let dataSourceInfo = '';
+        let confidence = 0;
+        let realDataSources = [];
+        
+        try {
+          const fileContent = fs.readFileSync(filePath, 'utf-8');
+          const data = JSON.parse(fileContent);
+          if (data && data.length > 0 && data[0].data) {
+            const metadata = data[0].data.metadata || {};
+            confidence = data[0].data.confidence || 0;
+            
+            if (metadata.data_sources) {
+              realDataSources = metadata.data_sources;
+              if (metadata.data_sources.includes('credit_spreads') || metadata.data_sources.includes('hy_bonds')) {
+                dataSourceInfo = 'FRED API + Credit Spreads';
+              } else if (metadata.data_sources.includes('loan_loss_provisions') || metadata.data_sources.includes('economic_indicators')) {
+                dataSourceInfo = 'FRED API + Economic Indicators';
+              } else {
+                dataSourceInfo = 'SEC EDGAR + Alternative Sources';
+              }
+            } else {
+              dataSourceInfo = 'SEC EDGAR Filings';
+            }
+          }
+        } catch (parseError) {
+          dataSourceInfo = 'Data File';
+        }
+        
         return {
           status: isRecent ? 'healthy' : 'degraded',
           lastUpdate: stats.mtime.toISOString(),
           uptime: Math.floor((now - stats.mtime.getTime()) / 1000),
-          errorMessage: isRecent ? undefined : 'No recent data'
+          errorMessage: isRecent ? undefined : 'No recent data',
+          dataSource: dataSourceInfo,
+          confidence: confidence,
+          realDataSources: realDataSources
         };
       } else {
         return {
           status: 'failed',
           lastUpdate: new Date(oneHourAgo).toISOString(),
           uptime: 0,
-          errorMessage: 'Data file not found'
+          errorMessage: 'Data file not found',
+          dataSource: 'No Data Source',
+          confidence: 0,
+          realDataSources: []
         };
       }
     } catch (error) {
@@ -149,16 +185,19 @@ async function checkScraperStatuses() {
         status: 'failed',
         lastUpdate: new Date(oneHourAgo).toISOString(),
         uptime: 0,
-        errorMessage: 'Error checking data file'
+        errorMessage: 'Error checking data file',
+        dataSource: 'Error',
+        confidence: 0,
+        realDataSources: []
       };
     }
   };
 
   return {
-    bondIssuance: checkFile('bond_issuance_weekly.json', fiveMinutesAgo),
-    bdcDiscount: checkFile('bdc_discount_discount_to_nav.json', fiveMinutesAgo),
-    creditFund: checkFile('comprehensive_test_test_metric.json', fiveMinutesAgo),
-    bankProvision: checkFile('health_check_database_test.json', fiveMinutesAgo)
+    bondIssuance: checkFile('bond_issuance_weekly.json', fiveMinutesAgo, 'bond_issuance'),
+    bdcDiscount: checkFile('bdc_discount_discount_to_nav.json', fiveMinutesAgo, 'bdc_discount'),
+    creditFund: checkFile('credit_fund_data.json', fiveMinutesAgo, 'credit_fund'),
+    bankProvision: checkFile('bank_provision_data.json', fiveMinutesAgo, 'bank_provision')
   };
 }
 

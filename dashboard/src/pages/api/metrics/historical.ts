@@ -1,47 +1,46 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { realDataService } from '../../../lib/data/real-data-service';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
   const days = parseInt(req.query.days as string) || 30;
   
-  // Generate mock historical data
-  const generateHistoricalData = (baseValue: number, volatility: number = 0.1) => {
-    const data = [];
-    const now = new Date();
+  try {
+    // Get real historical data from the data service
+    const historicalData: Record<string, any[]> = {};
     
-    for (let i = days; i >= 0; i--) {
-      const date = new Date(now);
-      date.setDate(date.getDate() - i);
-      
-      // Add some realistic variation
-      const variation = (Math.random() - 0.5) * volatility * baseValue;
-      const value = baseValue + variation;
-      
-      data.push({
-        timestamp: date.toISOString(),
-        value: Math.max(0, value),
-        date: date.toISOString().split('T')[0]
-      });
+    // Get historical data for each metric
+    const metrics = ['bond_issuance', 'bdc_discount', 'credit_fund', 'bank_provision'];
+    
+    for (const metric of metrics) {
+      const data = await realDataService.getHistoricalData(metric, days);
+      // Only include metrics that have data
+      if (data.length > 0) {
+        historicalData[metric] = data;
+      }
     }
     
-    return data;
-  };
+    // Add correlation metric (calculated from other metrics)
+    const correlationData = await realDataService.getHistoricalData('correlation', days);
+    if (correlationData.length > 0) {
+      historicalData['correlation'] = correlationData;
+    }
 
-  const mockHistoricalData = {
-    'bond_issuance': generateHistoricalData(3000000000, 0.3), // $3B base with 30% volatility
-    'bdc_discount': generateHistoricalData(8.0, 0.2), // 8% base with 20% volatility
-    'credit_fund': generateHistoricalData(120000000000, 0.05), // $120B base with 5% volatility
-    'bank_provision': generateHistoricalData(11.5, 0.15), // 11.5% base with 15% volatility
-    'correlation': generateHistoricalData(0.65, 0.1) // 0.65 base with 10% volatility
-  };
-
-  res.status(200).json({
-    success: true,
-    data: mockHistoricalData,
-    period: `${days} days`,
-    timestamp: new Date().toISOString()
-  });
+    res.status(200).json({
+      success: true,
+      data: historicalData,
+      period: `${days} days`,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('Error fetching historical data:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch historical data',
+      data: {}
+    });
+  }
 }

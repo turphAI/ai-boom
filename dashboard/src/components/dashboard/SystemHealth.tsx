@@ -72,6 +72,16 @@ export function SystemHealth({ healthData }: SystemHealthProps) {
 										<div className="text-sm text-muted-foreground">
 											Last update: {item.lastUpdate ? new Date(item.lastUpdate).toLocaleString() : '—'}
 										</div>
+										{(item as any).dataSource && (item as any).dataSource.includes('FRED') && (
+											<div className="text-xs text-blue-600 mt-1">
+												📊 Real FRED API Data
+											</div>
+										)}
+										{(item as any).confidence && (
+											<div className="text-xs text-green-600 mt-1">
+												Confidence: {((item as any).confidence * 100).toFixed(0)}%
+											</div>
+										)}
 										{item.errorMessage && (
 											<div className="text-sm text-red-500 mt-1">
 												{item.errorMessage}

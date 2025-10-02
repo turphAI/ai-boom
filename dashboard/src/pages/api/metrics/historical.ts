@@ -31,10 +31,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   };
 
   const mockHistoricalData = {
-    'bond-issuance': generateHistoricalData(3000000000, 0.3), // $3B base with 30% volatility
-    'bdc-discount': generateHistoricalData(8.0, 0.2), // 8% base with 20% volatility
-    'credit-fund': generateHistoricalData(120000000000, 0.05), // $120B base with 5% volatility
-    'bank-provision': generateHistoricalData(11.5, 0.15), // 11.5% base with 15% volatility
+    'bond_issuance': generateHistoricalData(3000000000, 0.3), // $3B base with 30% volatility
+    'bdc_discount': generateHistoricalData(8.0, 0.2), // 8% base with 20% volatility
+    'credit_fund': generateHistoricalData(120000000000, 0.05), // $120B base with 5% volatility
+    'bank_provision': generateHistoricalData(11.5, 0.15), // 11.5% base with 15% volatility
     'correlation': generateHistoricalData(0.65, 0.1) // 0.65 base with 10% volatility
   };
 

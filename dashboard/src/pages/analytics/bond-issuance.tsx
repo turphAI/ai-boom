@@ -77,7 +77,7 @@ export default function BondIssuanceAnalytics() {
         throw new Error('Failed to fetch current metrics')
       }
 
-      const bondIssuanceMetric = metricsData.metrics.find((m: any) => m.id === 'bond-issuance')
+      const bondIssuanceMetric = metricsData.metrics.find((m: any) => m.id === 'bond_issuance')
       if (!bondIssuanceMetric) {
         throw new Error('Bond issuance metric not found')
       }

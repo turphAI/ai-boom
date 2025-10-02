@@ -6,14 +6,12 @@ import { LoginCard } from '@/components/auth/LoginCard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { MetricCard } from '@/components/dashboard/MetricCard'
 import { MetricChart } from '@/components/dashboard/MetricChart'
-import { SystemHealth } from '@/components/dashboard/SystemHealth'
 import { AlertConfig } from '@/components/dashboard/AlertConfig'
 import { DashboardLayout } from '@/components/layout/DashboardLayout'
 import { 
   MetricData, 
   HistoricalData, 
   AlertConfig as AlertConfigType, 
-  SystemHealth as SystemHealthType,
   Alert
 } from '@/types/dashboard'
 import { RefreshCw, Settings, Bell } from 'lucide-react'
@@ -23,9 +21,9 @@ export default function Dashboard() {
   const [metrics, setMetrics] = useState<MetricData[]>([])
   const [historicalData, setHistoricalData] = useState<Record<string, HistoricalData[]>>({})
   const [alertConfigs, setAlertConfigs] = useState<AlertConfigType[]>([])
-  const [systemHealth, setSystemHealth] = useState<SystemHealthType[]>([])
   const [alerts, setAlerts] = useState<Alert[]>([])
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
   const [lastRefresh, setLastRefresh] = useState<Date>(new Date())
 
   useEffect(() => {
@@ -55,11 +53,6 @@ export default function Dashboard() {
       const alertConfigResponse = await fetch('/api/alerts/config')
       const alertConfigData = await alertConfigResponse.json()
       setAlertConfigs(alertConfigData.configs || [])
-
-      // Fetch system health
-      const healthResponse = await fetch('/api/system/health')
-      const healthData = await healthResponse.json()
-      setSystemHealth(healthData.health || [])
 
       setLastRefresh(new Date())
     } catch (error) {
@@ -112,6 +105,34 @@ export default function Dashboard() {
     }
   }
 
+  const refreshData = async () => {
+    try {
+      setRefreshing(true)
+      
+      // Call the refresh API endpoint
+      const response = await fetch('/api/refresh-data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      
+      const result = await response.json()
+      
+      if (result.success) {
+        // Refresh the dashboard data after successful refresh
+        await fetchDashboardData()
+        setLastRefresh(new Date())
+      } else {
+        console.error('Data refresh failed:', result.error)
+      }
+    } catch (error) {
+      console.error('Error refreshing data:', error)
+    } finally {
+      setRefreshing(false)
+    }
+  }
+
   if (status === 'loading') {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -138,6 +159,24 @@ export default function Dashboard() {
       </Head>
 
       <DashboardLayout>
+        {/* Dashboard Header */}
+        <div className="flex justify-between items-center mb-6">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Boom-Bust Sentinel</h1>
+            <p className="text-gray-600 mt-1">
+              Last updated: {lastRefresh.toLocaleString()}
+            </p>
+          </div>
+          <Button 
+            onClick={refreshData} 
+            disabled={refreshing}
+            className="flex items-center space-x-2"
+          >
+            <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+            <span>{refreshing ? 'Refreshing...' : 'Refresh Data'}</span>
+          </Button>
+        </div>
+
         {/* Metrics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {metrics.map((metric) => (
@@ -160,9 +199,8 @@ export default function Dashboard() {
           ))}
         </div>
 
-        {/* System Health and Alert Config */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <SystemHealth healthData={systemHealth} />
+        {/* Alert Configuration */}
+        <div className="grid grid-cols-1 gap-6">
           <AlertConfig
             configs={alertConfigs}
             onSave={handleSaveAlertConfig}

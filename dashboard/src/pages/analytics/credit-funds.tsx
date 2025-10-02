@@ -77,7 +77,7 @@ export default function CreditFundAnalytics() {
         throw new Error('Failed to fetch current metrics')
       }
 
-      const creditFundMetric = metricsData.metrics.find((m: any) => m.id === 'credit-fund')
+      const creditFundMetric = metricsData.metrics.find((m: any) => m.id === 'credit_fund')
       if (!creditFundMetric) {
         throw new Error('Credit fund metric not found')
       }

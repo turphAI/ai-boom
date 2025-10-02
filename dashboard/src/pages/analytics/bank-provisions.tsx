@@ -77,7 +77,7 @@ export default function BankProvisionAnalytics() {
         throw new Error('Failed to fetch current metrics')
       }
 
-      const bankProvisionMetric = metricsData.metrics.find((m: any) => m.id === 'bank-provision')
+      const bankProvisionMetric = metricsData.metrics.find((m: any) => m.id === 'bank_provision')
       if (!bankProvisionMetric) {
         throw new Error('Bank provision metric not found')
       }

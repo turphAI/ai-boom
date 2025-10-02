@@ -77,7 +77,7 @@ export default function BDCDiscountAnalytics() {
         throw new Error('Failed to fetch current metrics')
       }
 
-      const bdcDiscountMetric = metricsData.metrics.find((m: any) => m.id === 'bdc-discount')
+      const bdcDiscountMetric = metricsData.metrics.find((m: any) => m.id === 'bdc_discount')
       if (!bdcDiscountMetric) {
         throw new Error('BDC discount metric not found')
       }

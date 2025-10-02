@@ -77,7 +77,7 @@ export default function CorrelationAnalytics() {
         throw new Error('Failed to fetch current metrics')
       }
 
-      const correlationMetric = metricsData.metrics.find((m: any) => m.key === 'correlation')
+      const correlationMetric = metricsData.metrics.find((m: any) => m.id === 'correlation')
       if (!correlationMetric) {
         throw new Error('Correlation metric not found')
       }

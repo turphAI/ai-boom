@@ -1,4 +1,4 @@
-import { connect } from '@planetscale/database';
+import { Client } from '@planetscale/database';
 import { drizzle } from 'drizzle-orm/planetscale-serverless';
 import * as schema from './schema';
 
@@ -25,8 +25,8 @@ function resolvePlanetScaleConfig(): { host: string; username: string; password:
   throw new Error('Database configuration missing: set DATABASE_HOST/USERNAME/PASSWORD or DATABASE_URL');
 }
 
-const connection = connect(resolvePlanetScaleConfig());
+const client = new Client(resolvePlanetScaleConfig());
 
-export const db = drizzle(connection, { schema });
+export const db = drizzle(client, { schema });
 
 export type Database = typeof db;

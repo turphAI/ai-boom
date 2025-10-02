@@ -18,51 +18,20 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        // Mock users for development
-        const mockUsers = [
-          {
-            id: 1,
-            email: 'demo@example.com',
-            passwordHash: '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // demo123
-            name: 'Demo User'
-          },
-          {
-            id: 2,
-            email: 'admin@example.com',
-            passwordHash: '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // admin123
-            name: 'Admin User'
-          }
-        ];
-
         try {
-          // Try database first, fallback to mock users
-          let user;
-          try {
-            const dbUser = await db
-              .select()
-              .from(users)
-              .where(eq(users.email, credentials.email))
-              .limit(1);
-            
-            if (dbUser.length) {
-              user = dbUser[0];
-            }
-          } catch (dbError) {
-            console.log('Database not available, using mock users');
-          }
+          const user = await db
+            .select()
+            .from(users)
+            .where(eq(users.email, credentials.email))
+            .limit(1);
 
-          // Fallback to mock users if database fails
-          if (!user) {
-            user = mockUsers.find(u => u.email === credentials.email);
-          }
-
-          if (!user) {
+          if (!user.length) {
             return null;
           }
 
           const isPasswordValid = await bcrypt.compare(
             credentials.password,
-            user.passwordHash
+            user[0].passwordHash
           );
 
           if (!isPasswordValid) {
@@ -70,9 +39,9 @@ export const authOptions: NextAuthOptions = {
           }
 
           return {
-            id: user.id.toString(),
-            email: user.email,
-            name: user.name,
+            id: user[0].id.toString(),
+            email: user[0].email,
+            name: user[0].name,
           };
         } catch (error) {
           console.error('Auth error:', error);

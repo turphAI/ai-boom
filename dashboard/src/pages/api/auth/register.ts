@@ -21,12 +21,13 @@ export default async function handler(
 
   try {
     const { email, password, name } = registerSchema.parse(req.body);
+    const normalizedEmail = email.toLowerCase();
 
     // Check if user already exists
     const existingUser = await db
       .select()
       .from(users)
-      .where(eq(users.email, email))
+      .where(eq(users.email, normalizedEmail))
       .limit(1);
 
     if (existingUser.length > 0) {
@@ -38,7 +39,7 @@ export default async function handler(
 
     // Create user
     await db.insert(users).values({
-      email,
+      email: normalizedEmail,
       passwordHash,
       name,
     });

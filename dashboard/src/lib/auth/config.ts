@@ -6,6 +6,8 @@ import { users } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
 
 export const authOptions: NextAuthOptions = {
+  // Enable verbose server-side logs to diagnose 401s in production logs
+  debug: true,
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -14,37 +16,52 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
+        console.log('🔐 NextAuth authorize called with:', { email: credentials?.email, hasPassword: !!credentials?.password });
+        
         if (!credentials?.email || !credentials?.password) {
+          console.log('❌ Missing credentials');
           return null;
         }
 
         try {
+          const normalizedEmail = credentials.email.toLowerCase();
+          console.log('🔍 Querying database for user:', normalizedEmail);
           const user = await db
             .select()
             .from(users)
-            .where(eq(users.email, credentials.email))
+            .where(eq(users.email, normalizedEmail))
             .limit(1);
 
+          console.log('📋 Database query result:', user.length > 0 ? 'User found' : 'User not found');
+          
           if (!user.length) {
+            console.log('❌ No user found with email:', credentials.email);
             return null;
           }
 
+          console.log('🔐 Comparing password for user:', user[0].email);
           const isPasswordValid = await bcrypt.compare(
             credentials.password,
             user[0].passwordHash
           );
 
+          console.log('🔐 Password validation result:', isPasswordValid ? 'VALID' : 'INVALID');
+
           if (!isPasswordValid) {
+            console.log('❌ Invalid password for user:', credentials.email);
             return null;
           }
 
-          return {
+          const result = {
             id: user[0].id.toString(),
             email: user[0].email,
             name: user[0].name,
           };
+          
+          console.log('✅ Authentication successful, returning user:', result);
+          return result;
         } catch (error) {
-          console.error('Auth error:', error);
+          console.error('❌ Auth error:', error);
           return null;
         }
       }

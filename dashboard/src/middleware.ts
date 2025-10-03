@@ -31,7 +31,7 @@ export async function middleware(request: NextRequest) {
   // CSP header
   response.headers.set(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:;"
+    "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https: r2cdn.perplexity.ai;"
   );
 
   // Rate limiting headers (basic implementation)

@@ -20,9 +20,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   const authHeader = req.headers.authorization || '';
-  const token = authHeader.startsWith('Bearer ')
+  const headerToken = authHeader.startsWith('Bearer ')
     ? authHeader.substring('Bearer '.length)
     : undefined;
+  const queryToken = typeof req.query.token === 'string' ? (req.query.token as string) : undefined;
+  const token = headerToken || queryToken;
   const expected = process.env.AUTH_DEBUG_TOKEN;
 
   if (!expected || token !== expected) {

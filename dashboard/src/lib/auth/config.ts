@@ -6,8 +6,8 @@ import { users } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
 
 export const authOptions: NextAuthOptions = {
-  // Enable verbose server-side logs to diagnose 401s in production logs
-  debug: true,
+  // Only enable debug locally; default false in production
+  debug: process.env.NODE_ENV !== 'production',
   providers: [
     CredentialsProvider({
       name: 'credentials',

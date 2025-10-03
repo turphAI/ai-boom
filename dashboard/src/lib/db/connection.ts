@@ -4,14 +4,7 @@ import * as schema from './schema';
 
 // Prefer explicit env vars; otherwise, parse DATABASE_URL
 function resolvePlanetScaleConfig(): { host: string; username: string; password: string } {
-  const host = process.env.DATABASE_HOST;
-  const username = process.env.DATABASE_USERNAME;
-  const password = process.env.DATABASE_PASSWORD;
-
-  if (host && username && password) {
-    return { host, username, password };
-  }
-
+  // Prefer DATABASE_URL to avoid mismatches when both are set
   const url = process.env.DATABASE_URL;
   if (url && url.startsWith('mysql://')) {
     const parsed = new URL(url);
@@ -22,7 +15,15 @@ function resolvePlanetScaleConfig(): { host: string; username: string; password:
     };
   }
 
-  throw new Error('Database configuration missing: set DATABASE_HOST/USERNAME/PASSWORD or DATABASE_URL');
+  const host = process.env.DATABASE_HOST;
+  const username = process.env.DATABASE_USERNAME;
+  const password = process.env.DATABASE_PASSWORD;
+
+  if (host && username && password) {
+    return { host, username, password };
+  }
+
+  throw new Error('Database configuration missing: set DATABASE_URL or DATABASE_HOST/USERNAME/PASSWORD');
 }
 
 const client = new Client(resolvePlanetScaleConfig());

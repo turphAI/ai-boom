@@ -85,7 +85,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       hasPassword,
       hasUrl,
       ...parsed,
-      selectedMode: hasHost && hasUsername && hasPassword ? 'triplet' : hasUrl ? 'url' : 'none',
+      // Reflect new priority: url first, then triplet
+      selectedMode: hasUrl ? 'url' : hasHost && hasUsername && hasPassword ? 'triplet' : 'none',
     };
     return res.status(500).json({ error: 'Internal server error', details: message, config });
   }

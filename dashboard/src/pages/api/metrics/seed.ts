@@ -26,7 +26,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     return res.status(200).json({ success: true, inserted: rows.length })
   } catch (error) {
-    return res.status(500).json({ success: false, error: 'Seed failed' })
+    const message = error instanceof Error ? error.message : 'Unknown error'
+    return res.status(500).json({ success: false, error: 'Seed failed', details: message })
   }
 }
 

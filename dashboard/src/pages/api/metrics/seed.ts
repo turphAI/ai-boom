@@ -13,10 +13,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const now = new Date()
     const rows = [
-      { dataSource: 'bond_issuance', metricName: 'weekly', value: '4800000000', unit: 'currency', status: 'warning', confidence: '0.95', metadata: {}, createdAt: now, updatedAt: now },
-      { dataSource: 'bdc_discount', metricName: 'discount_to_nav', value: '9.2', unit: 'percent', status: 'warning', confidence: '0.9', metadata: {}, createdAt: now, updatedAt: now },
-      { dataSource: 'credit_fund', metricName: 'gross_asset_value', value: '90000000000', unit: 'currency', status: 'healthy', confidence: '0.9', metadata: {}, createdAt: now, updatedAt: now },
-      { dataSource: 'bank_provision', metricName: 'non_bank_financial_provisions', value: '13.4', unit: 'percent', status: 'critical', confidence: '0.85', metadata: {}, createdAt: now, updatedAt: now },
+      { id: `bond_issuance_weekly_${Date.now()}`, dataSource: 'bond_issuance', metricName: 'weekly', value: '4800000000', unit: 'currency', status: 'warning', confidence: '0.95', metadata: {}, createdAt: now, updatedAt: now },
+      { id: `bdc_discount_discount_to_nav_${Date.now()}`, dataSource: 'bdc_discount', metricName: 'discount_to_nav', value: '9.2', unit: 'percent', status: 'warning', confidence: '0.9', metadata: {}, createdAt: now, updatedAt: now },
+      { id: `credit_fund_gross_asset_value_${Date.now()}`, dataSource: 'credit_fund', metricName: 'gross_asset_value', value: '90000000000', unit: 'currency', status: 'healthy', confidence: '0.9', metadata: {}, createdAt: now, updatedAt: now },
+      { id: `bank_provision_non_bank_financial_provisions_${Date.now()}`, dataSource: 'bank_provision', metricName: 'non_bank_financial_provisions', value: '13.4', unit: 'percent', status: 'critical', confidence: '0.85', metadata: {}, createdAt: now, updatedAt: now },
     ]
 
     // Insert basic rows; ignore duplicates by best effort

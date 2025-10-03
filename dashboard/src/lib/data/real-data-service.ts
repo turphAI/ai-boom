@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { db } from '@/lib/db/connection'
-import { metrics as metricsTable } from '@/lib/db/schema'
+import { metrics as metricsTable, metricHistory as metricHistoryTable } from '@/lib/db/schema'
 
 interface ScraperDataPoint {
   data_source: string
@@ -326,8 +326,19 @@ class FileBasedRealDataService implements RealDataService {
 class DatabaseRealDataService implements RealDataService {
   async getLatestMetrics(): Promise<any[]> {
     try {
-      const rows = await db.select().from(metricsTable).limit(100)
-      return rows.map((row: any) => ({
+      const rows = await db.select().from(metricsTable)
+      // Reduce to latest row per metric (dataSource+metricName)
+      const latestByKey = new Map<string, any>()
+      for (const row of rows as any[]) {
+        const key = `${row.dataSource}_${row.metricName}`
+        const prev = latestByKey.get(key)
+        const prevTime = prev?.updatedAt || prev?.createdAt
+        const currTime = row.updatedAt || row.createdAt
+        if (!prev || (currTime && prevTime && new Date(currTime) > new Date(prevTime))) {
+          latestByKey.set(key, row)
+        }
+      }
+      return Array.from(latestByKey.values()).map((row: any) => ({
         id: `${row.dataSource}_${row.metricName}`,
         name: this.formatMetricName(row.dataSource, row.metricName),
         value: Number(row.value),
@@ -346,9 +357,20 @@ class DatabaseRealDataService implements RealDataService {
     }
   }
 
-  async getHistoricalData(metricKey: string, _days: number): Promise<any[]> {
-    // Minimal implementation; charts may be empty if history not stored yet
-    return []
+  async getHistoricalData(metricKey: string, days: number): Promise<any[]> {
+    try {
+      // metric_id is stored as `${data_source}_${metric_name}_YYYYMMDD...`
+      const likePrefix = `${metricKey}_%`
+      // Fetch last N days; since we don't have a date column separately, limit by count
+      const rows = await db.select().from(metricHistoryTable)
+      const filtered = (rows as any[])
+        .filter(r => typeof r.metricId === 'string' && r.metricId.startsWith(`${metricKey}_`))
+        .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
+      return filtered.map(r => ({ timestamp: r.createdAt, value: Number(r.value), metadata: r.metadata }))
+    } catch (error) {
+      console.error('DB getHistoricalData error:', error)
+      return []
+    }
   }
 
   async getDataSources(): Promise<string[]> {

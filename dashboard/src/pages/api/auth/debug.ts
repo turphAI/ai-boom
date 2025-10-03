@@ -6,7 +6,7 @@ import { eq } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
 
 type Data =
-  | { error: string; details?: string }
+  | { error: string; details?: string; config?: any }
   | {
       ok: true;
       usersCount: number;
@@ -66,7 +66,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
-    return res.status(500).json({ error: 'Internal server error', details: message });
+    // Probe env configuration without leaking secrets
+    const hasHost = Boolean(process.env.DATABASE_HOST);
+    const hasUsername = Boolean(process.env.DATABASE_USERNAME);
+    const hasPassword = Boolean(process.env.DATABASE_PASSWORD);
+    const hasUrl = Boolean(process.env.DATABASE_URL);
+    let parsed: { urlHost?: string; urlDb?: string } = {};
+    try {
+      if (process.env.DATABASE_URL) {
+        const u = new URL(process.env.DATABASE_URL);
+        parsed.urlHost = u.hostname;
+        parsed.urlDb = u.pathname.replace(/^\//, '') || undefined;
+      }
+    } catch {}
+    const config = {
+      hasHost,
+      hasUsername,
+      hasPassword,
+      hasUrl,
+      ...parsed,
+      selectedMode: hasHost && hasUsername && hasPassword ? 'triplet' : hasUrl ? 'url' : 'none',
+    };
+    return res.status(500).json({ error: 'Internal server error', details: message, config });
   }
 }
 

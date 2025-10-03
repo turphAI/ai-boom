@@ -13,12 +13,20 @@ async function setupProductionAccounts() {
   // Load environment variables
   require('dotenv').config({ path: '.env.local' });
   
+  // Parse database name from DATABASE_URL
+  const url = process.env.DATABASE_URL;
+  let databaseName = 'boom_bust_sentinel';
+  if (url && url.startsWith('mysql://')) {
+    const parsed = new URL(url);
+    databaseName = parsed.pathname.substring(1); // Remove leading slash
+  }
+
   // Database connection
   const connection = await mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USERNAME,
     password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE_NAME || 'boom_bust_sentinel',
+    database: databaseName,
     ssl: { rejectUnauthorized: false }
   });
 

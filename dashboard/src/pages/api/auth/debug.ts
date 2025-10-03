@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     : undefined;
   const queryToken = typeof req.query.token === 'string' ? (req.query.token as string) : undefined;
   const token = headerToken || queryToken;
-  const expected = process.env.AUTH_DEBUG_TOKEN;
+  const expected = process.env.AUTH_DEBUG_TOKEN || process.env.NEXTAUTH_SECRET;
 
   if (!expected || token !== expected) {
     return res.status(401).json({ error: 'Unauthorized' });

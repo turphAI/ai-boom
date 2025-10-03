@@ -24,13 +24,23 @@ export const authOptions: NextAuthOptions = {
         }
 
         try {
-          const normalizedEmail = credentials.email.toLowerCase();
-          console.log('🔍 Querying database for user:', normalizedEmail);
-          const user = await db
+          const emailInput = credentials.email;
+          const normalizedEmail = emailInput.toLowerCase();
+          console.log('🔍 Querying database for user (exact):', emailInput);
+          let user = await db
             .select()
             .from(users)
-            .where(eq(users.email, normalizedEmail))
+            .where(eq(users.email, emailInput))
             .limit(1);
+
+          if (!user.length) {
+            console.log('🔍 Exact match not found, trying lowercase:', normalizedEmail);
+            user = await db
+              .select()
+              .from(users)
+              .where(eq(users.email, normalizedEmail))
+              .limit(1);
+          }
 
           console.log('📋 Database query result:', user.length > 0 ? 'User found' : 'User not found');
           

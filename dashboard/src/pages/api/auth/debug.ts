@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { db } from '@/lib/db/connection';
+// Note: load DB connection lazily inside the handler so we can surface
+// configuration errors (e.g., missing DATABASE_* env) in the response.
 import { users } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
@@ -32,6 +33,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   try {
+    // Dynamically import the DB to catch configuration errors
+    const { db } = await import('@/lib/db/connection');
     const allUsers = await db.select({ id: users.id }).from(users).limit(100);
     const usersCount = allUsers.length;
 

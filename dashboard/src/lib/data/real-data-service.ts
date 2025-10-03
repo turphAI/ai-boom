@@ -1,5 +1,7 @@
 import fs from 'fs'
 import path from 'path'
+import { db } from '@/lib/db/connection'
+import { metrics as metricsTable } from '@/lib/db/schema'
 
 interface ScraperDataPoint {
   data_source: string
@@ -22,7 +24,7 @@ interface RealDataService {
 }
 
 class FileBasedRealDataService implements RealDataService {
-  private dataDir = '/Users/turphai/Projects/kiro_aiCrash/data'
+  private dataDir = path.join(process.cwd(), 'data')
 
   async getLatestMetrics(): Promise<any[]> {
     try {
@@ -321,5 +323,65 @@ class FileBasedRealDataService implements RealDataService {
   }
 }
 
-// Export singleton instance
-export const realDataService = new FileBasedRealDataService()
+class DatabaseRealDataService implements RealDataService {
+  async getLatestMetrics(): Promise<any[]> {
+    try {
+      const rows = await db.select().from(metricsTable).limit(100)
+      return rows.map((row: any) => ({
+        id: `${row.dataSource}_${row.metricName}`,
+        name: this.formatMetricName(row.dataSource, row.metricName),
+        value: Number(row.value),
+        unit: row.unit || this.getUnit(`${row.dataSource}`),
+        change: 0,
+        changePercent: 0,
+        status: row.status || 'healthy',
+        lastUpdated: row.updatedAt || row.createdAt,
+        source: 'PlanetScale metrics',
+        confidence: Number(row.confidence ?? 1),
+        metadata: row.metadata || {},
+      }))
+    } catch (error) {
+      console.error('DB getLatestMetrics error:', error)
+      return []
+    }
+  }
+
+  async getHistoricalData(metricKey: string, _days: number): Promise<any[]> {
+    // Minimal implementation; charts may be empty if history not stored yet
+    return []
+  }
+
+  async getDataSources(): Promise<string[]> {
+    try {
+      const rows = await db.select({ dataSource: metricsTable.dataSource }).from(metricsTable)
+      return Array.from(new Set(rows.map(r => r.dataSource))).filter(Boolean) as string[]
+    } catch (error) {
+      console.error('DB getDataSources error:', error)
+      return []
+    }
+  }
+
+  private formatMetricName(dataSource: string, metricName: string): string {
+    const mapping: Record<string, string> = {
+      bond_issuance: 'Bond Issuance (Real Data)',
+      bdc_discount: 'BDC Discount (Real Data)',
+      credit_fund: 'Credit Fund Assets (FRED Data)',
+      bank_provision: 'Bank Provisions (FRED Data)',
+    }
+    return mapping[dataSource] || `${dataSource} ${metricName}`.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+  }
+
+  private getUnit(metricKey: string): string {
+    const unitMapping: Record<string, string> = {
+      bond_issuance: 'currency',
+      bdc_discount: 'percent',
+      credit_fund: 'currency',
+      bank_provision: 'percent',
+    }
+    return unitMapping[metricKey] || 'unit'
+  }
+}
+
+// Export a singleton that prefers DB in production, files locally
+export const realDataService: RealDataService =
+  process.env.NODE_ENV === 'production' ? new DatabaseRealDataService() : new FileBasedRealDataService()

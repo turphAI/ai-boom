@@ -42,10 +42,11 @@ export async function middleware(request: NextRequest) {
     response.headers.set('X-RateLimit-Reset', new Date(Date.now() + 15 * 60 * 1000).toISOString());
   }
 
-  // Protect API routes (except auth endpoints and metrics for now)
+  // Protect API routes (except auth endpoints, metrics, and system health)
   if (request.nextUrl.pathname.startsWith('/api/') && 
       !request.nextUrl.pathname.startsWith('/api/auth/') &&
-      !request.nextUrl.pathname.startsWith('/api/metrics/')) {
+      !request.nextUrl.pathname.startsWith('/api/metrics/') &&
+      !request.nextUrl.pathname.startsWith('/api/system/')) {
     
     const token = await getToken({ 
       req: request, 

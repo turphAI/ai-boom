@@ -421,7 +421,7 @@ class DatabaseRealDataService implements RealDataService {
           latestByKey.set(key, row)
         }
       }
-      return Array.from(latestByKey.values()).map((row: any) => {
+      const mapped = Array.from(latestByKey.values()).map((row: any) => {
         const metricKey = this.mapMetricKey(row.dataSource, row.metricName)
         return {
           id: metricKey,
@@ -437,6 +437,30 @@ class DatabaseRealDataService implements RealDataService {
           metadata: row.metadata || {},
         }
       })
+
+      // Add a derived correlation metric when core metrics exist
+      const haveCore = ['bond_issuance','bdc_discount','credit_fund','bank_provision']
+        .every(key => mapped.some(m => m.id === key && typeof m.value === 'number'))
+      if (haveCore) {
+        const correlationValue = this.calculateCorrelation(mapped as any[])
+        mapped.push({
+          id: 'correlation',
+          name: 'Cross-Asset Correlation',
+          value: correlationValue,
+          unit: 'ratio',
+          change: 0,
+          changePercent: 0,
+          status: this.getStatus(correlationValue, 'correlation'),
+          lastUpdated: new Date().toISOString(),
+          source: 'Derived from core metrics',
+          confidence: 0.85,
+          metadata: {
+            calculation_method: 'Heuristic based on core metrics',
+          }
+        })
+      }
+
+      return mapped
     } catch (error) {
       console.error('DB getLatestMetrics error:', error)
       return []

@@ -2,49 +2,29 @@
   {
     "data_source": "bdc_discount",
     "metric_name": "discount_to_nav",
-    "timestamp": "2025-08-10T20:09:35.817475+00:00",
+    "timestamp": "2025-10-06T14:08:12.113044+00:00",
     "data": {
       "value": 0.0985797827903091,
-      "timestamp": "2025-08-10T20:09:35.817475+00:00",
-      "average_discount_percentage": 9.85797827903091,
-      "bdc_count": 3,
-      "individual_bdcs": {
-        "ARCC": {
-          "stock_price": 25.5,
-          "nav_value": 28.5,
-          "discount_to_nav": 0.10526315789473684,
-          "discount_percentage": 10.526315789473683,
-          "name": "Ares Capital Corporation",
-          "timestamp": "2025-08-10T20:09:35.816894+00:00"
-        },
-        "OCSL": {
-          "stock_price": 22.0,
-          "nav_value": 24.0,
-          "discount_to_nav": 0.08333333333333333,
-          "discount_percentage": 8.333333333333332,
-          "name": "Oaktree Specialty Lending Corporation",
-          "timestamp": "2025-08-10T20:09:35.817143+00:00"
-        },
-        "MAIN": {
-          "stock_price": 18.75,
-          "nav_value": 21.0,
-          "discount_to_nav": 0.10714285714285714,
-          "discount_percentage": 10.714285714285714,
-          "name": "Main Street Capital Corporation",
-          "timestamp": "2025-08-10T20:09:35.817322+00:00"
-        }
-      },
+      "timestamp": "2025-10-06T14:08:12.113044+00:00",
+      "confidence": 0.6,
       "metadata": {
-        "symbols_processed": [
-          "ARCC",
-          "OCSL",
-          "MAIN"
-        ],
-        "data_quality": "high"
-      },
-      "confidence": 1.0,
-      "validation_checksum": "d5773745b4ad6a54d1428f7ad42c4b87949fe3c1900c74081ba2f1ae4b988de9",
-      "anomaly_score": null
+        "bdc_count": 3,
+        "data_source": "fallback_estimation"
+      }
+    }
+  },
+  {
+    "data_source": "bdc_discount",
+    "metric_name": "discount_to_nav",
+    "timestamp": "2025-10-02T21:45:27.198819+00:00",
+    "data": {
+      "value": 0.095,
+      "timestamp": "2025-10-02T21:45:27.198819+00:00",
+      "confidence": 0.6,
+      "metadata": {
+        "bdc_count": 3,
+        "data_source": "fallback_estimation"
+      }
     }
   }
 ]

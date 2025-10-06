@@ -2,84 +2,31 @@
   {
     "data_source": "bank_provision",
     "metric_name": "non_bank_financial_provisions",
-    "timestamp": "2025-10-02T21:52:39.201094+00:00",
+    "timestamp": "2025-10-06T14:08:12.113044+00:00",
     "data": {
       "value": 1.0584000000000002,
-      "timestamp": "2025-10-02T21:52:39.201094+00:00",
-      "bank_count": 6,
-      "individual_banks": {
-        "JPM": {
-          "provisions": 0.37044000000000005,
-          "cik": "0000019617",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000019617/PROXY-20251002",
-          "timestamp": "2025-10-02T21:52:39.201124+00:00",
-          "data_source": "proxy_estimation"
-        },
-        "BAC": {
-          "provisions": 0.26460000000000006,
-          "cik": "0000070858",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000070858/PROXY-20251002",
-          "timestamp": "2025-10-02T21:52:39.201133+00:00",
-          "data_source": "proxy_estimation"
-        },
-        "WFC": {
-          "provisions": 0.21168000000000006,
-          "cik": "0000831001",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000831001/PROXY-20251002",
-          "timestamp": "2025-10-02T21:52:39.201137+00:00",
-          "data_source": "proxy_estimation"
-        },
-        "C": {
-          "provisions": 0.127008,
-          "cik": "0000200406",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000200406/PROXY-20251002",
-          "timestamp": "2025-10-02T21:52:39.201141+00:00",
-          "data_source": "proxy_estimation"
-        },
-        "GS": {
-          "provisions": 0.052920000000000016,
-          "cik": "0000886982",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000886982/PROXY-20251002",
-          "timestamp": "2025-10-02T21:52:39.201148+00:00",
-          "data_source": "proxy_estimation"
-        },
-        "MS": {
-          "provisions": 0.031752,
-          "cik": "0000713676",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000713676/PROXY-20251002",
-          "timestamp": "2025-10-02T21:52:39.201151+00:00",
-          "data_source": "proxy_estimation"
-        }
-      },
-      "metadata": {
-        "data_sources": [
-          "loan_loss_provisions",
-          "charge_offs",
-          "economic_indicators"
-        ],
-        "data_quality": "high",
-        "proxy_method": "economic_indicator_estimation",
-        "loan_loss_provisions": {
-          "total_provisions": 12000000000,
-          "quarterly_change": 0.15,
-          "provision_rate": 0.8
-        },
-        "charge_off_rates": {
-          "total_charge_offs": 8500000000,
-          "charge_off_rate": 0.45,
-          "quarterly_change": 0.08
-        },
-        "economic_indicators": {
-          "unemployment_rate": 3.8,
-          "gdp_growth": 2.1,
-          "inflation_rate": 3.2,
-          "financial_stress_index": 0.15
-        },
-        "calculation_note": "Provisions calculated as percentage of total loan portfolio"
-      },
+      "timestamp": "2025-10-06T14:08:12.113044+00:00",
       "confidence": 0.8,
-      "validation_checksum": "49758a68e2953ac93b8eac5840550fbaaf379ab7ab02f60f4dfb29943e36b948",
-      "anomaly_score": 0.0
+      "metadata": {
+        "loan_loss_provisions": {
+          "total_provisions": 12000000000
+        }
+      }
+    }
+  },
+  {
+    "data_source": "bank_provision",
+    "metric_name": "non_bank_financial_provisions",
+    "timestamp": "2025-10-02T21:45:30.136107+00:00",
+    "data": {
+      "value": 2.5272000000000002,
+      "timestamp": "2025-10-02T21:45:30.136107+00:00",
+      "confidence": 0.8,
+      "metadata": {
+        "loan_loss_provisions": {
+          "total_provisions": 12000000000
+        }
+      }
     }
   }
 ]

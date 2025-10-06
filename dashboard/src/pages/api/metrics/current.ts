@@ -18,8 +18,42 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     for (const m of metrics) {
       if (m && m.id) byId[m.id] = m;
     }
-    const normalized = expected.map((id) => byId[id] || { id, name: id.replace('_',' '), value: null, change: null, lastUpdated: null, unit: null });
+    let normalized = expected.map((id) => byId[id] || { id, name: id.replace('_',' '), value: null, change: null, lastUpdated: null, unit: null });
     
+    // If no current values available from DB, fall back to latest historical points
+    const hasAnyValue = normalized.some(m => m && m.value !== null && m.value !== undefined);
+    if (!hasAnyValue) {
+      const unitMapping: Record<string, string> = {
+        bond_issuance: 'currency',
+        bdc_discount: 'percent',
+        credit_fund: 'currency',
+        bank_provision: 'percent',
+        correlation: 'ratio',
+      };
+      const filled: any[] = [];
+      for (const id of expected) {
+        try {
+          const hist = await realDataService.getHistoricalData(id, 30);
+          const last = Array.isArray(hist) && hist.length > 0 ? hist[hist.length - 1] : null;
+          if (last) {
+            filled.push({
+              id,
+              name: id.replace('_', ' '),
+              value: last.value,
+              change: 0,
+              lastUpdated: last.timestamp,
+              unit: unitMapping[id] || null,
+            });
+          } else {
+            filled.push({ id, name: id.replace('_',' '), value: null, change: null, lastUpdated: null, unit: null });
+          }
+        } catch (e) {
+          filled.push({ id, name: id.replace('_',' '), value: null, change: null, lastUpdated: null, unit: null });
+        }
+      }
+      normalized = filled;
+    }
+
     console.log('🔍 API Debug - Normalized metrics:', normalized.length, 'metrics');
     console.log('🔍 API Debug - First normalized metric:', normalized[0]);
     

@@ -101,7 +101,10 @@ export function MetricCard({ metric }: MetricCardProps) {
     }
   }
 
-  const formatValue = (value: number, unit: string) => {
+  const formatValue = (value: number | null, unit: string) => {
+    if (value === null || value === undefined) {
+      return 'No data'
+    }
     if (unit === 'currency') {
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -117,8 +120,8 @@ export function MetricCard({ metric }: MetricCardProps) {
   }
 
   const isStale = metric.status === 'stale'
-  const lastUpdated = new Date(metric.lastUpdated)
-  const hoursAgo = Math.floor((Date.now() - lastUpdated.getTime()) / (1000 * 60 * 60))
+  const lastUpdated = metric.lastUpdated ? new Date(metric.lastUpdated) : null
+  const hoursAgo = lastUpdated ? Math.floor((Date.now() - lastUpdated.getTime()) / (1000 * 60 * 60)) : null
   const metricInfo = getMetricDescription(metric.id)
 
   return (
@@ -140,7 +143,7 @@ export function MetricCard({ metric }: MetricCardProps) {
             </div>
             <div className="flex items-center justify-between mt-2">
               <div className="flex items-center text-xs text-muted-foreground">
-                {metric.change !== 0 && (
+                {metric.change !== null && metric.change !== 0 && (
                   <>
                     {metric.change > 0 ? (
                       <TrendingUp className="h-3 w-3 mr-1 text-green-500" />
@@ -148,21 +151,25 @@ export function MetricCard({ metric }: MetricCardProps) {
                       <TrendingDown className="h-3 w-3 mr-1 text-red-500" />
                     )}
                     <span className={metric.change > 0 ? 'text-green-500' : 'text-red-500'}>
-                      {metric.changePercent > 0 ? '+' : ''}{metric.changePercent.toFixed(1)}%
+                      {metric.changePercent && metric.changePercent > 0 ? '+' : ''}{metric.changePercent?.toFixed(1) || '0.0'}%
                     </span>
                   </>
                 )}
               </div>
               <div className="flex items-center text-xs text-muted-foreground">
                 <Clock className="h-3 w-3 mr-1" />
-                {isStale ? (
-                  <span className="text-orange-500">
-                    {hoursAgo}h ago
-                  </span>
+                {hoursAgo !== null ? (
+                  isStale ? (
+                    <span className="text-orange-500">
+                      {hoursAgo}h ago
+                    </span>
+                  ) : (
+                    <span>
+                      {hoursAgo < 1 ? 'Just now' : `${hoursAgo}h ago`}
+                    </span>
+                  )
                 ) : (
-                  <span>
-                    {hoursAgo < 1 ? 'Just now' : `${hoursAgo}h ago`}
-                  </span>
+                  <span>No data</span>
                 )}
               </div>
             </div>

@@ -217,7 +217,7 @@ async function checkProductionMetricsHealth() {
     const dataSources = ['bond_issuance', 'bdc_discount', 'credit_fund', 'bank_provision'];
     
     for (const dataSource of dataSources) {
-      const sourceData = metrics.rows.filter((row: any) => 
+      const sourceData = (metrics.rows as any[]).filter((row: any) => 
         row.data_source === dataSource || 
         row.data_source.includes(dataSource.replace('_', ''))
       );

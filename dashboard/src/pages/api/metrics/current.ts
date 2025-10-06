@@ -10,9 +10,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Get real metrics data instead of mock data
     const metrics = await realDataService.getLatestMetrics();
     
+    // Ensure all expected metric IDs are represented so UI can render cards
+    const expected = ['bond_issuance', 'bdc_discount', 'credit_fund', 'bank_provision', 'correlation'];
+    const byId: Record<string, any> = {};
+    for (const m of metrics) {
+      if (m && m.id) byId[m.id] = m;
+    }
+    const normalized = expected.map((id) => byId[id] || { id, name: id.replace('_',' '), value: null, change: null, lastUpdated: null, unit: null });
+    
     res.status(200).json({
       success: true,
-      metrics: metrics,
+      metrics: normalized,
       timestamp: new Date().toISOString()
     });
   } catch (error) {

@@ -201,15 +201,17 @@ async function checkProductionMetricsHealth() {
     const responseTime = Date.now() - startTime;
     
     if (!metrics.rows || metrics.rows.length === 0) {
-      return [{
-        component: 'Metrics Data',
+      // Return failed health for each expected data source so UI shows all rows
+      const dataSources = ['bond_issuance', 'bdc_discount', 'credit_fund', 'bank_provision'];
+      return dataSources.map((dataSource) => ({
+        component: `${dataSource.replace('_', ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())} Scraper`,
         status: 'failed',
         lastCheck: new Date().toISOString(),
         responseTime,
         successRate: 0,
         errorCount: 1,
-        details: 'No recent metrics data found in database'
-      }];
+        details: `No recent data found for ${dataSource} in database`
+      }));
     }
 
     // Check each data source

@@ -17,10 +17,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     
     for (const metric of metrics) {
       const data = await realDataService.getHistoricalData(metric, days);
-      // Only include metrics that have data
-      if (data.length > 0) {
-        historicalData[metric] = data;
-      }
+      // Always include keys so UI renders all expected charts/cards
+      historicalData[metric] = data;
     }
     
     // Add correlation metric (calculated from other metrics)

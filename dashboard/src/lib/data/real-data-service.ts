@@ -421,19 +421,22 @@ class DatabaseRealDataService implements RealDataService {
           latestByKey.set(key, row)
         }
       }
-      return Array.from(latestByKey.values()).map((row: any) => ({
-        id: `${row.dataSource}_${row.metricName}`,
-        name: this.formatMetricName(row.dataSource, row.metricName),
-        value: Number(row.value),
-        unit: row.unit || this.getUnit(`${row.dataSource}`),
-        change: 0,
-        changePercent: 0,
-        status: row.status || 'healthy',
-        lastUpdated: row.updatedAt || row.createdAt,
-        source: 'PlanetScale metrics',
-        confidence: Number(row.confidence ?? 1),
-        metadata: row.metadata || {},
-      }))
+      return Array.from(latestByKey.values()).map((row: any) => {
+        const metricKey = this.mapMetricKey(row.dataSource, row.metricName)
+        return {
+          id: metricKey,
+          name: this.formatMetricName(row.dataSource, row.metricName),
+          value: Number(row.value),
+          unit: row.unit || this.getUnit(metricKey),
+          change: 0,
+          changePercent: 0,
+          status: row.status || 'healthy',
+          lastUpdated: row.updatedAt || row.createdAt,
+          source: 'PlanetScale metrics',
+          confidence: Number(row.confidence ?? 1),
+          metadata: row.metadata || {},
+        }
+      })
     } catch (error) {
       console.error('DB getLatestMetrics error:', error)
       return []
@@ -474,6 +477,23 @@ class DatabaseRealDataService implements RealDataService {
       bank_provision: 'Bank Provisions (FRED Data)',
     }
     return mapping[dataSource] || `${dataSource} ${metricName}`.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+  }
+
+  // Map DB rows to the expected dashboard metric IDs used by the UI
+  private mapMetricKey(dataSource: string, metricName: string): string {
+    if (dataSource === 'bond_issuance' && metricName === 'weekly') {
+      return 'bond_issuance'
+    }
+    if (dataSource === 'bdc_discount' && metricName === 'discount_to_nav') {
+      return 'bdc_discount'
+    }
+    if (dataSource === 'bank_provision' && (metricName === 'default' || metricName === 'non_bank_financial_provisions')) {
+      return 'bank_provision'
+    }
+    if (dataSource === 'credit_fund' && metricName === 'gross_asset_value') {
+      return 'credit_fund'
+    }
+    return `${dataSource}_${metricName}`
   }
 
   private getUnit(metricKey: string): string {

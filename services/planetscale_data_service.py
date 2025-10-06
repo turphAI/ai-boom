@@ -11,15 +11,13 @@ from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional
 import logging
 
-# Add the dashboard directory to the path to import the database schema
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'dashboard', 'src'))
-
+# Create direct database connection using pymysql
 try:
-    from lib.db.connection import db
-    from lib.db.schema import metrics, metricHistory, scraperHealth, NewMetric, NewMetricHistory, NewScraperHealth
-except ImportError as e:
-    logging.warning(f"Could not import database schema: {e}")
-    db = None
+    import pymysql
+    db_available = True
+except ImportError:
+    logging.warning("pymysql not available. Install with: pip install pymysql")
+    db_available = False
 
 logger = logging.getLogger(__name__)
 
@@ -27,10 +25,97 @@ class PlanetScaleDataService:
     """Service for managing financial data in PlanetScale database."""
     
     def __init__(self):
-        self.db = db
-        if not self.db:
-            logger.error("Database connection not available")
-            raise RuntimeError("Database connection not available")
+        if not db_available:
+            logger.error("pymysql not available")
+            raise RuntimeError("pymysql not available")
+        
+        # Parse DATABASE_URL
+        self.connection_params = self._parse_database_url()
+        self.connection = None
+        
+    def _parse_database_url(self):
+        """Parse DATABASE_URL into connection parameters."""
+        url = os.getenv('DATABASE_URL', '')
+        if not url:
+            raise ValueError("DATABASE_URL environment variable not set")
+        
+        # Parse mysql://username:password@host:port/database?ssl={"rejectUnauthorized":true}
+        if url.startswith('mysql://'):
+            url = url[8:]  # Remove mysql://
+            
+            # Split on @ to separate credentials from host/database
+            if '@' in url:
+                creds, host_db = url.split('@', 1)
+                if ':' in creds:
+                    username, password = creds.split(':', 1)
+                else:
+                    username = creds
+                    password = ''
+            else:
+                username = ''
+                password = ''
+                host_db = url
+            
+            # Split host/database part
+            if '/' in host_db:
+                host_port, database = host_db.split('/', 1)
+                # Remove SSL parameters
+                if '?' in database:
+                    database = database.split('?')[0]
+            else:
+                host_port = host_db
+                database = ''
+            
+            # Split host and port
+            if ':' in host_port:
+                host, port = host_port.split(':', 1)
+                port = int(port)
+            else:
+                host = host_port
+                port = 3306
+            
+            return {
+                'host': host,
+                'port': port,
+                'user': username,
+                'password': password,
+                'database': database,
+                'charset': 'utf8mb4',
+                'autocommit': True,
+                'ssl': {'ssl_disabled': False}
+            }
+        else:
+            raise ValueError(f"Unsupported database URL format: {url}")
+    
+    def _get_connection(self):
+        """Get database connection."""
+        if self.connection is None:
+            try:
+                self.connection = pymysql.connect(**self.connection_params)
+                logger.info("Connected to PlanetScale database")
+            except Exception as e:
+                logger.error(f"Error connecting to PlanetScale: {e}")
+                raise
+        return self.connection
+    
+    def _execute_query(self, query, params=None):
+        """Execute a query and return results."""
+        try:
+            connection = self._get_connection()
+            cursor = connection.cursor()
+            cursor.execute(query, params)
+            
+            if query.strip().upper().startswith('SELECT'):
+                results = cursor.fetchall()
+                cursor.close()
+                return results
+            else:
+                connection.commit()
+                cursor.close()
+                return cursor.rowcount
+        except Exception as e:
+            logger.error(f"Error executing query: {e}")
+            raise
     
     def store_metric_data(self, data_source: str, metric_name: str, data: Dict[str, Any]) -> bool:
         """Store metric data in PlanetScale."""
@@ -38,21 +123,15 @@ class PlanetScaleDataService:
             metric_id = f"{data_source}_{metric_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
             
             # Prepare metric data
-            metric_data: NewMetric = {
-                'id': metric_id,
-                'dataSource': data_source,
-                'metricName': metric_name,
-                'value': str(data['value']),
-                'unit': data.get('unit', ''),
-                'status': self._determine_status(data),
-                'confidence': str(data.get('confidence', 1.0)),
-                'metadata': data.get('metadata', {}),
-                'rawData': data
-            }
+            import json
+            status = self._determine_status(data)
+            confidence = str(data.get('confidence', 1.0))
+            unit = data.get('unit', '')
+            metadata = json.dumps(data.get('metadata', {})) if data.get('metadata') else '{}'
+            raw_data = json.dumps(data) if data else '{}'
             
             # Insert or update metric
-            result = self.db.execute(
-                f"""
+            query = """
                 INSERT INTO metrics (id, data_source, metric_name, value, unit, status, confidence, metadata, raw_data, created_at, updated_at)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW())
                 ON DUPLICATE KEY UPDATE
@@ -62,46 +141,38 @@ class PlanetScaleDataService:
                     metadata = VALUES(metadata),
                     raw_data = VALUES(raw_data),
                     updated_at = NOW()
-                """,
-                (
-                    metric_data['id'],
-                    metric_data['dataSource'],
-                    metric_data['metricName'],
-                    metric_data['value'],
-                    metric_data['unit'],
-                    metric_data['status'],
-                    metric_data['confidence'],
-                    str(metric_data['metadata']) if metric_data['metadata'] else None,
-                    str(metric_data['rawData']) if metric_data['rawData'] else None
-                )
+            """
+            params = (
+                metric_id,
+                data_source,
+                metric_name,
+                str(data['value']),
+                unit,
+                status,
+                confidence,
+                metadata,
+                raw_data
             )
+            
+            self._execute_query(query, params)
             
             # Store in history table
-            history_data: NewMetricHistory = {
-                'id': f"hist_{metric_id}",
-                'metricId': metric_id,
-                'value': str(data['value']),
-                'status': self._determine_status(data),
-                'confidence': str(data.get('confidence', 1.0)),
-                'metadata': data.get('metadata', {}),
-                'rawData': data
-            }
-            
-            self.db.execute(
-                f"""
+            history_id = f"hist_{metric_id}"
+            history_query = """
                 INSERT INTO metric_history (id, metric_id, value, status, confidence, metadata, raw_data, created_at)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, NOW())
-                """,
-                (
-                    history_data['id'],
-                    history_data['metricId'],
-                    history_data['value'],
-                    history_data['status'],
-                    history_data['confidence'],
-                    str(history_data['metadata']) if history_data['metadata'] else None,
-                    str(history_data['rawData']) if history_data['rawData'] else None
-                )
+            """
+            history_params = (
+                history_id,
+                metric_id,
+                str(data['value']),
+                status,
+                confidence,
+                json.dumps(data.get('metadata', {})),
+                json.dumps(data)
             )
+            
+            self._execute_query(history_query, history_params)
             
             logger.info(f"Successfully stored metric data for {data_source}/{metric_name}")
             return True
@@ -171,18 +242,18 @@ class PlanetScaleDataService:
             
             query += " ORDER BY updated_at DESC LIMIT 100"
             
-            result = self.db.execute(query, params)
+            results = self._execute_query(query, params)
             
             metrics_list = []
-            for row in result:
+            for row in results:
                 metrics_list.append({
                     'id': row[0],
                     'dataSource': row[1],
                     'metricName': row[2],
-                    'value': float(row[3]),
-                    'unit': row[4],
-                    'status': row[5],
-                    'confidence': float(row[6]),
+                    'value': float(row[3]) if row[3] else 0.0,
+                    'unit': row[4] or '',
+                    'status': row[5] or 'unknown',
+                    'confidence': float(row[6]) if row[6] else 0.0,
                     'metadata': row[7],
                     'rawData': row[8],
                     'createdAt': row[9],

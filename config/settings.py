@@ -34,6 +34,11 @@ class Settings:
     
     # Database settings
     @property
+    def DATABASE_URL(self) -> str:
+        """Get database URL from environment."""
+        return os.getenv('DATABASE_URL', '')
+    
+    @property
     def DATABASE_PROVIDER(self) -> str:
         """Get database provider."""
         return self._database_config.provider

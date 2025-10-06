@@ -294,6 +294,89 @@ class DynamoDBStateStore(BaseStateStore):
         self.logger.info("DynamoDB TTL handles automatic cleanup")
 
 
+class PlanetScaleStateStore(BaseStateStore):
+    """PlanetScale-based state store implementation for production."""
+    
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
+        
+        try:
+            # Import the PlanetScale data service
+            from services.planetscale_data_service import PlanetScaleDataService
+            self.planet_scale_service = PlanetScaleDataService()
+        except Exception as e:
+            self.logger.error(f"Failed to initialize PlanetScale service: {e}")
+            raise
+    
+    def save_data(self, data_source: str, metric_name: str, data: Dict[str, Any]) -> None:
+        """Save data to PlanetScale."""
+        try:
+            success = self.planet_scale_service.store_metric_data(data_source, metric_name, data)
+            if success:
+                self.logger.info(f"Saved data to PlanetScale for {data_source}.{metric_name}")
+            else:
+                self.logger.error(f"Failed to save data to PlanetScale for {data_source}.{metric_name}")
+                raise Exception("Failed to save data to PlanetScale")
+        except Exception as e:
+            self.logger.error(f"Error saving data to PlanetScale: {e}")
+            raise
+    
+    def get_recent_data(self, data_source: str, metric_name: str, limit: int = 10) -> List[Dict[str, Any]]:
+        """Get recent data from PlanetScale."""
+        try:
+            metrics = self.planet_scale_service.get_latest_metrics(data_source)
+            # Filter by metric name and limit results
+            filtered_metrics = [m for m in metrics if m.get('metricName') == metric_name][:limit]
+            return filtered_metrics
+        except Exception as e:
+            self.logger.error(f"Error getting recent data from PlanetScale: {e}")
+            return []
+    
+    def get_historical_data(self, data_source: str, metric: str, days: int = 7) -> List[Dict]:
+        """Get historical data from PlanetScale."""
+        try:
+            # Get latest metrics first to find the metric ID
+            metrics = self.planet_scale_service.get_latest_metrics(data_source)
+            metric_id = None
+            for m in metrics:
+                if m.get('metricName') == metric:
+                    metric_id = m.get('id')
+                    break
+            
+            if not metric_id:
+                self.logger.warning(f"No metric ID found for {data_source}.{metric}")
+                return []
+            
+            return self.planet_scale_service.get_metric_history(metric_id, days)
+        except Exception as e:
+            self.logger.error(f"Error getting historical data from PlanetScale: {e}")
+            return []
+    
+    def get_latest_value(self, data_source: str, metric_name: str) -> Optional[Dict[str, Any]]:
+        """Get the latest value for a specific metric from PlanetScale."""
+        try:
+            metrics = self.planet_scale_service.get_latest_metrics(data_source)
+            # Find the metric by name and return the most recent one
+            for metric in metrics:
+                if metric.get('metricName') == metric_name:
+                    return metric
+            return None
+        except Exception as e:
+            self.logger.error(f"Error getting latest value from PlanetScale: {e}")
+            return None
+    
+    def cleanup_old_data(self, retention_days: int = 730) -> None:
+        """Clean up old data from PlanetScale."""
+        try:
+            success = self.planet_scale_service.cleanup_old_data(retention_days)
+            if success:
+                self.logger.info(f"Cleaned up old data from PlanetScale (older than {retention_days} days)")
+            else:
+                self.logger.warning("Failed to cleanup old data from PlanetScale")
+        except Exception as e:
+            self.logger.error(f"Error cleaning up old data from PlanetScale: {e}")
+
+
 class FirestoreStateStore(BaseStateStore):
     """Firestore-based state store implementation for Google Cloud."""
     
@@ -405,12 +488,14 @@ def create_state_store() -> BaseStateStore:
     """Create and return the appropriate state store based on configuration."""
     if settings.ENVIRONMENT == 'production':
         if settings.DATABASE_URL:
-            if 'dynamodb' in settings.DATABASE_URL.lower():
+            if 'psdb.cloud' in settings.DATABASE_URL or 'planetscale' in settings.DATABASE_URL.lower():
+                return PlanetScaleStateStore()
+            elif 'dynamodb' in settings.DATABASE_URL.lower():
                 return DynamoDBStateStore()
             elif 'firestore' in settings.DATABASE_URL.lower() or 'gcp' in settings.DATABASE_URL.lower():
                 return FirestoreStateStore()
-        # Default to DynamoDB for production if no specific URL
-        return DynamoDBStateStore()
+        # Default to PlanetScale for production if no specific URL (since we're using PlanetScale)
+        return PlanetScaleStateStore()
     else:
         # Use file-based store for development
         return FileStateStore()

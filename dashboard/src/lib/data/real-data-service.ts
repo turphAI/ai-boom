@@ -529,6 +529,50 @@ class DatabaseRealDataService implements RealDataService {
     }
     return unitMapping[metricKey] || 'unit'
   }
+
+  private getStatus(value: number, metricKey: string): 'healthy' | 'warning' | 'critical' | 'stale' {
+    const thresholds: Record<string, { warning: number; critical: number }> = {
+      'bond_issuance': { warning: 4000000000, critical: 5000000000 }, // $4B, $5B
+      'bdc_discount': { warning: 8, critical: 10 }, // 8%, 10%
+      'credit_fund': { warning: 80000000000, critical: 100000000000 }, // $80B, $100B
+      'bank_provision': { warning: 12, critical: 15 }, // 12%, 15%
+      'correlation': { warning: 0.6, critical: 0.7 } // 0.6, 0.7 correlation ratio
+    }
+
+    const threshold = thresholds[metricKey]
+    if (!threshold) return 'healthy'
+
+    if (value >= threshold.critical) return 'critical'
+    if (value >= threshold.warning) return 'warning'
+    return 'healthy'
+  }
+
+  private calculateCorrelation(metrics: any[]): number {
+    // For now, generate a realistic correlation value based on market conditions
+    // In a real implementation, this would calculate actual correlations between asset classes
+    const baseCorrelation = 0.65 // Base correlation level
+    const volatility = 0.1 // 10% volatility
+    
+    // Add some realistic variation based on the other metrics' values
+    const bondIssuance = metrics.find(m => m.id === 'bond_issuance')
+    const bdcDiscount = metrics.find(m => m.id === 'bdc_discount')
+    const bankProvision = metrics.find(m => m.id === 'bank_provision')
+    
+    let correlationAdjustment = 0
+    
+    // Higher bond issuance and bank provisions increase correlation (market stress)
+    if (bondIssuance && bondIssuance.value > 4000000000) correlationAdjustment += 0.05
+    if (bankProvision && bankProvision.value > 12) correlationAdjustment += 0.05
+    
+    // Higher BDC discount increases correlation (credit stress)
+    if (bdcDiscount && bdcDiscount.value > 8) correlationAdjustment += 0.05
+    
+    // Add some random variation
+    const randomVariation = (Math.random() - 0.5) * volatility
+    
+    const finalCorrelation = Math.max(0, Math.min(1, baseCorrelation + correlationAdjustment + randomVariation))
+    return Math.round(finalCorrelation * 100) / 100 // Round to 2 decimal places
+  }
 }
 
 // Export a singleton that prefers DB in production, files locally

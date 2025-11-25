@@ -40,8 +40,13 @@ class CreditFundScraper(BaseScraper):
     def __init__(self):
         super().__init__('credit_fund', 'gross_asset_value')
         self.session = requests.Session()
+        # SEC requires User-Agent with contact information
+        import os
+        sec_email = os.getenv('SEC_EDGAR_EMAIL', 'compliance@boom-bust-sentinel.com')
         self.session.headers.update({
-            'User-Agent': 'BoomBustSentinel/1.0 (compliance@example.com)'
+            'User-Agent': f'BoomBustSentinel/1.0 ({sec_email})',
+            'Accept-Encoding': 'gzip, deflate',
+            'Host': 'www.sec.gov'
         })
     
     def fetch_data(self) -> Dict[str, Any]:
@@ -55,6 +60,9 @@ class CreditFundScraper(BaseScraper):
         for cik, fund_name in self.CREDIT_FUND_CIKS.items():
             try:
                 self.logger.info(f"Processing Form PF filings for {fund_name} (CIK: {cik})")
+                
+                # Rate limiting: SEC allows max 10 requests/second
+                time.sleep(0.1)  # 100ms delay = 10 requests/second max
                 
                 # Get the most recent Form PF filing
                 form_pf_data = self._get_latest_form_pf(cik)

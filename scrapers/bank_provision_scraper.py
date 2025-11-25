@@ -6,7 +6,9 @@ by parsing XBRL data for "AllowanceForCreditLosses" tables. If XBRL parsing fail
 back to analyzing earnings call transcripts using speech-to-text API.
 """
 
+import os
 import re
+import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from typing import Dict, Any, List, Optional, Tuple
@@ -42,8 +44,12 @@ class BankProvisionScraper(BaseScraper):
     def __init__(self):
         super().__init__('bank_provision', 'non_bank_financial_provisions')
         self.session = requests.Session()
+        # SEC requires User-Agent with contact information
+        sec_email = os.getenv('SEC_EDGAR_EMAIL', 'compliance@boom-bust-sentinel.com')
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (compatible; BoomBustSentinel/1.0)'
+            'User-Agent': f'BoomBustSentinel/1.0 ({sec_email})',
+            'Accept-Encoding': 'gzip, deflate',
+            'Host': 'www.sec.gov'
         })
         
     def fetch_data(self) -> Dict[str, Any]:
@@ -57,6 +63,9 @@ class BankProvisionScraper(BaseScraper):
         for cik, bank_symbol in self.BANK_CIKS.items():
             try:
                 self.logger.info(f"Processing provisions for {bank_symbol} (CIK: {cik})")
+                
+                # Rate limiting: SEC allows max 10 requests/second
+                time.sleep(0.1)  # 100ms delay = 10 requests/second max
                 
                 # Get latest 10-Q filing
                 filing_url = self._get_latest_10q_filing(cik)

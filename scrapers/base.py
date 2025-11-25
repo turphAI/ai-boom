@@ -208,15 +208,62 @@ class BaseScraper(ABC):
         # Try cache first
         cached_data = self.cache_manager.get_cached_data(cache_key)
         if cached_data:
-            return cached_data
+            # Ensure cached_data is a dict
+            if isinstance(cached_data, str):
+                try:
+                    import json
+                    cached_data = json.loads(cached_data)
+                except (json.JSONDecodeError, ValueError):
+                    self.logger.warning(f"Cached data is not valid JSON, skipping")
+                    cached_data = None
+            if cached_data and isinstance(cached_data, dict):
+                return cached_data
         
         # Try last known good data from state store
         try:
             last_data = self.state_store.get_latest_value(self.data_source, self.metric_name)
             if last_data:
-                last_data['_stale'] = True
-                last_data['_stale_reason'] = 'Using last known good data'
-                return last_data
+                # Handle PlanetScale data structure - extract rawData if it exists
+                if isinstance(last_data, dict) and 'rawData' in last_data and isinstance(last_data.get('rawData'), str):
+                    try:
+                        import json
+                        parsed_raw_data = json.loads(last_data['rawData'])
+                        if isinstance(parsed_raw_data, dict) and 'value' in parsed_raw_data:
+                            # Use the parsed rawData as the fallback data
+                            fallback_data = parsed_raw_data.copy()
+                            fallback_data['_stale'] = True
+                            fallback_data['_stale_reason'] = 'Using last known good data from PlanetScale'
+                            return fallback_data
+                    except (json.JSONDecodeError, ValueError):
+                        # If rawData can't be parsed, continue with original structure
+                        pass
+                
+                # Normalize PlanetScale metric structure to expected data structure
+                if isinstance(last_data, dict):
+                    # If it's a PlanetScale metric (has 'dataSource', 'metricName', etc.), convert it
+                    if 'dataSource' in last_data or 'metricName' in last_data:
+                        normalized_data = {
+                            'value': last_data.get('value', 0),
+                            'confidence': last_data.get('confidence', 0.5),
+                            'timestamp': last_data.get('createdAt') or last_data.get('updatedAt') or datetime.now(timezone.utc).isoformat(),
+                            'metadata': last_data.get('metadata', {}),
+                            'unit': last_data.get('unit', '')
+                        }
+                        # Try to parse metadata if it's a string
+                        if isinstance(normalized_data['metadata'], str):
+                            try:
+                                import json
+                                normalized_data['metadata'] = json.loads(normalized_data['metadata'])
+                            except (json.JSONDecodeError, ValueError):
+                                normalized_data['metadata'] = {}
+                        normalized_data['_stale'] = True
+                        normalized_data['_stale_reason'] = 'Using last known good data from PlanetScale'
+                        return normalized_data
+                    else:
+                        # Already in expected format, just add stale markers
+                        last_data['_stale'] = True
+                        last_data['_stale_reason'] = 'Using last known good data'
+                        return last_data
         except Exception as e:
             self.logger.warning(f"Failed to get last known good data: {e}")
         

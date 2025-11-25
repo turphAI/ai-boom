@@ -136,6 +136,33 @@ class PlanetScaleDataService:
     def store_metric_data(self, data_source: str, metric_name: str, data: Dict[str, Any]) -> bool:
         """Store metric data in PlanetScale."""
         try:
+            # Ensure data is a dict, not a string
+            if isinstance(data, str):
+                try:
+                    import json
+                    data = json.loads(data)
+                except (json.JSONDecodeError, ValueError) as e:
+                    logger.error(f"❌ data parameter is a string but not valid JSON: {data[:100] if len(str(data)) > 100 else data}")
+                    return False
+            
+            if not isinstance(data, dict):
+                logger.error(f"❌ data parameter must be a dict, got {type(data)}: {str(data)[:200]}")
+                return False
+            
+            # Handle PlanetScale fallback data structure (from get_latest_value)
+            # If data has 'rawData' as a JSON string, try to parse it and use it instead
+            if 'rawData' in data and isinstance(data.get('rawData'), str):
+                try:
+                    import json
+                    parsed_raw_data = json.loads(data['rawData'])
+                    # Use parsed raw_data if it has the required fields
+                    if isinstance(parsed_raw_data, dict) and 'value' in parsed_raw_data:
+                        logger.info("Using parsed rawData from PlanetScale fallback")
+                        data = parsed_raw_data
+                except (json.JSONDecodeError, ValueError):
+                    # If rawData can't be parsed, continue with original data structure
+                    pass
+            
             metric_id = f"{data_source}_{metric_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
             
             # Prepare metric data with JSON serialization helper
@@ -146,6 +173,11 @@ class PlanetScaleDataService:
                 if isinstance(obj, (datetime, date)):
                     return obj.isoformat()
                 raise TypeError(f"Type {type(obj)} not serializable")
+            
+            # Ensure required fields exist
+            if 'value' not in data:
+                logger.error(f"❌ data missing required 'value' field. Keys: {list(data.keys())}")
+                return False
             
             status = self._determine_status(data)
             confidence = str(data.get('confidence', 1.0))

@@ -24,6 +24,14 @@ import numpy as np
 import requests
 from scipy import stats
 
+# Import enhanced anomaly detection (optional - falls back to basic if not available)
+try:
+    from agents.enhanced_anomaly_detector import EnhancedAnomalyDetector
+    from agents.context_analyzer import ContextAnalyzer
+    ENHANCED_ANOMALY_DETECTION_AVAILABLE = True
+except ImportError:
+    ENHANCED_ANOMALY_DETECTION_AVAILABLE = False
+
 
 class ErrorSeverity(Enum):
     """Error severity levels."""
@@ -144,9 +152,23 @@ def retry_with_backoff(config: RetryConfig = None):
 class DataValidator:
     """Comprehensive data validation with integrity checks and anomaly detection."""
     
-    def __init__(self, logger: logging.Logger = None):
+    def __init__(self, logger: logging.Logger = None, use_enhanced_detection: bool = True):
         self.logger = logger or logging.getLogger(__name__)
         self.historical_data_cache = {}
+        
+        # Initialize enhanced anomaly detection if available
+        self.use_enhanced_detection = use_enhanced_detection and ENHANCED_ANOMALY_DETECTION_AVAILABLE
+        if self.use_enhanced_detection:
+            try:
+                self.enhanced_detector = EnhancedAnomalyDetector()
+                self.context_analyzer = ContextAnalyzer()
+                self.logger.info("Enhanced anomaly detection enabled for data validation")
+            except Exception as e:
+                self.logger.warning(f"Failed to initialize enhanced anomaly detection: {e}")
+                self.use_enhanced_detection = False
+        else:
+            self.enhanced_detector = None
+            self.context_analyzer = None
     
     def validate_data(self, data: Dict[str, Any], 
                      schema: Dict[str, Any] = None,
@@ -180,10 +202,14 @@ class DataValidator:
             # Calculate checksum for integrity
             checksum = self._calculate_checksum(data)
             
-            # Anomaly detection
+            # Anomaly detection (enhanced if available)
             anomaly_score = None
             if historical_data:
-                anomaly_score = self._detect_anomalies(data, historical_data)
+                if self.use_enhanced_detection and self.enhanced_detector:
+                    anomaly_score = self._detect_anomalies_enhanced(data, historical_data)
+                else:
+                    anomaly_score = self._detect_anomalies(data, historical_data)
+                
                 if anomaly_score > 0.8:  # High anomaly score
                     warnings.append(f"High anomaly score: {anomaly_score:.3f}")
                     confidence *= 0.7
@@ -255,6 +281,64 @@ class DataValidator:
         except Exception as e:
             self.logger.warning(f"Failed to calculate checksum: {e}")
             return None
+    
+    def _detect_anomalies_enhanced(self, current_data: Dict[str, Any],
+                                  historical_data: List[Dict[str, Any]]) -> float:
+        """
+        Enhanced anomaly detection using context-aware detection.
+        
+        Returns:
+            Anomaly score between 0 (normal) and 1 (highly anomalous)
+        """
+        if not self.use_enhanced_detection or not self.enhanced_detector:
+            return self._detect_anomalies(current_data, historical_data)
+        
+        try:
+            if not historical_data or len(historical_data) < 3:
+                return 0.0
+            
+            # Extract numeric values
+            current_values = self._extract_numeric_values(current_data)
+            historical_values = [
+                self._extract_numeric_values(data) for data in historical_data
+            ]
+            
+            if not current_values or not historical_values:
+                return 0.0
+            
+            anomaly_scores = []
+            
+            # Use enhanced detection for each numeric field
+            for field, current_value in current_values.items():
+                historical_field_values = [
+                    values.get(field) for values in historical_values
+                    if field in values and values[field] is not None
+                ]
+                
+                if len(historical_field_values) < 3:
+                    continue
+                
+                # Use enhanced detector
+                result = self.enhanced_detector.detect_anomaly(
+                    metric_name=field,
+                    current_value=current_value,
+                    historical_values=historical_field_values,
+                    method='zscore'
+                )
+                
+                # Convert confidence to anomaly score
+                if result.is_anomaly:
+                    anomaly_scores.append(result.confidence)
+                else:
+                    # Even if not anomalous, low confidence might indicate something
+                    anomaly_scores.append(result.confidence * 0.5)
+            
+            # Return maximum anomaly score
+            return max(anomaly_scores) if anomaly_scores else 0.0
+            
+        except Exception as e:
+            self.logger.warning(f"Enhanced anomaly detection failed, falling back to basic: {e}")
+            return self._detect_anomalies(current_data, historical_data)
     
     def _detect_anomalies(self, current_data: Dict[str, Any], 
                          historical_data: List[Dict[str, Any]]) -> float:

@@ -26,16 +26,26 @@ jobs:
           pip install -r requirements.txt
       
       - name: Create logs directory
-        run: mkdir -p logs
+        run: mkdir -p logs logs/website_structure
       
-      - name: Run scrapers
+      - name: Monitor website structures (proactive)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ENABLE_LLM_AGENT: ${{ secrets.ENABLE_LLM_AGENT || 'true' }}
+        run: |
+          python scripts/monitor_website_structures.py || true
+        continue-on-error: true
+      
+      - name: Run scrapers with agent monitoring
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           SEC_EDGAR_EMAIL: ${{ secrets.SEC_EDGAR_EMAIL }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ENABLE_LLM_AGENT: ${{ secrets.ENABLE_LLM_AGENT || 'true' }}
           ENVIRONMENT: production
         run: |
-          python scripts/run_all_scrapers_safe.py
+          python scripts/run_scrapers_with_agents.py
       
       - name: Verify data was stored in PlanetScale
         env:
@@ -51,6 +61,25 @@ jobs:
           name: scraper-logs
           path: logs/
           retention-days: 7
+      
+      - name: Upload agent reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-reports
+          path: logs/agent_reports/
+          retention-days: 30
+          if-no-files-found: ignore
+      
+      - name: Send email summary
+        if: always()
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM || 'noreply@boom-bust-sentinel.com' }}
+        run: |
+          python scripts/send_agent_summary_email.py || true
+        continue-on-error: true
       
       - name: Notify on failure
         if: failure()

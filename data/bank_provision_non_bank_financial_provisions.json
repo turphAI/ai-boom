@@ -2,83 +2,45 @@
   {
     "data_source": "bank_provision",
     "metric_name": "non_bank_financial_provisions",
-    "timestamp": "2025-10-20T12:51:25.557013+00:00",
+    "timestamp": "2025-11-25T19:37:17.342636+00:00",
     "data": {
-      "value": 1.0584000000000002,
-      "timestamp": "2025-10-20T12:51:25.557013+00:00",
-      "bank_count": 6,
+      "value": 0.0073125,
+      "unit": "percent",
+      "timestamp": "2025-11-25T19:37:17.342636+00:00",
+      "bank_count": 2,
       "individual_banks": {
         "JPM": {
-          "provisions": 0.37044000000000005,
+          "provisions": 315000000.0,
           "cik": "0000019617",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000019617/PROXY-20251020",
-          "timestamp": "2025-10-20T12:51:25.557045+00:00",
-          "data_source": "proxy_estimation"
+          "filing_url": "https://www.sec.gov/Archives/edgar/data/19617/000162828025048859/0001628280-25-048859-index.htm",
+          "timestamp": "2025-11-25T19:37:14.604923+00:00",
+          "data_source": "transcript"
         },
         "BAC": {
-          "provisions": 0.26460000000000006,
+          "provisions": 270000000.0,
           "cik": "0000070858",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000070858/PROXY-20251020",
-          "timestamp": "2025-10-20T12:51:25.557054+00:00",
-          "data_source": "proxy_estimation"
-        },
-        "WFC": {
-          "provisions": 0.21168000000000006,
-          "cik": "0000831001",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000831001/PROXY-20251020",
-          "timestamp": "2025-10-20T12:51:25.557061+00:00",
-          "data_source": "proxy_estimation"
-        },
-        "C": {
-          "provisions": 0.127008,
-          "cik": "0000200406",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000200406/PROXY-20251020",
-          "timestamp": "2025-10-20T12:51:25.557067+00:00",
-          "data_source": "proxy_estimation"
-        },
-        "GS": {
-          "provisions": 0.052920000000000016,
-          "cik": "0000886982",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000886982/PROXY-20251020",
-          "timestamp": "2025-10-20T12:51:25.557073+00:00",
-          "data_source": "proxy_estimation"
-        },
-        "MS": {
-          "provisions": 0.031752,
-          "cik": "0000713676",
-          "filing_url": "https://www.sec.gov/Archives/edgar/data/0000713676/PROXY-20251020",
-          "timestamp": "2025-10-20T12:51:25.557077+00:00",
-          "data_source": "proxy_estimation"
+          "filing_url": "https://www.sec.gov/Archives/edgar/data/70858/000007085825000405/0000070858-25-000405-index.htm",
+          "timestamp": "2025-11-25T19:37:15.050870+00:00",
+          "data_source": "transcript"
         }
       },
       "metadata": {
-        "data_sources": [
-          "loan_loss_provisions",
-          "charge_offs",
-          "economic_indicators"
+        "banks_processed": [
+          "JPM",
+          "BAC"
         ],
-        "data_quality": "high",
-        "proxy_method": "economic_indicator_estimation",
-        "loan_loss_provisions": {
-          "total_provisions": 12000000000,
-          "quarterly_change": 0.15,
-          "provision_rate": 0.8
+        "data_quality": "medium",
+        "quarter": "Q4 2025",
+        "extraction_methods": {
+          "xbrl": 0,
+          "transcript": 2
         },
-        "charge_off_rates": {
-          "total_charge_offs": 8500000000,
-          "charge_off_rate": 0.45,
-          "quarterly_change": 0.08
-        },
-        "economic_indicators": {
-          "unemployment_rate": 3.8,
-          "gdp_growth": 2.1,
-          "inflation_rate": 3.2,
-          "financial_stress_index": 0.15
-        },
-        "calculation_note": "Provisions calculated as percentage of total loan portfolio"
+        "total_provisions_dollars": 585000000.0,
+        "estimated_total_loan_portfolio": 8000000000000,
+        "calculation_note": "Provisions converted to percentage of estimated total loan portfolio ($8T)"
       },
-      "confidence": 0.8,
-      "validation_checksum": "f2be86c90ee91d79729cc87f09121fd06a0d576c2f670d15a3f5097fc6cfc5da",
+      "confidence": 0.6,
+      "validation_checksum": "b0f1a3afaa37d6e647e904ece358dccab2612acd4998ec5789b5a39f5bc40140",
       "anomaly_score": 0.0
     }
   }

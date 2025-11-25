@@ -278,6 +278,17 @@ class AlertService:
         if settings.TELEGRAM_BOT_TOKEN and settings.TELEGRAM_CHAT_ID:
             self.channels.append(TelegramNotificationChannel())
         
+        # Add Email if configured (for summaries, not alerts)
+        # Note: Email channel is primarily for summaries, but can be used for alerts too
+        try:
+            from services.email_channel import EmailNotificationChannel
+            email_channel = EmailNotificationChannel()
+            if email_channel.is_configured():
+                self.channels.append(email_channel)
+        except ImportError:
+            # Email channel not available
+            pass
+        
         self.logger.info(f"Initialized {len(self.channels)} notification channels: {[c.get_channel_name() for c in self.channels]}")
     
     def send_alert(self, alert_data: Dict[str, Any]) -> Dict[str, bool]:

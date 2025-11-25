@@ -34,3 +34,7 @@ mypy>=1.5.0
 
 # Additional utilities for data management
 python-dateutil>=2.8.0
+
+# Optional: LLM Agent dependencies (install if using AI-powered analysis)
+# openai>=1.0.0  # For GPT-4/GPT-3.5 analysis
+anthropic>=0.7.0  # For Claude analysis (recommended - cheaper than OpenAI)

@@ -2,10 +2,10 @@
   {
     "data_source": "bond_issuance",
     "metric_name": "weekly",
-    "timestamp": "2025-10-20 12:51:15.503198+00:00",
+    "timestamp": "2025-11-25 19:36:57.684874+00:00",
     "data": {
       "value": 3500000000,
-      "timestamp": "2025-10-20 12:51:15.503198+00:00",
+      "timestamp": "2025-11-25 19:36:57.684874+00:00",
       "confidence": 0.75,
       "metadata": {
         "companies": [
@@ -19,30 +19,30 @@
           {
             "company": "MSFT",
             "cik": "0000789019",
-            "filing_date": "2025-10-14",
+            "filing_date": "2025-11-19",
             "notional_amount": 2000000000,
             "coupon_rate": 4.5,
             "form_type": "424B2",
-            "data_checksum": "d0239136"
+            "data_checksum": "009f7c2d"
           },
           {
             "company": "META",
             "cik": "0001326801",
-            "filing_date": "2025-10-16",
+            "filing_date": "2025-11-21",
             "notional_amount": 1500000000,
             "coupon_rate": 4.2,
             "form_type": "424B5",
-            "data_checksum": "19144643"
+            "data_checksum": "58978a3e"
           }
         ],
         "source": "sec_edgar",
         "success_rate": 1.0,
         "date_range": {
-          "start": "2025-10-13",
-          "end": "2025-10-20"
+          "start": "2025-11-18",
+          "end": "2025-11-25"
         }
       },
-      "validation_checksum": "2f3c9f7c4bdc5f3f55a9df6b1e4d21ad406a6ed126bb5d1f50ea70610183841c",
+      "validation_checksum": "b06270a94b2e29eabf7025b9e029302e7bb5e72232e2b94b297b5ab351caf735",
       "anomaly_score": 0.0
     }
   }

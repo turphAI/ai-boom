@@ -2,29 +2,68 @@
   {
     "data_source": "bdc_discount",
     "metric_name": "discount_to_nav",
-    "timestamp": "2025-10-06T14:08:12.113044+00:00",
+    "timestamp": "2025-11-25T19:37:10.351709+00:00",
     "data": {
-      "value": 0.0985797827903091,
-      "timestamp": "2025-10-06T14:08:12.113044+00:00",
-      "confidence": 0.6,
+      "value": 0.008265934945528181,
+      "timestamp": "2025-11-25T19:37:10.351709+00:00",
+      "average_discount_percentage": 0.826593494552818,
+      "bdc_count": 4,
+      "individual_bdcs": {
+        "ARCC": {
+          "stock_price": 20.239999771118164,
+          "nav_value": 20.003,
+          "discount_to_nav": -0.011848211324209566,
+          "discount_percentage": -1.1848211324209565,
+          "name": "Ares Capital Corporation",
+          "nav_source": "yahoo_finance",
+          "timestamp": "2025-11-25T19:37:03.259414+00:00"
+        },
+        "OCSL": {
+          "stock_price": 13.5600004196167,
+          "nav_value": 16.641,
+          "discount_to_nav": 0.18514509827434045,
+          "discount_percentage": 18.514509827434043,
+          "name": "Oaktree Specialty Lending Corporation",
+          "nav_source": "yahoo_finance",
+          "timestamp": "2025-11-25T19:37:05.755871+00:00"
+        },
+        "MAIN": {
+          "stock_price": 56.779998779296875,
+          "nav_value": 32.775,
+          "discount_to_nav": -0.7324179642806065,
+          "discount_percentage": -73.24179642806065,
+          "name": "Main Street Capital Corporation",
+          "nav_source": "yahoo_finance",
+          "timestamp": "2025-11-25T19:37:07.622518+00:00"
+        },
+        "PSEC": {
+          "stock_price": 2.630000114440918,
+          "nav_value": 6.449,
+          "discount_to_nav": 0.5921848171125883,
+          "discount_percentage": 59.21848171125883,
+          "name": "Prospect Capital Corporation",
+          "nav_source": "yahoo_finance",
+          "timestamp": "2025-11-25T19:37:10.250581+00:00"
+        }
+      },
       "metadata": {
-        "bdc_count": 3,
-        "data_source": "fallback_estimation"
-      }
-    }
-  },
-  {
-    "data_source": "bdc_discount",
-    "metric_name": "discount_to_nav",
-    "timestamp": "2025-10-02T21:45:27.198819+00:00",
-    "data": {
-      "value": 0.095,
-      "timestamp": "2025-10-02T21:45:27.198819+00:00",
-      "confidence": 0.6,
-      "metadata": {
-        "bdc_count": 3,
-        "data_source": "fallback_estimation"
-      }
+        "symbols_processed": [
+          "ARCC",
+          "OCSL",
+          "MAIN",
+          "PSEC"
+        ],
+        "data_quality": "high",
+        "nav_sources": {
+          "ARCC": "yahoo_finance",
+          "OCSL": "yahoo_finance",
+          "MAIN": "yahoo_finance",
+          "PSEC": "yahoo_finance"
+        }
+      },
+      "confidence": 1.0,
+      "validation_checksum": "7e30d7202462c0ac1e7880670a5e4f169ebcedeea6b4f63757de65e77156b9b8",
+      "anomaly_score": 0.0
     }
   }
 ]

@@ -18,6 +18,15 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 from config.settings import settings
 from models.core import MetricValue, ScraperResult
 
+# Import enhanced anomaly detection (optional - falls back to basic if not available)
+try:
+    from agents.enhanced_anomaly_detector import EnhancedAnomalyDetector
+    from agents.correlation_engine import CorrelationEngine
+    from agents.context_analyzer import ContextAnalyzer
+    ENHANCED_ANOMALY_DETECTION_AVAILABLE = True
+except ImportError:
+    ENHANCED_ANOMALY_DETECTION_AVAILABLE = False
+
 
 @dataclass
 class SystemHealthMetric:
@@ -251,12 +260,28 @@ class DatadogBackend(MetricsBackend):
 class MetricsService:
     """Service for sending metrics to monitoring systems and health monitoring."""
     
-    def __init__(self):
+    def __init__(self, use_enhanced_detection: bool = True):
         self.logger = logging.getLogger(__name__)
         self.backends: List[MetricsBackend] = []
         self.health_metrics: Dict[str, SystemHealthMetric] = {}
         self.metric_history: Dict[str, List[float]] = {}
         self.max_history_size = 100
+        
+        # Initialize enhanced anomaly detection if available
+        self.use_enhanced_detection = use_enhanced_detection and ENHANCED_ANOMALY_DETECTION_AVAILABLE
+        if self.use_enhanced_detection:
+            try:
+                self.enhanced_detector = EnhancedAnomalyDetector()
+                self.correlation_engine = CorrelationEngine()
+                self.context_analyzer = ContextAnalyzer()
+                self.logger.info("Enhanced anomaly detection enabled")
+            except Exception as e:
+                self.logger.warning(f"Failed to initialize enhanced anomaly detection: {e}")
+                self.use_enhanced_detection = False
+        else:
+            self.enhanced_detector = None
+            self.correlation_engine = None
+            self.context_analyzer = None
         
         # Initialize backends
         self._initialize_backends()
@@ -302,6 +327,10 @@ class MetricsService:
         
         # Update metric history for anomaly detection
         self._update_metric_history(metrics)
+        
+        # Enhanced anomaly detection with correlation (if enabled)
+        if self.use_enhanced_detection and self.enhanced_detector:
+            self._detect_anomalies_enhanced(metrics)
         
         # Send to all backends
         results = {}
@@ -447,14 +476,43 @@ class MetricsService:
     
     def detect_anomalies(self, metric_name: str, current_value: float, 
                         detection_method: str = 'statistical') -> Optional[AnomalyDetection]:
-        """Detect anomalies in metric values using statistical methods."""
+        """
+        Detect anomalies in metric values using statistical methods.
+        
+        Uses enhanced detection if available, falls back to basic methods.
+        """
         if metric_name not in self.metric_history:
             return None
         
         history = self.metric_history[metric_name]
-        if len(history) < 10:  # Need at least 10 data points
+        if len(history) < 3:  # Need at least 3 data points
             return None
         
+        # Use enhanced detection if available
+        if self.use_enhanced_detection and self.enhanced_detector:
+            try:
+                result = self.enhanced_detector.detect_anomaly(
+                    metric_name=metric_name,
+                    current_value=current_value,
+                    historical_values=history,
+                    method=detection_method if detection_method in ['zscore', 'iqr', 'percentile'] else 'zscore'
+                )
+                
+                # Convert to AnomalyDetection format
+                return AnomalyDetection(
+                    metric_name=metric_name,
+                    current_value=current_value,
+                    expected_range=(min(history), max(history)),
+                    is_anomaly=result.is_anomaly,
+                    confidence=result.confidence,
+                    detection_method=f"enhanced_{result.detection_method}",
+                    timestamp=result.timestamp
+                )
+            except Exception as e:
+                self.logger.warning(f"Enhanced detection failed, falling back to basic: {e}")
+                # Fall through to basic detection
+        
+        # Fallback to basic detection methods
         try:
             if detection_method == 'statistical':
                 return self._statistical_anomaly_detection(metric_name, current_value, history)
@@ -536,6 +594,54 @@ class MetricsService:
             detection_method='iqr',
             timestamp=datetime.now(timezone.utc)
         )
+    
+    def _detect_anomalies_enhanced(self, metrics: List[Dict[str, Any]]) -> None:
+        """Detect anomalies using enhanced detection with correlation."""
+        if not self.use_enhanced_detection:
+            return
+        
+        try:
+            # Prepare metrics for batch detection
+            metrics_dict = {}
+            for metric in metrics:
+                metric_name = metric.get('metric_name', 'unknown')
+                current_value = metric.get('value', 0)
+                
+                # Get historical values
+                history = self.metric_history.get(metric_name, [])
+                if len(history) >= 3:
+                    metrics_dict[metric_name] = {
+                        'current_value': current_value,
+                        'historical_values': history
+                    }
+            
+            if not metrics_dict:
+                return
+            
+            # Detect anomalies
+            anomaly_results = self.enhanced_detector.detect_anomalies_batch(metrics_dict)
+            
+            # Analyze correlations
+            correlations = self.correlation_engine.analyze_correlation(anomaly_results)
+            
+            # Log detected anomalies
+            anomalies = [r for r in anomaly_results if r.is_anomaly]
+            if anomalies:
+                self.logger.warning(f"⚠️  Detected {len(anomalies)} anomaly/anomalies:")
+                for result in anomalies:
+                    correlation = correlations.get(result.metric_name)
+                    correlation_info = ""
+                    if correlation and correlation.is_systemic:
+                        correlation_info = f" [SYSTEMIC - correlated with {len(correlation.correlated_metrics)} metric(s)]"
+                    
+                    self.logger.warning(
+                        f"   {result.metric_name}: {result.current_value} "
+                        f"(confidence: {result.confidence:.2%}{correlation_info})"
+                    )
+                    self.logger.warning(f"      Explanation: {result.explanation}")
+        
+        except Exception as e:
+            self.logger.warning(f"Enhanced anomaly detection failed: {e}")
     
     def _update_metric_history(self, metrics: List[Dict[str, Any]]) -> None:
         """Update metric history for anomaly detection."""

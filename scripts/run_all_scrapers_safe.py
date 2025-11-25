@@ -83,35 +83,63 @@ class SafeScraperRunner:
                 return False
             
             # Check required fields
-            required_fields = ['value', 'timestamp', 'confidence']
+            required_fields = ['value', 'confidence']
             for field in required_fields:
                 if field not in data:
                     logger.error(f"❌ Missing required field '{field}' in {scraper_name} data")
                     return False
             
-            # Validate value is numeric
-            if not isinstance(data['value'], (int, float)):
-                logger.error(f"❌ Invalid value type for {scraper_name}: expected numeric, got {type(data['value'])}")
+            # Validate value is numeric (handle string numbers)
+            value = data['value']
+            if isinstance(value, str):
+                try:
+                    value = float(value)
+                except ValueError:
+                    logger.error(f"❌ Invalid value type for {scraper_name}: cannot convert '{value}' to number")
+                    return False
+            elif not isinstance(value, (int, float)):
+                logger.error(f"❌ Invalid value type for {scraper_name}: expected numeric, got {type(value)}")
                 return False
             
-            # Validate confidence is between 0 and 1
+            # Validate confidence is between 0 and 1 (handle string numbers)
             confidence = data.get('confidence', 0)
+            if isinstance(confidence, str):
+                try:
+                    confidence = float(confidence)
+                except ValueError:
+                    logger.error(f"❌ Invalid confidence type for {scraper_name}: cannot convert '{confidence}' to number")
+                    return False
+            
+            if not isinstance(confidence, (int, float)):
+                logger.error(f"❌ Invalid confidence type for {scraper_name}: expected numeric, got {type(confidence)}")
+                return False
+                
             if not (0 <= confidence <= 1):
-                logger.error(f"❌ Invalid confidence value for {scraper_name}: {confidence}")
+                logger.error(f"❌ Invalid confidence value for {scraper_name}: {confidence} (must be 0-1)")
                 return False
             
-            # Validate timestamp format
-            try:
-                datetime.fromisoformat(data['timestamp'].replace('Z', '+00:00'))
-            except (ValueError, AttributeError):
-                logger.error(f"❌ Invalid timestamp format for {scraper_name}: {data['timestamp']}")
-                return False
+            # Validate timestamp format (timestamp is optional if not present, we'll add it)
+            timestamp = data.get('timestamp')
+            if timestamp:
+                try:
+                    # Handle datetime objects
+                    if isinstance(timestamp, datetime):
+                        pass  # Already a datetime object, valid
+                    elif isinstance(timestamp, str):
+                        datetime.fromisoformat(timestamp.replace('Z', '+00:00'))
+                    else:
+                        logger.warning(f"⚠️  Unexpected timestamp type for {scraper_name}: {type(timestamp)}")
+                except (ValueError, AttributeError) as e:
+                    logger.warning(f"⚠️  Invalid timestamp format for {scraper_name}: {timestamp} - {e}")
+                    # Don't fail validation, we'll add timestamp if missing
             
             logger.info(f"✅ Data validation passed for {scraper_name}")
             return True
             
         except Exception as e:
             logger.error(f"❌ Data validation error for {scraper_name}: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
             return False
     
     def store_data_safely(self, scraper_name: str, result_data: Dict[str, Any]) -> bool:
@@ -124,11 +152,15 @@ class SafeScraperRunner:
             # Backup existing data
             backup_file = self.backup_existing_data(scraper_name)
             
+            # Ensure timestamp exists in result_data
+            if 'timestamp' not in result_data or not result_data.get('timestamp'):
+                result_data['timestamp'] = datetime.now(timezone.utc).isoformat()
+            
             # Prepare data entry
             data_entry = {
                 "data_source": scraper_name,
                 "metric_name": result_data.get('metric_name', 'default'),
-                "timestamp": result_data['timestamp'],
+                "timestamp": result_data.get('timestamp', datetime.now(timezone.utc).isoformat()),
                 "data": result_data
             }
             

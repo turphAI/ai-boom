@@ -217,10 +217,28 @@ class SafeScraperRunner:
         try:
             from services.planetscale_data_service import PlanetScaleDataService
             
+            # Ensure result_data is a dict, not a string
+            if isinstance(result_data, str):
+                try:
+                    import json
+                    result_data = json.loads(result_data)
+                except (json.JSONDecodeError, ValueError):
+                    logger.error(f"❌ result_data is a string but not valid JSON: {result_data[:100]}")
+                    return False
+            
+            if not isinstance(result_data, dict):
+                logger.error(f"❌ result_data must be a dict, got {type(result_data)}: {result_data}")
+                return False
+            
             service = PlanetScaleDataService()
             
             # Get metric name from result_data or use default
             metric_name = result_data.get('metric_name', 'default')
+            
+            # Ensure data has required fields
+            if 'value' not in result_data:
+                logger.error(f"❌ result_data missing 'value' field: {list(result_data.keys())}")
+                return False
             
             # Store metric data (service expects data dict with value, confidence, etc.)
             success = service.store_metric_data(

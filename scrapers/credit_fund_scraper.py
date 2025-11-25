@@ -99,9 +99,38 @@ class CreditFundScraper(BaseScraper):
                 self.logger.error(f"Error processing {fund_name}: {e}")
                 continue
         
-        # Require real data - no fallback
+        # Allow partial data - if we have at least some funds, proceed
         if not fund_data:
-            raise ValueError("No private credit fund data could be retrieved from SEC Form PF filings")
+            self.logger.warning(
+                "No Form PF filings found for any credit funds. "
+                "This may be normal if filings are not yet available or are filed infrequently."
+            )
+            # Try alternative sources as fallback
+            alternative_data = self._try_alternative_sources()
+            
+            if alternative_data:
+                fund_data = alternative_data
+                # Recalculate totals from alternative data
+                total_gross_assets = sum(
+                    fund['gross_asset_value'] 
+                    for fund in fund_data.values() 
+                    if 'gross_asset_value' in fund
+                )
+                funds_processed = len(fund_data)
+            else:
+                # Provide helpful error message explaining why this might happen
+                error_msg = (
+                    "No private credit fund data could be retrieved from SEC Form PF filings "
+                    "or alternative sources. This may occur if:\n"
+                    "- Form PF filings are not yet publicly available (filed quarterly/annually)\n"
+                    "- Filings are filed under different CIKs (subsidiaries)\n"
+                    "- Filings are not yet processed by SEC EDGAR\n"
+                    "- The funds may not be required to file Form PF\n\n"
+                    f"Attempted to search {len(self.CREDIT_FUND_CIKS)} credit funds: "
+                    f"{', '.join(self.CREDIT_FUND_CIKS.values())}"
+                )
+                self.logger.error(error_msg)
+                raise ValueError(error_msg)
         
         avg_gross_assets = total_gross_assets / funds_processed if funds_processed > 0 else 0
         
@@ -113,23 +142,29 @@ class CreditFundScraper(BaseScraper):
             'timestamp': datetime.now(timezone.utc),
             'metadata': {
                 'ciks_processed': list(fund_data.keys()),
-                'data_quality': 'high' if funds_processed >= 3 else 'medium',
-                'source': 'sec_form_pf'
+                'data_quality': 'high' if funds_processed >= 3 else 'medium' if funds_processed >= 1 else 'low',
+                'source': 'sec_form_pf' if funds_processed > 0 else 'fallback'
             }
         }
     
-    def _get_latest_form_pf(self, cik: str) -> Optional[Dict[str, Any]]:
-        """Get the most recent Form PF filing for a given CIK."""
+    def _get_latest_form_pf(self, cik: str, max_age_days: int = 365) -> Optional[Dict[str, Any]]:
+        """Get the most recent Form PF filing for a given CIK.
+        
+        Args:
+            cik: Company CIK code
+            max_age_days: Maximum age of filing to accept (default: 365 days / 1 year)
+        """
         try:
             # Search for Form PF filings using SEC EDGAR search
+            # Extended date range to find older filings if recent ones aren't available
             search_url = f"https://www.sec.gov/cgi-bin/browse-edgar"
             params = {
                 'action': 'getcompany',
                 'CIK': cik,
                 'type': 'PF',
-                'dateb': '',
+                'dateb': '',  # No end date restriction
                 'owner': 'exclude',
-                'count': '10',
+                'count': '20',  # Increased from 10 to find more filings
                 'output': 'xml'
             }
             
@@ -142,15 +177,34 @@ class CreditFundScraper(BaseScraper):
             # Find the most recent Form PF filing
             filings = root.findall('.//filing')
             if not filings:
+                self.logger.debug(f"No Form PF filings found for CIK {cik}")
                 return None
             
             # Sort by filing date (most recent first)
+            cutoff_date = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+            
             filings.sort(key=lambda x: x.find('datefiled').text if x.find('datefiled') is not None else '', reverse=True)
             
             for filing in filings:
                 form_type = filing.find('type').text if filing.find('type') is not None else ''
                 if form_type.startswith('PF'):
-                    filing_date = filing.find('datefiled').text
+                    filing_date_str = filing.find('datefiled').text
+                    if not filing_date_str:
+                        continue
+                    
+                    # Check if filing is within acceptable age range
+                    try:
+                        filing_date = datetime.strptime(filing_date_str, '%Y-%m-%d').replace(tzinfo=timezone.utc)
+                        if filing_date < cutoff_date:
+                            self.logger.debug(
+                                f"Form PF filing for CIK {cik} is too old "
+                                f"({filing_date_str}, max age: {max_age_days} days)"
+                            )
+                            continue
+                    except ValueError:
+                        # If date parsing fails, continue anyway
+                        pass
+                    
                     accession_number = filing.find('accessionnumber').text
                     
                     # Download the actual Form PF XML document
@@ -159,19 +213,79 @@ class CreditFundScraper(BaseScraper):
                         # Extract period end date from XML
                         period_end_date = self._extract_period_end_date(xml_content)
                         
+                        self.logger.info(
+                            f"Found Form PF filing for CIK {cik}: "
+                            f"filed {filing_date_str}, period end {period_end_date}"
+                        )
+                        
                         return {
-                            'filing_date': filing_date,
+                            'filing_date': filing_date_str,
                             'period_end_date': period_end_date,
                             'form_type': form_type,
                             'accession_number': accession_number,
                             'xml_content': xml_content
                         }
             
+            self.logger.debug(f"No acceptable Form PF filings found for CIK {cik} (within {max_age_days} days)")
             return None
             
         except Exception as e:
             self.logger.error(f"Error fetching Form PF for CIK {cik}: {e}")
             return None
+    
+    def _try_alternative_sources(self) -> Dict[str, Any]:
+        """Try alternative data sources when Form PF filings are not available.
+        
+        This method attempts to find credit fund data from:
+        1. 10-K filings (annual reports may contain credit fund information)
+        2. Other SEC filings that might contain credit fund data
+        
+        Returns:
+            Dictionary of fund data (same format as main fetch_data method)
+        """
+        self.logger.info("Attempting to find credit fund data from alternative sources...")
+        fund_data = {}
+        
+        # Try searching 10-K filings for credit fund information
+        # Note: This is a simplified fallback - in production, you might want to
+        # use more sophisticated parsing or external APIs
+        for cik, fund_name in self.CREDIT_FUND_CIKS.items():
+            try:
+                # Search for 10-K filings that might contain credit fund data
+                search_url = f"https://www.sec.gov/cgi-bin/browse-edgar"
+                params = {
+                    'action': 'getcompany',
+                    'CIK': cik,
+                    'type': '10-K',
+                    'dateb': '',
+                    'owner': 'exclude',
+                    'count': '3',
+                    'output': 'atom'
+                }
+                
+                response = self.session.get(search_url, params=params, timeout=30)
+                response.raise_for_status()
+                
+                root = ET.fromstring(response.content)
+                entries = root.findall('.//{http://www.w3.org/2005/Atom}entry')
+                
+                if entries:
+                    # Found 10-K filings, but extracting credit fund data from 10-K
+                    # would require complex parsing. For now, we'll log and continue.
+                    self.logger.debug(
+                        f"Found 10-K filings for {fund_name}, but credit fund data "
+                        "extraction from 10-K requires complex parsing"
+                    )
+                
+                time.sleep(0.1)  # Rate limiting
+                
+            except Exception as e:
+                self.logger.debug(f"Error trying alternative sources for {fund_name}: {e}")
+                continue
+        
+        # If we still don't have data, return empty dict
+        # The caller will handle the error appropriately
+        return fund_data
     
     def _download_form_pf_xml(self, cik: str, accession_number: str) -> Optional[str]:
         """Download the Form PF XML document."""
@@ -187,9 +301,13 @@ class CreditFundScraper(BaseScraper):
             return response.text
             
         except requests.RequestException as e:
-            self.logger.error(f"Error downloading Form PF XML: {e}")
-            # For demo purposes, return mock XML content
-            return self._generate_mock_form_pf_xml(cik)
+            self.logger.error(f"Error downloading Form PF XML for CIK {cik}: {e}")
+            # Don't return mock data in production - return None to indicate failure
+            # Mock data should only be used in development/testing environments
+            if os.getenv('USE_MOCK_DATA', 'false').lower() == 'true':
+                self.logger.warning(f"Using mock Form PF XML data for CIK {cik} (USE_MOCK_DATA=true)")
+                return self._generate_mock_form_pf_xml(cik)
+            return None
     
     def _generate_mock_form_pf_xml(self, cik: str) -> str:
         """Generate mock Form PF XML content for testing."""

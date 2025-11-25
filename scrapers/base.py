@@ -133,15 +133,12 @@ class BaseScraper(ABC):
     
     def _fetch_data_with_retry(self) -> Dict[str, Any]:
         """Fetch data with retry logic (no fallback - real data only)."""
-        # Use retry_with_backoff for transient failures, but no fallback to cached/stale data
-        return retry_with_backoff(
-            func=self.fetch_data,
-            max_retries=self.retry_config.max_retries,
-            initial_delay=self.retry_config.initial_delay,
-            max_delay=self.retry_config.max_delay,
-            backoff_factor=self.retry_config.backoff_factor,
-            jitter=True
-        )
+        # Use retry_with_backoff decorator for transient failures, but no fallback to cached/stale data
+        @retry_with_backoff(config=self.retry_config)
+        def fetch_with_retry():
+            return self.fetch_data()
+        
+        return fetch_with_retry()
     
     def _validate_data_comprehensive(self, data: Dict[str, Any]) -> ValidationResult:
         """Perform comprehensive data validation."""

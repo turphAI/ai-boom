@@ -11,6 +11,13 @@ from datetime import datetime, timezone, timedelta, date
 from typing import Dict, Any, List, Optional
 import logging
 
+# Load environment variables from .env file if it exists
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv not available, skip
+
 # Create direct database connection using pymysql
 try:
     import pymysql

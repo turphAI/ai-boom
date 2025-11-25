@@ -21,6 +21,13 @@ import traceback
 # Add the project root to the Python path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Load environment variables from .env file if it exists
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv not available, skip
+
 from scrapers.bond_issuance_scraper import BondIssuanceScraper
 from scrapers.bdc_discount_scraper import BDCDiscountScraper
 from scrapers.credit_fund_scraper import CreditFundScraper

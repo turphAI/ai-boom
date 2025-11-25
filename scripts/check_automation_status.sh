@@ -81,3 +81,8 @@ echo "   Test manually:     cd $PROJECT_ROOT && source venv/bin/activate && pyth
 echo "   View live logs:    tail -f /tmp/boom_bust_daily.log"
 echo "   Setup automation: ./scripts/setup_daily_automation.sh"
 echo "   Edit schedule:     crontab -e"
+
+
+
+
+

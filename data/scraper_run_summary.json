@@ -1,5 +1,5 @@
 {
-  "start_time": "2025-10-06T14:14:43.768674+00:00",
+  "start_time": "2025-10-20T12:51:10.819753+00:00",
   "scrapers": {
     "bond_issuance": {
       "success": false,
@@ -21,8 +21,8 @@
       "scraper": "bank_provision",
       "value": 1.0584000000000002,
       "confidence": 0.8,
-      "timestamp": "2025-10-06T14:14:53.002885+00:00",
-      "execution_time": 0.2057197093963623
+      "timestamp": "2025-10-20T12:51:25.296674+00:00",
+      "execution_time": 0.26265811920166016
     }
   },
   "summary": {
@@ -30,5 +30,5 @@
     "successful": 1,
     "failed": 3
   },
-  "end_time": "2025-10-06T14:14:53.210439+00:00"
+  "end_time": "2025-10-20T12:51:25.563610+00:00"
 }

@@ -82,3 +82,8 @@ echo "🗑️  To remove the cron job:"
 echo "   crontab -e  # then delete the line with daily_scraper_automation.py"
 echo ""
 echo "📊 Your scrapers will now run automatically every day!"
+
+
+
+
+

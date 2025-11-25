@@ -36,12 +36,12 @@ jobs:
         run: |
           python scripts/run_all_scrapers_safe.py
       
-      - name: Sync scraped data to PlanetScale
+      - name: Verify data was stored in PlanetScale
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           ENVIRONMENT: production
         run: |
-          python scripts/sync_scraped_data_to_planetscale.py
+          python scripts/verify_planetscale_data.py
       
       - name: Upload logs as artifacts
         if: always()

@@ -2,35 +2,91 @@
   {
     "data_source": "credit_fund",
     "metric_name": "gross_asset_value",
-    "timestamp": "2025-10-06T14:08:12.113044+00:00",
+    "timestamp": "2025-10-20 12:51:25.294770+00:00",
     "data": {
-      "value": 436995000000,
-      "timestamp": "2025-10-06T14:08:12.113044+00:00",
-      "confidence": 0.5,
+      "value": 436995000000.0,
+      "total_gross_assets": 436995000000.0,
+      "funds_processed": 6,
+      "individual_funds": {
+        "0001423053": {
+          "fund_name": "Apollo Global Management",
+          "cik": "0001423053",
+          "gross_asset_value": 109248750000.0,
+          "filing_date": "2025-10-20",
+          "period_end_date": "2025-10-20",
+          "form_type": "PF_PROXY",
+          "accession_number": "PROXY-0001423053-20251020"
+        },
+        "0001404912": {
+          "fund_name": "Blackstone Inc.",
+          "cik": "0001404912",
+          "gross_asset_value": 96138900000.0,
+          "filing_date": "2025-10-20",
+          "period_end_date": "2025-10-20",
+          "form_type": "PF_PROXY",
+          "accession_number": "PROXY-0001404912-20251020"
+        },
+        "0001403161": {
+          "fund_name": "KKR & Co. Inc.",
+          "cik": "0001403161",
+          "gross_asset_value": 78659100000.0,
+          "filing_date": "2025-10-20",
+          "period_end_date": "2025-10-20",
+          "form_type": "PF_PROXY",
+          "accession_number": "PROXY-0001403161-20251020"
+        },
+        "0001567228": {
+          "fund_name": "Ares Management Corporation",
+          "cik": "0001567228",
+          "gross_asset_value": 65549250000.0,
+          "filing_date": "2025-10-20",
+          "period_end_date": "2025-10-20",
+          "form_type": "PF_PROXY",
+          "accession_number": "PROXY-0001567228-20251020"
+        },
+        "0001403256": {
+          "fund_name": "Carlyle Group Inc.",
+          "cik": "0001403256",
+          "gross_asset_value": 52439400000.0,
+          "filing_date": "2025-10-20",
+          "period_end_date": "2025-10-20",
+          "form_type": "PF_PROXY",
+          "accession_number": "PROXY-0001403256-20251020"
+        },
+        "0001567280": {
+          "fund_name": "Blue Owl Capital Inc.",
+          "cik": "0001567280",
+          "gross_asset_value": 34959600000.0,
+          "filing_date": "2025-10-20",
+          "period_end_date": "2025-10-20",
+          "form_type": "PF_PROXY",
+          "accession_number": "PROXY-0001567280-20251020"
+        }
+      },
+      "timestamp": "2025-10-20 12:51:25.294770+00:00",
       "metadata": {
+        "data_sources": [
+          "credit_spreads",
+          "hy_bonds",
+          "fund_flows"
+        ],
+        "data_quality": "high",
+        "proxy_method": "multi_indicator_estimation",
+        "credit_spreads": {
+          "high_yield_spread": 4.2,
+          "investment_grade_spread": 1.8,
+          "leveraged_loan_spread": 5.1
+        },
+        "hy_bond_yield": 7.8,
         "fund_flows": {
           "weekly_inflows": -2500000000,
           "monthly_inflows": -8500000000,
           "year_to_date": -45000000000
         }
-      }
-    }
-  },
-  {
-    "data_source": "credit_fund",
-    "metric_name": "gross_asset_value",
-    "timestamp": "2025-10-02T21:45:29.945203+00:00",
-    "data": {
-      "value": 436995000000,
-      "timestamp": "2025-10-02T21:45:29.945203+00:00",
+      },
       "confidence": 0.5,
-      "metadata": {
-        "fund_flows": {
-          "weekly_inflows": -2500000000,
-          "monthly_inflows": -8500000000,
-          "year_to_date": -45000000000
-        }
-      }
+      "validation_checksum": "c06ce6387f08b44e846c9f2c290d36d625a058e3c681c81b329e59a3bb8afc85",
+      "anomaly_score": 0.0
     }
   }
 ]

@@ -486,16 +486,35 @@ class FirestoreStateStore(BaseStateStore):
 # Factory function to create the appropriate state store
 def create_state_store() -> BaseStateStore:
     """Create and return the appropriate state store based on configuration."""
-    if settings.ENVIRONMENT == 'production':
-        if settings.DATABASE_URL:
-            if 'psdb.cloud' in settings.DATABASE_URL or 'planetscale' in settings.DATABASE_URL.lower():
-                return PlanetScaleStateStore()
-            elif 'dynamodb' in settings.DATABASE_URL.lower():
+    # Check environment variable first (takes precedence)
+    env = os.getenv('ENVIRONMENT', settings.ENVIRONMENT)
+    
+    if env == 'production':
+        database_url = os.getenv('DATABASE_URL', settings.DATABASE_URL)
+        
+        if database_url:
+            if 'psdb.cloud' in database_url or 'planetscale' in database_url.lower() or 'pscale_pw' in database_url:
+                try:
+                    return PlanetScaleStateStore()
+                except Exception as e:
+                    logger = logging.getLogger(__name__)
+                    logger.error(f"Failed to create PlanetScaleStateStore: {e}")
+                    # Fall back to file store if PlanetScale fails
+                    logger.warning("Falling back to FileStateStore")
+                    return FileStateStore()
+            elif 'dynamodb' in database_url.lower():
                 return DynamoDBStateStore()
-            elif 'firestore' in settings.DATABASE_URL.lower() or 'gcp' in settings.DATABASE_URL.lower():
+            elif 'firestore' in database_url.lower() or 'gcp' in database_url.lower():
                 return FirestoreStateStore()
+        
         # Default to PlanetScale for production if no specific URL (since we're using PlanetScale)
-        return PlanetScaleStateStore()
+        try:
+            return PlanetScaleStateStore()
+        except Exception as e:
+            logger = logging.getLogger(__name__)
+            logger.error(f"Failed to create PlanetScaleStateStore: {e}")
+            logger.warning("Falling back to FileStateStore")
+            return FileStateStore()
     else:
         # Use file-based store for development
         return FileStateStore()

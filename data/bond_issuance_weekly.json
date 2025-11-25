@@ -2,55 +2,16 @@
   {
     "data_source": "bond_issuance",
     "metric_name": "weekly",
-    "timestamp": "2025-10-06 14:14:48.909410+00:00",
+    "timestamp": "2025-10-20 12:51:15.503198+00:00",
     "data": {
       "value": 3500000000,
-      "timestamp": "2025-10-06 14:14:48.909410+00:00",
+      "timestamp": "2025-10-20 12:51:15.503198+00:00",
       "confidence": 0.75,
       "metadata": {
-        "companies": ["MSFT", "META"],
-        "failed_companies": [],
-        "avg_coupon": 4.35,
-        "bond_count": 2,
-        "bond_details": [
-          {
-            "company": "MSFT",
-            "cik": "0000789019",
-            "filing_date": "2025-09-30",
-            "notional_amount": 2000000000,
-            "coupon_rate": 4.5,
-            "form_type": "424B2",
-            "data_checksum": "e796e451"
-          },
-          {
-            "company": "META",
-            "cik": "0001326801",
-            "filing_date": "2025-10-02",
-            "notional_amount": 1500000000,
-            "coupon_rate": 4.2,
-            "form_type": "424B5",
-            "data_checksum": "c66715c6"
-          }
+        "companies": [
+          "MSFT",
+          "META"
         ],
-        "source": "sec_edgar",
-        "success_rate": 1,
-        "date_range": {
-          "start": "2025-09-29",
-          "end": "2025-10-06"
-        }
-      }
-    }
-  },
-  {
-    "data_source": "bond_issuance",
-    "metric_name": "weekly",
-    "timestamp": "2025-10-02T21:45:27.195285+00:00",
-    "data": {
-      "value": 3500000000,
-      "timestamp": "2025-10-02T21:45:27.195285+00:00",
-      "confidence": 0.75,
-      "metadata": {
-        "companies": ["MSFT", "META"],
         "failed_companies": [],
         "avg_coupon": 4.35,
         "bond_count": 2,
@@ -58,29 +19,31 @@
           {
             "company": "MSFT",
             "cik": "0000789019",
-            "filing_date": "2025-09-26",
+            "filing_date": "2025-10-14",
             "notional_amount": 2000000000,
             "coupon_rate": 4.5,
             "form_type": "424B2",
-            "data_checksum": "4a6fae46"
+            "data_checksum": "d0239136"
           },
           {
             "company": "META",
             "cik": "0001326801",
-            "filing_date": "2025-09-28",
+            "filing_date": "2025-10-16",
             "notional_amount": 1500000000,
             "coupon_rate": 4.2,
             "form_type": "424B5",
-            "data_checksum": "cf0e778e"
+            "data_checksum": "19144643"
           }
         ],
         "source": "sec_edgar",
         "success_rate": 1.0,
         "date_range": {
-          "start": "2025-09-25",
-          "end": "2025-10-02"
+          "start": "2025-10-13",
+          "end": "2025-10-20"
         }
-      }
+      },
+      "validation_checksum": "2f3c9f7c4bdc5f3f55a9df6b1e4d21ad406a6ed126bb5d1f50ea70610183841c",
+      "anomaly_score": 0.0
     }
   }
 ]

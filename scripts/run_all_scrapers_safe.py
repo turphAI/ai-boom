@@ -140,14 +140,23 @@ class SafeScraperRunner:
             if len(existing_data) > 100:
                 existing_data = existing_data[:100]
             
-            # Write updated data
-            with open(data_file, 'w') as f:
-                json.dump(existing_data, f, indent=2)
-            
-            logger.info(f"✅ Data stored successfully for {scraper_name}")
-            
-            # Try to store in PlanetScale as well
-            self.store_in_planetscale(scraper_name, result_data)
+            # In production, prioritize PlanetScale storage
+            env = os.getenv('ENVIRONMENT', 'development')
+            if env == 'production':
+                # Store in PlanetScale first (primary storage)
+                planetscale_success = self.store_in_planetscale(scraper_name, result_data)
+                if not planetscale_success:
+                    logger.error(f"❌ Failed to store in PlanetScale for {scraper_name} - this is critical in production!")
+                    return False
+                logger.info(f"✅ Data stored successfully in PlanetScale for {scraper_name}")
+            else:
+                # In development, store locally and optionally try PlanetScale
+                with open(data_file, 'w') as f:
+                    json.dump(existing_data, f, indent=2)
+                logger.info(f"✅ Data stored successfully locally for {scraper_name}")
+                
+                # Try to store in PlanetScale as well (optional in dev)
+                self.store_in_planetscale(scraper_name, result_data)
             
             return True
             
@@ -170,17 +179,19 @@ class SafeScraperRunner:
             from services.planetscale_data_service import PlanetScaleDataService
             
             service = PlanetScaleDataService()
+            
+            # Get metric name from result_data or use default
+            metric_name = result_data.get('metric_name', 'default')
+            
+            # Store metric data (service expects data dict with value, confidence, etc.)
             success = service.store_metric_data(
                 scraper_name,
-                result_data.get('metric_name', 'default'),
-                result_data['value'],
-                result_data['confidence'],
-                result_data.get('metadata', {}),
-                result_data['timestamp']
+                metric_name,
+                result_data  # Pass the full data dict
             )
             
             if success:
-                logger.info(f"✅ Data stored in PlanetScale for {scraper_name}")
+                logger.info(f"✅ Data stored in PlanetScale for {scraper_name}.{metric_name}")
             else:
                 logger.warning(f"⚠️  Failed to store data in PlanetScale for {scraper_name}")
             
@@ -191,6 +202,8 @@ class SafeScraperRunner:
             return False
         except Exception as e:
             logger.error(f"❌ PlanetScale storage error for {scraper_name}: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
             return False
     
     def run_scraper_safely(self, scraper_name: str, scraper_instance) -> Dict[str, Any]:

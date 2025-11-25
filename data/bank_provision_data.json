@@ -1,7 +1,7 @@
 [
   {
     "data_source": "bank_provision",
-    "metric_name": "non_bank_financial_provisions",
+    "metric_name": "default",
     "timestamp": "2025-10-20T12:51:25.557013+00:00",
     "data": {
       "value": 1.0584000000000002,

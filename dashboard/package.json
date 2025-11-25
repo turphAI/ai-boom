@@ -12,7 +12,8 @@
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "db:setup": "./scripts/setup-database.sh"
+    "db:setup": "./scripts/setup-database.sh",
+    "db:remove-redundant-indexes": "node scripts/remove-redundant-indexes.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

@@ -174,7 +174,10 @@ export function MetricCard({ metric }: MetricCardProps) {
               </div>
             </div>
             <div className="text-xs text-muted-foreground mt-1">
-              Source: {metric.source}
+              {metric.sourceCount !== undefined 
+                ? `${metric.sourceCount} ${metric.sourceCount === 1 ? 'source' : 'sources'}`
+                : `Source: ${metric.source}`
+              }
             </div>
           </CardContent>
         </Card>

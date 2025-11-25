@@ -30,6 +30,7 @@ class FileBasedRealDataService implements RealDataService {
     try {
       const files = await this.getDataFiles()
       const metrics: any[] = []
+      const uniqueDataSources = new Set<string>()
 
       for (const file of files) {
         const data = await this.readDataFile(file)
@@ -37,6 +38,11 @@ class FileBasedRealDataService implements RealDataService {
         if (data.length > 0) {
           const latest = data[0] // Most recent data point
           const metricKey = this.getMetricKey(latest.data_source, latest.metric_name)
+          
+          // Track unique data sources
+          if (latest.data_source) {
+            uniqueDataSources.add(latest.data_source)
+          }
           
           // Calculate change from previous data point if available
           let change = 0
@@ -82,6 +88,12 @@ class FileBasedRealDataService implements RealDataService {
         return acc
       }, [] as any[])
 
+      // Calculate unique data sources count and add to all metrics
+      const sourceCount = uniqueDataSources.size
+      for (const metric of uniqueMetrics) {
+        metric.sourceCount = sourceCount
+      }
+
       // Add correlation metric calculated from the other metrics
       if (uniqueMetrics.length >= 4) {
         const correlationValue = this.calculateCorrelation(uniqueMetrics)
@@ -95,6 +107,7 @@ class FileBasedRealDataService implements RealDataService {
           status: this.getStatus(correlationValue, 'correlation'),
           lastUpdated: new Date().toISOString(),
           source: 'Market data APIs (SPY, TLT, GLD, VIX) with rolling 30-day windows',
+          sourceCount: sourceCount,
           confidence: 0.85,
           metadata: {
             calculation_method: 'Pearson correlation coefficient',
@@ -421,6 +434,15 @@ class DatabaseRealDataService implements RealDataService {
           latestByKey.set(key, row)
         }
       }
+      // Calculate unique data sources count
+      const uniqueDataSources = new Set<string>()
+      for (const row of latestByKey.values()) {
+        if (row.dataSource) {
+          uniqueDataSources.add(row.dataSource)
+        }
+      }
+      const sourceCount = uniqueDataSources.size
+
       const mapped = Array.from(latestByKey.values()).map((row: any) => {
         const metricKey = this.mapMetricKey(row.dataSource, row.metricName)
         return {
@@ -433,6 +455,7 @@ class DatabaseRealDataService implements RealDataService {
           status: row.status || 'healthy',
           lastUpdated: row.updatedAt || row.createdAt,
           source: 'PlanetScale metrics',
+          sourceCount: sourceCount,
           confidence: Number(row.confidence ?? 1),
           metadata: row.metadata || {},
         }
@@ -453,6 +476,7 @@ class DatabaseRealDataService implements RealDataService {
           status: this.getStatus(correlationValue, 'correlation'),
           lastUpdated: new Date().toISOString(),
           source: 'Derived from core metrics',
+          sourceCount: sourceCount,
           confidence: 0.85,
           metadata: {
             calculation_method: 'Heuristic based on core metrics',

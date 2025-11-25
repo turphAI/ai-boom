@@ -107,8 +107,19 @@ class BankProvisionScraper(BaseScraper):
         if not provision_data:
             raise ValueError("No bank provision data could be retrieved from SEC 10-Q filings")
         
+        # Convert dollar amount to percentage of total loan portfolio
+        # Estimated total loan portfolio for major banks (~$8 trillion)
+        # This is an industry estimate for the 6 major banks monitored
+        ESTIMATED_TOTAL_LOAN_PORTFOLIO = 8000000000000  # $8 trillion
+        
+        # Calculate provision percentage: (provisions / total_loans) * 100
+        provision_percentage = (total_provisions / ESTIMATED_TOTAL_LOAN_PORTFOLIO) * 100 if ESTIMATED_TOTAL_LOAN_PORTFOLIO > 0 else 0
+        
+        self.logger.info(f"Total provisions: ${total_provisions:,.0f} -> {provision_percentage:.2f}% of loan portfolio")
+        
         return {
-            'value': total_provisions,
+            'value': provision_percentage,  # Now in percentage
+            'unit': 'percent',  # Explicitly set unit
             'timestamp': datetime.now(timezone.utc).isoformat(),
             'bank_count': len(provision_data),
             'individual_banks': provision_data,
@@ -119,7 +130,10 @@ class BankProvisionScraper(BaseScraper):
                 'extraction_methods': {
                     'xbrl': len([b for b in provision_data.values() if b['data_source'] == 'xbrl']),
                     'transcript': len([b for b in provision_data.values() if b['data_source'] == 'transcript'])
-                }
+                },
+                'total_provisions_dollars': total_provisions,  # Keep dollar amount in metadata
+                'estimated_total_loan_portfolio': ESTIMATED_TOTAL_LOAN_PORTFOLIO,
+                'calculation_note': 'Provisions converted to percentage of estimated total loan portfolio ($8T)'
             }
         }
     

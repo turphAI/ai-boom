@@ -8,6 +8,7 @@ export interface MetricData {
   status: 'healthy' | 'warning' | 'critical' | 'stale'
   lastUpdated: string
   source: string
+  sourceCount?: number
 }
 
 export interface HistoricalData {

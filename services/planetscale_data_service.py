@@ -7,7 +7,7 @@ replacing local file storage with a proper database solution.
 
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta, date
 from typing import Dict, Any, List, Optional
 import logging
 
@@ -131,13 +131,35 @@ class PlanetScaleDataService:
         try:
             metric_id = f"{data_source}_{metric_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
             
-            # Prepare metric data
+            # Prepare metric data with JSON serialization helper
             import json
+            
+            def json_serial(obj):
+                """JSON serializer for objects not serializable by default json code"""
+                if isinstance(obj, (datetime, date)):
+                    return obj.isoformat()
+                raise TypeError(f"Type {type(obj)} not serializable")
+            
             status = self._determine_status(data)
             confidence = str(data.get('confidence', 1.0))
             unit = data.get('unit', '')
-            metadata = json.dumps(data.get('metadata', {})) if data.get('metadata') else '{}'
-            raw_data = json.dumps(data) if data else '{}'
+            
+            # Convert metadata and data to JSON strings, handling date/datetime objects
+            try:
+                metadata = json.dumps(data.get('metadata', {}), default=json_serial) if data.get('metadata') else '{}'
+            except (TypeError, ValueError):
+                metadata = '{}'
+            
+            try:
+                raw_data = json.dumps(data, default=json_serial) if data else '{}'
+            except (TypeError, ValueError) as e:
+                logger.warning(f"Failed to serialize raw_data, using minimal data: {e}")
+                # Fallback: create minimal serializable dict
+                raw_data = json.dumps({
+                    'value': data.get('value'),
+                    'confidence': data.get('confidence'),
+                    'timestamp': data.get('timestamp', datetime.now(timezone.utc).isoformat()) if isinstance(data.get('timestamp'), (datetime, date)) else str(data.get('timestamp', ''))
+                }, default=json_serial)
             
             # Insert or update metric
             query = """
@@ -177,8 +199,8 @@ class PlanetScaleDataService:
                 str(data['value']),
                 status,
                 confidence,
-                json.dumps(data.get('metadata', {})),
-                json.dumps(data)
+                metadata,  # Use already serialized metadata
+                raw_data   # Use already serialized raw_data
             )
             
             self._execute_query(history_query, history_params)
@@ -193,7 +215,7 @@ class PlanetScaleDataService:
     def store_scraper_health(self, scraper_name: str, status: str, execution_time: Optional[int] = None, error_message: Optional[str] = None) -> bool:
         """Store scraper health status in PlanetScale."""
         try:
-            health_data: NewScraperHealth = {
+            health_data: Dict[str, Any] = {
                 'id': f"health_{scraper_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
                 'scraperName': scraper_name,
                 'status': status,
@@ -204,8 +226,7 @@ class PlanetScaleDataService:
                 'dataQuality': self._determine_data_quality(status)
             }
             
-            result = self.db.execute(
-                f"""
+            query = """
                 INSERT INTO scraper_health (id, scraper_name, status, last_run, next_run, error_message, execution_time, data_quality, created_at, updated_at)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW())
                 ON DUPLICATE KEY UPDATE
@@ -216,18 +237,18 @@ class PlanetScaleDataService:
                     execution_time = VALUES(execution_time),
                     data_quality = VALUES(data_quality),
                     updated_at = NOW()
-                """,
-                (
-                    health_data['id'],
-                    health_data['scraperName'],
-                    health_data['status'],
-                    health_data['lastRun'],
-                    health_data['nextRun'],
-                    health_data['errorMessage'],
-                    health_data['executionTime'],
-                    health_data['dataQuality']
-                )
+            """
+            params = (
+                health_data['id'],
+                health_data['scraperName'],
+                health_data['status'],
+                health_data['lastRun'],
+                health_data['nextRun'],
+                health_data['errorMessage'],
+                health_data['executionTime'],
+                health_data['dataQuality']
             )
+            self._execute_query(query, params)
             
             logger.info(f"Successfully stored scraper health for {scraper_name}: {status}")
             return True
@@ -285,7 +306,7 @@ class PlanetScaleDataService:
                 ORDER BY created_at DESC
             """
             
-            result = self.db.execute(query, (metric_id, days))
+            result = self._execute_query(query, (metric_id, days))
             
             history_list = []
             for row in result:
@@ -316,7 +337,7 @@ class PlanetScaleDataService:
                 ORDER BY last_run DESC
             """
             
-            result = self.db.execute(query)
+            result = self._execute_query(query)
             
             health_list = []
             for row in result:
@@ -372,10 +393,8 @@ class PlanetScaleDataService:
         """Clean up old metric history data."""
         try:
             # Keep only recent history data
-            result = self.db.execute(
-                "DELETE FROM metric_history WHERE created_at < DATE_SUB(NOW(), INTERVAL %s DAY)",
-                (days_to_keep,)
-            )
+            query = "DELETE FROM metric_history WHERE created_at < DATE_SUB(NOW(), INTERVAL %s DAY)"
+            result = self._execute_query(query, (days_to_keep,))
             
             logger.info(f"Cleaned up metric history data older than {days_to_keep} days")
             return True

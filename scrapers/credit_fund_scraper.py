@@ -6,7 +6,9 @@ and detect early signs of credit stress through sequential quarter comparisons.
 """
 
 import logging
+import os
 import re
+import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from typing import Dict, Any, List, Optional, Tuple

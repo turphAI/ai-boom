@@ -33,10 +33,12 @@ export default function SystemHealthPage() {
         // Transform API data to match component interface
         const transformedData = data.health.map((item: any) => ({
           dataSource: item.component,
-          status: item.status,
+          status: item.status === 'healthy' ? 'healthy' : item.status === 'failed' ? 'failed' : 'degraded',
           lastUpdate: item.lastCheck,
           uptime: item.uptime || 86400, // Default to 24 hours if not provided
-          errorMessage: item.errorMessage || (item.status !== 'healthy' ? item.details : undefined)
+          errorMessage: item.errorMessage || (item.status !== 'healthy' ? item.details : undefined),
+          fallbackInfo: item.fallbackInfo,
+          metadata: item.metadata
         }))
         setHealthData(transformedData)
         setLastRefresh(new Date())

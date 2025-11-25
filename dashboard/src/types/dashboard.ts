@@ -33,6 +33,16 @@ export interface SystemHealth {
   lastUpdate: string
   errorMessage?: string
   uptime: number
+  fallbackInfo?: {
+    type: 'fallback' | 'partial'
+    message: string
+    sources?: string[]
+    reason?: string
+  }
+  metadata?: {
+    dataQuality?: string
+    source?: string
+  }
 }
 
 export interface Alert {

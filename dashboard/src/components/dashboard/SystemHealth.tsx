@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { SystemHealth as SystemHealthType } from '@/types/dashboard'
-import { CheckCircle, AlertCircle, XCircle, Clock } from 'lucide-react'
+import { CheckCircle, AlertCircle, XCircle, Clock, Info } from 'lucide-react'
 
 interface SystemHealthProps {
 	healthData: SystemHealthType[]
@@ -80,6 +80,28 @@ export function SystemHealth({ healthData }: SystemHealthProps) {
 										{(item as any).confidence && (
 											<div className="text-xs text-green-600 mt-1">
 												Confidence: {((item as any).confidence * 100).toFixed(0)}%
+											</div>
+										)}
+										{item.fallbackInfo && (
+											<div className={`text-xs mt-1 flex items-center gap-1 ${
+												item.fallbackInfo.type === 'fallback' 
+													? 'text-amber-600' 
+													: 'text-blue-600'
+											}`}>
+												<Info className="h-3 w-3" />
+												<span>
+													{item.fallbackInfo.type === 'fallback' ? '⚠️' : 'ℹ️'} {item.fallbackInfo.message}
+													{item.fallbackInfo.sources && item.fallbackInfo.sources.length > 0 && (
+														<span className="ml-1">
+															({item.fallbackInfo.sources.join(', ')})
+														</span>
+													)}
+												</span>
+											</div>
+										)}
+										{item.metadata?.dataQuality && item.metadata.dataQuality !== 'high' && (
+											<div className="text-xs text-amber-600 mt-1">
+												Data quality: {item.metadata.dataQuality}
 											</div>
 										)}
 										{item.errorMessage && (

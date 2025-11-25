@@ -191,7 +191,8 @@ async function checkProductionMetricsHealth() {
     // Check for recent metrics data in the database
     const startTime = Date.now();
     const metrics = await db.execute(`
-      SELECT data_source, metric_name, MAX(created_at) as last_update, COUNT(*) as data_count
+      SELECT data_source, metric_name, MAX(created_at) as last_update, COUNT(*) as data_count,
+             raw_data, metadata
       FROM metrics 
       WHERE created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)
       GROUP BY data_source, metric_name
@@ -240,6 +241,79 @@ async function checkProductionMetricsHealth() {
       const latestUpdate = new Date(sourceData[0].last_update);
       const hoursSinceUpdate = (Date.now() - latestUpdate.getTime()) / (1000 * 60 * 60);
       
+      // Extract metadata for fallback indicators
+      let metadata: any = null;
+      let fallbackInfo: any = null;
+      
+      try {
+        // Parse the data JSON to extract metadata
+        const rowData = sourceData[0];
+        
+        // Try raw_data first, then metadata column
+        if (rowData.raw_data) {
+          const parsedData = typeof rowData.raw_data === 'string' 
+            ? JSON.parse(rowData.raw_data) 
+            : rowData.raw_data;
+          
+          metadata = parsedData.metadata || parsedData.data?.metadata;
+        } else if (rowData.metadata) {
+          metadata = typeof rowData.metadata === 'string' 
+            ? JSON.parse(rowData.metadata) 
+            : rowData.metadata;
+        }
+          
+          // Extract fallback information based on data source
+          if (dataSource === 'bdc_discount' && metadata) {
+            const navSources = metadata.nav_sources || {};
+            const sources = Object.values(navSources);
+            const hasFallback = sources.some((s: any) => 
+              s && (s.includes('yahoo') || s.includes('rss') || s.includes('ir_page'))
+            );
+            
+            if (hasFallback) {
+              fallbackInfo = {
+                type: 'fallback',
+                message: 'Using fallback data sources',
+                sources: sources.filter((s: any) => s && s !== 'sec_edgar')
+              };
+            }
+          } else if (dataSource === 'credit_fund' && metadata) {
+            const source = metadata.source;
+            const dataQuality = metadata.data_quality;
+            
+            if (source === 'fallback' || dataQuality === 'low') {
+              fallbackInfo = {
+                type: 'fallback',
+                message: 'Using alternative data sources',
+                reason: 'Form PF filings not available'
+              };
+            } else if (dataQuality === 'medium') {
+              fallbackInfo = {
+                type: 'partial',
+                message: 'Partial data available',
+                reason: 'Some funds missing'
+              };
+            }
+          } else if (dataSource === 'bank_provision' && metadata) {
+            const extractionMethods = metadata.extraction_methods || {};
+            const hasTranscriptFallback = Object.values(extractionMethods).some(
+              (method: any) => method === 'transcript'
+            );
+            
+            if (hasTranscriptFallback) {
+              fallbackInfo = {
+                type: 'fallback',
+                message: 'Using transcript analysis fallback',
+                reason: 'XBRL parsing unavailable'
+              };
+            }
+          }
+        }
+      } catch (e) {
+        // Metadata parsing failed, continue without fallback info
+        console.debug('Failed to parse metadata:', e);
+      }
+      
       let status = 'healthy';
       let details = 'Data is current and available in database';
       
@@ -258,7 +332,12 @@ async function checkProductionMetricsHealth() {
         responseTime,
         successRate: status === 'healthy' ? 98.5 : status === 'warning' ? 85.0 : 45.0,
         errorCount: status === 'healthy' ? 0 : status === 'warning' ? 2 : 8,
-        details
+        details,
+        fallbackInfo,
+        metadata: metadata ? {
+          dataQuality: metadata.data_quality,
+          source: metadata.source
+        } : undefined
       });
     }
 

@@ -190,13 +190,24 @@ async function checkProductionMetricsHealth() {
     
     // Check for recent metrics data in the database
     const startTime = Date.now();
+    // Use subquery to get latest row for each data_source/metric_name combination
     const metrics = await db.execute(`
-      SELECT data_source, metric_name, MAX(created_at) as last_update, COUNT(*) as data_count,
-             raw_data, metadata
-      FROM metrics 
-      WHERE created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)
-      GROUP BY data_source, metric_name
-      ORDER BY last_update DESC
+      SELECT m.data_source, m.metric_name, m.created_at as last_update, 
+             m.raw_data, m.metadata,
+             (SELECT COUNT(*) FROM metrics m2 
+              WHERE m2.data_source = m.data_source 
+              AND m2.metric_name = m.metric_name 
+              AND m2.created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)) as data_count
+      FROM metrics m
+      INNER JOIN (
+        SELECT data_source, metric_name, MAX(created_at) as max_created_at
+        FROM metrics
+        WHERE created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)
+        GROUP BY data_source, metric_name
+      ) latest ON m.data_source = latest.data_source 
+              AND m.metric_name = latest.metric_name 
+              AND m.created_at = latest.max_created_at
+      ORDER BY m.created_at DESC
     `);
     
     const responseTime = Date.now() - startTime;

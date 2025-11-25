@@ -436,7 +436,8 @@ class DatabaseRealDataService implements RealDataService {
       }
       // Calculate unique data sources count
       const uniqueDataSources = new Set<string>()
-      for (const row of latestByKey.values()) {
+      const latestRows = Array.from(latestByKey.values())
+      for (const row of latestRows) {
         if (row.dataSource) {
           uniqueDataSources.add(row.dataSource)
         }

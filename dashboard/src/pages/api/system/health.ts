@@ -308,7 +308,6 @@ async function checkProductionMetricsHealth() {
               };
             }
           }
-        }
       } catch (e) {
         // Metadata parsing failed, continue without fallback info
         console.debug('Failed to parse metadata:', e);

@@ -39,6 +39,15 @@ class PlanetScaleDataService:
         if not url:
             raise ValueError("DATABASE_URL environment variable not set")
         
+        # Clean up URL - remove any leading "DATABASE_URL=" or quotes
+        url = url.strip()
+        if url.startswith("DATABASE_URL="):
+            url = url[13:].strip()  # Remove "DATABASE_URL="
+        if url.startswith("'") and url.endswith("'"):
+            url = url[1:-1]  # Remove surrounding single quotes
+        if url.startswith('"') and url.endswith('"'):
+            url = url[1:-1]  # Remove surrounding double quotes
+        
         # Parse mysql://username:password@host:port/database?ssl={"rejectUnauthorized":true}
         if url.startswith('mysql://'):
             url = url[8:]  # Remove mysql://

@@ -14,7 +14,7 @@ from services.alert_service import AlertService
 from services.metrics_service import MetricsService
 from utils.error_handling import (
     DataValidator, CachedDataManager, CrossValidator,
-    retry_with_backoff, graceful_degradation, RetryConfig, ValidationResult
+    retry_with_backoff, RetryConfig, ValidationResult
 )
 
 
@@ -51,8 +51,8 @@ class BaseScraper(ABC):
         try:
             self.logger.info(f"Starting {self.data_source} scraper execution")
             
-            # Fetch data with graceful degradation
-            current_data = self._fetch_data_with_fallback()
+            # Fetch data with retry (no fallback - real data only)
+            current_data = self._fetch_data_with_retry()
             
             # Comprehensive data validation
             validation_result = self._validate_data_comprehensive(current_data)
@@ -88,7 +88,7 @@ class BaseScraper(ABC):
             # Save current data
             self.state_store.save_data(self.data_source, self.metric_name, current_data)
             
-            # Cache data for future fallback
+            # Cache data for performance (not for fallback)
             cache_key = f"{self.data_source}_{self.metric_name}"
             self.cache_manager.cache_data(cache_key, current_data)
             
@@ -113,23 +113,7 @@ class BaseScraper(ABC):
             error_msg = f"Error in {self.data_source} scraper: {str(e)}"
             self.logger.error(error_msg, exc_info=True)
             
-            # Try to get cached data as fallback
-            fallback_data = self._get_fallback_data()
-            if fallback_data:
-                self.logger.info(f"Using fallback data for {self.data_source}")
-                fallback_data['_fallback'] = True
-                fallback_data['_fallback_reason'] = str(e)
-                
-                return ScraperResult(
-                    data_source=self.data_source,
-                    metric_name=self.metric_name,
-                    success=True,  # Success with fallback data
-                    data=fallback_data,
-                    error=f"Using fallback data due to: {error_msg}",
-                    execution_time=execution_time,
-                    timestamp=timestamp
-                )
-            
+            # No fallback - fail cleanly
             self.handle_error(e)
             
             return ScraperResult(
@@ -147,18 +131,17 @@ class BaseScraper(ABC):
         """Fetch data from the external source. Must be implemented by subclasses."""
         pass
     
-    def _fetch_data_with_fallback(self) -> Dict[str, Any]:
-        """Fetch data with graceful degradation and caching."""
-        cache_key = f"{self.data_source}_{self.metric_name}"
-        
-        @graceful_degradation(
-            fallback_func=lambda: self._get_fallback_data(),
-            cache_manager=self.cache_manager
+    def _fetch_data_with_retry(self) -> Dict[str, Any]:
+        """Fetch data with retry logic (no fallback - real data only)."""
+        # Use retry_with_backoff for transient failures, but no fallback to cached/stale data
+        return retry_with_backoff(
+            func=self.fetch_data,
+            max_retries=self.retry_config.max_retries,
+            initial_delay=self.retry_config.initial_delay,
+            max_delay=self.retry_config.max_delay,
+            backoff_factor=self.retry_config.backoff_factor,
+            jitter=True
         )
-        def fetch_with_retry():
-            return self.fetch_data()
-        
-        return fetch_with_retry()
     
     def _validate_data_comprehensive(self, data: Dict[str, Any]) -> ValidationResult:
         """Perform comprehensive data validation."""
@@ -200,74 +183,6 @@ class BaseScraper(ABC):
         except Exception as e:
             self.logger.warning(f"Failed to get historical data: {e}")
             return []
-    
-    def _get_fallback_data(self) -> Optional[Dict[str, Any]]:
-        """Get fallback data from cache or last known good data."""
-        cache_key = f"{self.data_source}_{self.metric_name}"
-        
-        # Try cache first
-        cached_data = self.cache_manager.get_cached_data(cache_key)
-        if cached_data:
-            # Ensure cached_data is a dict
-            if isinstance(cached_data, str):
-                try:
-                    import json
-                    cached_data = json.loads(cached_data)
-                except (json.JSONDecodeError, ValueError):
-                    self.logger.warning(f"Cached data is not valid JSON, skipping")
-                    cached_data = None
-            if cached_data and isinstance(cached_data, dict):
-                return cached_data
-        
-        # Try last known good data from state store
-        try:
-            last_data = self.state_store.get_latest_value(self.data_source, self.metric_name)
-            if last_data:
-                # Handle PlanetScale data structure - extract rawData if it exists
-                if isinstance(last_data, dict) and 'rawData' in last_data and isinstance(last_data.get('rawData'), str):
-                    try:
-                        import json
-                        parsed_raw_data = json.loads(last_data['rawData'])
-                        if isinstance(parsed_raw_data, dict) and 'value' in parsed_raw_data:
-                            # Use the parsed rawData as the fallback data
-                            fallback_data = parsed_raw_data.copy()
-                            fallback_data['_stale'] = True
-                            fallback_data['_stale_reason'] = 'Using last known good data from PlanetScale'
-                            return fallback_data
-                    except (json.JSONDecodeError, ValueError):
-                        # If rawData can't be parsed, continue with original structure
-                        pass
-                
-                # Normalize PlanetScale metric structure to expected data structure
-                if isinstance(last_data, dict):
-                    # If it's a PlanetScale metric (has 'dataSource', 'metricName', etc.), convert it
-                    if 'dataSource' in last_data or 'metricName' in last_data:
-                        normalized_data = {
-                            'value': last_data.get('value', 0),
-                            'confidence': last_data.get('confidence', 0.5),
-                            'timestamp': last_data.get('createdAt') or last_data.get('updatedAt') or datetime.now(timezone.utc).isoformat(),
-                            'metadata': last_data.get('metadata', {}),
-                            'unit': last_data.get('unit', '')
-                        }
-                        # Try to parse metadata if it's a string
-                        if isinstance(normalized_data['metadata'], str):
-                            try:
-                                import json
-                                normalized_data['metadata'] = json.loads(normalized_data['metadata'])
-                            except (json.JSONDecodeError, ValueError):
-                                normalized_data['metadata'] = {}
-                        normalized_data['_stale'] = True
-                        normalized_data['_stale_reason'] = 'Using last known good data from PlanetScale'
-                        return normalized_data
-                    else:
-                        # Already in expected format, just add stale markers
-                        last_data['_stale'] = True
-                        last_data['_stale_reason'] = 'Using last known good data'
-                        return last_data
-        except Exception as e:
-            self.logger.warning(f"Failed to get last known good data: {e}")
-        
-        return None
     
     def validate_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """Validate and clean the fetched data. Can be overridden by subclasses."""

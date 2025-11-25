@@ -39,6 +39,12 @@ To enable the scrapers workflow, add these secrets to your GitHub repository:
    - Get from: https://fred.stlouisfed.org/docs/api/api_key.html
    - Free to register
 
+3. **SEC_EDGAR_EMAIL** (Required for SEC scrapers)
+   - Your email address for SEC EDGAR API compliance
+   - Required by SEC for all API requests
+   - Used by bank_provision and credit_fund scrapers
+   - Example: `turphs.ai@gmail.com`
+
 ## How to Add Secrets
 
 1. Go to your GitHub repository
@@ -108,6 +114,7 @@ Consider adding:
 - Metrics on scraper success rates
 - Automated alerts if data becomes stale
 - Backup of scraped data to cloud storage
+
 
 
 

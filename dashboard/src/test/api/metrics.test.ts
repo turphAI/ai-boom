@@ -9,6 +9,24 @@ vi.mock('next-auth', () => ({
   getServerSession: vi.fn(),
 }));
 
+// Mock database connection to prevent PlanetScale configuration errors
+vi.mock('@/lib/db/connection', () => {
+  const createChainableMock = () => {
+    const mock: Record<string, ReturnType<typeof vi.fn>> = {};
+    const chainMethods = ['select', 'from', 'where', 'limit', 'insert', 'values', 'update', 'set', 'delete'];
+    
+    chainMethods.forEach(method => {
+      mock[method] = vi.fn().mockReturnValue(mock);
+    });
+    
+    return mock;
+  };
+
+  return {
+    db: createChainableMock(),
+  };
+});
+
 // Mock state store client
 vi.mock('@/lib/data/state-store-client', () => ({
   stateStoreClient: {
@@ -26,7 +44,7 @@ describe('/api/metrics/current', () => {
     // Mock authentication
     vi.mocked(getServerSession).mockResolvedValue({
       user: { id: 'user-1', email: 'test@example.com' },
-    } as any);
+    } as never);
 
     // Mock state store response
     const mockMetrics = [
@@ -72,7 +90,7 @@ describe('/api/metrics/current', () => {
   it('should filter metrics by dataSource', async () => {
     vi.mocked(getServerSession).mockResolvedValue({
       user: { id: 'user-1', email: 'test@example.com' },
-    } as any);
+    } as never);
 
     const mockMetrics = [
       {
@@ -118,7 +136,7 @@ describe('/api/metrics/historical', () => {
   it('should return historical data with aggregation', async () => {
     vi.mocked(getServerSession).mockResolvedValue({
       user: { id: 'user-1', email: 'test@example.com' },
-    } as any);
+    } as never);
 
     const mockHistoricalData = [
       {
@@ -161,7 +179,7 @@ describe('/api/metrics/historical', () => {
   it('should validate days parameter', async () => {
     vi.mocked(getServerSession).mockResolvedValue({
       user: { id: 'user-1', email: 'test@example.com' },
-    } as any);
+    } as never);
 
     const { req, res } = createMocks({
       method: 'GET',

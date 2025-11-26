@@ -8,20 +8,23 @@ vi.mock('next-auth', () => ({
   getServerSession: vi.fn(),
 }));
 
-// Mock database
-vi.mock('@/lib/db/connection', () => ({
-  db: {
-    select: vi.fn().mockReturnThis(),
-    from: vi.fn().mockReturnThis(),
-    where: vi.fn().mockReturnThis(),
-    limit: vi.fn(),
-    insert: vi.fn().mockReturnThis(),
-    values: vi.fn(),
-    update: vi.fn().mockReturnThis(),
-    set: vi.fn().mockReturnThis(),
-    delete: vi.fn().mockReturnThis(),
-  },
-}));
+// Mock database - use factory function to avoid hoisting issues
+vi.mock('@/lib/db/connection', () => {
+  const createChainableMock = () => {
+    const mock: Record<string, ReturnType<typeof vi.fn>> = {};
+    const chainMethods = ['select', 'from', 'where', 'limit', 'insert', 'values', 'update', 'set', 'delete'];
+    
+    chainMethods.forEach(method => {
+      mock[method] = vi.fn().mockReturnValue(mock);
+    });
+    
+    return mock;
+  };
+
+  return {
+    db: createChainableMock(),
+  };
+});
 
 describe('/api/alerts/config', () => {
   beforeEach(() => {
@@ -31,18 +34,24 @@ describe('/api/alerts/config', () => {
   it('should create new alert configuration', async () => {
     vi.mocked(getServerSession).mockResolvedValue({
       user: { id: 'user-1', email: 'test@example.com' },
-    } as any);
+    } as never);
 
     const { db } = await import('@/lib/db/connection');
+    const mockDb = db as unknown as Record<string, ReturnType<typeof vi.fn>>;
     
+    // Reset chainable behavior
+    Object.keys(mockDb).forEach(key => {
+      mockDb[key].mockReturnValue(mockDb);
+    });
+
     // Mock no existing config
-    vi.mocked(db.limit).mockResolvedValueOnce([]);
+    mockDb.limit.mockResolvedValueOnce([]);
     
     // Mock successful insert
-    vi.mocked(db.values).mockResolvedValueOnce(undefined);
+    mockDb.values.mockResolvedValueOnce(undefined);
     
     // Mock return of new config
-    vi.mocked(db.limit).mockResolvedValueOnce([{
+    mockDb.limit.mockResolvedValueOnce([{
       id: 'config-1',
       userId: 'user-1',
       dataSource: 'bond_issuance',
@@ -91,7 +100,7 @@ describe('/api/alerts/config', () => {
   it('should validate alert configuration data', async () => {
     vi.mocked(getServerSession).mockResolvedValue({
       user: { id: 'user-1', email: 'test@example.com' },
-    } as any);
+    } as never);
 
     const { req, res } = createMocks({
       method: 'POST',
@@ -109,7 +118,7 @@ describe('/api/alerts/config', () => {
   it('should get user alert configurations', async () => {
     vi.mocked(getServerSession).mockResolvedValue({
       user: { id: 'user-1', email: 'test@example.com' },
-    } as any);
+    } as never);
 
     const mockConfigs = [
       {
@@ -126,7 +135,14 @@ describe('/api/alerts/config', () => {
     ];
 
     const { db } = await import('@/lib/db/connection');
-    vi.mocked(db.where).mockResolvedValue(mockConfigs);
+    const mockDb = db as unknown as Record<string, ReturnType<typeof vi.fn>>;
+    
+    // Reset chainable behavior
+    Object.keys(mockDb).forEach(key => {
+      mockDb[key].mockReturnValue(mockDb);
+    });
+
+    mockDb.where.mockResolvedValueOnce(mockConfigs);
 
     const { req, res } = createMocks({
       method: 'GET',

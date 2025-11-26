@@ -65,8 +65,8 @@ class TestInfrastructureDeployment:
     """Test infrastructure deployment."""
     
     @pytest.fixture(scope="class")
-    def verifier(self):
-        environment = "staging" if "--staging" in sys.argv else "production"
+    def verifier(self, request):
+        environment = "staging" if request.config.getoption("--staging") else "production"
         return DeploymentVerifier(environment)
     
     def test_lambda_functions_exist(self, verifier):
@@ -169,8 +169,8 @@ class TestFunctionality:
     """Test application functionality."""
     
     @pytest.fixture(scope="class")
-    def verifier(self):
-        environment = "staging" if "--staging" in sys.argv else "production"
+    def verifier(self, request):
+        environment = "staging" if request.config.getoption("--staging") else "production"
         return DeploymentVerifier(environment)
     
     def test_lambda_function_invocation(self, verifier):
@@ -293,8 +293,8 @@ class TestDashboard:
     """Test web dashboard functionality."""
     
     @pytest.fixture(scope="class")
-    def verifier(self):
-        environment = "staging" if "--staging" in sys.argv else "production"
+    def verifier(self, request):
+        environment = "staging" if request.config.getoption("--staging") else "production"
         return DeploymentVerifier(environment)
     
     def test_dashboard_accessibility(self, verifier):
@@ -346,8 +346,8 @@ class TestMonitoring:
     """Test monitoring and observability."""
     
     @pytest.fixture(scope="class")
-    def verifier(self):
-        environment = "staging" if "--staging" in sys.argv else "production"
+    def verifier(self, request):
+        environment = "staging" if request.config.getoption("--staging") else "production"
         return DeploymentVerifier(environment)
     
     def test_cloudwatch_metrics(self, verifier):
@@ -402,6 +402,21 @@ class TestMonitoring:
         except Exception as e:
             pytest.fail(f"CloudWatch alarms test failed: {e}")
 
+def pytest_addoption(parser):
+    """Add custom command line options."""
+    parser.addoption(
+        "--production",
+        action="store_true",
+        default=False,
+        help="Run tests in production environment"
+    )
+    parser.addoption(
+        "--staging",
+        action="store_true",
+        default=False,
+        help="Run tests in staging environment"
+    )
+
 def pytest_configure(config):
     """Configure pytest for deployment verification."""
     # Add custom markers
@@ -410,13 +425,13 @@ def pytest_configure(config):
 
 def pytest_collection_modifyitems(config, items):
     """Modify test collection based on environment."""
-    if "--staging" in sys.argv:
+    if config.getoption("--staging"):
         # Skip production-only tests
         skip_production = pytest.mark.skip(reason="Skipping production test in staging environment")
         for item in items:
             if "production" in item.keywords:
                 item.add_marker(skip_production)
-    elif "--production" in sys.argv:
+    elif config.getoption("--production"):
         # Skip staging-only tests
         skip_staging = pytest.mark.skip(reason="Skipping staging test in production environment")
         for item in items:

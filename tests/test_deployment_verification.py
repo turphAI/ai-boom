@@ -1,6 +1,10 @@
 """
 Deployment verification tests for Boom-Bust Sentinel
 These tests verify that the deployment is working correctly in different environments.
+
+NOTE: These tests require AWS credentials and actual deployed infrastructure.
+They will be skipped if AWS credentials are not available or if not explicitly
+running with --staging or --production flags.
 """
 
 import os
@@ -10,8 +14,27 @@ import time
 import pytest
 import requests
 import boto3
+from botocore.exceptions import NoCredentialsError, ClientError
 from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Any, Optional
+
+
+def _check_aws_credentials() -> bool:
+    """Check if AWS credentials are available."""
+    try:
+        sts = boto3.client('sts')
+        sts.get_caller_identity()
+        return True
+    except (NoCredentialsError, ClientError):
+        return False
+
+
+# Skip all tests in this module if AWS credentials are not available
+pytestmark = pytest.mark.skipif(
+    not _check_aws_credentials(),
+    reason="AWS credentials not available - skipping deployment verification tests"
+)
+
 
 class DeploymentVerifier:
     def __init__(self, environment: str = "staging"):

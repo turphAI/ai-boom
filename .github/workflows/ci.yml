@@ -224,9 +224,10 @@ jobs:
     #     vercel-args: '--prod --confirm'
     #     alias-domains: staging-dashboard.boom-bust-sentinel.com
         
-    - name: Run deployment verification tests
-      run: |
-        python -m pytest tests/test_deployment_verification.py --staging
+    # Deployment verification disabled - AWS/Vercel deployments not configured
+    # - name: Run deployment verification tests
+    #   run: |
+    #     python -m pytest tests/test_deployment_verification.py --staging
         
   # Deploy to Production
   deploy-production:
@@ -287,9 +288,10 @@ jobs:
     #     vercel-args: '--prod --confirm'
     #     alias-domains: dashboard.boom-bust-sentinel.com
         
-    - name: Run deployment verification tests
-      run: |
-        python -m pytest tests/test_deployment_verification.py --production
+    # Deployment verification disabled - AWS/Vercel deployments not configured
+    # - name: Run deployment verification tests
+    #   run: |
+    #     python -m pytest tests/test_deployment_verification.py --production
         
     # Slack notification disabled - SLACK_WEBHOOK_URL secret not configured
     # - name: Notify deployment success

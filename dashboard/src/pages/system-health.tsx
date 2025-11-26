@@ -28,9 +28,6 @@ export default function SystemHealthPage() {
   useEffect(() => {
     fetchSystemHealth()
     fetchSchedules()
-    // Set up auto-refresh every 30 seconds
-    const interval = setInterval(fetchSystemHealth, 30000)
-    return () => clearInterval(interval)
   }, [])
 
   const fetchSchedules = async () => {

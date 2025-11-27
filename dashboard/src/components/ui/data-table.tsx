@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input'
 
 export interface Column<T> {
   key: keyof T
-  header: string
+  header: string | React.ReactNode
   sortable?: boolean
   filterable?: boolean
   render?: (value: any, row: T) => React.ReactNode

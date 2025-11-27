@@ -19,7 +19,7 @@ import {
 
 export interface Column<T> {
   key: keyof T
-  header: string
+  header: string | React.ReactNode
   sortable?: boolean
   filterable?: boolean
   render?: (value: any, row: T) => React.ReactNode
@@ -155,7 +155,7 @@ export function DataTable<T extends Record<string, any>>({
             .map(column => (
               <div key={String(column.key)} className="relative">
                 <Input
-                  placeholder={`Filter ${column.header}`}
+                  placeholder={`Filter ${typeof column.header === 'string' ? column.header : String(column.key)}`}
                   value={filters[String(column.key)] || ''}
                   onChange={(e) => setFilters(prev => ({
                     ...prev,

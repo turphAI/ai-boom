@@ -10,7 +10,11 @@ import {
   Database, 
   DollarSign, 
   ExternalLink,
-  Plus
+  Plus,
+  RefreshCw,
+  Clock,
+  Info,
+  X
 } from 'lucide-react'
 
 interface Company {
@@ -26,6 +30,72 @@ interface Company {
   debtIssuance?: number
   datacenterCapacity?: string
   aiInvestment?: string
+}
+
+interface MarketCapData {
+  ticker: string
+  name: string
+  category: string
+  market_cap: number
+  market_cap_formatted: string
+  price?: number
+  currency: string
+  timestamp: string
+}
+
+interface AIInvestmentData {
+  ticker: string
+  name: string
+  category: string
+  rd: number | null
+  rd_formatted: string
+  capex_abs: number | null
+  capex_formatted: string
+  capex_multiplier: number
+  ai_investment_proxy: number | null
+  ai_investment_formatted: string
+  calculation: {
+    formula: string
+    rd_component: number
+    capex_component: number
+  }
+}
+
+interface Methodology {
+  description: string
+  formula: string
+  data_sources: string[]
+  multipliers: {
+    tech_companies: string
+    data_centers: string
+    financial: string
+  }
+  limitations: string[]
+}
+
+interface DebtData {
+  ticker: string
+  name: string
+  category: string
+  total_debt: number | null
+  total_debt_formatted: string
+  long_term_debt: number | null
+  long_term_debt_formatted: string
+  current_debt: number | null
+  current_debt_formatted: string
+  debt_to_equity: number | null
+  period: string | null
+}
+
+interface DebtMethodology {
+  description: string
+  metrics: {
+    total_debt: string
+    long_term_debt: string
+    current_debt: string
+  }
+  data_sources: string[]
+  notes: string[]
 }
 
 const initialCompanies: Company[] = [
@@ -652,6 +722,84 @@ const initialCompanies: Company[] = [
 export default function PlayersPage() {
   const [companies, setCompanies] = useState<Company[]>(initialCompanies)
   const [showAddForm, setShowAddForm] = useState(false)
+  const [marketCapData, setMarketCapData] = useState<Record<string, MarketCapData>>({})
+  const [aiInvestmentData, setAIInvestmentData] = useState<Record<string, AIInvestmentData>>({})
+  const [debtData, setDebtData] = useState<Record<string, DebtData>>({})
+  const [methodology, setMethodology] = useState<Methodology | null>(null)
+  const [debtMethodology, setDebtMethodology] = useState<DebtMethodology | null>(null)
+  const [showMethodologyDialog, setShowMethodologyDialog] = useState(false)
+  const [showDebtMethodologyDialog, setShowDebtMethodologyDialog] = useState(false)
+  const [selectedTickerForMethodology, setSelectedTickerForMethodology] = useState<string | null>(null)
+  const [selectedTickerForDebtMethodology, setSelectedTickerForDebtMethodology] = useState<string | null>(null)
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null)
+  const [isLoadingMarketCaps, setIsLoadingMarketCaps] = useState(false)
+  const [isLoadingAIInvestment, setIsLoadingAIInvestment] = useState(false)
+  const [isLoadingDebt, setIsLoadingDebt] = useState(false)
+  const [totalMarketCap, setTotalMarketCap] = useState<string>('$8.5T+')
+
+  // Fetch live market cap data
+  const fetchMarketCaps = async () => {
+    setIsLoadingMarketCaps(true)
+    try {
+      const response = await fetch('/api/market-caps')
+      const data = await response.json()
+      
+      if (data.success && data.data?.individual_tickers) {
+        setMarketCapData(data.data.individual_tickers)
+        setLastUpdated(data.data.timestamp)
+        
+        // Calculate total market cap from live data
+        if (data.data.total_market_cap_formatted && data.data.total_market_cap_formatted !== '-') {
+          setTotalMarketCap(data.data.total_market_cap_formatted)
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching market cap data:', error)
+    } finally {
+      setIsLoadingMarketCaps(false)
+    }
+  }
+
+  // Fetch AI investment proxy data
+  const fetchAIInvestment = async () => {
+    setIsLoadingAIInvestment(true)
+    try {
+      const response = await fetch('/api/ai-investment')
+      const data = await response.json()
+      
+      if (data.success && data.data?.individual_tickers) {
+        setAIInvestmentData(data.data.individual_tickers)
+        setMethodology(data.data.methodology)
+      }
+    } catch (error) {
+      console.error('Error fetching AI investment data:', error)
+    } finally {
+      setIsLoadingAIInvestment(false)
+    }
+  }
+
+  // Fetch debt data
+  const fetchDebt = async () => {
+    setIsLoadingDebt(true)
+    try {
+      const response = await fetch('/api/debt')
+      const data = await response.json()
+      
+      if (data.success && data.data?.individual_tickers) {
+        setDebtData(data.data.individual_tickers)
+        setDebtMethodology(data.data.methodology)
+      }
+    } catch (error) {
+      console.error('Error fetching debt data:', error)
+    } finally {
+      setIsLoadingDebt(false)
+    }
+  }
+
+  // Fetch all live data
+  const fetchAllData = async () => {
+    await Promise.all([fetchMarketCaps(), fetchAIInvestment(), fetchDebt()])
+  }
 
   // Load companies from localStorage on component mount
   useEffect(() => {
@@ -675,7 +823,42 @@ export default function PlayersPage() {
       setCompanies(initialCompanies)
       localStorage.setItem('ai-datacenter-companies', JSON.stringify(initialCompanies))
     }
+
+    // Fetch live market cap and AI investment data on mount
+    fetchAllData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // Helper to get live market cap for a ticker
+  const getLiveMarketCap = (ticker?: string): string | undefined => {
+    if (!ticker || ticker === 'Private') return undefined
+    const data = marketCapData[ticker]
+    return data?.market_cap_formatted
+  }
+
+  // Helper to get live AI investment for a ticker
+  const getLiveAIInvestment = (ticker?: string): AIInvestmentData | undefined => {
+    if (!ticker || ticker === 'Private') return undefined
+    return aiInvestmentData[ticker]
+  }
+
+  // Open methodology dialog for a specific ticker
+  const openMethodologyDialog = (ticker?: string) => {
+    setSelectedTickerForMethodology(ticker || null)
+    setShowMethodologyDialog(true)
+  }
+
+  // Helper to get live debt for a ticker
+  const getLiveDebt = (ticker?: string): DebtData | undefined => {
+    if (!ticker || ticker === 'Private') return undefined
+    return debtData[ticker]
+  }
+
+  // Open debt methodology dialog for a specific ticker
+  const openDebtMethodologyDialog = (ticker?: string) => {
+    setSelectedTickerForDebtMethodology(ticker || null)
+    setShowDebtMethodologyDialog(true)
+  }
 
   const handleAddCompany = (newCompany: Company) => {
     const updatedCompanies = [...companies, newCompany]
@@ -754,22 +937,95 @@ export default function PlayersPage() {
       key: 'marketCap',
       header: 'Market Cap',
       sortable: true,
-      width: '120px',
-      render: (value) => value || '-'
+      width: '140px',
+      render: (value, row) => {
+        const liveValue = getLiveMarketCap(row.ticker)
+        if (liveValue) {
+          return (
+            <div className="flex items-center">
+              <span className="text-green-600 font-medium">{liveValue}</span>
+              <span className="ml-1 text-xs text-green-500" title="Live data">●</span>
+            </div>
+          )
+        }
+        return <span className="text-gray-500">{value || '-'}</span>
+      }
     },
     {
       key: 'debtIssuance',
-      header: 'Debt Issuance',
+      header: (
+        <div className="flex items-center">
+          <span>Total Debt</span>
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              openDebtMethodologyDialog()
+            }}
+            className="ml-1 p-0.5 rounded hover:bg-gray-200 transition-colors"
+            title="Learn about this data"
+          >
+            <Info className="h-3.5 w-3.5 text-blue-500" />
+          </button>
+        </div>
+      ),
       sortable: true,
-      width: '140px',
-      render: (value) => formatCurrency(value)
+      width: '160px',
+      render: (value, row) => {
+        const liveData = getLiveDebt(row.ticker)
+        if (liveData && liveData.total_debt_formatted) {
+          return (
+            <div className="flex items-center">
+              <button
+                onClick={() => openDebtMethodologyDialog(row.ticker)}
+                className="text-left hover:underline"
+                title={`LT: ${liveData.long_term_debt_formatted}, Current: ${liveData.current_debt_formatted}`}
+              >
+                <span className="text-orange-600 font-medium">{liveData.total_debt_formatted}</span>
+              </button>
+              <span className="ml-1 text-xs text-orange-500" title="Live data from Yahoo Finance">●</span>
+            </div>
+          )
+        }
+        return <span className="text-gray-500">{formatCurrency(value)}</span>
+      }
     },
     {
       key: 'aiInvestment',
-      header: 'AI Investment',
+      header: (
+        <div className="flex items-center">
+          <span>AI Investment</span>
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              openMethodologyDialog()
+            }}
+            className="ml-1 p-0.5 rounded hover:bg-gray-200 transition-colors"
+            title="Learn about this proxy calculation"
+          >
+            <Info className="h-3.5 w-3.5 text-blue-500" />
+          </button>
+        </div>
+      ),
       sortable: true,
-      width: '140px',
-      render: (value) => value || '-'
+      width: '160px',
+      render: (value, row) => {
+        const liveData = getLiveAIInvestment(row.ticker)
+        if (liveData && liveData.ai_investment_formatted) {
+          return (
+            <div className="flex items-center">
+              <button
+                onClick={() => openMethodologyDialog(row.ticker)}
+                className="text-left hover:underline"
+                title={`R&D: ${liveData.rd_formatted} + CapEx: ${liveData.capex_formatted} × ${(liveData.capex_multiplier * 100).toFixed(0)}%`}
+              >
+                <span className="text-purple-600 font-medium">{liveData.ai_investment_formatted}</span>
+              </button>
+              <span className="ml-1 text-xs text-purple-500" title="Proxy data from Yahoo Finance">●</span>
+            </div>
+          )
+        }
+        return <span className="text-gray-500">{value || '-'}</span>
+      }
     },
     {
       key: 'datacenterCapacity',
@@ -811,8 +1067,22 @@ export default function PlayersPage() {
           <div>
             <h1 className="text-3xl font-bold text-gray-900">AI Datacenter Market Players</h1>
             <p className="text-gray-600 mt-1">Track key companies driving the AI infrastructure investment cycle</p>
+            {lastUpdated && (
+              <div className="flex items-center mt-2 text-xs text-gray-500">
+                <Clock className="h-3 w-3 mr-1" />
+                Market caps updated: {new Date(lastUpdated).toLocaleString()}
+              </div>
+            )}
           </div>
           <div className="flex items-center space-x-2">
+            <Button 
+              variant="outline" 
+              onClick={fetchAllData}
+              disabled={isLoadingMarketCaps || isLoadingAIInvestment || isLoadingDebt}
+            >
+              <RefreshCw className={`h-4 w-4 mr-2 ${(isLoadingMarketCaps || isLoadingAIInvestment || isLoadingDebt) ? 'animate-spin' : ''}`} />
+              Refresh Data
+            </Button>
             <Button 
               variant="outline" 
               onClick={() => {
@@ -892,9 +1162,14 @@ export default function PlayersPage() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-3">Total Market Cap</h3>
                 <div className="text-3xl font-bold text-green-600">
-                  $8.5T+
+                  {totalMarketCap}
                 </div>
-                <p className="text-sm text-gray-600 mt-1">Combined market cap of public companies</p>
+                <p className="text-sm text-gray-600 mt-1">
+                  Combined market cap of public companies
+                  {Object.keys(marketCapData).length > 0 && (
+                    <span className="text-green-500 ml-1">(Live)</span>
+                  )}
+                </p>
               </div>
             </div>
           </CardContent>
@@ -907,7 +1182,245 @@ export default function PlayersPage() {
             onClose={() => setShowAddForm(false)}
           />
         )}
+
+        {/* AI Investment Methodology Dialog */}
+        {showMethodologyDialog && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-gray-900">
+                    AI Investment Proxy Methodology
+                  </h2>
+                  <button
+                    onClick={() => setShowMethodologyDialog(false)}
+                    className="p-1 rounded hover:bg-gray-100"
+                  >
+                    <X className="h-5 w-5 text-gray-500" />
+                  </button>
+                </div>
+
+                {/* Selected ticker details */}
+                {selectedTickerForMethodology && aiInvestmentData[selectedTickerForMethodology] && (
+                  <div className="mb-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
+                    <h3 className="font-semibold text-purple-800 mb-2">
+                      {aiInvestmentData[selectedTickerForMethodology].name} ({selectedTickerForMethodology})
+                    </h3>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">R&D Spending:</span>
+                        <span className="font-medium">{aiInvestmentData[selectedTickerForMethodology].rd_formatted}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Capital Expenditure:</span>
+                        <span className="font-medium">{aiInvestmentData[selectedTickerForMethodology].capex_formatted}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">CapEx Multiplier:</span>
+                        <span className="font-medium">{(aiInvestmentData[selectedTickerForMethodology].capex_multiplier * 100).toFixed(0)}%</span>
+                      </div>
+                      <hr className="my-2 border-purple-200" />
+                      <div className="flex justify-between text-purple-700">
+                        <span className="font-medium">AI Investment Proxy:</span>
+                        <span className="font-bold">{aiInvestmentData[selectedTickerForMethodology].ai_investment_formatted}</span>
+                      </div>
+                      <div className="mt-2 text-xs text-gray-500 bg-white p-2 rounded font-mono">
+                        {aiInvestmentData[selectedTickerForMethodology].calculation?.formula}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Methodology explanation */}
+                {methodology && (
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Why is this a proxy?</h3>
+                      <p className="text-sm text-gray-600">
+                        Companies don&apos;t separately report &quot;AI investment&quot; in their financial statements. 
+                        We use R&D spending and Capital Expenditure as reasonable proxies for technology 
+                        infrastructure spending, with category-specific multipliers.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Formula</h3>
+                      <div className="bg-gray-100 p-3 rounded font-mono text-sm">
+                        {methodology.formula}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Data Sources</h3>
+                      <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                        {methodology.data_sources.map((source, idx) => (
+                          <li key={idx}>{source}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Category Multipliers</h3>
+                      <div className="grid grid-cols-3 gap-2 text-sm">
+                        <div className="bg-blue-50 p-2 rounded">
+                          <div className="font-medium text-blue-700">Tech Companies</div>
+                          <div className="text-blue-600">{methodology.multipliers.tech_companies}</div>
+                        </div>
+                        <div className="bg-green-50 p-2 rounded">
+                          <div className="font-medium text-green-700">Data Centers</div>
+                          <div className="text-green-600">{methodology.multipliers.data_centers}</div>
+                        </div>
+                        <div className="bg-purple-50 p-2 rounded">
+                          <div className="font-medium text-purple-700">Financial</div>
+                          <div className="text-purple-600">{methodology.multipliers.financial}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Limitations</h3>
+                      <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                        {methodology.limitations.map((limitation, idx) => (
+                          <li key={idx}>{limitation}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-4 border-t">
+                      <p className="text-xs text-gray-500">
+                        Data refreshed daily from Yahoo Finance. Last update: {lastUpdated ? new Date(lastUpdated).toLocaleString() : 'N/A'}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                <div className="mt-6 flex justify-end">
+                  <Button onClick={() => setShowMethodologyDialog(false)}>
+                    Close
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Debt Methodology Dialog */}
+        {showDebtMethodologyDialog && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-gray-900">
+                    Total Debt Data
+                  </h2>
+                  <button
+                    onClick={() => setShowDebtMethodologyDialog(false)}
+                    className="p-1 rounded hover:bg-gray-100"
+                  >
+                    <X className="h-5 w-5 text-gray-500" />
+                  </button>
+                </div>
+
+                {/* Selected ticker details */}
+                {selectedTickerForDebtMethodology && debtData[selectedTickerForDebtMethodology] && (
+                  <div className="mb-6 p-4 bg-orange-50 rounded-lg border border-orange-200">
+                    <h3 className="font-semibold text-orange-800 mb-2">
+                      {debtData[selectedTickerForDebtMethodology].name} ({selectedTickerForDebtMethodology})
+                    </h3>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Total Debt:</span>
+                        <span className="font-bold text-orange-700">{debtData[selectedTickerForDebtMethodology].total_debt_formatted}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Long-term Debt:</span>
+                        <span className="font-medium">{debtData[selectedTickerForDebtMethodology].long_term_debt_formatted}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Current Debt:</span>
+                        <span className="font-medium">{debtData[selectedTickerForDebtMethodology].current_debt_formatted}</span>
+                      </div>
+                      {debtData[selectedTickerForDebtMethodology].debt_to_equity && (
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Debt-to-Equity Ratio:</span>
+                          <span className="font-medium">{debtData[selectedTickerForDebtMethodology].debt_to_equity}x</span>
+                        </div>
+                      )}
+                      {debtData[selectedTickerForDebtMethodology].period && (
+                        <div className="mt-2 text-xs text-gray-500">
+                          As of: {debtData[selectedTickerForDebtMethodology].period}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Methodology explanation */}
+                {debtMethodology && (
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">What is this data?</h3>
+                      <p className="text-sm text-gray-600">
+                        {debtMethodology.description}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Debt Components</h3>
+                      <div className="space-y-2">
+                        <div className="bg-gray-50 p-3 rounded">
+                          <div className="font-medium text-gray-700">Total Debt</div>
+                          <div className="text-sm text-gray-600">{debtMethodology.metrics.total_debt}</div>
+                        </div>
+                        <div className="bg-gray-50 p-3 rounded">
+                          <div className="font-medium text-gray-700">Long-term Debt</div>
+                          <div className="text-sm text-gray-600">{debtMethodology.metrics.long_term_debt}</div>
+                        </div>
+                        <div className="bg-gray-50 p-3 rounded">
+                          <div className="font-medium text-gray-700">Current Debt</div>
+                          <div className="text-sm text-gray-600">{debtMethodology.metrics.current_debt}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Data Sources</h3>
+                      <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                        {debtMethodology.data_sources.map((source, idx) => (
+                          <li key={idx}>{source}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Important Notes</h3>
+                      <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                        {debtMethodology.notes.map((note, idx) => (
+                          <li key={idx}>{note}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-4 border-t">
+                      <p className="text-xs text-gray-500">
+                        Data refreshed daily from Yahoo Finance. Last update: {lastUpdated ? new Date(lastUpdated).toLocaleString() : 'N/A'}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                <div className="mt-6 flex justify-end">
+                  <Button onClick={() => setShowDebtMethodologyDialog(false)}>
+                    Close
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </DashboardLayout>
   )
 }
+
+

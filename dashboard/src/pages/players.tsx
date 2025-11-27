@@ -826,6 +826,7 @@ export default function PlayersPage() {
 
     // Fetch live market cap and AI investment data on mount
     fetchAllData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Helper to get live market cap for a ticker
@@ -1236,7 +1237,7 @@ export default function PlayersPage() {
                     <div>
                       <h3 className="font-semibold text-gray-800 mb-2">Why is this a proxy?</h3>
                       <p className="text-sm text-gray-600">
-                        Companies don't separately report "AI investment" in their financial statements. 
+                        Companies don&apos;t separately report &quot;AI investment&quot; in their financial statements. 
                         We use R&D spending and Capital Expenditure as reasonable proxies for technology 
                         infrastructure spending, with category-specific multipliers.
                       </p>

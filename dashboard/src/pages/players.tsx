@@ -901,6 +901,7 @@ export default function PlayersPage() {
       header: 'Company',
       sortable: true,
       filterable: true,
+      sticky: true,
       width: '200px',
       render: (value, row) => (
         <div className="flex items-center space-x-3">

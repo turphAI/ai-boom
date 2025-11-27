@@ -15,6 +15,7 @@ export interface Column<T> {
   filterable?: boolean
   render?: (value: any, row: T) => React.ReactNode
   width?: string
+  sticky?: boolean  // Makes the column fixed during horizontal scroll
 }
 
 interface DataTableProps<T> {
@@ -138,7 +139,7 @@ export function DataTable<T extends Record<string, any>>({
                     key={String(column.key)}
                     className={`px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ${
                       column.sortable ? 'cursor-pointer hover:bg-gray-100' : ''
-                    }`}
+                    } ${column.sticky ? 'sticky left-0 z-20 bg-gray-50 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]' : ''}`}
                     style={{ width: column.width }}
                     onClick={() => column.sortable && handleSort(column.key)}
                   >
@@ -152,11 +153,13 @@ export function DataTable<T extends Record<string, any>>({
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {filteredData.map((row, index) => (
-                <tr key={index} className="hover:bg-gray-50">
+                <tr key={index} className="hover:bg-gray-50 group">
                   {columns.map((column) => (
                     <td
                       key={String(column.key)}
-                      className="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                      className={`px-6 py-4 whitespace-nowrap text-sm text-gray-900 ${
+                        column.sticky ? 'sticky left-0 z-10 bg-white group-hover:bg-gray-50 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]' : ''
+                      }`}
                     >
                       {renderCell(column, row)}
                     </td>

@@ -32,6 +32,7 @@ from scrapers.bond_issuance_scraper import BondIssuanceScraper
 from scrapers.bdc_discount_scraper import BDCDiscountScraper
 from scrapers.credit_fund_scraper import CreditFundScraper
 from scrapers.bank_provision_scraper import BankProvisionScraper
+from scrapers.market_cap_scraper import MarketCapScraper
 
 # Configure logging
 logging.basicConfig(
@@ -54,7 +55,8 @@ class SafeScraperRunner:
             'bond_issuance': BondIssuanceScraper(),
             'bdc_discount': BDCDiscountScraper(),
             'credit_fund': CreditFundScraper(),
-            'bank_provision': BankProvisionScraper()
+            'bank_provision': BankProvisionScraper(),
+            'market_cap': MarketCapScraper()
         }
         
         # Ensure directories exist

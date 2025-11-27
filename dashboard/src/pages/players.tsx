@@ -10,7 +10,9 @@ import {
   Database, 
   DollarSign, 
   ExternalLink,
-  Plus
+  Plus,
+  RefreshCw,
+  Clock
 } from 'lucide-react'
 
 interface Company {
@@ -26,6 +28,17 @@ interface Company {
   debtIssuance?: number
   datacenterCapacity?: string
   aiInvestment?: string
+}
+
+interface MarketCapData {
+  ticker: string
+  name: string
+  category: string
+  market_cap: number
+  market_cap_formatted: string
+  price?: number
+  currency: string
+  timestamp: string
 }
 
 const initialCompanies: Company[] = [
@@ -652,6 +665,33 @@ const initialCompanies: Company[] = [
 export default function PlayersPage() {
   const [companies, setCompanies] = useState<Company[]>(initialCompanies)
   const [showAddForm, setShowAddForm] = useState(false)
+  const [marketCapData, setMarketCapData] = useState<Record<string, MarketCapData>>({})
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null)
+  const [isLoadingMarketCaps, setIsLoadingMarketCaps] = useState(false)
+  const [totalMarketCap, setTotalMarketCap] = useState<string>('$8.5T+')
+
+  // Fetch live market cap data
+  const fetchMarketCaps = async () => {
+    setIsLoadingMarketCaps(true)
+    try {
+      const response = await fetch('/api/market-caps')
+      const data = await response.json()
+      
+      if (data.success && data.data?.individual_tickers) {
+        setMarketCapData(data.data.individual_tickers)
+        setLastUpdated(data.data.timestamp)
+        
+        // Calculate total market cap from live data
+        if (data.data.total_market_cap_formatted && data.data.total_market_cap_formatted !== '-') {
+          setTotalMarketCap(data.data.total_market_cap_formatted)
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching market cap data:', error)
+    } finally {
+      setIsLoadingMarketCaps(false)
+    }
+  }
 
   // Load companies from localStorage on component mount
   useEffect(() => {
@@ -675,7 +715,17 @@ export default function PlayersPage() {
       setCompanies(initialCompanies)
       localStorage.setItem('ai-datacenter-companies', JSON.stringify(initialCompanies))
     }
+
+    // Fetch live market cap data on mount
+    fetchMarketCaps()
   }, [])
+
+  // Helper to get live market cap for a ticker
+  const getLiveMarketCap = (ticker?: string): string | undefined => {
+    if (!ticker || ticker === 'Private') return undefined
+    const data = marketCapData[ticker]
+    return data?.market_cap_formatted
+  }
 
   const handleAddCompany = (newCompany: Company) => {
     const updatedCompanies = [...companies, newCompany]
@@ -754,8 +804,19 @@ export default function PlayersPage() {
       key: 'marketCap',
       header: 'Market Cap',
       sortable: true,
-      width: '120px',
-      render: (value) => value || '-'
+      width: '140px',
+      render: (value, row) => {
+        const liveValue = getLiveMarketCap(row.ticker)
+        if (liveValue) {
+          return (
+            <div className="flex items-center">
+              <span className="text-green-600 font-medium">{liveValue}</span>
+              <span className="ml-1 text-xs text-green-500" title="Live data">●</span>
+            </div>
+          )
+        }
+        return <span className="text-gray-500">{value || '-'}</span>
+      }
     },
     {
       key: 'debtIssuance',
@@ -811,8 +872,22 @@ export default function PlayersPage() {
           <div>
             <h1 className="text-3xl font-bold text-gray-900">AI Datacenter Market Players</h1>
             <p className="text-gray-600 mt-1">Track key companies driving the AI infrastructure investment cycle</p>
+            {lastUpdated && (
+              <div className="flex items-center mt-2 text-xs text-gray-500">
+                <Clock className="h-3 w-3 mr-1" />
+                Market caps updated: {new Date(lastUpdated).toLocaleString()}
+              </div>
+            )}
           </div>
           <div className="flex items-center space-x-2">
+            <Button 
+              variant="outline" 
+              onClick={fetchMarketCaps}
+              disabled={isLoadingMarketCaps}
+            >
+              <RefreshCw className={`h-4 w-4 mr-2 ${isLoadingMarketCaps ? 'animate-spin' : ''}`} />
+              Refresh Market Caps
+            </Button>
             <Button 
               variant="outline" 
               onClick={() => {
@@ -892,9 +967,14 @@ export default function PlayersPage() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-3">Total Market Cap</h3>
                 <div className="text-3xl font-bold text-green-600">
-                  $8.5T+
+                  {totalMarketCap}
                 </div>
-                <p className="text-sm text-gray-600 mt-1">Combined market cap of public companies</p>
+                <p className="text-sm text-gray-600 mt-1">
+                  Combined market cap of public companies
+                  {Object.keys(marketCapData).length > 0 && (
+                    <span className="text-green-500 ml-1">(Live)</span>
+                  )}
+                </p>
               </div>
             </div>
           </CardContent>

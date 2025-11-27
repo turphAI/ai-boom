@@ -7,6 +7,7 @@ from scrapers.credit_fund_scraper import CreditFundScraper
 from scrapers.bank_provision_scraper import BankProvisionScraper
 from scrapers.market_cap_scraper import MarketCapScraper
 from scrapers.ai_investment_scraper import AIInvestmentScraper
+from scrapers.debt_scraper import DebtScraper
 
 __all__ = [
     'BaseScraper',
@@ -16,4 +17,5 @@ __all__ = [
     'BankProvisionScraper',
     'MarketCapScraper',
     'AIInvestmentScraper',
+    'DebtScraper',
 ]

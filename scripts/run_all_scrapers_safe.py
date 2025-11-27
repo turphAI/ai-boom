@@ -34,6 +34,7 @@ from scrapers.credit_fund_scraper import CreditFundScraper
 from scrapers.bank_provision_scraper import BankProvisionScraper
 from scrapers.market_cap_scraper import MarketCapScraper
 from scrapers.ai_investment_scraper import AIInvestmentScraper
+from scrapers.debt_scraper import DebtScraper
 
 # Configure logging
 logging.basicConfig(
@@ -58,7 +59,8 @@ class SafeScraperRunner:
             'credit_fund': CreditFundScraper(),
             'bank_provision': BankProvisionScraper(),
             'market_cap': MarketCapScraper(),
-            'ai_investment': AIInvestmentScraper()
+            'ai_investment': AIInvestmentScraper(),
+            'debt': DebtScraper()
         }
         
         # Ensure directories exist

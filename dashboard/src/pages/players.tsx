@@ -73,6 +73,31 @@ interface Methodology {
   limitations: string[]
 }
 
+interface DebtData {
+  ticker: string
+  name: string
+  category: string
+  total_debt: number | null
+  total_debt_formatted: string
+  long_term_debt: number | null
+  long_term_debt_formatted: string
+  current_debt: number | null
+  current_debt_formatted: string
+  debt_to_equity: number | null
+  period: string | null
+}
+
+interface DebtMethodology {
+  description: string
+  metrics: {
+    total_debt: string
+    long_term_debt: string
+    current_debt: string
+  }
+  data_sources: string[]
+  notes: string[]
+}
+
 const initialCompanies: Company[] = [
   // Demand Side - Tech Giants
   {
@@ -699,12 +724,17 @@ export default function PlayersPage() {
   const [showAddForm, setShowAddForm] = useState(false)
   const [marketCapData, setMarketCapData] = useState<Record<string, MarketCapData>>({})
   const [aiInvestmentData, setAIInvestmentData] = useState<Record<string, AIInvestmentData>>({})
+  const [debtData, setDebtData] = useState<Record<string, DebtData>>({})
   const [methodology, setMethodology] = useState<Methodology | null>(null)
+  const [debtMethodology, setDebtMethodology] = useState<DebtMethodology | null>(null)
   const [showMethodologyDialog, setShowMethodologyDialog] = useState(false)
+  const [showDebtMethodologyDialog, setShowDebtMethodologyDialog] = useState(false)
   const [selectedTickerForMethodology, setSelectedTickerForMethodology] = useState<string | null>(null)
+  const [selectedTickerForDebtMethodology, setSelectedTickerForDebtMethodology] = useState<string | null>(null)
   const [lastUpdated, setLastUpdated] = useState<string | null>(null)
   const [isLoadingMarketCaps, setIsLoadingMarketCaps] = useState(false)
   const [isLoadingAIInvestment, setIsLoadingAIInvestment] = useState(false)
+  const [isLoadingDebt, setIsLoadingDebt] = useState(false)
   const [totalMarketCap, setTotalMarketCap] = useState<string>('$8.5T+')
 
   // Fetch live market cap data
@@ -748,9 +778,27 @@ export default function PlayersPage() {
     }
   }
 
+  // Fetch debt data
+  const fetchDebt = async () => {
+    setIsLoadingDebt(true)
+    try {
+      const response = await fetch('/api/debt')
+      const data = await response.json()
+      
+      if (data.success && data.data?.individual_tickers) {
+        setDebtData(data.data.individual_tickers)
+        setDebtMethodology(data.data.methodology)
+      }
+    } catch (error) {
+      console.error('Error fetching debt data:', error)
+    } finally {
+      setIsLoadingDebt(false)
+    }
+  }
+
   // Fetch all live data
   const fetchAllData = async () => {
-    await Promise.all([fetchMarketCaps(), fetchAIInvestment()])
+    await Promise.all([fetchMarketCaps(), fetchAIInvestment(), fetchDebt()])
   }
 
   // Load companies from localStorage on component mount
@@ -797,6 +845,18 @@ export default function PlayersPage() {
   const openMethodologyDialog = (ticker?: string) => {
     setSelectedTickerForMethodology(ticker || null)
     setShowMethodologyDialog(true)
+  }
+
+  // Helper to get live debt for a ticker
+  const getLiveDebt = (ticker?: string): DebtData | undefined => {
+    if (!ticker || ticker === 'Private') return undefined
+    return debtData[ticker]
+  }
+
+  // Open debt methodology dialog for a specific ticker
+  const openDebtMethodologyDialog = (ticker?: string) => {
+    setSelectedTickerForDebtMethodology(ticker || null)
+    setShowDebtMethodologyDialog(true)
   }
 
   const handleAddCompany = (newCompany: Company) => {
@@ -892,10 +952,41 @@ export default function PlayersPage() {
     },
     {
       key: 'debtIssuance',
-      header: 'Debt Issuance',
+      header: (
+        <div className="flex items-center">
+          <span>Total Debt</span>
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              openDebtMethodologyDialog()
+            }}
+            className="ml-1 p-0.5 rounded hover:bg-gray-200 transition-colors"
+            title="Learn about this data"
+          >
+            <Info className="h-3.5 w-3.5 text-blue-500" />
+          </button>
+        </div>
+      ),
       sortable: true,
-      width: '140px',
-      render: (value) => formatCurrency(value)
+      width: '160px',
+      render: (value, row) => {
+        const liveData = getLiveDebt(row.ticker)
+        if (liveData && liveData.total_debt_formatted) {
+          return (
+            <div className="flex items-center">
+              <button
+                onClick={() => openDebtMethodologyDialog(row.ticker)}
+                className="text-left hover:underline"
+                title={`LT: ${liveData.long_term_debt_formatted}, Current: ${liveData.current_debt_formatted}`}
+              >
+                <span className="text-orange-600 font-medium">{liveData.total_debt_formatted}</span>
+              </button>
+              <span className="ml-1 text-xs text-orange-500" title="Live data from Yahoo Finance">●</span>
+            </div>
+          )
+        }
+        return <span className="text-gray-500">{formatCurrency(value)}</span>
+      }
     },
     {
       key: 'aiInvestment',
@@ -986,9 +1077,9 @@ export default function PlayersPage() {
             <Button 
               variant="outline" 
               onClick={fetchAllData}
-              disabled={isLoadingMarketCaps || isLoadingAIInvestment}
+              disabled={isLoadingMarketCaps || isLoadingAIInvestment || isLoadingDebt}
             >
-              <RefreshCw className={`h-4 w-4 mr-2 ${(isLoadingMarketCaps || isLoadingAIInvestment) ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`h-4 w-4 mr-2 ${(isLoadingMarketCaps || isLoadingAIInvestment || isLoadingDebt) ? 'animate-spin' : ''}`} />
               Refresh Data
             </Button>
             <Button 
@@ -1204,6 +1295,121 @@ export default function PlayersPage() {
 
                 <div className="mt-6 flex justify-end">
                   <Button onClick={() => setShowMethodologyDialog(false)}>
+                    Close
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Debt Methodology Dialog */}
+        {showDebtMethodologyDialog && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-gray-900">
+                    Total Debt Data
+                  </h2>
+                  <button
+                    onClick={() => setShowDebtMethodologyDialog(false)}
+                    className="p-1 rounded hover:bg-gray-100"
+                  >
+                    <X className="h-5 w-5 text-gray-500" />
+                  </button>
+                </div>
+
+                {/* Selected ticker details */}
+                {selectedTickerForDebtMethodology && debtData[selectedTickerForDebtMethodology] && (
+                  <div className="mb-6 p-4 bg-orange-50 rounded-lg border border-orange-200">
+                    <h3 className="font-semibold text-orange-800 mb-2">
+                      {debtData[selectedTickerForDebtMethodology].name} ({selectedTickerForDebtMethodology})
+                    </h3>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Total Debt:</span>
+                        <span className="font-bold text-orange-700">{debtData[selectedTickerForDebtMethodology].total_debt_formatted}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Long-term Debt:</span>
+                        <span className="font-medium">{debtData[selectedTickerForDebtMethodology].long_term_debt_formatted}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Current Debt:</span>
+                        <span className="font-medium">{debtData[selectedTickerForDebtMethodology].current_debt_formatted}</span>
+                      </div>
+                      {debtData[selectedTickerForDebtMethodology].debt_to_equity && (
+                        <div className="flex justify-between">
+                          <span className="text-gray-600">Debt-to-Equity Ratio:</span>
+                          <span className="font-medium">{debtData[selectedTickerForDebtMethodology].debt_to_equity}x</span>
+                        </div>
+                      )}
+                      {debtData[selectedTickerForDebtMethodology].period && (
+                        <div className="mt-2 text-xs text-gray-500">
+                          As of: {debtData[selectedTickerForDebtMethodology].period}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Methodology explanation */}
+                {debtMethodology && (
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">What is this data?</h3>
+                      <p className="text-sm text-gray-600">
+                        {debtMethodology.description}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Debt Components</h3>
+                      <div className="space-y-2">
+                        <div className="bg-gray-50 p-3 rounded">
+                          <div className="font-medium text-gray-700">Total Debt</div>
+                          <div className="text-sm text-gray-600">{debtMethodology.metrics.total_debt}</div>
+                        </div>
+                        <div className="bg-gray-50 p-3 rounded">
+                          <div className="font-medium text-gray-700">Long-term Debt</div>
+                          <div className="text-sm text-gray-600">{debtMethodology.metrics.long_term_debt}</div>
+                        </div>
+                        <div className="bg-gray-50 p-3 rounded">
+                          <div className="font-medium text-gray-700">Current Debt</div>
+                          <div className="text-sm text-gray-600">{debtMethodology.metrics.current_debt}</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Data Sources</h3>
+                      <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                        {debtMethodology.data_sources.map((source, idx) => (
+                          <li key={idx}>{source}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Important Notes</h3>
+                      <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                        {debtMethodology.notes.map((note, idx) => (
+                          <li key={idx}>{note}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-4 border-t">
+                      <p className="text-xs text-gray-500">
+                        Data refreshed daily from Yahoo Finance. Last update: {lastUpdated ? new Date(lastUpdated).toLocaleString() : 'N/A'}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                <div className="mt-6 flex justify-end">
+                  <Button onClick={() => setShowDebtMethodologyDialog(false)}>
                     Close
                   </Button>
                 </div>

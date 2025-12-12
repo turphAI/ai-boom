@@ -18,8 +18,28 @@ Documentation for AI-powered agents:
 Setup and configuration guides:
 
 - **`environment/`** - Environment variable setup, API keys
-- **`deployment/`** - Deployment guides (AWS, GitHub Actions)
 - **`integration/`** - Integration guides
+- `QUICK_START.md` - Getting started guide
+- `SETUP_GUIDE.md` - Comprehensive setup guide
+- `SETUP_DATABASE_URL.md` - Database URL configuration
+- `GITHUB_SETUP_GUIDE.md` - GitHub Actions setup
+
+### 🚀 Deployment (`deployment/`)
+
+Deployment documentation:
+
+- `DEPLOYMENT.md` - General deployment overview
+- `DEPLOYMENT_SETUP.md` - Initial deployment setup
+- `PRODUCTION_SETUP.md` - Production environment configuration
+
+### 📊 Status (`status/`)
+
+Project status and planning:
+
+- `SYSTEM_STATUS_REPORT.md` - Current system health
+- `NEXT_STEPS.md` - Planned future work
+- `SCRAPER_AUTOMATION_FIX_PLAN.md` - Automation improvements
+- `TODO_CREDENTIALS.md` - Pending credential tasks
 
 ### 🕷️ Scrapers (`scrapers/`)
 
@@ -87,18 +107,19 @@ docs/
 │   ├── website_structure/
 │   ├── data_quality/
 │   └── general/
-├── setup/               # Setup guides
-│   ├── environment/
-│   ├── deployment/
-│   └── integration/
-├── scrapers/            # Scraper docs
-│   └── improvements/
-├── architecture/         # Architecture docs
+├── architecture/        # Architecture docs
+├── deployment/          # Deployment guides
+├── email/               # Email docs
 ├── guides/              # User guides
 │   ├── quick_start/
 │   └── troubleshooting/
-├── email/               # Email docs
-└── phases/              # Development phases
+├── phases/              # Development phases
+├── scrapers/            # Scraper docs
+│   └── improvements/
+├── setup/               # Setup guides
+│   ├── environment/
+│   └── integration/
+└── status/              # Status & planning docs
 ```
 
 ## 🔍 Finding Documentation

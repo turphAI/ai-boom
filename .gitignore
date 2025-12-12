@@ -13,7 +13,6 @@ eggs/
 # Python lib directories
 lib/
 !dashboard/src/lib/
-!src/lib/
 lib64/
 parts/
 sdist/
@@ -179,6 +178,8 @@ deployment_test_summary_*.txt
 health.json
 costs.json
 test-results.json
+deployment_readiness_report.json
+response.json
 
 # Monitoring and logs
 monitoring_logs/
@@ -197,3 +198,16 @@ build/
 drizzle/.next/
 node_modules/
 *.log
+
+# SEC Edgar filings (downloaded dynamically)
+sec-edgar-filings/
+
+# Data artifacts (scraped data and test files)
+data/*.backup
+data/backups/
+data/*test*.json
+data/database.sqlite
+local.db
+
+# Generated log files
+boom_bust_sentinel.log

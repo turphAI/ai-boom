@@ -1,0 +1,69 @@
+[
+  {
+    "data_source": "bdc_discount",
+    "metric_name": "default",
+    "timestamp": "2025-11-27T14:04:46.737097+00:00",
+    "data": {
+      "value": -0.004216083648735096,
+      "timestamp": "2025-11-27T14:04:46.737097+00:00",
+      "average_discount_percentage": -0.4216083648735096,
+      "bdc_count": 4,
+      "individual_bdcs": {
+        "ARCC": {
+          "stock_price": 20.510000228881836,
+          "nav_value": 20.003,
+          "discount_to_nav": -0.02534620951266489,
+          "discount_percentage": -2.534620951266489,
+          "name": "Ares Capital Corporation",
+          "nav_source": "yahoo_finance",
+          "timestamp": "2025-11-27T14:04:38.864273+00:00"
+        },
+        "OCSL": {
+          "stock_price": 13.729999542236328,
+          "nav_value": 16.641,
+          "discount_to_nav": 0.17492941877072715,
+          "discount_percentage": 17.492941877072717,
+          "name": "Oaktree Specialty Lending Corporation",
+          "nav_source": "yahoo_finance",
+          "timestamp": "2025-11-27T14:04:41.933783+00:00"
+        },
+        "MAIN": {
+          "stock_price": 57.689998626708984,
+          "nav_value": 32.775,
+          "discount_to_nav": -0.7601830244609912,
+          "discount_percentage": -76.01830244609911,
+          "name": "Main Street Capital Corporation",
+          "nav_source": "yahoo_finance",
+          "timestamp": "2025-11-27T14:04:43.748763+00:00"
+        },
+        "PSEC": {
+          "stock_price": 2.619999885559082,
+          "nav_value": 6.449,
+          "discount_to_nav": 0.5937354806079885,
+          "discount_percentage": 59.37354806079885,
+          "name": "Prospect Capital Corporation",
+          "nav_source": "yahoo_finance",
+          "timestamp": "2025-11-27T14:04:46.631872+00:00"
+        }
+      },
+      "metadata": {
+        "symbols_processed": [
+          "ARCC",
+          "OCSL",
+          "MAIN",
+          "PSEC"
+        ],
+        "data_quality": "high",
+        "nav_sources": {
+          "ARCC": "yahoo_finance",
+          "OCSL": "yahoo_finance",
+          "MAIN": "yahoo_finance",
+          "PSEC": "yahoo_finance"
+        }
+      },
+      "confidence": 1.0,
+      "validation_checksum": "65fa04fb781b5b98695dbc2be6dded370608b9c3cb78b9bdf92877385e543b3b",
+      "anomaly_score": 0.0
+    }
+  }
+]

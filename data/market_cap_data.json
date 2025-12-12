@@ -1,0 +1,936 @@
+[
+  {
+    "data_source": "market_cap",
+    "metric_name": "default",
+    "timestamp": "2025-11-27T14:05:32.010783+00:00",
+    "data": {
+      "value": 25064842849308.0,
+      "timestamp": "2025-11-27T14:05:32.010783+00:00",
+      "total_market_cap": 25064842849308.0,
+      "total_market_cap_formatted": "$25.06T",
+      "ticker_count": 39,
+      "individual_tickers": {
+        "AMZN": {
+          "ticker": "AMZN",
+          "name": "Amazon",
+          "category": "demand",
+          "market_cap": 2449770020864.0,
+          "market_cap_formatted": "$2.45T",
+          "price": 229.16,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:04:57.202249+00:00"
+        },
+        "GOOGL": {
+          "ticker": "GOOGL",
+          "name": "Alphabet (Google)",
+          "category": "demand",
+          "market_cap": 3875273441280.0,
+          "market_cap_formatted": "$3.88T",
+          "price": 319.95,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:04:58.140182+00:00"
+        },
+        "META": {
+          "ticker": "META",
+          "name": "Meta Platforms",
+          "category": "demand",
+          "market_cap": 1597031448576.0,
+          "market_cap_formatted": "$1.60T",
+          "price": 633.61,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:04:59.037936+00:00"
+        },
+        "MSFT": {
+          "ticker": "MSFT",
+          "name": "Microsoft",
+          "category": "demand",
+          "market_cap": 3608802230272.0,
+          "market_cap_formatted": "$3.61T",
+          "price": 485.5,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:04:59.982903+00:00"
+        },
+        "NVDA": {
+          "ticker": "NVDA",
+          "name": "NVIDIA",
+          "category": "demand",
+          "market_cap": 4396100878336.0,
+          "market_cap_formatted": "$4.40T",
+          "price": 180.26,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:00.966899+00:00"
+        },
+        "TSLA": {
+          "ticker": "TSLA",
+          "name": "Tesla",
+          "category": "demand",
+          "market_cap": 1418727915520.0,
+          "market_cap_formatted": "$1.42T",
+          "price": 426.58,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:01.987382+00:00"
+        },
+        "AMD": {
+          "ticker": "AMD",
+          "name": "Advanced Micro Devices",
+          "category": "demand",
+          "market_cap": 348791635968.0,
+          "market_cap_formatted": "$348.8B",
+          "price": 214.24,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:02.924373+00:00"
+        },
+        "AVGO": {
+          "ticker": "AVGO",
+          "name": "Broadcom",
+          "category": "demand",
+          "market_cap": 1877470609408.0,
+          "market_cap_formatted": "$1.88T",
+          "price": 397.57,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:03.814361+00:00"
+        },
+        "TSM": {
+          "ticker": "TSM",
+          "name": "Taiwan Semiconductor",
+          "category": "demand",
+          "market_cap": 1503878840320.0,
+          "market_cap_formatted": "$1.50T",
+          "price": 289.96,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:04.766217+00:00"
+        },
+        "PLTR": {
+          "ticker": "PLTR",
+          "name": "Palantir",
+          "category": "demand",
+          "market_cap": 395102257152.0,
+          "market_cap_formatted": "$395.1B",
+          "price": 165.77,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:05.674911+00:00"
+        },
+        "CSCO": {
+          "ticker": "CSCO",
+          "name": "Cisco Systems",
+          "category": "demand",
+          "market_cap": 300559761408.0,
+          "market_cap_formatted": "$300.6B",
+          "price": 76.07,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:06.567844+00:00"
+        },
+        "INTC": {
+          "ticker": "INTC",
+          "name": "Intel",
+          "category": "demand",
+          "market_cap": 175583707136.0,
+          "market_cap_formatted": "$175.6B",
+          "price": 36.81,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:07.462399+00:00"
+        },
+        "EQIX": {
+          "ticker": "EQIX",
+          "name": "Equinix",
+          "category": "supply",
+          "market_cap": 73679814656.0,
+          "market_cap_formatted": "$73.7B",
+          "price": 750.41,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:08.368949+00:00"
+        },
+        "DLR": {
+          "ticker": "DLR",
+          "name": "Digital Realty",
+          "category": "supply",
+          "market_cap": 55571550208.0,
+          "market_cap_formatted": "$55.6B",
+          "price": 158.91,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:09.249783+00:00"
+        },
+        "IRM": {
+          "ticker": "IRM",
+          "name": "Iron Mountain",
+          "category": "supply",
+          "market_cap": 25485727744.0,
+          "market_cap_formatted": "$25.5B",
+          "price": 86.22,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:10.125001+00:00"
+        },
+        "JPM": {
+          "ticker": "JPM",
+          "name": "JPMorgan Chase",
+          "category": "financing",
+          "market_cap": 845934297088.0,
+          "market_cap_formatted": "$845.9B",
+          "price": 307.64,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:11.019435+00:00"
+        },
+        "GS": {
+          "ticker": "GS",
+          "name": "Goldman Sachs",
+          "category": "financing",
+          "market_cap": 247023435776.0,
+          "market_cap_formatted": "$247.0B",
+          "price": 816.01,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:11.894398+00:00"
+        },
+        "BAC": {
+          "ticker": "BAC",
+          "name": "Bank of America",
+          "category": "financing",
+          "market_cap": 392494153728.0,
+          "market_cap_formatted": "$392.5B",
+          "price": 52.99,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:12.812981+00:00"
+        },
+        "WFC": {
+          "ticker": "WFC",
+          "name": "Wells Fargo",
+          "category": "financing",
+          "market_cap": 274086412288.0,
+          "market_cap_formatted": "$274.1B",
+          "price": 85.56,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:13.830345+00:00"
+        },
+        "C": {
+          "ticker": "C",
+          "name": "Citigroup",
+          "category": "financing",
+          "market_cap": 188692037632.0,
+          "market_cap_formatted": "$188.7B",
+          "price": 102.5,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:14.714851+00:00"
+        },
+        "BCS": {
+          "ticker": "BCS",
+          "name": "Barclays",
+          "category": "financing",
+          "market_cap": 77720346624.0,
+          "market_cap_formatted": "$77.7B",
+          "price": 22.38,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:15.607031+00:00"
+        },
+        "DB": {
+          "ticker": "DB",
+          "name": "Deutsche Bank",
+          "category": "financing",
+          "market_cap": 68339900416.0,
+          "market_cap_formatted": "$68.3B",
+          "price": 35.48,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:16.530820+00:00"
+        },
+        "HSBC": {
+          "ticker": "HSBC",
+          "name": "HSBC",
+          "category": "financing",
+          "market_cap": 242314330112.0,
+          "market_cap_formatted": "$242.3B",
+          "price": 70.58,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:17.433904+00:00"
+        },
+        "ARCC": {
+          "ticker": "ARCC",
+          "name": "Ares Capital",
+          "category": "financing",
+          "market_cap": 14679553024.0,
+          "market_cap_formatted": "$14.7B",
+          "price": 20.51,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:18.129682+00:00"
+        },
+        "MAIN": {
+          "ticker": "MAIN",
+          "name": "Main Street Capital",
+          "category": "financing",
+          "market_cap": 5168305152.0,
+          "market_cap_formatted": "$5.2B",
+          "price": 57.69,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:18.829666+00:00"
+        },
+        "HTGC": {
+          "ticker": "HTGC",
+          "name": "Hercules Capital",
+          "category": "financing",
+          "market_cap": 3249119232.0,
+          "market_cap_formatted": "$3.2B",
+          "price": 17.88,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:19.716194+00:00"
+        },
+        "OBDC": {
+          "ticker": "OBDC",
+          "name": "Blue Owl Capital Corp",
+          "category": "financing",
+          "market_cap": 6710063104.0,
+          "market_cap_formatted": "$6.7B",
+          "price": 13.13,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:20.646522+00:00"
+        },
+        "TRIN": {
+          "ticker": "TRIN",
+          "name": "Trinity Capital",
+          "category": "financing",
+          "market_cap": 1117843200.0,
+          "market_cap_formatted": "$1.1B",
+          "price": 14.77,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:21.547028+00:00"
+        },
+        "HRZN": {
+          "ticker": "HRZN",
+          "name": "Horizon Technology Finance",
+          "category": "financing",
+          "market_cap": 295592704.0,
+          "market_cap_formatted": "$295.6M",
+          "price": 6.66,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:22.438245+00:00"
+        },
+        "OFS": {
+          "ticker": "OFS",
+          "name": "OFS Capital Corp",
+          "category": "financing",
+          "market_cap": 65650588.0,
+          "market_cap_formatted": "$65.7M",
+          "price": 4.9,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:23.325247+00:00"
+        },
+        "TPVG": {
+          "ticker": "TPVG",
+          "name": "TP Venture Growth BDC",
+          "category": "financing",
+          "market_cap": 257346688.0,
+          "market_cap_formatted": "$257.3M",
+          "price": 6.37,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:24.194076+00:00"
+        },
+        "BX": {
+          "ticker": "BX",
+          "name": "Blackstone Group",
+          "category": "financing",
+          "market_cap": 177825366016.0,
+          "market_cap_formatted": "$177.8B",
+          "price": 144.92,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:25.233001+00:00"
+        },
+        "KKR": {
+          "ticker": "KKR",
+          "name": "KKR & Co",
+          "category": "financing",
+          "market_cap": 111879151616.0,
+          "market_cap_formatted": "$111.9B",
+          "price": 120.83,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:26.154997+00:00"
+        },
+        "APO": {
+          "ticker": "APO",
+          "name": "Apollo Global Management",
+          "category": "financing",
+          "market_cap": 75611652096.0,
+          "market_cap_formatted": "$75.6B",
+          "price": 130.27,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:27.094000+00:00"
+        },
+        "CG": {
+          "ticker": "CG",
+          "name": "Carlyle Group",
+          "category": "financing",
+          "market_cap": 19351212032.0,
+          "market_cap_formatted": "$19.4B",
+          "price": 53.5,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:28.064253+00:00"
+        },
+        "BAM": {
+          "ticker": "BAM",
+          "name": "Brookfield Asset Management",
+          "category": "financing",
+          "market_cap": 84061650944.0,
+          "market_cap_formatted": "$84.1B",
+          "price": 52.07,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:29.014012+00:00"
+        },
+        "DBRG": {
+          "ticker": "DBRG",
+          "name": "DigitalBridge Group",
+          "category": "financing",
+          "market_cap": 1856069120.0,
+          "market_cap_formatted": "$1.9B",
+          "price": 9.52,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:29.963410+00:00"
+        },
+        "AMT": {
+          "ticker": "AMT",
+          "name": "American Tower",
+          "category": "financing",
+          "market_cap": 84846895104.0,
+          "market_cap_formatted": "$84.8B",
+          "price": 181.24,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:30.905401+00:00"
+        },
+        "CCI": {
+          "ticker": "CCI",
+          "name": "Crown Castle",
+          "category": "financing",
+          "market_cap": 39432626176.0,
+          "market_cap_formatted": "$39.4B",
+          "price": 90.55,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:05:31.806438+00:00"
+        }
+      },
+      "category_totals": {
+        "demand": {
+          "total": 21947092746240.0,
+          "formatted": "$21.95T"
+        },
+        "supply": {
+          "total": 154737092608.0,
+          "formatted": "$154.7B"
+        },
+        "financing": {
+          "total": 2963013010460.0,
+          "formatted": "$2.96T"
+        }
+      },
+      "metadata": {
+        "tickers_processed": [
+          "AMZN",
+          "GOOGL",
+          "META",
+          "MSFT",
+          "NVDA",
+          "TSLA",
+          "AMD",
+          "AVGO",
+          "TSM",
+          "PLTR",
+          "CSCO",
+          "INTC",
+          "EQIX",
+          "DLR",
+          "IRM",
+          "JPM",
+          "GS",
+          "BAC",
+          "WFC",
+          "C",
+          "BCS",
+          "DB",
+          "HSBC",
+          "ARCC",
+          "MAIN",
+          "HTGC",
+          "OBDC",
+          "TRIN",
+          "HRZN",
+          "OFS",
+          "TPVG",
+          "BX",
+          "KKR",
+          "APO",
+          "CG",
+          "BAM",
+          "DBRG",
+          "AMT",
+          "CCI"
+        ],
+        "tickers_failed": [],
+        "data_quality": "high",
+        "source": "yahoo_finance"
+      },
+      "confidence": 1.0,
+      "validation_checksum": "d6a15143bb95e6f5e1bf689862a05d9f514b5e00b93e5fb3b0ca7878f384d1ad",
+      "anomaly_score": null
+    }
+  },
+  {
+    "data_source": "market_cap",
+    "metric_name": "daily",
+    "timestamp": "2025-11-27T14:02:49.546591+00:00",
+    "data": {
+      "value": 25064842849308.0,
+      "timestamp": "2025-11-27T14:02:49.546591+00:00",
+      "total_market_cap": 25064842849308.0,
+      "total_market_cap_formatted": "$25.06T",
+      "ticker_count": 39,
+      "individual_tickers": {
+        "AMZN": {
+          "ticker": "AMZN",
+          "name": "Amazon",
+          "category": "demand",
+          "market_cap": 2449770020864.0,
+          "market_cap_formatted": "$2.45T",
+          "price": 229.16,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:14.257275+00:00"
+        },
+        "GOOGL": {
+          "ticker": "GOOGL",
+          "name": "Alphabet (Google)",
+          "category": "demand",
+          "market_cap": 3875273441280.0,
+          "market_cap_formatted": "$3.88T",
+          "price": 319.95,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:15.177284+00:00"
+        },
+        "META": {
+          "ticker": "META",
+          "name": "Meta Platforms",
+          "category": "demand",
+          "market_cap": 1597031448576.0,
+          "market_cap_formatted": "$1.60T",
+          "price": 633.61,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:16.098481+00:00"
+        },
+        "MSFT": {
+          "ticker": "MSFT",
+          "name": "Microsoft",
+          "category": "demand",
+          "market_cap": 3608802230272.0,
+          "market_cap_formatted": "$3.61T",
+          "price": 485.5,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:17.132301+00:00"
+        },
+        "NVDA": {
+          "ticker": "NVDA",
+          "name": "NVIDIA",
+          "category": "demand",
+          "market_cap": 4396100878336.0,
+          "market_cap_formatted": "$4.40T",
+          "price": 180.26,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:18.041750+00:00"
+        },
+        "TSLA": {
+          "ticker": "TSLA",
+          "name": "Tesla",
+          "category": "demand",
+          "market_cap": 1418727915520.0,
+          "market_cap_formatted": "$1.42T",
+          "price": 426.58,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:18.931179+00:00"
+        },
+        "AMD": {
+          "ticker": "AMD",
+          "name": "Advanced Micro Devices",
+          "category": "demand",
+          "market_cap": 348791635968.0,
+          "market_cap_formatted": "$348.8B",
+          "price": 214.24,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:19.824854+00:00"
+        },
+        "AVGO": {
+          "ticker": "AVGO",
+          "name": "Broadcom",
+          "category": "demand",
+          "market_cap": 1877470609408.0,
+          "market_cap_formatted": "$1.88T",
+          "price": 397.57,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:20.695055+00:00"
+        },
+        "TSM": {
+          "ticker": "TSM",
+          "name": "Taiwan Semiconductor",
+          "category": "demand",
+          "market_cap": 1503878840320.0,
+          "market_cap_formatted": "$1.50T",
+          "price": 289.96,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:21.627476+00:00"
+        },
+        "PLTR": {
+          "ticker": "PLTR",
+          "name": "Palantir",
+          "category": "demand",
+          "market_cap": 395102257152.0,
+          "market_cap_formatted": "$395.1B",
+          "price": 165.77,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:22.513106+00:00"
+        },
+        "CSCO": {
+          "ticker": "CSCO",
+          "name": "Cisco Systems",
+          "category": "demand",
+          "market_cap": 300559761408.0,
+          "market_cap_formatted": "$300.6B",
+          "price": 76.07,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:23.470646+00:00"
+        },
+        "INTC": {
+          "ticker": "INTC",
+          "name": "Intel",
+          "category": "demand",
+          "market_cap": 175583707136.0,
+          "market_cap_formatted": "$175.6B",
+          "price": 36.81,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:24.392773+00:00"
+        },
+        "EQIX": {
+          "ticker": "EQIX",
+          "name": "Equinix",
+          "category": "supply",
+          "market_cap": 73679814656.0,
+          "market_cap_formatted": "$73.7B",
+          "price": 750.41,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:25.416837+00:00"
+        },
+        "DLR": {
+          "ticker": "DLR",
+          "name": "Digital Realty",
+          "category": "supply",
+          "market_cap": 55571550208.0,
+          "market_cap_formatted": "$55.6B",
+          "price": 158.91,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:26.440990+00:00"
+        },
+        "IRM": {
+          "ticker": "IRM",
+          "name": "Iron Mountain",
+          "category": "supply",
+          "market_cap": 25485727744.0,
+          "market_cap_formatted": "$25.5B",
+          "price": 86.22,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:27.342471+00:00"
+        },
+        "JPM": {
+          "ticker": "JPM",
+          "name": "JPMorgan Chase",
+          "category": "financing",
+          "market_cap": 845934297088.0,
+          "market_cap_formatted": "$845.9B",
+          "price": 307.64,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:28.219250+00:00"
+        },
+        "GS": {
+          "ticker": "GS",
+          "name": "Goldman Sachs",
+          "category": "financing",
+          "market_cap": 247023435776.0,
+          "market_cap_formatted": "$247.0B",
+          "price": 816.01,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:29.092085+00:00"
+        },
+        "BAC": {
+          "ticker": "BAC",
+          "name": "Bank of America",
+          "category": "financing",
+          "market_cap": 392494153728.0,
+          "market_cap_formatted": "$392.5B",
+          "price": 52.99,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:30.033336+00:00"
+        },
+        "WFC": {
+          "ticker": "WFC",
+          "name": "Wells Fargo",
+          "category": "financing",
+          "market_cap": 274086412288.0,
+          "market_cap_formatted": "$274.1B",
+          "price": 85.56,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:30.942113+00:00"
+        },
+        "C": {
+          "ticker": "C",
+          "name": "Citigroup",
+          "category": "financing",
+          "market_cap": 188692037632.0,
+          "market_cap_formatted": "$188.7B",
+          "price": 102.5,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:31.886977+00:00"
+        },
+        "BCS": {
+          "ticker": "BCS",
+          "name": "Barclays",
+          "category": "financing",
+          "market_cap": 77720346624.0,
+          "market_cap_formatted": "$77.7B",
+          "price": 22.38,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:32.771432+00:00"
+        },
+        "DB": {
+          "ticker": "DB",
+          "name": "Deutsche Bank",
+          "category": "financing",
+          "market_cap": 68339900416.0,
+          "market_cap_formatted": "$68.3B",
+          "price": 35.48,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:33.672191+00:00"
+        },
+        "HSBC": {
+          "ticker": "HSBC",
+          "name": "HSBC",
+          "category": "financing",
+          "market_cap": 242314330112.0,
+          "market_cap_formatted": "$242.3B",
+          "price": 70.58,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:34.631808+00:00"
+        },
+        "ARCC": {
+          "ticker": "ARCC",
+          "name": "Ares Capital",
+          "category": "financing",
+          "market_cap": 14679553024.0,
+          "market_cap_formatted": "$14.7B",
+          "price": 20.51,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:35.521688+00:00"
+        },
+        "MAIN": {
+          "ticker": "MAIN",
+          "name": "Main Street Capital",
+          "category": "financing",
+          "market_cap": 5168305152.0,
+          "market_cap_formatted": "$5.2B",
+          "price": 57.69,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:36.403553+00:00"
+        },
+        "HTGC": {
+          "ticker": "HTGC",
+          "name": "Hercules Capital",
+          "category": "financing",
+          "market_cap": 3249119232.0,
+          "market_cap_formatted": "$3.2B",
+          "price": 17.88,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:37.301520+00:00"
+        },
+        "OBDC": {
+          "ticker": "OBDC",
+          "name": "Blue Owl Capital Corp",
+          "category": "financing",
+          "market_cap": 6710063104.0,
+          "market_cap_formatted": "$6.7B",
+          "price": 13.13,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:38.189335+00:00"
+        },
+        "TRIN": {
+          "ticker": "TRIN",
+          "name": "Trinity Capital",
+          "category": "financing",
+          "market_cap": 1117843200.0,
+          "market_cap_formatted": "$1.1B",
+          "price": 14.77,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:39.085442+00:00"
+        },
+        "HRZN": {
+          "ticker": "HRZN",
+          "name": "Horizon Technology Finance",
+          "category": "financing",
+          "market_cap": 295592704.0,
+          "market_cap_formatted": "$295.6M",
+          "price": 6.66,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:40.004435+00:00"
+        },
+        "OFS": {
+          "ticker": "OFS",
+          "name": "OFS Capital Corp",
+          "category": "financing",
+          "market_cap": 65650588.0,
+          "market_cap_formatted": "$65.7M",
+          "price": 4.9,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:40.910860+00:00"
+        },
+        "TPVG": {
+          "ticker": "TPVG",
+          "name": "TP Venture Growth BDC",
+          "category": "financing",
+          "market_cap": 257346688.0,
+          "market_cap_formatted": "$257.3M",
+          "price": 6.37,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:41.820795+00:00"
+        },
+        "BX": {
+          "ticker": "BX",
+          "name": "Blackstone Group",
+          "category": "financing",
+          "market_cap": 177825366016.0,
+          "market_cap_formatted": "$177.8B",
+          "price": 144.92,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:42.724528+00:00"
+        },
+        "KKR": {
+          "ticker": "KKR",
+          "name": "KKR & Co",
+          "category": "financing",
+          "market_cap": 111879151616.0,
+          "market_cap_formatted": "$111.9B",
+          "price": 120.83,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:43.665402+00:00"
+        },
+        "APO": {
+          "ticker": "APO",
+          "name": "Apollo Global Management",
+          "category": "financing",
+          "market_cap": 75611652096.0,
+          "market_cap_formatted": "$75.6B",
+          "price": 130.27,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:44.565094+00:00"
+        },
+        "CG": {
+          "ticker": "CG",
+          "name": "Carlyle Group",
+          "category": "financing",
+          "market_cap": 19351212032.0,
+          "market_cap_formatted": "$19.4B",
+          "price": 53.5,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:45.590036+00:00"
+        },
+        "BAM": {
+          "ticker": "BAM",
+          "name": "Brookfield Asset Management",
+          "category": "financing",
+          "market_cap": 84061650944.0,
+          "market_cap_formatted": "$84.1B",
+          "price": 52.07,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:46.635818+00:00"
+        },
+        "DBRG": {
+          "ticker": "DBRG",
+          "name": "DigitalBridge Group",
+          "category": "financing",
+          "market_cap": 1856069120.0,
+          "market_cap_formatted": "$1.9B",
+          "price": 9.52,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:47.574754+00:00"
+        },
+        "AMT": {
+          "ticker": "AMT",
+          "name": "American Tower",
+          "category": "financing",
+          "market_cap": 84846895104.0,
+          "market_cap_formatted": "$84.8B",
+          "price": 181.24,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:48.456263+00:00"
+        },
+        "CCI": {
+          "ticker": "CCI",
+          "name": "Crown Castle",
+          "category": "financing",
+          "market_cap": 39432626176.0,
+          "market_cap_formatted": "$39.4B",
+          "price": 90.55,
+          "currency": "USD",
+          "timestamp": "2025-11-27T14:02:49.341476+00:00"
+        }
+      },
+      "category_totals": {
+        "demand": {
+          "total": 21947092746240.0,
+          "formatted": "$21.95T"
+        },
+        "supply": {
+          "total": 154737092608.0,
+          "formatted": "$154.7B"
+        },
+        "financing": {
+          "total": 2963013010460.0,
+          "formatted": "$2.96T"
+        }
+      },
+      "metadata": {
+        "tickers_processed": [
+          "AMZN",
+          "GOOGL",
+          "META",
+          "MSFT",
+          "NVDA",
+          "TSLA",
+          "AMD",
+          "AVGO",
+          "TSM",
+          "PLTR",
+          "CSCO",
+          "INTC",
+          "EQIX",
+          "DLR",
+          "IRM",
+          "JPM",
+          "GS",
+          "BAC",
+          "WFC",
+          "C",
+          "BCS",
+          "DB",
+          "HSBC",
+          "ARCC",
+          "MAIN",
+          "HTGC",
+          "OBDC",
+          "TRIN",
+          "HRZN",
+          "OFS",
+          "TPVG",
+          "BX",
+          "KKR",
+          "APO",
+          "CG",
+          "BAM",
+          "DBRG",
+          "AMT",
+          "CCI"
+        ],
+        "tickers_failed": [],
+        "data_quality": "high",
+        "source": "yahoo_finance"
+      },
+      "confidence": 1.0,
+      "validation_checksum": "c7727cb03df673eadab1524bf5be36b22fef1ce948de80414cfe30fbc4d6c603",
+      "anomaly_score": null
+    }
+  }
+]

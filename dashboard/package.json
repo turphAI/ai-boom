@@ -33,7 +33,7 @@
     "drizzle-orm": "^0.44.6",
     "lucide-react": "^0.537.0",
     "mysql2": "^3.15.1",
-    "next": "^15.4.6",
+    "next": "15.4.10",
     "next-auth": "^4.24.5",
     "postcss": "^8.5.6",
     "react": "^18",

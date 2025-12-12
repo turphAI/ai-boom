@@ -94,10 +94,10 @@ export FRED_API_KEY="your-fred-api-key"
 export ENVIRONMENT="production"
 
 # Run scrapers
-python scripts/run_all_scrapers_safe.py
+python scripts/scrapers/run_all_scrapers_safe.py
 
 # Sync to PlanetScale
-python scripts/sync_scraped_data_to_planetscale.py
+python scripts/data/sync_scraped_data_to_planetscale.py
 ```
 
 ## Monitoring

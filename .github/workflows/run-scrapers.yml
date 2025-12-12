@@ -33,7 +33,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ENABLE_LLM_AGENT: ${{ secrets.ENABLE_LLM_AGENT || 'true' }}
         run: |
-          python scripts/monitor_website_structures.py || true
+          python scripts/agents/monitor_website_structures.py || true
         continue-on-error: true
       
       - name: Run scrapers with agent monitoring
@@ -45,14 +45,14 @@ jobs:
           ENABLE_LLM_AGENT: ${{ secrets.ENABLE_LLM_AGENT || 'true' }}
           ENVIRONMENT: production
         run: |
-          python scripts/run_scrapers_with_agents.py
+          python scripts/scrapers/run_scrapers_with_agents.py
       
       - name: Verify data was stored in PlanetScale
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           ENVIRONMENT: production
         run: |
-          python scripts/verify_planetscale_data.py
+          python scripts/data/verify_planetscale_data.py
       
       - name: Upload logs as artifacts
         if: always()
@@ -78,7 +78,7 @@ jobs:
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM || 'noreply@boom-bust-sentinel.com' }}
         run: |
-          python scripts/send_agent_summary_email.py || true
+          python scripts/agents/send_agent_summary_email.py || true
         continue-on-error: true
       
       - name: Notify on failure

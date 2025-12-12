@@ -30,14 +30,14 @@ jobs:
         
     - name: Check Vercel deployment health
       run: |
-        python scripts/vercel_health_check.py
+        python scripts/health/vercel_health_check.py
       env:
         DASHBOARD_URL: https://ai-boom-iota.vercel.app
         VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         
     - name: Check database connectivity
       run: |
-        python scripts/db_health_check.py
+        python scripts/health/db_health_check.py
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
         
@@ -78,6 +78,6 @@ jobs:
   #       
   #   - name: Check AWS costs
   #     run: |
-  #       python scripts/cost_monitor.py
+  #       python scripts/utilities/cost_monitor.py
   #     env:
   #       COST_THRESHOLD: 100  # Alert if monthly cost exceeds $100
